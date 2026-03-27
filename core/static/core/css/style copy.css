@@ -1,0 +1,471 @@
+/* =========================================
+   1. FONTS & VARIABLES (ส่วนตั้งค่าหลัก)
+   ========================================= */
+/* --- สไตล์โดยรวมของทั้งหน้า --- */
+/* --- การตั้งค่าสีตัวอักษรหลัก --- */
+/* ดึงฟอนต์จาก Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Sarabun:wght@300;400;700&display=swap');
+
+@font-face {
+    font-family: 'Chalkduster';
+    src: url('/static/core/fonts/Chalkduster.ttf') format('truetype');
+}
+
+
+:root {
+    /* --- จานสีใหม่ (Dark Theme Palette) --- */
+    --bg-main: #121212;         /* สีพื้นหลังหลัก (ดำเทาเข้ม) */
+    --bg-secondary: #1E1E1E;    /* สีพื้นหลังรอง (เช่น การ์ด, แถบโลโก้) */
+    --text-primary: #E0E0E0;    /* สีข้อความหลัก (ขาวควันบุหรี่) */
+    --text-secondary: #A0A0A0;  /* สีข้อความรอง (เทาอ่อน) */
+    --accent-yellow: #FFD700;   /* สีเหลืองทองสำหรับจุดเด่น */
+
+    /* --- ขนาดมาตรฐาน (Typography Scale) --- */
+    --fs-base: 16px;      /* ขนาดเริ่มต้นสำหรับเนื้อหาทั่วไป */
+    --fs-h1: 32px;     /* ขนาดหัวข้อใหญ่สุด (Hero) 40 */
+    --fs-h2: 24px;     /* ขนาดหัวข้อรอง (Services, Project) 24 */
+    --fs-h3: 22px;    /* ขนาดหัวข้อในการ์ด 18 */
+    --fs-p: 20px;        /* ขนาดเนื้อหาบรรยาย (Paragraph) 16 */ 
+    --fs-small: 14px; /* ขนาดตัวหนังสือเล็ก (Footer, รายละเอียดเล็กๆ) 14 */
+}
+
+
+/* =========================================
+   2. สไตล์พื้นฐานทั้งเว็บ
+   ========================================= */
+body {
+    color: #A0A0A0; /* สีเทาอ่อนสำหรับเนื้อหาทั่วไป */
+    font-family: 'Tahoma', sans-serif; /* ใช้ Tahoma เป็นหลัก ถ้าไม่มีให้ใช้ Sarabun */
+    line-height: 1.6; /* ปรับระยะห่างบรรทัดให้อ่านง่าย */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #000000;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* ความสูงอย่างน้อยเท่ากับหน้าจอ */
+    margin: 0;
+}
+main {
+    flex: 1 0 auto; /* ดัน Footer ให้ตกไปอยู่ข้างล่างเสมอ */
+}
+/* h1 - h6 (ทำให้เป็นสีขาวเด่น) */
+
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+    color: #c1c1c1 !important;
+    font-weight: 700;
+    font-family: 'Tahoma', sans-serif !important;
+    font-weight: 800; /* ความหนาพิเศษสำหรับหัวข้อ */
+    letter-spacing: -0.5px; /* ปรับระยะห่างตัวอักษรให้ดูโมเดิร์นขึ้น */
+}
+h1 { font-size: var(--fs-h1); font-weight: 800; }
+h2 { font-size: var(--fs-h2); font-weight: 700; }
+h3 { font-size: var(--fs-h3); font-weight: 600; }
+
+/* ตั้งค่าเนื้อหาทั่วไป */
+p {
+    font-family: 'Tahoma', sans-serif !important; /* บังคับใช้ Tahoma เฉพาะส่วนนี้ */
+    font-size: var(--fs-p);
+    letter-spacing: 0.3px; /* Tahoma เพิ่มระยะห่าง */
+    color: var(--text-secondary); /* สีเทาอ่อนที่เราตั้งไว้ */
+}
+/*คลาสสำหรับเน้นสีเหลือง */
+.text-yellow, .text-warning {
+    color: #fddb00 !important;
+}
+/* คลาสสีเทา (Utility) สำหรับเนื้อหารอง */
+.text-muted, .text-secondary {
+    color: #888888 !important; 
+}
+/* การตั้งค่าพื้นฐานป้องกัน Layout เพี้ยน */
+* {
+    box-sizing: border-box;
+}
+/* การตั้งค่าพื้นฐานป้องกัน Layout เพี้ยน */
+* {
+    box-sizing: border-box;
+}
+
+.fake-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 26px;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-2px, -2px);
+}
+
+.fake-cursor svg {
+  width: 100%;
+  height: 100%;
+  fill: #c4c4c4; /* เทาอ่อน */
+  transition: fill 0.15s ease;
+}
+
+/* hover → ขาว */
+.cursor-hover .fake-cursor svg {
+  fill: #efc138;
+}
+/* ===== Halo cursor ===== */
+.cursor-halo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.05);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.6);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+  z-index: 9999;
+}
+
+/* ===== Hover state ===== */
+.cursor-hover .cursor-halo {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* ===== Optional: make links feel intentional ===== */
+a,
+button,
+.cursor-hover-target {
+  cursor: pointer;
+}
+body.custom-cursor-active {
+    cursor: none;
+}
+body.fake-active {
+    cursor: none;
+}
+
+body.fake-active * {
+    cursor: none !important;
+}
+
+
+/* แถบเมนู */
+
+.nav-container {
+    height: 70px; /* ความสูงของเมนู */
+}
+/* Container หลักของ Navbar */
+.nav-wrapper {
+    height: 70px;
+    border-bottom: 1px solid #333;
+}
+
+/* ส่วนที่เว้นว่าง (สัดส่วน 1) */
+.nav-spacer {
+    flex: 0.3; 
+    /* ถ้าไม่อยากให้เห็นเส้นขอบที่ส่วนเว้นว่าง ให้ลบ border ออกได้ครับ */
+}
+
+/* ส่วนโลโก้ (สัดส่วน 1) */
+.nav-logo-section {
+    display: flex;
+    margin-left: 60px;
+
+}
+ /* โลโก้ */
+.navbar-brand {
+    margin-right: 20px !important;
+}
+
+/* ส่วนเมนู (สัดส่วน 5) */
+.nav-links-section {
+    display: flex;
+
+
+
+}
+/* ปรับแต่งปุ่มเมนูภายใน */
+.nav-link-item {
+    flex: 0.25; /* ให้ปุ่มเมนูแต่ละอันขยายเท่าๆ กันในพื้นที่ส่วนที่ 5 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff69;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    border-right: 1px solid #333;
+    transition: all 0.3s;
+    padding: 15px 0;
+}
+
+.nav-link-item:hover {
+    
+    background-color: #1a1a1a;
+    color: #fddb00;
+}
+.nav-links-section .d-lg-flex {
+    width: 100%;
+    max-width: 1000px;  
+}
+
+.navbar-collapse {
+        background-color: #000;
+        transition: all 0.3s ease-in-out;
+        flex-basis: auto !important;
+        justify-content: center;
+    }
+/* เส้นปิดท้ายด้านขวาสุด */
+.border-end-0 {
+    border-right: none;
+}
+/* เส้นขอบซ้ายสุดของเมนูแรกเพื่อให้บรรจบกับช่องโลโก้ */
+.nav-links-section .nav-link-item:first-child {
+    border-left: 1px solid #333;
+}
+
+/* เส้นขอบขวาสุดสำหรับส่วนเว้นขวา */
+.nav-wrapper .nav-spacer:last-child {
+    border-left: 1px solid #333;
+}
+.navbar-toggler-icon {
+    /* ใช้ SVG เพื่อกำหนดสี stroke เป็น #FFDE00 (เหลือง) */
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23FFDE00' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+/* ปรับแต่งปุ่ม Hamburger */
+.custom-toggler {
+    border: 1px solid #fddb00 !important; /* ขอบสีเหลือง */
+    padding: 4px 8px;
+}
+
+.custom-toggler:focus {
+    box-shadow: 0 0 0 0.25rem rgba(255, 222, 0, 0.25);
+    padding: 4px 8px;
+    margin: -1px; /* ป้องกันขนาดเปลี่ยนตอนโฟกัส */
+}
+
+
+@media (max-width: 991.98px) {
+    .nav-wrapper {
+        flex-direction: row;   /* ⬅️ ไม่ใช้ column */
+        height: 70px;          /* ⬅️ ล็อกไว้ */
+        align-items: center;
+        position: relative;  
+    }
+/* 3. จัดการส่วนเมนูที่กางออกมา (Collapse) */
+    .navbar-collapse {
+        position: absolute;
+        top: 70px;              /* ความสูง navbar */
+        left: 0;
+        width: 100%;
+        background-color: #000;
+        border-top: 1px solid #333;
+        z-index: 999;
+        transition: all 0.3s ease-in-out;
+        flex-grow: 0 !important;
+        flex-basis: auto !important;
+        justify-content: center;
+    }
+    .nav-logo-section {
+        width: 100%;
+        height: 70px;
+        border-left: none;
+        border-right: none;
+    }
+
+    .nav-links-section {
+        background-color: #111; /* พื้นหลังเมนูตอนกางออกบนมือถือ */
+    }
+
+    .nav-link-item {
+        justify-content: flex-start; /* ข้อความชิดซ้ายบนมือถือ */
+        border-right: none;
+        border-bottom: 1px solid #222;
+        padding: 20px 25px;
+    }
+    
+    
+}
+
+/* style.css */
+
+/* สไตล์สำหรับปุ่มที่กำลังใช้งาน (Active) */
+.nav-link-item.active-nav {
+    color: #fddb00 !important; /* เปลี่ยนเป็นสีเหลืองที่คุณเลือกไว้ */
+    background-color: #1a1a1a;  /* เพิ่มพื้นหลังให้ดูเข้มขึ้นเล็กน้อย */
+    border-bottom: 3px solid #fddb00; /* เพิ่มเส้นใต้สีเหลืองเพื่อความชัดเจน */
+    position: relative;
+}
+
+/* หากต้องการให้ตัวหนังสือหนาขึ้นตอนค้างหน้านั้น */
+.nav-link-item.active-nav {
+    font-weight: 900;
+}
+
+
+.splash-hidden { 
+    opacity: 0; 
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.splash-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity .8s ease, visibility .8s;
+}
+
+/* ความกว้าง scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* พื้นหลังราง */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ตัวเลื่อน */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #fddb00,
+    #e6b800
+  );
+  border-radius: 20px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+/* ตอน hover */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    #fddb00,
+    #f5c400
+  );
+}
+
+
+.search-wrapper {
+    position: relative;
+}
+
+.search-wrapper input {
+    padding-right: 40px;   /* เว้นที่ให้ไอคอน */
+    width: 70%;
+    margin-left: 18px;
+}
+
+.search-btn {
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    padding: 0;
+    color: #c9c9c9b5;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.search-btn:hover {
+    color: #fddb00;
+}
+
+
+
+
+
+
+/* จัดการ Footer ให้เรียบง่าย */
+.footer-minimal {
+    background: transparent; /* ไม่มีพื้นหลัง */
+    width: 100%;
+}
+footer.footer-minimal {
+    flex-shrink: 0;
+}
+
+
+.footer-minimal .copyright-text {
+    font-size: 12px !important; 
+    line-height: 1.2 !important;
+    color: rgba(255, 255, 255, 0.4) !important;
+    letter-spacing: 0.5px !important;
+    display: inline-block !important;
+}
+
+/* ปรับระยะห่างของแถบ Footer ให้เล็กลง (ลบเว้นวรรคหน้าจุด container ออก) */
+.footer-minimal div.container-fluid.text-center {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+main, .container-fluid {
+    flex: 1; /* ดันเนื้อหาหลักให้ขยายพื้นที่ เพื่อให้ footer ตกไปอยู่ล่างสุดเสมอ */
+}
+
+/* ยกเว้นกรณีที่เป็นมือถือ/แท็บเล็ต ให้ใช้เมาส์ปกติ (ถ้าต่อเมาส์) */
+@media (hover: none) and (pointer: coarse) {
+    html, body, * {
+        cursor: auto !important;
+    }
+}
+/* ปิด fake cursor บนอุปกรณ์จอเล็ก */
+@media (max-width: 768px) {
+
+    body {
+        cursor: auto !important;
+    }
+
+    .fake-cursor,
+    .cursor-halo {
+        display: none !important;
+    }
+
+    body.fake-active * {
+        cursor: auto !important;
+    }
+}
+@media (hover: none) and (pointer: coarse) {
+
+    .fake-cursor,
+    .cursor-halo {
+        display: none !important;
+    }
+
+    body.fake-active,
+    body.fake-active * {
+        cursor: auto !important;
+    }
+    .custom-cursor,
+    .cursor-halo,
+    .fake-cursor {
+        display: none !important;
+    }
+
+    * {
+        cursor: auto !important;
+    }
+}
+@media (max-width: 768px) {
+
+    .custom-cursor,
+    .cursor-halo,
+    .fake-cursor {
+        display: none !important;
+    }
+
+    * {
+        cursor: auto !important;
+    }
+}

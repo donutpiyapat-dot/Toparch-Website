@@ -1,0 +1,14 @@
+<div class="stack-slider">
+
+    <div class="stack-track">
+        {% for img in images %}
+        <div class="stack-card {% if forloop.first %}active{% endif %}">
+            <img src="{{ img.image.url }}">
+        </div>
+        {% endfor %}
+    </div>
+
+    <button class="stack-btn prev">&#10094;</button>
+    <button class="stack-btn next">&#10095;</button>
+
+</div>

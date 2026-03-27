@@ -1,0 +1,29 @@
+<div class="projects-grid">
+
+        {% for image in images_set1 %}
+        <div class="project-image">
+            <div class="project-box">
+                <img
+                 src="{{ image.image.url }}"
+                 alt="{{ project.title }}"
+                 class="project-thumb"
+                 data-full="{{ image.image.url }}"
+                 data-caption="{{ image.caption|default:'' }}">
+            </div>
+        </div>
+        {% endfor %}
+
+        {% for image in images_set2 %}
+        <div class="project-image">
+            <div class="project-box">
+                <img
+                 src="{{ image.image.url }}"
+                 alt="{{ project.title }}"
+                 class="project-thumb"
+                 data-full="{{ image.image.url }}"
+                 data-caption="{{ image.caption|default:'' }}">
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>

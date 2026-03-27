@@ -1,0 +1,20 @@
+<div class="magazine-layout">
+
+    {% for img in images %}
+    
+    {% if forloop.first %}
+    <!-- รูปแรก = ใหญ่ -->
+    <div class="magazine-big">
+        <img src="{{ img.image.url }}" class="project-thumb">
+    </div>
+
+    {% else %}
+    <!-- รูปอื่น = เล็ก -->
+    <div class="magazine-small">
+        <img src="{{ img.image.url }}" class="project-thumb">
+    </div>
+    {% endif %}
+
+    {% endfor %}
+
+</div>

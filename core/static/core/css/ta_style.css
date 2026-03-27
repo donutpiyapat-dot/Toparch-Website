@@ -1,0 +1,182 @@
+/* ---------- SECTION HEADER ---------- */
+
+.splash-content{
+    display:inline-flex;
+    align-items:center;
+    gap:25px;
+}
+
+.splash-content .ta{
+    color:#e9cb2f ;
+    font-size:3rem;
+    font-weight:700;
+}
+
+.splash-content .style{
+    font-family:'Chalkduster','MyChalk',cursive;
+    font-size:3rem;
+    color:#c1c1c1;
+    line-height:1;
+}
+
+.splash-ta-style{
+    background:linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.85));
+    background-size:cover;
+    background-position:center;
+}
+.ta-style-page .nav-wrapper{
+    background:#000;
+}
+/* ---------- TITLE ---------- */
+
+.description-line{
+    width:60px;
+    height:4px;
+    background:#e9cb2f ;
+}
+
+html, body {
+    height: auto;
+    overflow-x: hidden;
+}
+
+.ta-style-page {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; 
+    padding-bottom: 60px; /* 👈 เติม padding-bottom นิดนึงให้เนื้อหาหรือ Footer ไม่เบียดขอบล่างเกินไป */
+}
+
+.ta-style-page::before {
+    content: "";
+    position: absolute;     
+    top: 70px;             
+    left: 0;
+    right: 0;
+    bottom: 0;             
+    width: 100%;
+    background-image: 
+        /* linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)), */
+        url("/static/core/images/TA STYLE.webp");
+    
+    background-size: cover;
+    background-position: center top; 
+    background-repeat: no-repeat;
+    
+    z-index: -1;
+    pointer-events: none; 
+}
+
+.TA-tital{
+    font-size:1.5rem;
+    color:#c1c1c1 !important;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+/* ---------- TEXT ---------- */
+
+.description{
+    max-width:65ch;
+    line-height:1.6;
+    margin-bottom:32px;
+    text-align:justify;
+    hyphens:auto;
+}
+
+/* ---------- LAYOUT FIX ---------- */
+
+.row{
+    align-items:stretch;
+}
+
+
+/* ---------- IMAGE / CAROUSEL ---------- */
+
+.TA-image{
+    width:100%;
+    height:100%;
+    min-height:420px;
+    overflow:hidden;
+    position:relative;
+    border-radius:6px;
+}
+.TA-image .carousel-inner{
+    height:100%;
+}
+
+.TA-image .carousel-item{
+    height:100%;
+}
+.TA-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.TA-image .carousel-item{
+    height:100%;
+}
+
+/* ---------- CAROUSEL CONTROLS ---------- */
+
+.carousel-control-prev,
+.carousel-control-next{
+    top:50%;
+    transform:translateY(-50%);
+}
+
+/* indicators */
+
+.carousel-indicators{
+    bottom:12px;
+    margin-bottom:0;
+}
+
+.carousel-indicators [data-bs-target]{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+}
+@media (min-width:992px){
+
+.TA-image{
+    min-height:520px;
+}
+
+}
+/* ---------- TABLET ---------- */
+
+@media (max-width:991px){
+
+    .description{
+        max-width:90ch;
+        line-height:1.6;
+        text-align: justify;
+    }
+
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width:768px){
+
+    .description{
+        text-align:left;
+        max-width:100%;
+        line-height:1.8;
+        text-align: justify;
+    }
+}
+
+/* ---------- SMALL MOBILE ---------- */
+
+@media (max-width:425px){
+
+    .description{
+        font-size:.95rem;
+        line-height:1.9;
+        text-align: justify;
+    }
+}

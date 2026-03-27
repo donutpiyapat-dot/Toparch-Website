@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% if form.errors %}
+    <p class="text-danger small text-center">Username หรือ Password ไม่ถูกต้องครับ</p>
+{% endif %}
+
+{% load static %}
+
+{% block favicon %}
+    <link rel="icon" type="image/x-icon" href="{% static 'core/images/admin.ico' %}">
+{% endblock %}
+{% block title %}Login  | TOPARCH{% endblock %}
+{% block body_class %}login-page{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="login-section" style="background-color: #0c0c0c; ">
+<div class="container d-flex align-items-center justify-content-center" style="min-height: 80vh; ">
+    <div class="login-card p-5 shadow-lg rounded-4" style="background: #161616; border: 1px solid #333; max-width: 400px; width: 100%;">
+        
+        <div id="alert-container">
+            {% if request.GET.next == None and user.is_authenticated == False %}
+                <div class="alert alert-info bg-dark text-yellow border-yellow small mb-4 text-center">
+                    <i class="fas fa-info-circle me-2"></i> ออกจากระบบเรียบร้อยแล้ว
+                </div>
+            {% endif %}
+
+            {% if form.errors %}
+                <div class="alert alert-danger bg-dark text-danger border-danger small mb-4 text-center">
+                    <i class="fas fa-exclamation-triangle me-2"></i> ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง
+                </div>
+            {% endif %}
+        </div>
+
+        <h3 class="text-white fw-bold mb-4 text-center">STAFF <span class="text-yellow">LOGIN</span></h3>
+        
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3 text-start">
+                <label class="text-secondary small mb-1">Username</label>
+                <input type="text" name="username" class="form-control bg-dark border-secondary text-white py-2 shadow-none" required>
+            </div>
+            <div class="mb-4 text-start">
+                <label class="text-secondary small mb-1">Password</label>
+                <input type="password" name="password" class="form-control bg-dark border-secondary text-white py-2 shadow-none" required>
+            </div>
+            <button type="submit" class="btn btn-yellow w-100 py-2 fw-bold mt-2 shadow-sm">
+                ENTER SYSTEM
+            </button>
+        </form>
+    </div>
+</div>
+
+<script>
+    setTimeout(function() {
+        let alerts = document.querySelectorAll('.alert');
+        alerts.forEach(function(alert) {
+            alert.style.transition = "opacity 0.5s ease";
+            alert.style.opacity = "0";
+            setTimeout(() => alert.remove(), 500); // ลบออกจากหน้าเว็บหลังจากจางหาย
+        });
+    }, 5000); // 5000 มิลลิวินาที = 5 วินาที
+</script>
+</section>
+{% endblock %}
+
+
+<section class="services-modern-section">
+    <div class="container-fluid px-lg-5">
+        <div class="row min-vh-100 align-items-center">
+            
+            <div class="col-lg-4 ps-lg-5">
+                <div class="services-list-wrapper">
+                    <div class="service-item-row active" data-target="service-1">
+                        <span class="service-number">01</span>
+                        <span class="service-name">Architectural Design</span>
+                    </div>
+                    <div class="service-item-row" data-target="service-2">
+                        <span class="service-number">02</span>
+                        <span class="service-name">Structural Engineering</span>
+                    </div>
+                    </div>
+            </div>
+
+            <div class="col-lg-8 pe-lg-5 position-relative">
+                
+                <div class="service-content-pane active" id="service-1">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="vertical-yellow-line"></div>
+                            <h1 class="display-2 fw-bold text-white">Architectural<br><span class="text-yellow">Design</span></h1>
+                            <p class="text-secondary mt-4">ออกแบบสถาปัตยกรรมที่คำนึงถึงฟังก์ชันการใช้งานและความสวยงาม</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="service-image-holder">
+                                <img src="{% static 'core/images/arch-design.jpg' %}" class="img-fluid rounded-3 shadow-lg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-content-pane" id="service-2">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="vertical-yellow-line"></div>
+                            <h1 class="display-2 fw-bold text-white">Structural<br><span class="text-yellow">Engineering</span></h1>
+                            <p class="text-secondary mt-4">วางแผนและคำนวณโครงสร้างวิศวกรรมเพื่อความมั่นคงสูงสุด</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="service-image-holder">
+                                <img src="{% static 'core/images/structural.jpg' %}" class="img-fluid rounded-3 shadow-lg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

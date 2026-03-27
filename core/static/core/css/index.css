@@ -1,0 +1,340 @@
+/* 1. บังคับ html และ body ให้กว้างเท่าจอเป๊ะๆ (100vw = 100% Viewport Width) */
+html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important; 
+}
+
+.home-page main {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+}
+
+/* 3. จัดการโครงสร้างทุกอย่างให้การคำนวณ Padding ไม่ทำให้กล่องบวม */
+*, *::before, *::after {
+    box-sizing: border-box !important;
+}
+
+/* ===============================
+HOME (INDEX) NAVBAR ONLY
+   =============================== */
+
+/* navbar โปร่ง */
+.home-page .home-navbar {
+    background: transparent !important;
+    border: none;
+}
+
+/* เอาเส้นล่างออก */
+.home-page .nav-wrapper {
+    border-bottom: none;
+}
+
+/* เมนูตัวหนังสือ */
+.home-page .nav-link-item {
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 2px;
+    font-size: 12px;
+    text-transform: uppercase;
+    background: transparent;
+}
+
+.home-page .nav-link-item:hover {
+    color: #ffffff;
+    background: transparent;
+}
+.home-page header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+.home-page .top-bar {
+    display: none;
+}
+/* เอาเส้นคั่นทั้งหมดออกใน navbar หน้า Home */
+.home-page .nav-wrapper,
+.home-page .nav-logo-section,
+.home-page .nav-links-section,
+.home-page .nav-link-item,
+.home-page .nav-spacer {
+    border: none !important;
+}
+
+
+/* =========================
+HERO SECTION (HOME ONLY)
+   ========================= */
+.home-page .hero-architecture {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
+    color: #fff;
+    overflow: hidden;
+}
+
+.home-page .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+    /* linear-gradient(rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.427)),
+    url("/static/core/images/1.jpg"); */
+    url("/static/core/images/BG-01.jpg");
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.home-page .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    animation: fadeUp 1.2s ease forwards;
+}
+/* ดึง Footer ขึ้นมาวางทับด้านล่างของหน้าจอ */
+.home-page .footer-minimal {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10; /* ให้อยู่เหนือ Overlay */
+    background: transparent; /* หรือใส่สีจางๆ ตามต้องการ */
+}
+
+/* ป้องกัน Hero Section ไม่ให้ซ้อนทับข้อมูลสำคัญ (ถ้ามี) */
+.home-page .hero-architecture {
+    position: relative;
+    width: 100% !important;  /* 🔥 เปลี่ยนมาใช้ 100% แทน 100vw */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
+    color: #fff;
+    overflow: hidden;
+    
+    /* 🔥 ลบ margin-left: calc(...) ทิ้งไปได้เลยครับ เอาแค่ margin: 0 ก็พอ */
+    margin: 0 !important; 
+}
+/* @keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} */
+body.home-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+main {
+    flex: 1;
+}
+
+
+@media (max-width: 991px) {
+
+/* กล่องเมนูรวม */
+.home-page .nav-links-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 24px 0 28px;
+    background: transparent;
+    background: rgba(20, 20, 20, 0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* เมนูแต่ละอัน */
+.home-page .nav-link-item {
+    background: transparent;
+    color: #bfc3c7;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-align: center;
+    position: relative;
+    transition: 
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+.home-page .nav-link-item:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+}
+
+/* จัดการกล่องหลักให้อยู่กับที่ */
+.blueprint-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* หรือความสูงตามต้องการ */
+    overflow: hidden;
+    background-color: #111; /* สีพื้นหลังเผื่อรูปโหลดไม่ทัน */
+}
+
+/* สำหรับรูปที่ต้องการให้อยู่ค้างไว้เฉยๆ ไม่กระพริบ */
+.static-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none; /* เพื่อไม่ให้ขวางการคลิกเมาส์ */
+    opacity: 1; /* แสดงผลแบบคมชัดตลอดเวลา */
+    z-index: 1; /* ถ้าอยากให้อยู่หลังรูปที่ Pop up ให้ตั้งค่าน้อยกว่า tech-overlay */
+}
+/* -------------------------------------
+   ตั้งค่าพื้นฐานของรูป (ใส่ในไฟล์ CSS)
+-------------------------------------- */
+.tech-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; /* หรือ 80% ตามที่คุณต้องการ */
+    height: 100%;
+    object-fit: cover; /* ให้รูปยืดเต็มกล่อง overlay */
+    
+    /* ซ่อนไว้ก่อนเสมอ */
+    opacity: 0;
+    filter: blur(10px); 
+    
+    /* ตั้งเวลา Loop ทั้งหมด = 30 วินาที */
+    animation: popAndFocus 30s infinite ease-in-out;
+    pointer-events: none;
+}
+
+/* -------------------------------------
+   Keyframes แบบคำนวณเวลา (หาร 10 ส่วน)
+-------------------------------------- */
+/* รวม 100% / 10 รูป = แต่ละรูปจะได้โควต้าเวลา 10% ของหลอด
+  ดังนั้นรูปจะแสดงตัวตั้งแต่ 0% ไปจบที่ 10% แล้วซ่อนตัวยาวๆ ไปจนถึง 100% ครับ
+*/
+@keyframes popAndFocus {
+    /* เริ่มต้น (0%) */
+    0% {
+        opacity: 0;
+        filter: blur(10px);
+        transform: translate(-50%, -50%) scale(0.95);
+    }
+    /* ป๊อปอัปขึ้นมาอย่างไว (1.5%) */
+    1.5% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translate(-50%, -50%) scale(1.02);
+    }
+    /* กลับขนาดปกติ (3%) */
+    3% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    /* ค้างไว้ให้คนดู (8%) */
+    8% {
+        opacity: 1;
+        filter: blur(0px);
+    }
+    /* จางหายไปและเบลอ เพื่อให้รูปต่อไปขึ้นแทน (10%) */
+    10% {
+        opacity: 0;
+        filter: blur(10px);
+        transform: translate(-50%, -50%) scale(0.95);
+    }
+    /* ตั้งแต่ 10.1% ไปจนถึง 100% คือให้ซ่อนตัวยาวๆ รอเพื่อนอีก 9 รูปเล่นจนจบ */
+    10.1%, 100% {
+        opacity: 0;
+        filter: blur(10px);
+    }
+}
+
+/* -------------------------------------
+   ตั้งค่า Delay หน่วงเวลาทีละ 3 วินาที
+-------------------------------------- */
+/* รูปแรกเริ่มทันที */
+.delay-1  { animation-delay: 0s; }
+.delay-2  { animation-delay: 3s; }
+.delay-3  { animation-delay: 5s; }
+.delay-4  { animation-delay: 9s; }
+.delay-5  { animation-delay: 10s; }
+.delay-6  { animation-delay: 11s; }
+.delay-7  { animation-delay: 12s; }
+.delay-8  { animation-delay: 13s; }
+.delay-9  { animation-delay: 14s; }
+.delay-10 { animation-delay: 15s; }
+
+
+.home-page .hero-content {
+    position: absolute;
+    right: 8.3%; /* ขยับเข้ามาให้อยู่ด้านในของเส้นกรอบเหลือง */
+    top: 58.2%;
+    
+    transform: translateY(-50%);
+    
+    /* 💡 กุญแจสำคัญ: ตั้งความสูงให้เกือบเท่ากรอบเหลือง 
+       แล้วใช้ space-between เพื่อดันข้อความแยกไปอยู่บนสุด-ล่างสุด */
+    height: 48vh; 
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    z-index: 10; /* ลอยอยู่บนสุด ทับทุกอย่าง */
+    text-align: left; /* ให้ตัวอักษรชิดซ้าย */
+}
+.hero-title,
+.hero-title span,
+.hero-desc {
+    margin: 0;
+    padding: 0;
+}
+/* -------------------------------------
+   สไตล์ข้อความด้านบน (ตัวใหญ่ หนา)
+-------------------------------------- */
+.home-page .hero-title {
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.2; /* ระยะห่างระหว่างบรรทัด */
+}
+
+/* MAKE YOUR DREAMS */
+.home-page .title-small {
+    font-size: 1.62rem; 
+    font-weight: 600; /* หนาปานกลาง */
+    letter-spacing: 2px;
+    display: block;
+}
+
+/* COME TRUE */
+.home-page .title-big {
+    font-size: 49.10px; 
+    font-weight: 800; /* หนามาก */
+    letter-spacing: 2px;
+    display: block;
+}
+.hero-title span:first-child {
+    transform: translateY(2px);
+}
+/* -------------------------------------
+   สไตล์ข้อความด้านล่าง (ตัวเล็ก ไม่หนา)
+-------------------------------------- */
+.home-page .hero-desc {
+    color: #e0e0e0; /* สีเทาอ่อนๆ ให้กลืนกับฉากหลัง */
+    font-size: 1.05rem; /* ขนาดปกติ ไม่ใหญ่ไป */
+    font-weight: 400; /* น้ำหนักปกติ (ไม่หนา) */
+    line-height: 1.5; 
+    margin: 0;
+    margin-bottom: 20px; /* ดันขอบล่างขึ้นมานิดนึงให้ตรงกับขอบเหลืองพอดี */
+    letter-spacing: 0.5px;
+}

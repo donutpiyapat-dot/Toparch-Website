@@ -1,0 +1,25 @@
+<div class="puzzle-grid">
+    {% for img in images %}
+    <div class="puzzle-item">
+        <img src="{{ img.image.url }}" alt="">
+    </div>
+    {% endfor %}
+</div>
+
+<!-- 💡 PRO TIP (โคตรสำคัญ)
+
+ถ้า Lek มีรูปเยอะ:
+
+👉 เปลี่ยน pattern ได้ เช่น
+
+/* เปลี่ยนรอบเป็น 6 */
+.puzzle-item:nth-child(6n + 1) { ... }
+
+หรือ
+
+👉 ทำ 2 pattern สลับกัน:
+
+.puzzle-item:nth-child(16n + 1) { ... }
+.puzzle-item:nth-child(16n + 9) { ... }
+
+→ จะดู “สุ่มจริงขึ้น” 🔥 -->

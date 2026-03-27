@@ -1,0 +1,354 @@
+{% extends 'base.html' %}
+
+{% load static %}{% block favicon %}
+<link rel="icon" type="image/x-icon" href="{% static 'core/images/portfolio.ico' %}">
+{% endblock %}
+
+{% block title %}{{ project.title }} | TOPARCH{% endblock %}
+{% block body_class %}project_detail_{{ project.pk }}{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'core/css/projects_detail.css' %}">
+{% endblock %}  
+
+{% block content %}
+    <div class="container-fluid px-lg-5 py-5">
+    <div class="row g-4">
+        <div class="col-lg-4 sticky-col px-3">
+
+    <!-- ปุ่ม Back -->
+    <div class="back-nav-container">
+        <a href="{% url 'projects' %}{% if request.GET.page %}?page={{ request.GET.page }}{% endif %}"
+        onclick="sessionStorage.setItem('skipSplash','true');"
+        class="btn-back-projects">
+            <i class="fas fa-arrow-left me-2"></i> BACK TO PROJECTS
+        </a>
+    </div>
+
+    <!-- Sticky content -->
+    <div class="sticky-info">
+
+        <h2 class="projects-title text-uppercase">
+            {{ project.title }}
+        </h2>
+
+        <p class="description">
+            {{ project.description|linebreaksbr }}
+        </p>
+
+        <p class="description-area">
+            {{ project.area }}
+        </p>
+
+    </div>
+
+</div>
+
+<div class="col-lg-8 px-3">
+    {% include "layouts/"|add:project.layout_type|add:".html" %}
+</div>
+
+<!-- Image Lightbox -->
+<div id="image-modal" class="image-modal">
+
+    <div class="modal-content">
+        
+        <button class="modal-tool" id="fullscreenBtn" title="Fullscreen">
+            <i class="fas fa-expand"></i>
+        </button>
+
+        <span class="modal-close">&times;</span>
+
+
+         <div class="modal-counter"></div>
+
+        <div class="modal-img-wrapper">
+            <img class="modal-img" src="" alt="">
+        </div>
+
+        <!-- Caption
+        <div class="modal-caption"></div> -->
+
+
+    </div>
+
+    <div class="modal-nav prev">&#10094;</div>
+    <div class="modal-nav next">&#10095;</div>
+</div>
+
+<div id="customCursor" class="custom-cursor"></div>
+
+   
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* ===============================
+       ELEMENT SELECT
+    =============================== */
+
+    const images = document.querySelectorAll('.project-thumb');
+    const modal = document.getElementById('image-modal');
+    const modalImg = modal.querySelector('.modal-img');
+    // const modalCaption = modal.querySelector('.modal-caption');
+    const closeBtn = modal.querySelector('.modal-close');
+    const nextBtn = modal.querySelector('.next');
+    const prevBtn = modal.querySelector('.prev');
+    const counter = modal.querySelector('.modal-counter');
+
+    const track = document.querySelector(".slider-track");
+    const slides = document.querySelectorAll(".slide");
+    const nextSlideBtn = document.querySelector(".slider-next");
+    const prevSlideBtn = document.querySelector(".slider-prev");
+    const thumbs = document.querySelectorAll('.thumb');
+
+    const fakeCursor = document.querySelector(".fake-cursor");
+    const cursorHalo = document.querySelector(".cursor-halo");
+    
+    const fullscreenBtn = document.getElementById("fullscreenBtn");
+
+    const cursor = document.getElementById('customCursor');
+
+    let currentIndex = 0;
+
+    /* ===============================
+    MODAL LOGIC
+    =============================== */
+
+    function updateModal() {
+        // 🔥 เปลี่ยนจาก .dataset.full เป็น .src หรือ .getAttribute('src')
+    modalImg.src = images[currentIndex].getAttribute('src'); 
+    counter.textContent = (currentIndex + 1) + " / " + images.length;
+    }
+
+    function openModal(index) {
+        currentIndex = index;
+        updateModal();
+        modal.classList.add('active');
+        document.body.classList.add('modal-open');
+        document.body.style.overflow = 'hidden';
+
+    }
+
+    function closeModal() {
+        if (document.fullscreenElement) {
+        document.exitFullscreen();
+    }
+        modal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+        document.body.style.overflow = '';
+
+    }
+
+    images.forEach((img, index) => {
+        img.addEventListener('click', () => openModal(index));
+    });
+
+    nextBtn.onclick = () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateModal();
+    };
+
+    prevBtn.onclick = () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateModal();
+    };
+
+    closeBtn.onclick = closeModal;
+
+    modal.addEventListener('click', e => {
+        if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', e => {
+        if (!modal.classList.contains('active')) return;
+        if (e.key === 'ArrowRight') nextBtn.onclick();
+        if (e.key === 'ArrowLeft') prevBtn.onclick();
+        if (e.key === 'Escape') closeModal();
+    });
+
+    /* ===============================
+       MOBILE SWIPE
+    =============================== */
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const swipeThreshold = 50;
+
+    modal.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    modal.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+            diff > 0 ? nextBtn.onclick() : prevBtn.onclick();
+        }
+    }, { passive: true });
+
+    /* ===============================
+       CUSTOM CURSOR
+    =============================== */
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let posX = 0;
+    let posY = 0;
+
+    images.forEach(img => {
+        img.addEventListener('mouseenter', () => {
+            cursor.style.opacity = "1";
+            cursor.style.transform = "translate(-50%, -50%) scale(1)";
+        });
+
+        img.addEventListener('mouseleave', () => {
+            cursor.style.opacity = "0";
+            cursor.style.transform = "translate(-50%, -50%) scale(0.8)";
+        });
+    });
+
+    document.addEventListener("mousemove", (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    function animateCursor() {
+        posX += (mouseX - posX) * 0.15;
+        posY += (mouseY - posY) * 0.15;
+
+        cursor.style.left = posX + "px";
+        cursor.style.top = posY + "px";
+
+        requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    /* ===============================
+       MODAL TOOLS
+    =============================== */
+    modalImg.addEventListener("dblclick", () => {
+        window.open(images[currentIndex].dataset.full, "_blank");
+    });
+
+    fullscreenBtn.addEventListener("click", () => {
+        if (!document.fullscreenElement) {
+            modal.requestFullscreen();
+        } else {
+            document.exitFullscreen();
+        }
+    });
+
+/* ===============================
+   FULLSCREEN SLIDER + THUMB
+=============================== */
+if (track && slides.length > 0) {
+
+    let slideIndex = 0;
+    let interval;
+
+    function updateSlider() {
+        track.style.transform = `translateX(-${slideIndex * 100}%)`;
+
+        // update thumb
+        thumbs.forEach(t => t.classList.remove("active"));
+        thumbs[slideIndex]?.classList.add("active");
+    }
+
+    nextSlideBtn?.addEventListener("click", () => {
+        slideIndex = (slideIndex + 1) % slides.length;
+        updateSlider();
+    });
+
+    prevSlideBtn?.addEventListener("click", () => {
+        slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+        updateSlider();
+    });
+
+    // click thumb
+    thumbs.forEach(thumb => {
+        thumb.addEventListener("click", () => {
+            slideIndex = parseInt(thumb.dataset.index);
+            updateSlider();
+        });
+    });
+
+    // auto
+    function startAuto() {
+        interval = setInterval(() => {
+            slideIndex = (slideIndex + 1) % slides.length;
+            updateSlider();
+        }, 5000);
+    }
+
+    function stopAuto() {
+        clearInterval(interval);
+    }
+
+    track.addEventListener("mouseenter", stopAuto);
+    track.addEventListener("mouseleave", startAuto);
+
+    startAuto();
+}
+function updateThumbs(index) {
+
+    thumbs.forEach(t => t.classList.remove('active'));
+
+    if (thumbs[index]) {
+        thumbs[index].classList.add('active');
+
+        // 🔥 เลื่อน thumbnail ตาม
+        thumbs[index].scrollIntoView({
+            behavior: "smooth",
+            inline: "center",
+            block: "nearest"
+        });
+    }
+}
+function updateSlide() {
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    updateThumbs(currentIndex); // 🔥 เพิ่มบรรทัดนี้
+}
+
+    const cards = document.querySelectorAll('.stack-card');
+    const nextBt = document.querySelector('.stack-btn.next');
+    const prevBt = document.querySelector('.stack-btn.prev');
+
+    let current = 0;
+
+    function updateStack() {
+        cards.forEach((card, i) => {
+            card.classList.remove('active', 'prev', 'next', 'hidden');
+
+            if (i === current) {
+                card.classList.add('active');
+            } 
+            else if (i === current - 1 || (current === 0 && i === cards.length - 1)) {
+                card.classList.add('prev');
+            } 
+            else if (i === current + 1 || (current === cards.length - 1 && i === 0)) {
+                card.classList.add('next');
+            } 
+            else {
+                card.classList.add('hidden');
+            }
+        });
+    }
+
+    nextBt.onclick = () => {
+        current = (current + 1) % cards.length;
+        updateStack();
+    };
+
+    prevBt.onclick = () => {
+        current = (current - 1 + cards.length) % cards.length;
+        updateStack();
+    };
+
+    updateStack();
+});
+
+
+</script>
+
+{% endblock %}

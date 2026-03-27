@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="p-5 rounded-4 shadow-lg" style="background: #161616; border: 1px solid #222;">
+                <h2 class="text-white fw-bold mb-4">ADD <span class="text-yellow">NEW PROJECT</span></h2>
+                <hr class="border-secondary mb-5">
+                
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row g-4">
+                        {% for field in form %}
+                        <div class="{% if field.name == 'description' %}col-12{% else %}col-md-6{% endif %}">
+                            <label class="text-secondary small mb-2">{{ field.label }}</label>
+                            {{ field }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="text-end mt-5">
+                        <button type="submit" class="btn btn-yellow px-5 py-2 fw-bold">SAVE PROJECT</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

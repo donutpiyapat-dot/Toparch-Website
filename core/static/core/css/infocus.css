@@ -1,0 +1,158 @@
+.splash-infocus-text {
+    font-family: 'Chalkduster', cursive;
+    color: #c1c1c1;
+    font-size: clamp(2.6rem, 5vw, 3.6rem);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.splash-infocus {
+    background:
+        linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8));
+    background-size: cover;
+    background-position: center;
+}
+
+.infocus-page .nav-wrapper{
+    background:#000;
+}
+.infocus-header {
+    font-size: clamp(0.9rem, 1vw, 1.05rem,1.5rem);
+    color: #c1c1c1 !important;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+}
+.description {
+    max-width: 70ch;
+    line-height: 1.5;
+    margin-bottom: 32px;
+    text-align: justify;
+    hyphens: auto;
+    text-justify: inter-word;
+    word-spacing: -0.05em;
+    letter-spacing: 0.2px;
+    text-wrap: balance;
+}
+.sticky-info {
+    position: sticky;
+    top: 120px;
+}
+
+.infocus-image {
+    height: 600px;
+    overflow: hidden;
+}
+
+.infocus-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.description-line {
+    width: 60px;
+    height: 4px;
+    background-color: #e9cb2f ;
+    transition: width 0.8s ease;
+}
+
+html, body {
+    height: auto;
+    overflow-x: hidden;
+}
+.infocus-page {
+    position: relative;
+    min-height: 100vh;
+}
+
+.infocus-page::before {
+    content: "";
+    position: absolute;
+    top: 70px;   
+    left: 0;
+    right: 0;
+    bottom: 0;  
+    width: 100%;
+    
+    background-image:
+    /* linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9)), */
+    url("/static/core/images/IN FOCUS.webp");
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    z-index: -1;
+    pointer-events: none;
+}
+.navbar { 
+    position: sticky;
+    top: 0;
+    height: 70px;
+    background-color: #000;
+    z-index: 1000;
+    width: 100%;
+}
+.infocus-container {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: auto;
+    padding: 0 24px;
+}
+
+@media (max-width: 991px) {
+
+    .infocus-page::before {
+        background:
+            /* linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8)), */
+            url("/static/core/images/IN FOCUS22.webp")
+            center / cover no-repeat;
+    }
+    .description{
+        max-width: 90ch;
+        line-height: 1.7;
+        text-align: justify;
+    }
+
+
+}
+/* .infocus-spacer{
+    height: 20px;
+} */
+@media (max-width: 768px) {
+    .infocus-page::before {
+        background:
+            /* linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8)), */
+            url("/static/core/images/IN FOCUS22.webp")
+            center / cover no-repeat;
+    }
+    .description{
+        max-width: 100%;
+        text-align: left;
+        line-height: 1.8;
+        word-spacing: normal;
+        letter-spacing: normal;
+        text-align: justify;
+    }
+
+
+}
+
+@media (max-width: 425px) {
+
+    .infocus-page::before {
+        top: 55px;
+
+        background:
+            /* linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8)), */
+            url("/static/core/images/IN FOCUS22.webp")
+            center / cover no-repeat;
+    }
+    .description{
+        font-size: 0.95rem;
+        line-height: 1.9;
+        text-align: justify;
+    }
+
+}

@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}CONTACT | TOPARCH{% endblock %}
+{% block body_class %}Contact-page{% endblock %}
+
+{% block favicon %}
+    <link rel="icon" type="image/x-icon" href="{% static 'core/images/contact.ico' %}">
+{% endblock %}
+
+
+{% block splash %}
+<div id="splash-screen" class="splash-overlay splash-contact">
+    <div class="splash-content">
+        <span class="splash-contact-text ">CONTACT</span>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'core/css/contact.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container-fluid px-lg-5 py-5">
+    <div class="row g-4">
+        
+        <div class="col-lg-4 sticky-col px-3">
+            <div class="sticky-info ">
+                <h2 class="contact-header">CONTACT<br></h2>
+                <div class="description-line my-4"></div>
+                <div class="project-stats">
+                    <div class="map-hover">
+                        <p class="mail text-white opacity-75">
+                                <a href="https://maps.app.goo.gl/Pe7XNSeQuTrNgMT48" target="_blank">
+                                    <i class="fas fa-map-marker-alt me-2 text-yellow"></i>
+                                    1/98 Venice The Iris, Tha Raeng Subdistrict, Bang Khen District, Bangkok 10220
+                                </a>
+                        </p>
+
+                        <!-- preview map -->
+                        <div class="map-preview">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3873.3216250456503!2d100.64526289999999!3d13.8797072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311d7d43600dbd87%3A0x53a3d00b4b8e2673!2sTOPARCH%20.CO.%2CLTD.!5e0!3m2!1sth!2sth!4v1774333646575!5m2!1sth!2sth" 
+                                loading="lazy" >
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="mail-wrapper">
+                        <p class="mail text-white opacity-75">
+                            <a href="mailto:toparch999@gmail.com" class="mail-link">
+                                <i class="fas fa-envelope me-2 text-yellow"></i>
+                                toparch999@gmail.com
+                            </a>
+                        </p>
+                        <!-- <a href="https://mail.google.com/mail/?view=cm&to=toparch999@gmail.com"
+                            target="_blank"
+                            class="gmail-btn">
+                            Open in Gmail
+                        </a> -->
+
+                    </div>
+                    <p class="phone-number text-white opacity-75">
+                        <i class="fas fa-phone-alt me-2 text-yellow"></i>
+                        086-911-1836
+                    </p>
+                </div>
+            </div>
+        </div>
+
+<div class="col-lg-8 px-3">
+    <div class="contact-image">
+        <img src="/static/core/images/con1.jpg" alt="contact image">
+    </div>
+</div>
+
+{% block extra_js %}
+<script>
+document.addEventListener("splashFinished", () => {
+
+    document.querySelectorAll(".fade-up, .zoom-in")
+        .forEach(el => {
+            el.classList.add("show");
+        });
+
+});
+function copyEmail() {
+    navigator.clipboard.writeText("toparch999@gmail.com");
+
+    const btn = document.querySelector(".copy-btn");
+    btn.innerText = "✅";
+
+    setTimeout(() => {
+        btn.innerText = "📋";
+    }, 1500);
+}
+</script>
+{% endblock %}
+
+{% endblock %}

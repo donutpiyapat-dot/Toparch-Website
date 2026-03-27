@@ -1,0 +1,14 @@
+<div class="projects-masonry">
+
+    {% for img in images %}
+    <div class="masonry-item">
+        <img
+            src="{{ img.image.url }}"
+            alt="{{ project.title }}"
+            class="project-thumb"
+            data-full="{{ img.image.url }}"
+        >
+    </div>
+    {% endfor %}
+
+</div>

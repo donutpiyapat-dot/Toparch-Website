@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'core/css/projects.css' %}">
+{% endblock %}
+
+{% block title %}PROJECTS | TOPARCH{% endblock %}
+{% block body_class %}projects-page{% endblock %}
+
+{% block favicon %}
+    <link rel="icon" type="image/x-icon" href="{% static 'core/images/portfolio.ico' %}">
+{% endblock %}
+
+{% block splash %}
+<div id="splash-screen" class="splash-overlay splash-projects">
+    <div class="splash-content">
+        <span class="splash-projects-text ">PROJECTS</span>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid px-lg-5 py-5">
+        <div class="row g-4">
+        
+                <div class="col-lg-4 sticky-col px-3">
+                    <div class="sticky-info">
+                        <h2 class="projects-tital">Our Projects<br></h2>
+                            <div class="description-line my-4"></div>
+                            <p class="description text-white opacity-75">
+                                {% if selected_category %}
+                                    {{ selected_category.description }}
+                                {% else %}
+                                    Our projects reflect a design approach that integrates architectural
+                                    aesthetics, functional efficiency, and high-quality construction. 
+                                    We focus on creating spaces that respond to the needs of users while 
+                                    respecting the context of each location and the unique identity of every project.
+                                {% endif %} 
+                            </p>
+                            <div class="project-stats mt-5">
+                                <div class="stat-item mb-3">
+                                    <span class="stat-number" data-target="{{ total_projects }}">0</span>
+                                    <span class="stat-label">TOTAL PROJECTS</span>
+                                </div>
+                            </div>
+                    
+                            <div class="category-filter" onclick="sessionStorage.setItem('skipSplash','true');">
+
+                                <div class="filter-title">FILTER BY CATEGORY</div>
+
+                                    <a href="?cat=All" class="cat-item {% if current_cat == 'All' %}active{% endif %}">
+                                        All
+                                    </a>
+
+                                {% for cat in categories %}
+                                    <a href="?cat={{ cat.slug }}"
+                                        class="cat-item {% if current_cat == cat.slug %}active{% endif %}">
+                                        {{ cat.name }}
+                                    </a>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                </div>
+
+                <div class="col-lg-8 px-3">
+                    <div class="projects-grid zoom-in">
+
+                        {% for project in page_obj %}
+                            <a href="{% url 'projects_detail' project.id %}?page={{ page_obj.number }}"  class="project-link">
+                                <div class="project-item">
+                                    <div class="project-box">
+                                        <img src="{{ project.main_image.url }}" alt="{{ project.title }}">
+                                    </div>
+
+                                    <div class="project-detail mb-1 ">
+                                        <p class="m-0 text-white opacity-75 text-uppercase">
+                                            {{ project.title }}
+                                        </p>
+                                        <small class="text-yellow text-uppercase">
+                                            {{ project.category }}
+                                        </small>
+                                    </div>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+        </div>
+                <div class="pagination-wrapper mt-5" onclick="sessionStorage.setItem('skipSplash','true');">
+
+                    {% if page_obj.has_previous %}
+                        <a href="?{% if query %}q={{ query }}&{% endif %}page=1"
+                            class="page-btn">« First</a>
+
+                        <a href="?{% if query %}q={{ query }}&{% endif %}page={{ page_obj.previous_page_number }}"
+                            class="page-btn">‹ Prev</a>
+                    {% endif %}
+
+                    {% for num in page_obj.paginator.page_range %}
+                        {% if num >= page_obj.number|add:'-2' and num <= page_obj.number|add:'2' %}
+            
+                            {% if page_obj.number == num %}
+                                <span class="page-number active">{{ num }}</span>
+                            {% else %}
+                                <a href="?{% if query %}q={{ query }}&{% endif %}page={{ num }}"class="page-number">
+                                    {{ num }}
+                                </a>
+                            {% endif %}
+
+                        {% endif %}
+                    {% endfor %}
+    
+                {% if page_obj.has_next %}
+                    <a href="?{% if query %}q={{ query }}&{% endif %}page={{ page_obj.next_page_number }}"
+                        class="page-btn">Next ›</a>
+
+                    <a href="?{% if query %}q={{ query }}&{% endif %}page={{ page_obj.paginator.num_pages }}"
+                        class="page-btn">Last »</a>
+                {% endif %}
+                </div>
+
+    
+</div>
+
+
+{% block extra_js %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const counters = document.querySelectorAll('.stat-number');
+
+    const animateCounter = (counter) => {
+
+        const target = +counter.getAttribute('data-target');
+        const duration = 1500;
+        const stepTime = 20;
+        const increment = target / (duration / stepTime);
+
+        let count = 0;
+
+        const update = () => {
+            count += increment;
+
+            if (count < target) {
+                counter.innerText = Math.floor(count);
+                setTimeout(update, stepTime);
+            } else {
+                counter.innerText = target;
+            }
+        };
+
+        update();
+    };
+
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                // ✅ หน่วง 2 วินาที
+                setTimeout(() => {
+                    animateCounter(entry.target);
+                }, 2000);
+
+                obs.unobserve(entry.target);
+            }
+
+        });
+    }, {
+        threshold: 0.5
+    });
+
+    counters.forEach(counter => {
+        observer.observe(counter);
+    });
+
+});
+document.querySelectorAll('.cat-item').forEach(link => {
+
+    link.addEventListener('click', function(){
+
+        const desc = document.querySelector('.description');
+
+        desc.classList.remove('fade-in');
+        desc.classList.add('fade-out');
+
+    });
+
+});
+</script>
+{% endblock %}
+
+{% endblock %}

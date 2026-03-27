@@ -1,0 +1,203 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}TOPARCH CO., LTD.{% endblock %}</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    {% block extra_css %}{% endblock %}
+
+    {% block favicon %}
+    <link rel="icon" type="image/x-icon" href="{% static 'core/images/favicon.ico' %}">
+    {% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+
+
+<header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark p-0 home-navbar">
+        <div class="nav-wrapper d-flex w-100 align-items-center">
+            
+            <div class="nav-spacer d-none d-lg-block"></div>
+
+            <div class="nav-logo-section d-flex align-items-center justify-content-between px-3 px-lg-0">
+                <a class="navbar-brand d-flex align-items-center justify-content-center m-0" href="/">
+                    <img src="{% static 'core/images/TOPARCH LOGO ol-2.png' %}" alt="TOPARCH" height="35">
+                </a>
+            </div>
+
+            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toparchNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse nav-links-section" id="toparchNavbar">
+                <div class="d-lg-flex w-100 h-100">
+                    <a href="{% url 'infocus' %}" class="nav-link-item {% if request.resolver_match.url_name == 'infocus' %}active-nav{% endif %}">
+                        IN FOCUS
+                    </a>
+                    <a href="{% url 'projects' %}" class="nav-link-item {% if request.resolver_match.url_name == 'projects' %}active-nav{% endif %}">
+                        PROJECTS
+                    </a>
+                    <a href="{% url 'ta_style' %}" class="nav-link-item {% if request.resolver_match.url_name == 'ta_style' %}active-nav{% endif %}">
+                        TA STYLE
+                    </a>
+                    <a href="{% url 'services' %}" class="nav-link-item {% if request.resolver_match.url_name == 'services' %}active-nav{% endif %}">
+                        SERVICES
+                    </a>
+                    <a href="{% url 'contact' %}" class="nav-link-item {% if request.resolver_match.url_name == 'contact' %}active-nav{% endif %}">
+                        CONTACT
+                    </a>
+                </div>
+            </div>
+
+            <form method="GET"
+                action="{% url 'global_search' %}"
+                class="d-flex ms-3 search-form">
+                <div class="search-wrapper">
+                    <input class="form-control form-control-sm"
+                        type="search"
+                        name="q"
+                        placeholder="Search projects..."
+                        value="{{ request.GET.q }}">
+                    <button class="btn btn-sm search-btn" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </nav>
+</header>
+    {% block splash %}
+        <div id="splash-screen" class="splash-content">
+            <span class="splash-text">
+                {% block splash_text %}{% endblock %}
+            </span>
+        </div>
+    {% endblock %}
+
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+
+<footer class="footer-minimal">
+    <div class="container-fluid text-center py-4">
+        <span class="copyright-text m-0">
+            &copy; {% now "Y" %} TOPARCH Co., Ltd. All Rights Reserved.
+        </span>
+    </div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const splash = document.getElementById('splash-screen');
+    if (!splash) return;
+
+    // 🔥 ถ้ามาจากปุ่ม back ไม่ต้องแสดง splash
+    if (sessionStorage.getItem("skipSplash") === "true") {
+        splash.remove();
+        sessionStorage.removeItem("skipSplash"); // เคลียร์ค่า
+        return;
+    }
+
+    setTimeout(() => {
+        splash.classList.add('splash-hidden');
+        document.dispatchEvent(new Event("splashFinished"));
+
+        setTimeout(() => {
+            splash.remove();
+        }, 1000);
+    }, 1500);
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<div class="fake-cursor">
+  <svg viewBox="0 0 24 24">
+    <path d="M3 2L21 12L13 14L10 21L3 2Z" />
+  </svg>
+</div>
+
+<div class="cursor-halo"></div>
+
+
+<script>
+    const fakeCursor = document.querySelector('.fake-cursor');
+    const halo = document.querySelector('.cursor-halo');
+
+// ติดตามตำแหน่งเมาส์
+document.addEventListener('mousemove', (e) => {
+    fakeCursor.style.top = `${e.clientY}px`;
+    fakeCursor.style.left = `${e.clientX}px`;
+    halo.style.top = `${e.clientY}px`;
+    halo.style.left = `${e.clientX}px`;
+});
+
+// elements ที่ถือว่า hover แล้วควรโชว์ halo
+const hoverTargets = document.querySelectorAll(
+  'a, button, input, textarea, select, [data-cursor]'
+);
+
+hoverTargets.forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    document.body.classList.add('cursor-hover');
+  });
+
+  el.addEventListener('mouseleave', () => {
+    document.body.classList.remove('cursor-hover');
+  });
+});
+
+if ('ontouchstart' in window) {
+  document.body.style.cursor = 'default';
+  document.querySelector('.fake-cursor')?.remove();
+  document.querySelector('.cursor-halo')?.remove();
+}
+document.body.classList.add("fake-active");
+
+document.addEventListener("fullscreenchange", () => {
+
+    if (document.fullscreenElement) {
+
+        document.body.classList.remove("fake-active");
+        fakeCursor.style.display = "none";
+        halo.style.display = "none";
+
+    } else {
+
+        document.body.classList.add("fake-active");
+        fakeCursor.style.display = "block";
+        halo.style.display = "block";
+    }
+
+});
+const isTouchDevice = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+
+if (!isTouchDevice) {
+
+    document.body.classList.add("fake-active");
+
+    document.addEventListener("mousemove", (e) => {
+        fakeCursor.style.left = e.clientX + "px";
+        fakeCursor.style.top = e.clientY + "px";
+
+        halo.style.left = e.clientX + "px";
+        halo.style.top = e.clientY + "px";
+    });
+
+}
+
+
+
+</script>
+{% block extra_js %}{% endblock %}
+
+</body>
+</html>}

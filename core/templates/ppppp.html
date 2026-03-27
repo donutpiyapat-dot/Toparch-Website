@@ -1,0 +1,184 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block title %}HOME | TOPARCH - Engineering & Architecture{% endblock %}
+
+{% block body_class %}home-page{% endblock %}
+
+{% block content %}
+<!-- hero-section -->
+<section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-5 mb-md-0">
+                    <h1 class="display-4 fw-bold">Customer 
+                        <br>Satisfaction is <br>
+                        <span class="text-warning">Important</span>
+                    </h1>
+                    <p class="text-muted">Toparch is the professional consultant company on architecture, engineering and construction.</p>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="{% static 'core/images/building1.jpg' %}" class="img-fluid shadow" alt="Project 1">
+                </div>
+            </div>
+        </div>
+</section>
+
+    <!-- client-logo-section -->
+<section class="client-logos-bar py-4">
+    <div class="container">
+        <div class="client-logo-row mx-auto" style="max-width: 900px;">
+            <img src="{% static 'core/images/Edl_logo.png' %}" alt="EDL">
+            <img src="{% static 'core/images/Robins_logo.png' %}" alt="Robinson">
+            <img src="{% static 'core/images/Central_logo.png' %}" alt="Central">
+            <img src="{% static 'core/images/Ptt_logo.png' %}" alt="PTT">
+            <img src="{% static 'core/images/Twd_logo.png' %}" alt="Thai Watsadu">
+        </div>
+    </div>
+</section>
+
+    <!-- services-section -->   
+<section class="py-5 bg-main-dark text-white"> <div class="container">
+        <div class="mb-5 title-wrapper">
+            <h2 class="fw-bold border-start border-warning border-5 ps-3 text-uppercase">
+                Our Services 
+            </h2>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="service-card"> 
+                    <div class="img-container mb-3">
+                        <img src="{% static 'core/images/building1.jpg' %}" class="img-fluid rounded-4" alt="Design">
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center px-2">
+                        <div>
+                            <h4 class="fw-bold mb-1 text-white">DESIGN</h4> 
+                            <p class="text-secondary small mb-0">Read More</p> 
+                        </div>
+                            <a href="#" class="text-yellow fs-3"><i class="fas fa-arrow-right-long"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="service-card">
+                    <div class="img-container mb-3">
+                        <img src="{% static 'core/images/building2.jpg' %}" class="img-fluid rounded-4" alt="Counsel">
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center px-2">
+                        <div>
+                            <h4 class="fw-bold mb-1 text-white">CONSULT</h4>
+                            <p class="text-secondary small mb-0">Read More</p>
+                        </div>
+                        <a href="#" class="text-yellow fs-3"><i class="fas fa-arrow-right-long"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- CEO Section -->
+<section class="ceo-section py-0"> 
+    <div class="container">
+        <div class="row align-items-center g-0"> 
+            <div class="col-md-5">
+                <img src="{% static 'core/images/building1.jpg' %}" class="img-fluid w-100 h-100 object-fit-cover" style="min-height: 500px;" alt="CEO">
+            </div>
+            
+            <div class="col-md-7 py-5 ps-md-5 text-white">
+                <div class="mb-4">
+                    <img src="{% static 'core/images/TOPARCH LOGO ol-2.png' %}" alt="TOPARCH Logo" class="ceo-logo">
+                </div>
+
+                <p class="text-white lh-lg mb-4 pe-md-5">
+                This company provides professional consulting services...
+                </p>
+                <button class="btn btn-ceo-read">Read more</button>
+</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- portfolio-section -->
+    <section class="container py-5">
+        <div class="row mb-4">
+            <div class="col-12">
+                <h2 class="fw-bold border-start border-warning border-5 ps-3 text-uppercase">Our Past Project</h2>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="portfolio-item">
+                    <div style="overflow: hidden; border-radius: 16px;">
+                        <img src="{% static 'core/images/building2.jpg' %}" class="img-fluid mb-3" alt="Project 2">
+                    </div>
+                    <h5 class="fw-bold mb-1">Project 1</h5>
+                    <p class="text-secondary small">Fashion Resort</p>
+                    <a href="#" class="detail-link text-white text-decoration-none small">Detail <span class="arrow">→</span></a>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="portfolio-item">
+                    <img src="{% static 'core/images/building2.jpg' %}" class="img-fluid rounded-4 mb-3" alt="Project 2">
+                    <h5 class="fw-bold mb-1">Project 2</h5>
+                    <p class="text-secondary small">Fashion Resort</p>
+                    <a href="#" class="detail-link text-white text-decoration-none small">Detail <span class="arrow">→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<footer class="footer pt-5 pb-4">
+    <div class="container">
+        <div class="row g-4 align-items-start justify-content-between"> 
+            
+            <div class="col-md-4">
+                <img src="{% static 'core/images/TOPARCH LOGO ol-2.png' %}" alt="Logo" class="footer-logo-img mb-3"> 
+                <p class="footer-bio mb-4">
+                    Top Arch Co., Ltd. provides comprehensive design and construction services...
+                </p>
+                <div class="footer-contact-info">
+                    <div>
+                        <a href="mailto:contact@toparch.com" class="footer-contact-link text-decoration-none">
+                            <i class="fas fa-envelope me-2 text-yellow"></i> 
+                            <span class="text-secondary small">contact@toparch.com</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5 footer-map">
+                <h6 class="footer-heading-small">Location</h6>
+                <div class="rounded overflow-hidden mb-3 shadow-sm" style="height: 170px; border: 1px solid #333;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30986.573115610536!2d100.62466320196029!3d13.879706337614987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311d7d43600dbd87%3A0x53a3d00b4b8e2673!2sTOPARCH%20.CO.%2CLTD.!5e0!3m2!1sth!2sth!4v1768361235950!5m2!1sth!2sth"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+                <p class="footer-address">
+                    <i class="fas fa-map-marker-alt text-yellow me-2"></i>
+                    1/98 Venice The Iris, Tha Raeng, Bang Khen, Bangkok 10220
+                </p>
+            </div>
+
+        </div> 
+        
+        <div class="text-center mt-5 pt-4 border-top border-secondary">
+            <p class="small text-secondary text-uppercase fw-bold" style="font-size: 10px; letter-spacing: 1px;">
+                <a href="{% url 'login' %}" class="text-decoration-none text-secondary">
+                    TOPARCH CO.,LTD. ©2025 All Rights Reserved
+                </a>
+            </p>
+        </div>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+{% endblock %} ```
+

@@ -1,0 +1,8 @@
+<div class="polaroid-board">
+    {% for img in images %}
+    <div class="polaroid">
+        <img src="{{ img.image.url }}" alt="">
+        <p class="caption">Project</p>
+    </div>
+    {% endfor %}
+</div>

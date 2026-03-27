@@ -1,0 +1,438 @@
+main {
+    display: flex;
+    flex-direction: column;
+}
+body.services-page {
+    height: 100vh;
+    overflow: hidden; /*ปิดการ Scroll ทั้งหมด */
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+body.services-page main {
+    flex: 1; /* ให้ main ขยายเต็มพื้นที่ที่เหลือจาก Header */
+    display: flex;
+    flex-direction: column;
+}
+.splash-services-text{
+    font-family: 'Chalkduster', cursive;
+    font-size: 3rem;
+    color: #c1c1c1;
+}
+.splash-services {
+    background:
+        linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8));
+    background-size: cover;
+    background-position: center;
+}
+.services-tital {
+    font-size: 1.5rem;
+    color: #c1c1c1 !important;
+    margin-top: 40px;
+    margin-bottom: 16px;
+    letter-spacing: 0.2px;
+}
+.service-description {
+    max-width: 90ch;
+    line-height: 1.5;
+    margin-bottom: 32px;
+    text-align: justify;
+    hyphens: auto;
+    text-justify: auto;
+    /* word-spacing: -4px; 
+    letter-spacing: 0;     */
+    
+    text-wrap: balance;
+}
+.services-box {
+    width: 100%;
+    aspect-ratio: 16/9; /* สัดส่วนรูปภาพ */
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.services-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+    transition: all 0.4s ease;
+    aspect-ratio: 3/2;
+    overflow: hidden;
+    display: block; /* สำคัญ */
+}
+.services-box:hover img {
+    transform: scale(1.1);
+    opacity: 1;
+
+}
+.services-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 64px;
+    position: relative;
+}
+
+.services-item {
+    margin-bottom: 3rem;
+}
+.services-detail{
+    color: #c1c1c1 !important;
+}
+
+.vertical-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 คอลัมน์ */
+    column-gap: 32px;
+    row-gap: 20px;
+}
+.services-link {
+    text-decoration: none;
+    display: block;
+}
+
+.services-link:hover {
+    text-decoration: none;
+}
+.services-item {
+    transition: transform .3s ease;
+}
+
+.services-link:hover .project-item {
+    transform: translateY(-4px);
+}
+
+.back-nav-container {
+    z-index: 1000;
+    position: sticky;
+}
+
+.services-image {
+    height: 600px;   /* ความสูงกรอบ */
+    overflow: hidden;
+}
+
+.services-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.btn-back-services {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: rgba(18, 18, 18, 0.8); /* พื้นหลังดำโปร่งแสง */
+    color: #c1c1c1;
+    border: 1px solid rgba(255, 215, 0, 0.4); /* เส้นขอบเหลืองทอง */
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+}
+
+.btn-back-services:hover {
+    color: #e9cb2f ;
+    border-color: #e9cb2f ;
+    background-color: #1a1a1a;
+    transform: translateX(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== Image Modal ===== */
+.image-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.image-modal.active {
+    display: flex;
+}
+
+.modal-img {
+    max-width: 85%;
+    max-height: 85%;
+    border-radius: 12px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Close button */
+.modal-close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Navigation */
+.modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 80px;        
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px 18px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 50%;
+    user-select: none;
+}
+
+.modal-nav.prev {
+    left: -90px;   /* 👈 ชิดซ้ายของรูป */
+}
+
+.modal-nav.next {
+    right: -90px;  /* 👈 ชิดขวาของรูป */
+}
+
+.modal-nav:hover {
+    background: rgba(255,212,0,0.25);
+}
+
+
+@media (max-width: 991px) {
+    .services-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .services-content {
+        grid-template-columns: 1fr;
+    }
+
+    .sticky-info {
+        position: relative;
+        top: 0;
+    }
+    .services-layout::after {
+        display: none;
+    }
+
+    .services-content {
+        border-left: none;
+        padding-left: 0;
+    }
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .back-nav-container {
+    z-index: 10; 
+
+}
+    
+}
+/* มือถือ
+@media (max-width: 768px) {
+
+    .services-image {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 10px;    
+    }
+
+    .services-image img {
+        width: 100%;
+        height: auto;
+    }
+} */
+
+/* =====================================
+    พื้นหลังของแต่ละ services
+    =====================================*/
+
+.services-1 {
+    position: relative;
+    min-height: calc(100vh - 70px); 
+}
+
+.services-1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; 
+    width: 100%;
+
+    background-image: 
+        /* linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), */
+        url("/static/core/images/DESIGN (1200x600 px).png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+
+    z-index: -1;
+    pointer-events: none;
+} 
+
+ .services-2 {
+    position: relative;
+    min-height: calc(100vh - 70px); 
+}
+
+.services-2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; 
+    width: 100%;
+
+    background-image: 
+        /* linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), */
+        url("/static/core/images/PRE CONSTUCTION (1200x600 px).png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+
+    z-index: -1;
+    pointer-events: none;
+} 
+
+.services-3 {
+    position: relative;
+    /* เปลี่ยนจาก height ธรรมดาเป็น min-height เพื่อให้ยืดตามเนื้อหาได้ */
+    min-height: calc(100vh - 70px); 
+    padding-bottom: 60px; /* เผื่อระยะด้านล่างไว้หน่อย เนื้อหาจะได้ไม่ชนขอบ */
+}
+.services-3::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; 
+    width: 100%;
+
+    background-image: 
+        /* linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), */
+        url("/static/core/images/CONSTUCTION-3 (1200x600 px).png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+
+    z-index: -1;
+    pointer-events: none;
+}
+
+ .services-4 {
+    position: relative;
+    min-height: calc(100vh - 70px); 
+}
+
+.services-4::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; 
+    width: 100%;
+
+    background-image: 
+         /* linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)),  */
+        url("/static/core/images/POST CONSTUCTION-2 (1200x600 px).png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+
+    z-index: -1;
+    pointer-events: none;
+} 
+
+.services-5 {
+    position: relative;
+    min-height: calc(100vh - 70px); 
+}
+
+.services-5::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; 
+    width: 100%;
+
+    background-image: 
+        /* linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), */
+        url("/static/core/images/AFTER CONSTUCTION (1200x600 px).png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+
+    z-index: -1;
+    pointer-events: none;
+} 
+
+
+body.services-page .footer-minimal {
+    margin-top: -60px; 
+    position: relative;
+    z-index: 10; 
+    background: transparent !important; 
+    border-top: none; 
+}
+/* 2. ดันเนื้อหาใน .services-3 ไม่ให้โดน Footer ที่ดึงขึ้นมาบัง */
+.services-3 {
+    padding-bottom: 80px !important; /* เพิ่มพื้นที่ว่างด้านล่างเผื่อให้ Footer ลอยอยู่แบบไม่อึดอัด */
+}
+
+@media (max-width: 991px) {
+    .service-description{
+        word-spacing: -0.11em;
+        max-width: 100ch;
+        line-height: 1.7;
+        text-align: justify;
+    }
+}
+@media (max-width: 768px) {
+    .service-description{
+        max-width: 100%;
+        text-align: left;
+        line-height: 1.7;
+        word-spacing: normal;
+        letter-spacing: normal;
+        text-align: justify;
+    }
+
+
+}
+
+@media (max-width: 425px) {
+    .service-description{
+        font-size: 0.95rem;
+        text-align: justify;
+    }
+
+}

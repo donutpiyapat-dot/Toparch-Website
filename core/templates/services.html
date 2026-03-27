@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block favicon %}
+<link rel="icon" type="image/x-icon" href="{% static 'core/images/engineer.ico' %}">
+{% endblock %}
+
+{% block title %}SERVICE | TOPARCH{% endblock %}
+{% block body_class %}services-page{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'core/css/services.css' %}">
+{% endblock %}
+
+
+{% block splash %}
+<div id="splash-screen" class="splash-overlay splash-services">
+    <div class="splash-content">
+        <span class="splash-services-text">SERVICE</span>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container-fluid px-lg-5 py-5">
+    <div class="row g-4">
+        <div class="col-lg-4 sticky-col px-3">
+            <div class="sticky-info fade-up">
+                <h2 class="services-tital">Our Services<br></h2>
+                <div class="description-line my-4"></div>
+                <p class="description text-white opacity-75">
+                    Our company provides comprehensive consulting services
+                    in architecture, engineering, and construction project 
+                    management. We oversee every stage of a project, from
+                    design and pre-construction preparation to construction 
+                    supervision and project handover. Our goal is to deliver
+                    high-quality results that meet international standards, 
+                    stay within budget, and are completed according to the planned schedule.
+                </p>
+                <p class="description text-white opacity-75" >
+                  
+                </p>
+            </div>
+        </div>
+<div class="col-lg-8 px-3">
+    <div class="services-grid">
+        <!-- service 1 -->
+        <a href="{% url 'services_detail' 'services-1' %}" class="service_detail-link">
+            <div class="services-item">
+                <div class="services-box">
+                    <img src="{% static 'core/images/s1.jpg' %}" alt="services image">
+                </div>
+                <div class="services-detail mb-1">
+                    <p class="text-uppercase">
+                        DESIGN PERIOD
+                    </p>
+                </div>
+            </div>
+        </a>
+        <!-- service 2 -->
+        <a href="{% url 'services_detail' 'services-2' %}" class="service_detail-link">
+            <div class="services-item">
+                <div class="services-box">  
+                    <img src="{% static 'core/images/s2.jpg' %}" alt="services image">
+                </div>
+                <div class="services-detail mb-1">
+                    <p class="text-uppercase">
+                        Pre-Construction Period
+                    </p>
+                </div>
+            </div>
+        </a>
+        <!-- service 3 -->
+        <a href="{% url 'services_detail' 'services-3' %}" class="service_detail-link">
+            <div class="services-item">
+                <div class="services-box">
+                    <img src="{% static 'core/images/s3.jpg' %}" alt="services image">
+                </div>
+                <div class="services-detail mb-1">
+                    <p class="text-uppercase">
+                        Construction Period
+                    </p>
+                </div>
+            </div>
+        </a>
+        <!-- service 4 -->
+        <a href="{% url 'services_detail' 'services-4' %}" class="service_detail-link">
+            <div class="services-item">
+                <div class="services-box">
+                    <img src="{% static 'core/images/s4.jpg' %}" alt="services image">
+                </div>
+                <div class="services-detail mb-1">
+                    <p class="text-uppercase">
+                        Post-Construction Period
+                    </p>
+                </div>
+            </div>
+        </a>
+        <!-- service 5 -->
+        <a href="{% url 'services_detail' 'services-5' %}" class="service_detail-link">
+            <div class="services-item">
+                <div class="services-box">
+                    <img src="{% static 'core/images/s5.jpg' %}" alt="services image">
+                </div>
+                <div class="services-detail mb-1">
+                    <p class="text-uppercase">
+                        After Construction Period
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="services-spacer"></div>
+
+{% block extra_js %}
+<script>
+document.addEventListener("splashFinished", () => {
+
+    document.querySelectorAll(".fade-up, .zoom-in")
+        .forEach(el => {
+            el.classList.add("show");
+        });
+
+});
+</script>
+{% endblock %}
+
+{% endblock %}

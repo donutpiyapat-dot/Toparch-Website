@@ -1,0 +1,27 @@
+<div class="fullscreen-slider">
+
+    <!-- MAIN SLIDES -->
+    <div class="slider-track">
+        {% for img in images %}
+        <div class="slide">
+            <img src="{{ img.image.url }}" alt="{{ project.title }}">
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- BUTTON -->
+    <button class="slider-btn slider-prev">&#10094;</button>
+    <button class="slider-btn slider-next">&#10095;</button>
+
+    <!-- 🔥 THUMBNAILS -->
+    <div class="slider-thumbs">
+        {% for img in images %}
+        <img 
+            src="{{ img.image.url }}" 
+            class="thumb {% if forloop.first %}active{% endif %}"
+            data-index="{{ forloop.counter0 }}"
+        >
+        {% endfor %}
+    </div>
+
+</div>

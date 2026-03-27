@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="py-5" style="background-color: #0c0c0c; min-height: 80vh;">
+    <div class="container">
+        <div class="mb-5">
+            <h2 class="text-white fw-bold">DOCUMENT <span class="text-yellow">CENTER</span></h2>
+            <p class="text-secondary small">ศูนย์รวมเอกสารภายในและแบบฟอร์มมาตรฐานสำหรับพนักงาน</p>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mb-4 gap-3">
+            
+            <div style="max-width: 500px; width: 100%;">
+                <form method="GET" action="{% url 'document_list' %}" class="d-flex">
+                    <div class="input-group overflow-hidden rounded-pill border border-secondary" style="background: #1a1a1a;">
+                        <span class="input-group-text bg-transparent border-0 text-secondary ps-3">
+                            <i class="fas fa-search"></i>
+                        </span>
+                        <input type="text" name="q" class="form-control bg-transparent border-0 text-white shadow-none py-2" 
+                               placeholder="ค้นหาชื่อเอกสารหรือคีย์เวิร์ด..." 
+                               value="{{ query|default:'' }}">
+                        {% if query %}
+                            <a href="{% url 'document_list' %}" class="btn bg-transparent border-0 text-secondary">
+                                <i class="fas fa-times"></i>
+                            </a>
+                        {% endif %}
+                        <button type="submit" class="btn btn-yellow px-4 fw-bold">SEARCH</button>
+                    </div>
+                </form>
+            </div>
+
+            <form action="{% url 'logout' %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-outline-danger btn-logout-custom ">
+                    <i class="fas fa-sign-out-alt"></i> LOGOUT
+                </button>
+            </form>
+        </div>
+
+        {% if query %}
+            <p class="text-secondary small mb-4">
+                พบเอกสาร <span class="text-yellow">{{ documents.count }}</span> รายการ สำหรับคำค้นหา: <span class="text-white">"{{ query }}"</span>
+            </p>
+        {% endif %}
+
+        <div class="table-responsive py-3">
+            <table class="table table-dark table-hover border-secondary">
+                <thead>
+                    <tr class="text-yellow">
+                        <th>Document Name</th>
+                        <th>Upload Date</th>
+                        <th class="text-end">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for doc in documents %}
+                    <tr>
+                        <td class="py-3">
+                            <i class="fas fa-file-pdf me-2 text-danger"></i> {{ doc.title }}
+                            <br><small class="text-secondary">{{ doc.description }}</small>
+                        </td>
+                        <td class="text-secondary small py-3">{{ doc.uploaded_at|date:"d M Y" }}</td>
+                        <td class="text-end py-3">
+                            <a href="{{ doc.file.url }}" class="btn btn-download-custom btn-sm px-3" download>
+                                <i class="fas fa-download"></i> DOWNLOAD
+                            </a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr><td colspan="3" class="text-center py-5 text-secondary">ไม่มีเอกสารในระบบ</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div id="welcome-alert-container">
+            {% if not query and user.is_authenticated %}
+            <div id="welcome-alert" class="alert alert-success bg-dark text-success border-success mt-4 d-flex align-items-center shadow-sm">
+                <i class="fas fa-check-circle me-3 fs-4"></i>
+                <div>
+                    <strong class="d-block">Login Successful!</strong>
+                    <span class="small">ยินดีต้อนรับคุณ {{ user.username }} เข้าสู่ระบบจัดการเอกสารของ TOPARCH</span>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<script>
+    // ตั้งเวลาให้แจ้งเตือนจางหายไป (ใช้ 8 วินาทีตามที่คุณเคยแจ้งไว้)
+    setTimeout(function() {
+        const alert = document.getElementById('welcome-alert');
+        if (alert) {
+            alert.style.transition = "opacity 1s ease, transform 1s ease";
+            alert.style.opacity = "0";
+            alert.style.transform = "translateY(-20px)";
+            setTimeout(() => alert.remove(), 3000);
+        }
+    }, 3000); 
+</script>
+{% endblock %}

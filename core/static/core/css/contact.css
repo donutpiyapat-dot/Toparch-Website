@@ -1,0 +1,210 @@
+.splash-contact-text {
+    font-family: 'Chalkduster', cursive;
+    font-size: 3rem;
+    color: #c1c1c1;
+}
+.splash-contact{
+    background:
+        linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8));
+    background-size: cover;
+    background-position: center;
+}
+.description-line {
+    width: 60px;
+    height: 4px;
+    background-color: #e9cb2f ;
+}
+.contact-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 0 24px;
+}
+.contact-header {
+    font-size: 1.5rem;
+    color: #c1c1c1 !important;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+
+}
+.contact-content p {
+    font-size: clamp(0.95rem,1.2vw,1rem);
+    line-height: 1.9;
+    margin-bottom: 32px;
+}
+.sticky-info {
+    position: sticky;
+    top: 120px;
+}
+
+.contact-image {
+    height: 600px; 
+    overflow: hidden;
+}
+
+.contact-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.map-hover a {
+    color: inherit !important;  
+    text-decoration: none;       
+    transition: all 0.3s ease;
+    display: inline-block;      
+}
+
+.map-hover a:hover {
+    color: #e9cb2f  !important; 
+    text-decoration: underline !important; 
+    text-decoration-color: #e9cb2f  !important; 
+    text-underline-offset: 8px;  
+    text-decoration-thickness: 2px; 
+}
+.map-hover {
+    position: relative;
+}
+
+/* กล่อง preview */
+.map-preview {
+    position: absolute;
+    bottom: 0;
+    top:300%;
+    left: 0;
+    width: 400px;
+    height: 300px;
+    
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+
+    transition: all 0.3s ease;
+
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 999;
+}
+
+/* iframe */
+.map-preview iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* hover แล้วโชว์ */
+.map-hover:hover .map-preview {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.map-hover:hover .map-preview,
+.map-preview:hover {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* layout */
+.mail-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ลิงก์เมล */
+.mail-link {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s ease;
+}
+
+.mail-link:hover {
+    color: #e9cb2f;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
+/* ปุ่ม copy */
+.copy-btn {
+    cursor: pointer;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+/* tooltip */
+.copy-btn::after {
+    content: "Copy";
+    position: absolute;
+    bottom: 140%;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    background: #000;
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    border-radius: 6px;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.2s;
+}
+
+/* hover tooltip */
+.copy-btn:hover::after {
+    opacity: 1;
+}
+
+
+
+
+
+
+html, body.Contact-page {
+    overflow-y: visible;
+}
+
+@media (max-width:991px){
+
+    .sticky-info{
+        position: static;
+    }
+    .contact-image{
+        height:450px;
+    }
+}
+/* มือถือ */
+@media (max-width: 768px) {
+
+    .contact-image {
+        display: flex;
+        align-items: flex-start;   
+        justify-content: center;
+        padding-top: 10px;  
+        height:auto;
+    }
+
+    .contact-image img {
+        width: 100%;
+        height: auto;
+        object-fit:cover;
+    }
+    .contact-container{
+        padding:0 18px;
+    }
+    .contact-content p{
+        font-size:0.95rem;
+        line-height:1.8;
+    }
+    .contact-header{
+        font-size:1.3rem;
+    }
+
+    .description-line{
+        width:50px;
+        height:3px;
+    }
+}

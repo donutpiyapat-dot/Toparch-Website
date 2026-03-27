@@ -1,0 +1,29 @@
+<div class="hero-layout">
+
+    <!-- รูปหลัก -->
+    {% if images %}
+    <div class="hero-main">
+        <img
+            src="{{ images.0.image.url }}"
+            alt="{{ project.title }}"
+            class="project-thumb"
+            data-full="{{ images.0.image.url }}"
+        >
+    </div>
+    {% endif %}
+
+    <!-- รูปรอง -->
+    <div class="hero-grid">
+        {% for img in images|slice:"1:5" %}
+        <div class="hero-item">
+            <img
+                src="{{ img.image.url }}"
+                alt="{{ project.title }}"
+                class="project-thumb"
+                data-full="{{ img.image.url }}"
+            >
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
