@@ -24,7 +24,26 @@
 
 {% block content %}
 
-<div class="container-fluid px-lg-5 py-5">
+<div class="srv-decorations">
+    
+    <div class="srv-tl-gray-box"></div>
+    <div class="srv-tl-yellow-bracket"></div>
+    <div class="srv-tl-gray-bracket "></div>
+
+    <div class="srv-ml-y-bracket"></div>
+    <div class="srv-ml-g-bracket"></div>
+
+    <div class="srv-bl-gray-vert"></div>
+    <div class="srv-bl-yellow-bracket"></div>
+    <div class="srv-bl-yellow-horiz"></div>
+    <div class="srv-bl-gray-box"></div>
+
+    <div class="srv-br-gray-line"></div>
+
+</div>
+
+
+<div class="container-fluid px-lg-5 py-5 position-relative style="z-index: 10;">
     <div class="row g-4">
         <div class="col-lg-4 sticky-col px-3">
             <div class="sticky-info fade-up">
@@ -39,9 +58,6 @@
                     high-quality results that meet international standards, 
                     stay within budget, and are completed according to the planned schedule.
                 </p>
-                <p class="description text-white opacity-75" >
-                  
-                </p>
             </div>
         </div>
 <div class="col-lg-8 px-3">
@@ -50,7 +66,7 @@
         <a href="{% url 'services_detail' 'services-1' %}" class="service_detail-link">
             <div class="services-item">
                 <div class="services-box">
-                    <img src="{% static 'core/images/s1.jpg' %}" alt="services image">
+                    <img src="{% static 'core/images/DESIGN-PERIOD.jpg' %}" alt="DESIGN PERIOD image">
                 </div>
                 <div class="services-detail mb-1">
                     <p class="text-uppercase">
@@ -63,7 +79,7 @@
         <a href="{% url 'services_detail' 'services-2' %}" class="service_detail-link">
             <div class="services-item">
                 <div class="services-box">  
-                    <img src="{% static 'core/images/s2.jpg' %}" alt="services image">
+                    <img src="{% static 'core/images/Pre-Construction-Period.jpg' %}" alt=" Pre-Construction Period image">
                 </div>
                 <div class="services-detail mb-1">
                     <p class="text-uppercase">
@@ -76,7 +92,7 @@
         <a href="{% url 'services_detail' 'services-3' %}" class="service_detail-link">
             <div class="services-item">
                 <div class="services-box">
-                    <img src="{% static 'core/images/s3.jpg' %}" alt="services image">
+                    <img src="{% static 'core/images/Construction-Period.jpg' %}" alt="Construction Period image">
                 </div>
                 <div class="services-detail mb-1">
                     <p class="text-uppercase">
@@ -89,7 +105,7 @@
         <a href="{% url 'services_detail' 'services-4' %}" class="service_detail-link">
             <div class="services-item">
                 <div class="services-box">
-                    <img src="{% static 'core/images/s4.jpg' %}" alt="services image">
+                    <img src="{% static 'core/images/Post-Construction-Period.jpg' %}" alt="Post-Construction Period image">
                 </div>
                 <div class="services-detail mb-1">
                     <p class="text-uppercase">
@@ -102,7 +118,7 @@
         <a href="{% url 'services_detail' 'services-5' %}" class="service_detail-link">
             <div class="services-item">
                 <div class="services-box">
-                    <img src="{% static 'core/images/s5.jpg' %}" alt="services image">
+                    <img src="{% static 'core/images/After-Construction-Period.jpg' %}" alt="After Construction image">
                 </div>
                 <div class="services-detail mb-1">
                     <p class="text-uppercase">

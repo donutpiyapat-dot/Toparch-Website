@@ -36,14 +36,16 @@
 
 }
 .description {
-    max-width: 70ch;
-    line-height: 1.6;
+    max-width: 40ch;
+    line-height: 1.5;
     margin-bottom: 32px;
     text-align: justify;
-    hyphens: auto;
-    text-justify: inter-word;
-    word-spacing: -0.05em;
-    letter-spacing: 0.2px;
+    text-justify: inter-character;
+    word-spacing: normal; 
+    letter-spacing: -0.30px;
+    hyphens: none;
+    -webkit-hyphens: auto; /* เผื่อสำหรับ Safari */
+    -ms-hyphens: auto;
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
@@ -286,7 +288,6 @@
 }
 html, body {
     height: auto;
-    overflow-x: hidden; /* ป้องกันการเลื่อนซ้ายขวา */
 }
 /* --- Background Setup เหมือนหน้า Services --- */
 .projects-page {
@@ -302,7 +303,7 @@ html, body {
     right: 0;
     bottom: 0; 
     width: 100%;
-    background-image: url("/static/core/images/19202000_2.png");
+    background-image: url("/static/core/images/Project-bg.jpg");
     
     background-size: cover;
     background-position: center;
@@ -313,8 +314,16 @@ html, body {
     pointer-events: none;
 }
 
-/* ปรับระยะห่าง Footer เล็กน้อยให้ดูเนียนกับพื้นหลัง
-.footer-minimal {
-    background: transparent !important;
-    border-top: 1px solid rgba(255,255,255,0.1);
-} */
+.yellow-side-line {
+    position: absolute;
+    top: 112px;
+    left: 17px;
+    width: 15px;
+    bottom: 0; 
+    background-color: var(--div-yellow); 
+}
+@media (max-width: 991px) {
+    .yellow-side-line {
+        display: none; 
+    }
+}

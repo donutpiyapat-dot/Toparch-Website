@@ -1,7 +1,7 @@
 .splash-contact-text {
     font-family: 'Chalkduster', cursive;
-    font-size: 3rem;
-    color: #c1c1c1;
+    font-size: var(--fs-big);
+    color: var(--text-primary);
 }
 .splash-contact{
     background:
@@ -9,10 +9,34 @@
     background-size: cover;
     background-position: center;
 }
+.Contact-page::before {
+    content: "";
+    position: absolute;
+    top: 70px;   
+    left: 0;
+    right: 0;
+    bottom: 0;  
+    width: 100%;
+    
+    background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    url("/static/core/images/Contract 1200 x 600 rev.1.jpg");
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    z-index: -1;
+    pointer-events: none;
+}
+
+
+
+
 .description-line {
     width: 60px;
     height: 4px;
-    background-color: #e9cb2f ;
+    background-color: var(--accent-yellow);
 }
 .contact-container {
     max-width: 800px;
@@ -20,8 +44,8 @@
     padding: 0 24px;
 }
 .contact-header {
-    font-size: 1.5rem;
-    color: #c1c1c1 !important;
+    font-size: var(--fs-h2);
+    color: var(--text-primary) !important;
     font-weight: 700;
     letter-spacing: 1px;
 
@@ -32,6 +56,19 @@
     line-height: 1.9;
     margin-bottom: 32px;
 }
+
+.icon-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 31.5px;          
+    height: 31.5px;         
+    border-radius: 50%; 
+    border: 2px solid var(--accent-yellow); 
+    background-color: transparent; 
+}
+
+
 .sticky-info {
     position: sticky;
     top: 120px;
@@ -55,9 +92,9 @@
 }
 
 .map-hover a:hover {
-    color: #e9cb2f  !important; 
+    color: var(--accent-yellow)  !important; 
     text-decoration: underline !important; 
-    text-decoration-color: #e9cb2f  !important; 
+    text-decoration-color: var(--accent-yellow)  !important; 
     text-underline-offset: 8px;  
     text-decoration-thickness: 2px; 
 }
@@ -65,15 +102,14 @@
     position: relative;
 }
 
-/* กล่อง preview */
+
 .map-preview {
     position: absolute;
     bottom: 0;
-    top:300%;
-    left: 0;
-    width: 400px;
-    height: 300px;
-    
+    top: 240px;
+    left: 10px;
+    width: 410px;
+    height: 320px;
     opacity: 0;
     transform: translateY(10px);
     pointer-events: none;
@@ -87,14 +123,13 @@
     z-index: 999;
 }
 
-/* iframe */
 .map-preview iframe {
     width: 100%;
     height: 100%;
     border: 0;
 }
 
-/* hover แล้วโชว์ */
+
 .map-hover:hover .map-preview {
     opacity: 1;
     transform: translateY(0);
@@ -107,14 +142,12 @@
     pointer-events: auto;
 }
 
-/* layout */
 .mail-wrapper {
     display: inline-flex;
     align-items: center;
     gap: 8px;
 }
 
-/* ลิงก์เมล */
 .mail-link {
     text-decoration: none;
     color: inherit;
@@ -122,45 +155,10 @@
 }
 
 .mail-link:hover {
-    color: #e9cb2f;
+    color: var(--accent-yellow);
     text-decoration: underline;
     text-underline-offset: 6px;
 }
-
-/* ปุ่ม copy */
-.copy-btn {
-    cursor: pointer;
-    font-size: 0.9rem;
-    position: relative;
-}
-
-/* tooltip */
-.copy-btn::after {
-    content: "Copy";
-    position: absolute;
-    bottom: 140%;
-    left: 50%;
-    transform: translateX(-50%);
-    
-    background: #000;
-    color: #fff;
-    font-size: 0.7rem;
-    padding: 4px 8px;
-    border-radius: 6px;
-
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.2s;
-}
-
-/* hover tooltip */
-.copy-btn:hover::after {
-    opacity: 1;
-}
-
-
-
-
 
 
 html, body.Contact-page {
@@ -176,7 +174,6 @@ html, body.Contact-page {
         height:450px;
     }
 }
-/* มือถือ */
 @media (max-width: 768px) {
 
     .contact-image {
@@ -208,3 +205,159 @@ html, body.Contact-page {
         height:3px;
     }
 }
+
+
+/* =========================================
+   Decorative Background Elements
+   ========================================= */
+.bg-decorations {
+    position: absolute; 
+    top: 70px; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0; 
+    pointer-events: none; 
+    overflow: hidden;
+}
+
+.dec-tl-gray {
+    position: absolute;
+    top: 39px;
+    left: 27px;
+    width: 180px;
+    height: 52.5px; 
+    z-index: 3;
+    background-color: var(--div-dark-gray);
+}
+.dec-tl-yellow {
+    position: absolute;
+    top: 39px;
+    left: 205px;
+    width: 165px;
+    height: 8px;
+    z-index: 2;
+    background-color:var(--div-yellow);
+}
+.dec-tl-L-gray {
+    position: absolute;
+    top: 45px;
+    left: 205px;
+    width: 165px;
+    height: 25px; 
+    z-index: 1;
+    background-color: var(--div-light-gray);
+}
+
+.dec-bl-bracket {
+    position: absolute;
+    bottom: 27px;
+    left: 25px;
+    width: 303px;
+    height: 400px;
+    border-left: 20px solid var(--div-yellow);
+    border-bottom: 20px solid var(--div-yellow);
+    z-index: 2;
+}
+.dec-bl-gray {
+    position: absolute;
+    bottom: 27px;
+    left: 45px;
+    width: 303px;
+    height: 400px;
+    border-left: 15px solid var(--div-dark-gray);
+    border-bottom: 36px solid var(--div-dark-gray);
+    z-index: 1;
+}
+.dec-bl-T-gray {
+    position: absolute;
+    bottom: 27px;
+    left: 45px;
+    width: 100px;
+    height: 400px;
+    border-top: 36px solid var(--div-dark-gray);
+    z-index: 1;
+}
+
+.dec-tr-bracket {
+    position: absolute;
+    top: 39px;
+    right: 51px;
+    width: 232px;
+    height: 110px;
+    border-top: 10.5px solid var(--div-yellow);
+    border-right: 10px solid var(--div-yellow);
+    z-index: 3;
+}
+.dec-tl-yellow-1{
+    position: absolute;
+    top: 39px;
+    right: 275px;
+    width: 10px;
+    height: 21px;
+    background-color:var(--div-yellow);
+    z-index: 3;
+}
+.dec-tl-yellow-2{
+    position: absolute;
+    top: 143px;
+    right: 51px;
+    width: 25px;
+    height: 6px;
+    background-color:var(--div-yellow);
+    z-index: 3;
+}
+.dec-tr-gray {
+    position: absolute;
+    top: 42px;
+    right: 51px;
+    width: 225px;
+    height: 103px;
+    border-top: 19px solid var(--div-light-gray);
+    border-right: 36px solid var( --div-light-gray);
+    z-index: 1;
+}
+.dec-br-black {
+    position: absolute;
+    top: 149.9px;
+    right: 0;
+    width: 90px;
+    height: 55px;
+    background-color: var(--div-black);
+    z-index: 5;
+}    
+.dec-br-gray {
+    position: absolute;
+    top: 91px;
+    right: 76px;
+    width: 29px;
+    height: 232px;
+    background-color: var(--div-dark-gray);
+    z-index: 2;
+}   
+.dec-br-bracket {
+    position: absolute;
+    bottom: 28px;
+    right: 53px;
+    width: 230px;
+    height: 20px;
+    background-color:var(--div-yellow);
+}
+
+@media (max-width: 991px) {
+    .bg-decorations {
+        display: none; 
+    }
+.map-preview {
+        position: fixed; 
+        top: 370px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        transform: translateY(10px);
+        width: 85vw;
+        max-width: 90vw;
+    }
+}   
+

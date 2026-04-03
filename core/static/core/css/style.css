@@ -16,9 +16,11 @@
     /* --- จานสีใหม่ (Dark Theme Palette) --- */
     --bg-main: #121212;         /* สีพื้นหลังหลัก (ดำเทาเข้ม) */
     --bg-secondary: #1E1E1E;    /* สีพื้นหลังรอง (เช่น การ์ด, แถบโลโก้) */
-    --text-primary: #E0E0E0;    /* สีข้อความหลัก (ขาวควันบุหรี่) */
+    --text-primary: #c1c1c1;    /* สีข้อความหลัก (ขาวควันบุหรี่) */
     --text-secondary: #A0A0A0;  /* สีข้อความรอง (เทาอ่อน) */
     --accent-yellow: #e9cb2f ;   /* สีเหลืองทองสำหรับจุดเด่น */
+    --text-black: #000000;      /* สีดำสำหรับข้อความที่ต้องการความคมชัดสูง */
+    
 
     /* --- ขนาดมาตรฐาน (Typography Scale) --- */
     --fs-base: 16px;      /* ขนาดเริ่มต้นสำหรับเนื้อหาทั่วไป */
@@ -27,6 +29,14 @@
     --fs-h3: 22px;    /* ขนาดหัวข้อในการ์ด 18 */
     --fs-p: 20px;        /* ขนาดเนื้อหาบรรยาย (Paragraph) 16 */ 
     --fs-small: 14px; /* ขนาดตัวหนังสือเล็ก (Footer, รายละเอียดเล็กๆ) 14 */
+    --fs-big: 48px;      /* ขนาดพิเศษสำหรับ Splash Page */
+
+
+    /* สีแทบสีในแต่ละหน้า */
+    --div-yellow: #fec802; /* สีเหลืองสด */
+    --div-dark-gray: #393939; /* สีเทาเข้มกล่องทึบ */
+    --div-light-gray: #636363; /* สีเทากรอบเส้น */
+    --div-black: #000000; /* สีเส้นขอบล่าง */
 }
 
 
@@ -699,4 +709,36 @@ main, .container-fluid {
     pointer-events: none;
     position: fixed;
     z-index: 9999;
+}
+
+
+/* ==============================================
+   Admin & Secret Login Styles
+   ============================================== */
+
+/* ซ่อนลิงก์ Login ที่ Footer ให้เนียนเหมือนข้อความปกติ */
+.secret-login-link {
+    color: inherit; 
+    text-decoration: none; 
+    cursor: text; 
+}
+
+/* หากไม่อยากให้มีลูกเล่นตอนชี้เมาส์ ให้ลบ hover นี้ออกได้ครับ */
+.secret-login-link:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ปุ่ม Admin บน Navbar */
+.admin-nav-link {
+    color: #e9cb2f !important; /* สีเหลืองทอง */
+}
+
+/* ปุ่ม Logout บน Navbar (รีเซ็ตสไตล์ปุ่มปกติของ HTML) */
+.logout-nav-btn {
+    border: none; 
+    background: transparent; 
+    outline: none;
+    padding: 0; /* เอา padding ออกเพื่อให้ขนาดเท่ากับลิงก์ปกติ */
+    color: inherit;
 }

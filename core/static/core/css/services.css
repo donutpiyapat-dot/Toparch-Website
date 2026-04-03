@@ -1,7 +1,7 @@
 .splash-services-text{
     font-family: 'Chalkduster', cursive;
-    font-size: 3rem;
-    color: #c1c1c1;
+    font-size : var(--fs-big);
+    color: var(--text-primary);
 }
 .splash-services {
     background:
@@ -12,9 +12,8 @@
 .description-line {
     width: 60px;
     height: 4px;
-    background-color: #e9cb2f ;
+    background-color: var(--accent-yellow);
 }
-
 
 .services-page {
     position: relative;
@@ -23,44 +22,47 @@
 
 .services-page::before {
     content: "";
-    position: absolute;   /* 🔥 เปลี่ยนเป็น absolute เพื่อให้เลื่อนตามนิ้ว/เมาส์ */
-    top: 70px;            /* เริ่มต้นใต้ Navbar (สมมติ Navbar สูง 70px) */
+    position: absolute;   
+    top: 70px;            
     left: 0;
     right: 0;
-    bottom: 0;            /* ยืดพื้นหลังลงไปจนสุดขอบล่างของเนื้อหาทั้งหมด */
-    width: 100%;
+    bottom: 0;            
     height: 100%s;
     
-    background-image:url("/static/core/images/SERVICE (1920x1370 px).png"); 
+    background-image:url("/static/core/images/SERVICE.png"); 
     background-size: cover;
-    background-position: center top; /* ให้ส่วนบนของรูปเริ่มที่จุดที่กำหนด */
+    background-position: center top; 
     background-repeat: no-repeat;
     
-    z-index: -1;          /* อยู่หลังข้อความ */
-    pointer-events: none; /* ป้องกันการทับซ้อนการคลิก */
+    z-index: -1;          
+    pointer-events: none; 
 }
 
 .services-tital {
-    font-size: 1.5rem;
-    color: #c1c1c1 !important;
+    font-size: var(--fs-h2);
+    color: var(--text-primary) !important;
     font-weight: 700;
     letter-spacing: 1px;
 }
 
-.description {
-    max-width: 70ch;
-    line-height: 1.6;
-    margin-bottom: 32px;
+
+.description{
+    max-width:60ch;
+    line-height:1.5;
+    margin-bottom:32px;
     text-align: justify;
-    hyphens: auto;
-    text-justify: inter-word;
-    word-spacing: -0.05em;
-    letter-spacing: 0.2px;
+    text-justify: inter-character; 
+    word-spacing: normal;  
+    letter-spacing: -0.35px; 
+
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
 }
 .services-box {
     width: 100%;
-    aspect-ratio: 16/9; /* ปรับสัดส่วนรูปภาพ */
-    background-color: #1e1e1e;
+    aspect-ratio: 16/9; 
+    background-color: var(--bg-secondary);
     border: 1px solid #333;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -74,16 +76,13 @@
     transition: all 0.4s ease;
     aspect-ratio: 3/2;
     overflow: hidden;
-    display: block; /* สำคัญ */
+    display: block;
 }
 .services-box:hover img {
     transform: scale(1.1);
     opacity: 1;
 
 }
-/* .services-spacer{
-    height:px;
-} */
 .services-layout {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -91,11 +90,8 @@
     position: relative;
 }
 
-/* .services-item {
-    margin-bottom: 3rem;
-} */
 .services-detail{
-    color: #c1c1c1 !important;
+    color: var(--text-primary) !important;
     text-decoration: none;
 }
 
@@ -108,7 +104,7 @@
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 คอลัมน์ */
+    grid-template-columns: repeat(2, 1fr); 
     column-gap: 32px;
     row-gap: 20px;
 }
@@ -166,7 +162,7 @@ html, body {
     overflow-x: hidden; /* ป้องกันการเลื่อนซ้ายขวาที่น่ารำคาญ */
     height: auto !important; /* ให้ความสูงไหลตามเนื้อหาจริง */
 }
-/* จัดโครงสร้างให้ <body> เพื่อดัน Footer ลงล่างสุดเสมอ */
+
 body.services-page {
     display: flex !important;
     flex-direction: column;
@@ -175,22 +171,32 @@ body.services-page {
     overflow-x: hidden !important; 
 }
 
-/* สั่งให้เนื้อหาหลัก ยืดตัวดัน Footer ลงไป */
 body.services-page main {
     flex: 1; 
     width: 100%;
     overflow: visible !important;
 }
 .services-page {
-    /* เปลี่ยนจาก overflow: auto/scroll เป็น visible */
     overflow: visible !important; 
-    
-    /* มั่นใจว่าเนื้อหาไม่ถูกบีบจนต้องสร้าง Scrollbar เอง */
     display: block; 
 }
 
 main {
     overflow: visible !important;
+}
+.services-page .col-lg-8.px-3 {
+    margin-top: 11px; 
+}
+
+@media (max-width: 991px) {
+    .services-page .col-lg-8.px-3 {
+        margin-top: 0; 
+    }
+    .services-page::before{
+    background-image:
+        linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.2)), 
+        url("/static/core/images/SERVICE.png"); 
+    }
 }
 /* ---------- TABLET ---------- */
 
@@ -223,5 +229,124 @@ main {
     .description{
         font-size:.95rem;
         text-align: justify;
+    }
+}
+
+/* =========================================
+   SERVICE PAGE: Decorations
+   ========================================= */
+.srv-decorations {
+    position: absolute;
+    top: 70px; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0; 
+    pointer-events: none; 
+    overflow: hidden;
+}
+
+/* ================== 1. มุมซ้ายบน (Top Left) ================== */
+.srv-tl-gray-box {
+    position: absolute;
+    top: 35.5px;
+    left: 39px;
+    width: 195px;
+    height: 55px; 
+    background-color: var(--div-dark-gray);
+    z-index: 3;
+}
+
+.srv-tl-yellow-bracket {
+    position: absolute;
+    top: 42px;
+    left: 230px; 
+    width: 288px;
+    height: 50px;
+    border-top: 16px solid var(--div-yellow);
+    border-right: 20px solid var(--div-yellow);
+    z-index: 2;
+}
+
+.srv-tl-gray-bracket {
+    position: absolute;
+    top: 35.5px; 
+    left: 230px;;
+    width: 296px;
+    height: 155px;
+    border-top: 15px solid var(--div-light-gray);
+    border-right: 17px solid var(--div-light-gray);
+    z-index: 1;
+}
+
+/* ================== 2. กลางซ้าย (Middle Left) ================== */
+
+
+.srv-ml-g-bracket {
+    position: absolute;
+    top: 367px;
+    left: 346px;
+    width: 180px;
+    height: 145px;
+    border-bottom: 16px solid var(--div-dark-gray);
+    border-right: 16px solid var(--div-dark-gray); 
+    z-index: 2;
+}
+.srv-ml-y-bracket {
+    position: absolute;
+    top: 439px;
+    left: 440px;
+    width: 70px;
+    height: 57px;
+    border-bottom: 13px solid var(--div-yellow);
+    border-right: 13px solid var(--div-yellow);
+    z-index: 1;
+}
+
+/* ================== 3. มุมซ้ายล่าง (Bottom Left) ================== */
+.srv-bl-gray-vert { 
+    position: absolute;
+    top: 445px;
+    left: 38.5px;
+    width: 19.5px;
+    height: 457px;
+    background-color: var(--div-light-gray);  
+    z-index: 1;
+}
+.srv-bl-yellow-bracket {
+    position: absolute;
+    bottom: 70px;
+    left: 53px;
+    width: 160px;
+    height: 466px;
+    border-left: 16px solid var(--div-yellow);
+    border-bottom: 12px solid var(--div-yellow);
+    z-index: 2;
+}
+
+.srv-bl-gray-box {
+    position: absolute;
+    bottom: 77px;
+    left: 61px;
+    width: 173px;
+    height: 62px;
+    background-color: var(--div-dark-gray);
+    z-index: 3;
+}
+
+/* ================== 4. มุมขวาล่าง (Bottom Right) ================== */
+.srv-br-gray-line {
+    position: absolute;
+    bottom: 70px;
+    right: 69px;
+    width: 180px;
+    height: 14px;
+    background-color: var(--div-light-gray);
+}
+
+/* ซ่อนในมือถือกันรก */
+@media (max-width: 991px) {
+    .srv-decorations {
+        display: none; 
     }
 }

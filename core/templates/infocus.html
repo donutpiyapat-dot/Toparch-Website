@@ -23,13 +23,12 @@
 
 {% block content %}
 
-<div class="container-fluid px-lg-5 py-5">
-    <div class="row g-4">
+<div class="container-fluid px-lg-5 py-5 position-relative">
         
-        <div class="col-lg-4 sticky-col px-3">
-            <div class="sticky-info">
-                <h2 class="infocus-header">IN FOCUS<br></h2>
-                <div class="description-line my-4"></div>
+    <div class="sticky-info" style="z-index: 20;">
+        <h2 class="infocus-header">IN FOCUS<br></h2>
+        <div class="description-line my-4"></div>
+            <div>
                 <p class="description text-white opacity-75">
                 Toparch Co., Ltd. places great importance on attention to detail in every stage of the working process. 
                 This meticulous approach enables the company to consistently deliver high-quality outcomes, minimize errors, and prevent potential impacts on project performance.
@@ -41,13 +40,6 @@
                 operations and driving each project toward the highest level of success in line with defined objectives.
                 </p>
             </div>
-        </div>
-
-        <div class="col-lg-8 px-3">
-             <!-- <div class="infocus-image">
-                <img src="/static/core/images/magnifying-glass.png" alt="magnifying glass">
-            </div> -->
-        </div>
     </div>
 </div>
 <div class="infocus-spacer"></div>
@@ -66,7 +58,25 @@ document.addEventListener("splashFinished", () => {
 });
 </script>
 {% endblock %}
+<div class="inf-decorations">
+    
+    <div class="inf-tl-yellow-bracket"></div>
+    <div class="inf-tl-yellow-box"></div>
+    <div class="inf-tl-black-box"></div>
+    <div class="inf-tl-gray-bracket"></div>
+    <div class="inf-tl-gray-box"></div>
 
+    <div class="inf-bl-lgray-bracket"></div>
+    <div class="inf-bl-yellow-box"></div>
+    <div class="inf-bl-black-bracket"></div>
+
+
+    <div class="inf-r-black-box"></div>
+    <div class="inf-r-yellow-line"></div>
+    <div class="inf-r-gray-box1"></div>
+    <div class="inf-r-gray-box2"></div>
+
+</div>
 
 
 

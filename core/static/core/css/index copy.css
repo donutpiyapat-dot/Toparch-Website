@@ -497,3 +497,36 @@ main {
     margin-bottom: 20px; /* ดันขอบล่างขึ้นมานิดนึงให้ตรงกับขอบเหลืองพอดี */
     letter-spacing: 0.5px;
 }
+
+
+
+
+
+/* เซ็ตที่ 1 */
+.delay-1  { animation-delay: 0s; }
+
+/* เซ็ตที่ 2  */
+.delay-2  { animation-delay: 3.5s; }
+.delay-3  { animation-delay: 3.8s; } /* ซ้อนกันตามลำดับ */
+
+/* เซ็ตที่ 3 */
+.delay-4  { animation-delay: 7s; }
+.delay-5  { animation-delay: 7.5s; }
+
+/* เซ็ตที่ 4 (มี 3 รูป) */
+.delay-6  { animation-delay: 11.4s; }
+.delay-7  { animation-delay: 11.8s; }
+.delay-8  { animation-delay: 12.5s; }
+.delay-15 { animation-delay: 12.2s; }
+
+/* เซ็ตที่ 5 */
+.delay-9  { animation-delay: 16s; }
+.delay-10 { animation-delay: 16.5s; }
+
+/* เซ็ตที่ 6 */
+.delay-11 { animation-delay: 19.8s; }
+.delay-12 { animation-delay: 20s; }
+
+/* เซ็ตที่ 7  */
+.delay-13 { animation-delay: 23.5s; }
+.delay-14 { animation-delay: 23.8s; }

@@ -7,15 +7,15 @@
 }
 
 .splash-content .ta{
-    color:#e9cb2f ;
-    font-size:3rem;
+    color:var(--accent-yellow);
+    font-size: var(--fs-big);
     font-weight:700;
 }
 
 .splash-content .style{
     font-family:'Chalkduster','MyChalk',cursive;
-    font-size:3rem;
-    color:#c1c1c1;
+    font-size: var(--fs-big);
+    color:var(--text-primary);
     line-height:1;
 }
 
@@ -25,19 +25,11 @@
     background-position:center;
 }
 .ta-style-page .nav-wrapper{
-    background:#000;
-}
-/* ---------- TITLE ---------- */
-
-.description-line{
-    width:60px;
-    height:4px;
-    background:#e9cb2f ;
+    background:var(--div-black);
 }
 
 html, body {
     height: auto;
-    overflow-x: hidden;
 }
 
 .ta-style-page {
@@ -45,7 +37,6 @@ html, body {
     min-height: 100vh;
     display: flex;
     flex-direction: column; 
-    padding-bottom: 60px; /* 👈 เติม padding-bottom นิดนึงให้เนื้อหาหรือ Footer ไม่เบียดขอบล่างเกินไป */
 }
 
 .ta-style-page::before {
@@ -56,9 +47,7 @@ html, body {
     right: 0;
     bottom: 0;             
     width: 100%;
-    background-image: 
-        /* linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)), */
-        url("/static/core/images/TA STYLE.webp");
+    background-image:url("/static/core/images/TA STYLE.png");
     
     background-size: cover;
     background-position: center top; 
@@ -68,21 +57,39 @@ html, body {
     pointer-events: none; 
 }
 
+/* ================== รูปกราฟิกตกแต่งฝั่งขวา ================== */
+.ta-graphic-right {
+    position: absolute;
+    
+    width: 100%; /* ให้รูปกว้างประมาณครึ่งนึงของจอ */
+    height: 100%;
+    
+    z-index: 1; /* ให้อยู่ระดับเดียวกับกล่องตกแต่งอื่นๆ */
+    pointer-events: none; /* สำคัญมาก: ป้องกันไม่ให้ตัวรูปไปบล็อกการใช้เมาส์คลิกเนื้อหาอื่นๆ */
+}
+
 .TA-tital{
-    font-size:1.5rem;
-    color:#c1c1c1 !important;
+    font-size: var(--fs-h2);
+    color: var(--div-black) !important;
     font-weight:700;
     letter-spacing:1px;
+    z-index: 5;
 }
 
 /* ---------- TEXT ---------- */
 
 .description{
     max-width:65ch;
-    line-height:1.6;
+    line-height:1.5;
     margin-bottom:32px;
-    text-align:justify;
-    hyphens:auto;
+    text-align: justify;
+    text-justify: inter-character; 
+    word-spacing: normal;  
+    letter-spacing: -0.35px; 
+
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
 }
 
 /* ---------- LAYOUT FIX ---------- */
@@ -119,15 +126,13 @@ html, body {
     height:100%;
 }
 
-/* ---------- CAROUSEL CONTROLS ---------- */
+/* ---------- CAROUSEL CONTROLS --------- */
 
 .carousel-control-prev,
 .carousel-control-next{
     top:50%;
     transform:translateY(-50%);
 }
-
-/* indicators */
 
 .carousel-indicators{
     bottom:12px;
@@ -146,7 +151,6 @@ html, body {
 }
 
 }
-/* ---------- TABLET ---------- */
 
 @media (max-width:991px){
 
@@ -158,10 +162,7 @@ html, body {
 
 }
 
-/* ---------- MOBILE ---------- */
-
 @media (max-width:768px){
-
     .description{
         text-align:left;
         max-width:100%;
@@ -170,13 +171,130 @@ html, body {
     }
 }
 
-/* ---------- SMALL MOBILE ---------- */
-
 @media (max-width:425px){
-
     .description{
         font-size:.95rem;
         line-height:1.9;
         text-align: justify;
+    }
+}
+
+/* =========================================
+   TA STYLE: Decorations 
+   ========================================= */
+
+.ta-decorations {
+    position: absolute; 
+    top: 70px; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0; 
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* ================== มุมซ้ายบน (Top Left) ================== */
+.ta-tl-yellow-box3 {
+    position: absolute;
+    top: 31px;
+    left: 27.5px;
+    width: 508px;
+    height: 67px;
+    background-color: var(--div-yellow);
+    z-index: 1;
+}
+
+.ta-tl-black-box4 {
+    position: absolute;
+    top: 42.3px;
+    left: 193px; 
+    width: 342px;
+    height: 55px;
+    background-color: var(--div-black);
+    z-index: 2;
+}
+
+.ta-tl-gray-box2 {
+    position: absolute;
+    top: 58px;
+    left: 193px; 
+    width: 342px;
+    height: 40px;
+    background-color: var(--div-light-gray);
+    z-index: 3;
+}
+
+.ta-tl-bracket1 {
+    position: absolute;
+    top: 90px;
+    left: 442px;
+    width: 93px;
+    height: 425px;
+    border-right: 12px solid var(--div-light-gray);
+    border-bottom: 12px solid var(--div-light-gray);
+    z-index: 2;
+}
+
+.ta-nl-gray-bracket{
+    position: absolute;
+    top: 31px;
+    left: 543px;
+    width: 299px;
+    height: 110px;
+    border-top: 12px solid var(--div-light-gray);
+    border-left: 34px solid var(--div-light-gray);
+    z-index: 1;
+}
+
+/* ================== มุมซ้ายล่าง (Bottom Left) ================== */
+.ta-bl-gray-box {
+    position: absolute;
+    bottom: 65px;
+    left: 42px;
+    width: 285px;
+    height: 43px;
+    background-color: var(--div-light-gray);
+    z-index: 3;
+}
+
+.ta-bl-black-box {
+    position: absolute;
+    bottom: 46px;
+    left: 42px; 
+    width: 285px;
+    height: 40px;
+    z-index: 2;
+    background-color: var(--div-black);
+}
+
+.ta-bl-bracket {
+    position: absolute;
+    bottom: 36px;
+    left: 27.5px;
+    width: 300px;
+    height: 207px;
+    border-bottom: 20px solid var(--div-yellow);
+    border-left: 50px solid var(--div-yellow);
+    z-index: 1;
+}
+
+/* ================== มุมขวาล่าง (Bottom Right) ================== */
+.ta-br-bracket {
+    position: absolute;
+    bottom: 36px;
+    right: 75px;
+    width: 157px;
+    height: 150px;
+    border-right: 12px solid var(--div-yellow);
+    border-bottom: 25px solid var(--div-yellow);
+}
+
+@media (max-width: 991px) {
+    .ta-decorations {
+        display: none; 
+    }
+    .TA-tital{
+        color:var(--text-primary) !important;
     }
 }

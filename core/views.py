@@ -101,34 +101,24 @@ def services_detail(request, slug):
     services = {
         "services-1": {
             "title": "DESIGN PERIOD",
-            # "subtitle": "Design Period – Design Phase",
             "description": "During this phase, our architects and engineers analyze the client’s requirements, study site conditions and regulations, and develop design concepts that align with functionality, budget, and environmental context. We prepare complete architectural drawings, structural engineering designs, building systems engineering (MEP), and all necessary design documentation.",
-            "bg": "core/images/CONSTUCTION (1200x600 px).png"
         },
         "services-2": {
             "title": "PRE-CONSTRUCTION PERIOD",
-            # "subtitle": "PRE CON PERIOD subtitle",
             "description": "This phase focuses on preparing all necessary aspects before construction begins, including cost estimation, budget planning, preparation of tender documents, contractor selection, and project planning to ensure that the construction process runs efficiently.",
-            "bg": "core/images/CONSTUCTION (1200x600 px).png"
         },
         "services-3": {
             "title": "Construction Period",
-            # "subtitle": "CON PERIOD subtitle",
             "description": "During construction, our team supervises, inspects, and manages the construction work to ensure it complies with the design, engineering standards, and project timeline. We also coordinate closely between the project owner, contractors, and all related parties.",
-            "bg": "core/images/CONSTUCTION (1200x600 px).png"
         },
         "services-4": {
             "title": "Post-Construction Period",
-            # "subtitle": "POST CON PERIOD subtitle",
             "description": "Once construction is completed, we conduct quality inspections, project acceptance procedures, and prepare project handover documentation to ensure that the building or development is ready for operation and meets all required standards.",
-            "bg": "core/images/CONSTUCTION (1200x600 px).png"
         },
         "services-5": {
             "title": "After Construction Period",
-            # "subtitle": "AFTER CON PERIOD subtitle",
             "description1": "After project handover, we provide post-construction support including operational follow-up, inspections during the warranty period, and maintenance recommendations to ensure the long-term performance of building systems and components.",
             "description2": "We also provide building survey and measurement services for existing structures, including assessment of structural systems, electrical systems, and building services, to support redesign, renovation, or building improvement projects.",
-            "bg": "core/images/CONSTUCTION (1200x600 px).png"
         },
     }
 

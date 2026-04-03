@@ -134,12 +134,9 @@ import os
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# เมื่อ Login สำเร็จ ให้ส่งผู้ใช้ไปที่หน้าแรก (อ้างอิงจาก name='home' ใน urls.py)
-LOGIN_REDIRECT_URL = 'document_list'
 
-# เมื่อ Logout สำเร็จ ให้ส่งผู้ใช้กลับไปที่หน้า Login
-LOGOUT_REDIRECT_URL = 'login'
-# เมื่อกด Logout ระบบจะพาไปหน้า login.html ทันที
+LOGIN_REDIRECT_URL = '/admin/'
+
 LOGOUT_REDIRECT_URL = 'login' 
 
 SECURE_SSL_REDIRECT = False

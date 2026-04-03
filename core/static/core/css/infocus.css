@@ -23,19 +23,22 @@
 
 }
 .description {
-    max-width: 70ch;
+    max-width: 40ch; 
     line-height: 1.5;
     margin-bottom: 32px;
     text-align: justify;
-    hyphens: auto;
-    text-justify: inter-word;
-    word-spacing: -0.05em;
-    letter-spacing: 0.2px;
-    text-wrap: balance;
+    text-justify: inter-character; 
+    word-spacing: normal;  
+    letter-spacing: -0.35px; 
+
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
 }
 .sticky-info {
     position: sticky;
     top: 120px;
+    padding-left: 5px
 }
 
 .infocus-image {
@@ -76,7 +79,7 @@ html, body {
     
     background-image:
     /* linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9)), */
-    url("/static/core/images/IN FOCUS.webp");
+    url("/static/core/images/IN FOCUS.png");
     
     background-size: cover;
     background-position: center;
@@ -114,6 +117,9 @@ html, body {
         line-height: 1.7;
         text-align: justify;
     }
+    .inf-decorations {
+        display: none; 
+    }
 
 
 }
@@ -146,13 +152,153 @@ html, body {
 
         background:
             /* linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8)), */
-            url("/static/core/images/IN FOCUS22.webp")
+            url("/static/core/images/IN FOCUS.png")
             center / cover no-repeat;
-    }
+    }s
     .description{
         font-size: 0.95rem;
         line-height: 1.9;
         text-align: justify;
     }
 
+}/* =========================================
+   IN FOCUS PAGE: Decorations
+   ========================================= */
+
+.inf-decorations {
+    position: absolute;
+    top: 70px; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0; 
+    pointer-events: none; 
+    overflow: hidden;
 }
+
+/* ================== 1. มุมซ้ายบน (Top Left) ================== */
+.inf-tl-yellow-bracket {
+    position: absolute;
+    top: 18px;
+    left: 0;
+    width: 510px;
+    height: 560px;
+    border-top: 60px solid var(--div-yellow);
+    border-left: 39px solid var(--div-yellow);
+    z-index: 1;
+}
+.inf-tl-yellow-box {
+    position: absolute;
+    top: 18px;
+    left: 503px;
+    width: 9px;
+    height: 106px;
+    background-color: var(--div-yellow);
+    z-index: 4;
+}
+.inf-tl-black-box {
+    position: absolute;
+    top: 38px; 
+    left: 15px;
+    width: 488px;
+    height: 503.5px;
+    border-top: 55.5px solid var(--div-black);
+    border-left: 23px solid  var(--div-black);
+    z-index: 3;
+}
+.inf-tl-gray-box {
+    position: absolute;
+    top: 44px;
+    left: 434px;
+    width: 75px;
+    height: 80px;
+    background-color: var(--div-light-gray);
+    z-index: 1;
+}
+.inf-tl-gray-bracket{
+    position: absolute;
+    top: 92px;
+    left: 15px;
+    width: 23px;
+    height: 449px;
+    border-bottom: 5px solid var(--div-light-gray);
+    border-right: 10px solid var(--div-light-gray);
+    z-index: 5;
+}
+
+/* ================== 2. มุมล่างซ้าย/กลาง (Bottom Left) ================== */
+.inf-bl-lgray-bracket {
+    position: absolute;
+    bottom: 33px;
+    left: 251px;
+    width: 260px;
+    height: 91px;
+    border-bottom: 42px solid var(--div-light-gray);
+    border-right: 65px solid var(--div-light-gray); 
+    z-index: 1;
+}
+.inf-bl-yellow-box {
+    position: absolute;
+    bottom: 33px;
+    left: 503px;
+    width: 8px;
+    height: 81px;
+    background-color: var(--div-yellow);
+    z-index: 3;
+}
+.inf-bl-black-bracket {
+    position: absolute;
+    bottom: 56px;
+    left: 251px;
+    width: 260px;
+    height: 57.5px;
+    border-bottom: 20px solid var(--div-black);
+    border-right: 65px solid var(--div-black); 
+    z-index: 2;
+}
+
+
+/* ================== 3. ขอบขวา (Right Edge) ================== */
+.inf-r-black-box {
+    position: absolute;
+    top: 131px;
+    right: 0;
+    width: 31px;
+    height: 479px;
+    border-top: 11.5px solid var(--div-black);
+    border-right: 21.8px solid var(--div-black);
+    z-index: 2;
+}
+
+/* เส้นเหลืองแนวตั้งคู่กับกล่องดำ */
+.inf-r-yellow-line {
+    position: absolute;
+    top: 142px;
+    right: 14px; 
+    width: 8px;
+    height: 451px;
+    background-color: var(--div-yellow);
+    z-index: 3;
+}
+
+.inf-r-gray-box1 {
+    position: absolute;
+    top: 123px;
+    right: 0px;
+    width: 31px;
+    height: 10px;
+    background-color: var(--div-light-gray);
+    z-index: 1;
+}
+
+.inf-r-gray-box2 {
+    position: absolute;
+    top: 593px;
+    right: 0px;
+    width: 39px;
+    height: 35px;
+    background-color: var(--div-light-gray);
+    z-index: 1;
+}
+
+

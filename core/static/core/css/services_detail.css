@@ -34,27 +34,29 @@ body.services-page main {
     letter-spacing: 0.2px;
 }
 .service-description {
-    max-width: 90ch;
+    max-width: 60ch; 
     line-height: 1.5;
     margin-bottom: 32px;
     text-align: justify;
-    hyphens: auto;
-    text-justify: auto;
-    /* word-spacing: -4px; 
-    letter-spacing: 0;     */
+    text-justify: inter-character; 
+    word-spacing: normal;  
+    letter-spacing: -0.5px; 
+
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
     
-    text-wrap: balance;
 }
-.services-box {
+/* .services-box {
     width: 100%;
-    aspect-ratio: 16/9; /* สัดส่วนรูปภาพ */
+    aspect-ratio: 16/9;
     background-color: #1e1e1e;
     border: 1px solid #333;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
+} */
 
-.services-box img {
+/* .services-box img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -62,19 +64,13 @@ body.services-page main {
     transition: all 0.4s ease;
     aspect-ratio: 3/2;
     overflow: hidden;
-    display: block; /* สำคัญ */
+    display: block; 
 }
 .services-box:hover img {
     transform: scale(1.1);
     opacity: 1;
 
-}
-.services-layout {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 64px;
-    position: relative;
-}
+} */
 
 .services-item {
     margin-bottom: 3rem;
@@ -268,7 +264,6 @@ body.services-page main {
     position: relative;
     min-height: calc(100vh - 70px); 
 }
-
 .services-1::before {
     content: "";
     position: absolute;
@@ -290,11 +285,10 @@ body.services-page main {
     pointer-events: none;
 } 
 
- .services-2 {
+.services-2 {
     position: relative;
     min-height: calc(100vh - 70px); 
 }
-
 .services-2::before {
     content: "";
     position: absolute;
@@ -343,11 +337,10 @@ body.services-page main {
     pointer-events: none;
 }
 
- .services-4 {
+.services-4 {
     position: relative;
     min-height: calc(100vh - 70px); 
 }
-
 .services-4::before {
     content: "";
     position: absolute;
@@ -373,7 +366,6 @@ body.services-page main {
     position: relative;
     min-height: calc(100vh - 70px); 
 }
-
 .services-5::before {
     content: "";
     position: absolute;
@@ -403,9 +395,9 @@ body.services-page .footer-minimal {
     background: transparent !important; 
     border-top: none; 
 }
-/* 2. ดันเนื้อหาใน .services-3 ไม่ให้โดน Footer ที่ดึงขึ้นมาบัง */
+
 .services-3 {
-    padding-bottom: 80px !important; /* เพิ่มพื้นที่ว่างด้านล่างเผื่อให้ Footer ลอยอยู่แบบไม่อึดอัด */
+    padding-bottom: 80px !important; 
 }
 
 @media (max-width: 991px) {

@@ -15,8 +15,8 @@
 {% block content %}
 
 <div class="container-fluid px-lg-5 py-5 services-detail-bg {{ request.resolver_match.kwargs.slug }}">
-    <div class="row g-4">
-        <div class="col-lg-4 sticky-col px-3">
+    <div >
+        <div >
             <div class="sticky-info ">
                     <div class="back-nav-container">
                         <a href="{% url 'services' %}" class="btn-back-services"  onclick="sessionStorage.setItem('skipSplash','true');">
@@ -26,21 +26,16 @@
 
                     <h2 class="services-tital text-uppercase">{{ service.title }}<br></h2>
 
-                    <div class="service-description my-4">
-                        <p>{{ service.description }}</p>
-                    </div>
-                    <div class="service-description my-4">
-                        <p>{{ service.description1 }}</p>
-                    </div>
-                    <div class="service-description my-4">
-                        <p>{{ service.description2 }}</p>
-                    </div>
+                    <p class="service-description my-4">
+                        {{ service.description }}
+                    </p>
+                    <p class="service-description my-4">
+                        {{ service.description1 }}
+                    </p>
+                    <p class="service-description my-4">
+                        {{ service.description2 }}
+                    </p>
             </div>
-        </div>
- 
-        <div class="col-lg-8 px-3">
-            <div class="services-image">
-                <!-- <img src="/static/core/images/nobg.gif" class="img-fluid" alt="services image"> -->
         </div>
     </div>
 </div>

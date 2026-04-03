@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,9 +18,8 @@
 </head>
 <body class="{% block body_class %}{% endblock %}">
 
-
+{% if request.path != '/login/' %}
 <header>
-
     <nav class="navbar navbar-expand-lg navbar-dark p-0 home-navbar">
         <div class="nav-wrapper d-flex w-100 align-items-center">
             
@@ -55,20 +54,26 @@
                     <a href="{% url 'contact' %}" class="nav-link-item {% if request.resolver_match.url_name == 'contact' %}active-nav{% endif %}">
                         CONTACT
                     </a>
+
+                    {% if user.is_authenticated %}
+                        <a href="/admin/" class="nav-link-item admin-nav-link">
+                            <i class="fas fa-user-shield me-1"></i> ADMIN
+                        </a>
+                        <form method="POST" action="{% url 'logout' %}" class="d-flex align-items-center m-0 p-0">
+                            {% csrf_token %}
+                            <button type="submit" class="nav-link-item logout-nav-btn">
+                                LOGOUT
+                            </button>
+                        </form>
+                    {% endif %}
                 </div>
             </div>
 
             <div class="nav-spacer nav-spacer-search d-none d-lg-block"></div>
 
-            <form method="GET"
-                action="{% url 'global_search' %}"
-                class="d-flex search-form">
+            <form method="GET" action="{% url 'global_search' %}" class="d-flex search-form">
                 <div class="search-wrapper">
-                    <input class="form-control form-control-sm"
-                        type="search"
-                        name="q"
-                        placeholder="Search projects..."
-                        value="{{ request.GET.q }}">
+                    <input class="form-control form-control-sm" type="search" name="q" placeholder="Search projects..." value="{{ request.GET.q }}">
                     <button class="btn btn-sm search-btn" type="submit">
                         <i class="fas fa-search"></i>
                     </button>
@@ -80,6 +85,7 @@
         </div>
     </nav>
 </header>
+{% endif %}
     {% block splash %}
         <div id="splash-screen" class="splash-content">
             <span class="splash-text">
@@ -95,24 +101,26 @@
     </main>
 
 
-<footer class="footer-minimal">
-    <div class="container-fluid text-center py-4">
-        <span class="copyright-text m-0">
-            &copy; {% now "Y" %} TOPARCH Co., Ltd. All Rights Reserved.
-        </span>
-    </div>
-</footer>
-
+{% if request.path != '/login/' %}
+    <footer class="footer-minimal">
+        <div class="container-fluid text-center py-4">
+            <span class="copyright-text m-0">
+                
+                &copy; {% now "Y" %} <a href="{% url 'login' %}" class="secret-login-link">TOPARCH</a> Co., Ltd. All Rights Reserved.
+                
+            </span>
+        </div>
+    </footer>
+{% endif %}
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const splash = document.getElementById('splash-screen');
     if (!splash) return;
 
-    // 🔥 ถ้ามาจากปุ่ม back ไม่ต้องแสดง splash
     if (sessionStorage.getItem("skipSplash") === "true") {
         splash.remove();
-        sessionStorage.removeItem("skipSplash"); // เคลียร์ค่า
+        sessionStorage.removeItem("skipSplash");
         return;
     }
 
@@ -136,24 +144,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <div class="cursor-halo"></div>
 
-
 <script>
 const fakeCursor = document.querySelector('.fake-cursor');
 const halo = document.querySelector('.cursor-halo');
 
 document.addEventListener('mousemove', (e) => {
     window.requestAnimationFrame(() => {
-        // ✅ ใช้แค่ translate3d อย่างเดียว ตำแหน่งจะตรงกับเมาส์จริงเป๊ะ
         fakeCursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
         
         const isHover = document.body.classList.contains('cursor-hover');
         const scale = isHover ? 1 : 0.6;
         
-        // Halo ต้องมี translate(-50%, -50%) เพื่อให้จุดศูนย์กลางตรงกับปลายเมาส์
         halo.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%) scale(${scale})`;
     });
 });
-// elements ที่ถือว่า hover แล้วควรโชว์ halo
+
 const hoverTargets = document.querySelectorAll(
   'a, button, input, textarea, select, [data-cursor]'
 );
@@ -176,27 +181,19 @@ if ('ontouchstart' in window) {
 document.body.classList.add("fake-active");
 
 document.addEventListener("fullscreenchange", () => {
-
     if (document.fullscreenElement) {
-
         document.body.classList.remove("fake-active");
         fakeCursor.style.display = "none";
         halo.style.display = "none";
-
     } else {
-
         document.body.classList.add("fake-active");
         fakeCursor.style.display = "block";
         halo.style.display = "block";
     }
-
 });
 const isTouchDevice = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
-
-
-
-
 </script>
+
 {% block extra_js %}{% endblock %}
 
 </body>

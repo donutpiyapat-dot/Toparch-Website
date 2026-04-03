@@ -204,76 +204,189 @@ main {
 .tech-overlay {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 45%;
     transform: translate(-50%, -50%);
-    width: 100%; /* หรือ 80% ตามที่คุณต้องการ */
-    height: 100%;
+    width: 90%; /* หรือ 80% ตามที่คุณต้องการ */
+    height: 90%;
     object-fit: cover; /* ให้รูปยืดเต็มกล่อง overlay */
     
     /* ซ่อนไว้ก่อนเสมอ */
     opacity: 0;
     filter: blur(10px); 
     
-    /* ตั้งเวลา Loop ทั้งหมด = 30 วินาที */
-    animation: popAndFocus 30s infinite ease-in-out;
+
+    animation: popAndFocus 24s infinite ease-in-out;
     pointer-events: none;
 }
+/* ==============================================
+   Animation Delays (จัดสรรใหม่สำหรับลูป 24 วินาที)
+   ============================================== */
 
-/* -------------------------------------
-   Keyframes แบบคำนวณเวลา (หาร 10 ส่วน)
--------------------------------------- */
-/* รวม 100% / 10 รูป = แต่ละรูปจะได้โควต้าเวลา 10% ของหลอด
-  ดังนั้นรูปจะแสดงตัวตั้งแต่ 0% ไปจบที่ 10% แล้วซ่อนตัวยาวๆ ไปจนถึง 100% ครับ
-*/
+/* เซ็ตที่ 1: เริ่มทันทีที่ 0 วิ เพื่อให้รับไม้ต่อจากเซ็ต 7 ตอนวนลูป */
+.delay-1  { animation-delay: 0s; }
+
+/* เซ็ตที่ 2  */
+.delay-2  { animation-delay: 2.7s; }
+.delay-3  { animation-delay: 3.0s; } 
+
+/* เซ็ตที่ 3 */
+.delay-4  { animation-delay: 5.5s; }
+.delay-5  { animation-delay: 6.0s; }
+
+/* เซ็ตที่ 4 (มี 4 รูป) */
+.delay-6  { animation-delay: 9s; }
+.delay-8  { animation-delay: 9.5s; }
+.delay-7  { animation-delay: 10s; }
+.delay-15 { animation-delay: 10.5s; }
+
+/* เซ็ตที่ 5 */
+.delay-9  { animation-delay: 12.5s; }
+.delay-10 { animation-delay: 13.5s; }
+
+/* เซ็ตที่ 6 */
+.delay-11 { animation-delay: 16s; }
+.delay-12 { animation-delay: 16.5s; }
+
+/* เซ็ตที่ 7: 
+   เริ่มวิที่ 20.5 + แสดงผล 3.5 วิ = จบที่ 24 วิพอดี! 
+   จังหวะเฟดออกจะซ้อนกับการเด้งขึ้นของเซ็ตที่ 1 พอดี */
+.delay-13 { animation-delay: 19s; }
+.delay-14 { animation-delay: 19.5s; }
+
+
+/* ==============================================
+   Animation Keyframes (คำนวณสัดส่วนใหม่สำหรับ 24 วินาที)
+   เพื่อให้ระยะเวลาแสดงผลแต่ละรูปอยู่ที่ 3.5 วินาทีเท่าเดิม
+   ============================================== */
+/* ==============================================
+   Animation Keyframes (เนียน นุ่มนวล ไม่มีเด้งกระตุก)
+   ระยะเวลาแสดงผลรวม 3.5 วินาทีต่อรูป
+   ============================================== */
 @keyframes popAndFocus {
-    /* เริ่มต้น (0%) */
+    /* 0% (0 วินาที): เริ่มต้นโปร่งใสและเบลอมาก */
     0% {
         opacity: 0;
-        filter: blur(10px);
+        filter: blur(15px);
         transform: translate(-50%, -50%) scale(0.95);
     }
-    /* ป๊อปอัปขึ้นมาอย่างไว (1.5%) */
-    1.5% {
+    
+    /* 4.16% (ประมาณ 1.0 วินาที): ค่อยๆ เฟดและชัดขึ้นอย่างช้าๆ 
+       (จังหวะนี้จะใช้เวลา 1 วิเต็มๆ ในการค่อยๆ โผล่มา แทนที่จะเป็น 0.28 วิแบบเดิม) */
+    4.16% {
         opacity: 1;
         filter: blur(0px);
-        transform: translate(-50%, -50%) scale(1.02);
+        transform: translate(-50%, -50%) scale(1); /* ขยายมาถึง 1 แล้วนิ่งเลย ไม่มีเด้งไป 1.02 */
     }
-    /* กลับขนาดปกติ (3%) */
-    3% {
+    
+    /* 10.41% (ประมาณ 2.5 วินาที): โชว์ค้างไว้ชัดๆ 
+       (จังหวะนี้รูปถัดไปจะเริ่มค่อยๆ เฟดแทรกขึ้นมาแล้ว เกิดการซ้อนทับกัน) */
+    10.41% {
+        opacity: 1;
+        filter: blur(0px);
         transform: translate(-50%, -50%) scale(1);
     }
-    /* ค้างไว้ให้คนดู (8%) */
-    8% {
-        opacity: 1;
-        filter: blur(0px);
-    }
-    /* จางหายไปและเบลอ เพื่อให้รูปต่อไปขึ้นแทน (10%) */
-    10% {
+    
+    /* 14.58% (3.5 วินาที): เฟดและเบลอหายไปอย่างนุ่มนวล
+       (เปลี่ยนให้ค่อยๆ ขยายออกไปที่ 1.05 แทนที่จะหดกลับ เพื่อไม่ให้รู้สึกขัดตา/กระตุก) */
+    14.58% {
         opacity: 0;
-        filter: blur(10px);
-        transform: translate(-50%, -50%) scale(0.95);
+        filter: blur(15px);
+        transform: translate(-50%, -50%) scale(1.05);
     }
-    /* ตั้งแต่ 10.1% ไปจนถึง 100% คือให้ซ่อนตัวยาวๆ รอเพื่อนอีก 9 รูปเล่นจนจบ */
-    10.1%, 100% {
+    
+    /* 14.6% - 100% (หลังจาก 3.5 วิ เป็นต้นไป): ซ่อนตัวยาวๆ รอจบลูป 24 วิ */
+    14.6%, 100% {
         opacity: 0;
-        filter: blur(10px);
+        filter: blur(15px);
+        transform: translate(-50%, -50%) scale(1.05);
     }
 }
 
-/* -------------------------------------
-   ตั้งค่า Delay หน่วงเวลาทีละ 3 วินาที
--------------------------------------- */
-/* รูปแรกเริ่มทันที */
-.delay-1  { animation-delay: 0s; }
-.delay-2  { animation-delay: 3s; }
-.delay-3  { animation-delay: 5s; }
-.delay-4  { animation-delay: 9s; }
-.delay-5  { animation-delay: 10s; }
-.delay-6  { animation-delay: 11s; }
-.delay-7  { animation-delay: 12s; }
-.delay-8  { animation-delay: 13s; }
-.delay-9  { animation-delay: 14s; }
-.delay-10 { animation-delay: 15s; }
+
+/* 1. ตั้งค่ากรอบแม่ (Container) ให้เป็นจุดอ้างอิง */
+.hero-overlay {
+    position: relative; /* หรือ absolute/fixed ขึ้นอยู่กับโครงสร้างเว็บคุณ */
+}
+
+/* 2. ตั้งค่ารูปทุกรูปให้ลอยเป็นอิสระและจัดซ้อนกันได้ */
+.tech-overlay {
+    position: absolute; /* ทำให้รูปลอยหลุดจาก flow ปกติ */
+    /* max-width: 200px;   ขนาดตั้งต้น (ปรับแก้ได้ตามต้องการ) */
+}
+
+/* 3. จับแต่ละรูปมาวางในตำแหน่งที่ต้องการ (ใช้ top, bottom, left, right)
+.delay-1 {
+    top: 10%;
+    left: 5%;
+    width: 150px; /* สามารถกำหนดขนาดแยกแต่ละรูปได้ด้วย 
+/* } */
+
+.delay-2 {
+    top: 420px;
+    right: 250px; /* อยากให้อยู่ฝั่งขวา ก็ใช้ right แทน left 
+    width: 180px; */
+} 
+
+.delay-3 {
+    /* bottom: 20%; อยากให้อิงจากด้านล่าง ก็ใช้ bottom */
+    left: 300px;
+}
+
+/* .delay-4 {
+    top: 40%;
+    left: 45%;
+} */
+
+.delay-5 {
+    bottom: 10%;
+    left: 20%;
+}
+
+.delay-6 {
+    top: 42%;
+    left: 25%;
+    width: 100%;
+    height: 100%;
+}
+
+.delay-7 {
+    top:27%;
+    left: 55%;
+    width: 30%;
+    height: 30%;
+}
+
+.delay-8 {
+    top: 55%;
+    left: 26%;
+    width: 105%;
+    height: 105%;
+}
+
+.delay-9 {
+    right: 40%;
+}
+
+.delay-10 {
+    left: 50%;
+    transform: translateX(-50%); /* เทคนิคจัดให้อยู่กึ่งกลางเป๊ะๆ ตามแนวนอน */
+}
+.delay-12{
+    left: 49%;    
+}
+.delay-13{
+    left: 48%;
+}
+.delay-14 {
+    left: 50%;
+}
+.delay-15 {
+    top:68%;
+    left: 55%;
+    width: 35%;
+    height: 35%;
+
+}
 
 
 .home-page .hero-content {
@@ -337,4 +450,133 @@ main {
     margin: 0;
     margin-bottom: 20px; /* ดันขอบล่างขึ้นมานิดนึงให้ตรงกับขอบเหลืองพอดี */
     letter-spacing: 0.5px;
+}
+
+/* =========================
+   HERO DECORATIVE BOXES (กล่องสี่เหลี่ยมตกแต่ง Layer ล่าง)
+   ========================= */
+
+/* ตั้งค่าพื้นฐานให้กล่องตกแต่งทุกชิ้น */
+.home-page [class^="hero-decor-box-"] {
+    position: absolute;
+    top: 50%; /* เริ่มต้นกึ่งกลางแนวตั้ง */
+    z-index: 2; /* ให้อยู่เหนือ overlay แต่ใต้เส้นเหลืองและข้อความ */
+    pointer-events: none; /* ไม่ขวางการคลิกเมาส์ */
+    /* บังคับปลายเหลี่ยมมุมฉากเป๊ะๆ 100% (ตรงตามความต้องการ) */
+    border-radius: 0; 
+}
+
+/* =========================
+   HERO DECORATIONS (เส้นตกแต่งสีเหลือง)
+   ========================= */
+
+/* เส้นตรงฝั่งซ้าย */
+.home-page .hero-decor-left {
+    position: absolute;
+    left: 4.9%; 
+    top: 56%;
+    transform: translateY(-50%); 
+    width: 20px; 
+    height: 52vh;
+    background-color: #FFC900; 
+    z-index: 3; 
+    pointer-events: none; 
+    border-radius: 0; 
+}
+
+/* กรอบตัว ] ฝั่งขวา */
+.home-page .hero-decor-right {
+    position: absolute;
+    right: 3.2%; 
+    top: 56.5%;
+    transform: translateY(-50%);
+    width: 16vw; 
+    height: 70vh; 
+    
+    border-top: 20px solid #fdc902;
+    border-right: 20px solid #fdc902;
+    border-bottom: 20px solid #fdc902;
+    border-left: none; 
+    
+    z-index: 3;
+    pointer-events: none;
+    border-radius: 0;
+}
+
+.home-page .hero-decor-right::before,
+.home-page .hero-decor-right::after {
+    content: "";
+    position: absolute;
+    left: 0;           
+    width: 20px;     
+    height: 80px;   
+    background-color: #fdc902; 
+}
+
+/* เส้นหักมุมด้านบน (ชี้ลงมา) */
+.home-page .hero-decor-right::before {
+    top: -20px;        
+}
+
+/* เส้นหักมุมด้านล่าง (ชี้ขึ้นไป) */
+.home-page .hero-decor-right::after {
+    bottom: -20px;  
+}
+.home-page .hero-decor-box-1 {
+    right: -18.5%; 
+    top: 58.7%;
+    transform: translateY(-55%); 
+    width: 19.9vw; 
+    height: 51.5vh; 
+    z-index: 3;
+    background-color: #636363; 
+}
+.home-page .hero-decor-box-2 {
+    right: -7.5%; 
+    transform: translateY(-30%); 
+    top: 55.5%;
+    width: 14.3vw; 
+    height: 37.7vh;
+    background-color:#393939; 
+}
+.home-page .hero-decor-box-3 {
+    left: 0; 
+    top: 41.3%;
+    width: 6vw; 
+    height: 40.5vh; 
+    background-color: #393939; 
+    z-index: 1;
+    pointer-events: none;
+    border-radius: 0;
+}
+.home-page .hero-decor-box-4 {
+    right: -4.75%;
+    top: 15.8%; 
+    width: 25vw;
+    height: 17vh; 
+    background-color: #000000; 
+    z-index: 2;
+    pointer-events: none;
+    border-radius: 0;
+}
+
+.home-page .hero-decor-box-5 {
+    left: 0; 
+    top: 16.3%; 
+    width: 8.15vw; 
+    height: 14.2vh; 
+    background-color: #000000;
+    z-index: 4; 
+    pointer-events: none;
+    border-radius: 0;
+}
+.home-page .hero-decor-box-6 {
+    left: 0; 
+    top: 29%;
+    width: 3.1vw; 
+    height: 42.6vh;
+    background-color: #636363; 
+    z-index: 2;
+    pointer-events: none;
+    border-radius: 0;
 }

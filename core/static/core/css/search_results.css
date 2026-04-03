@@ -27,25 +27,30 @@ html {
 .btn-back-home {
     display: inline-flex;
     align-items: center;
-    color: #646464;
+    padding: 8px 16px;
+    background-color: rgba(18, 18, 18, 0.8); /* พื้นหลังดำโปร่งแสง */
+    color: #c1c1c1;
+    border: 1px solid rgba(255, 215, 0, 0.4); /* เส้นขอบเหลืองทอง */
+    border-radius: 50px;
     text-decoration: none;
-    font-size: 12px;
-    letter-spacing: 2px;
-    font-weight: 500;
-    padding: 8px 0;
-    transition: all 0.3s ease;
-    border-bottom: 1px solid transparent;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(10px);
+    z-index: 100;
 }
 
 .btn-back-home i {
     margin-right: 10px;
-    font-size: 10px;
 }
 
 .btn-back-home:hover {
-    color: #e9cb2f  !important; /* สีเหลืองประจำแบรนด์ */
-    border-bottom: 1px solid #e9cb2f ;
-    transform: translateX(-5px); /* เลื่อนไปทางซ้ายนิดหน่อยตอน hover */
+    color: #e9cb2f ;
+    border-color: #e9cb2f ;
+    background-color: #1a1a1a;
+    transform: translateX(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .search-title {
@@ -98,8 +103,16 @@ html {
     margin-right: 0;
 }
 
-/* 5. ป้องกันปัญหาความกว้างล้นจากการ์ด */
+/* ปล่อยให้ Bootstrap จัดการความกว้างผ่าน col-md-4 */
 .search-card-wrapper {
-    width: 100%;
-    max-width: 100%; /* ป้องกันรูปภาพดันทะลุการ์ด */
+    /* ไม่ต้องกำหนด width: 100% แล้ว ไม่งั้นมันจะลบล้าง 3 คอลัมน์ */
+    display: block; 
+}
+
+/* ถ้าอยากให้รูปไม่ล้นการ์ดจริงๆ ให้ไปคุมที่ตัว .search-card แทน */
+.search-card {
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: transform 0.4s ease;
+    width: 100%; /* ใส่ตรงนี้แทนได้ */
 }

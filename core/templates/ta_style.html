@@ -25,7 +25,30 @@
 
 {% block content %}
 
-<div class="container-fluid px-lg-5 py-5">
+<div>
+<div class="ta-decorations">
+    
+    <div class="ta-tl-bracket1"></div> 
+    <div class="ta-tl-gray-box2"></div>
+    <div class="ta-tl-yellow-box3"></div> 
+    <div class="ta-tl-black-box4"></div>
+
+    <div class="ta-nl-gray-bracket"></div>
+
+
+    <div class="ta-bl-bracket"></div> 
+    <div class="ta-bl-yellow-box"></div> 
+    <div class="ta-bl-gray-box"></div>
+    <div class="ta-bl-black-box"></div>
+
+    <div class="ta-br-bracket"></div> 
+
+    <img src="{% static 'core/images/TA STYLE-กราฟฟิก-01.png' %}" class="ta-graphic-right" alt="TA Graphic">
+    
+</div>
+</div>
+
+<div class="container-fluid px-lg-5 py-5 position-relative" style="z-index: 10;">
     <div class="row g-4">
         
         <div class="col-lg-4 sticky-col px-3">
@@ -37,54 +60,15 @@
                     We operate with a strong commitment to collaboration, professionalism, and continuous development.
                 </p>
                 <p class="description text-white opacity-75 fade-up" >
-                     Our corporate culture emphasizes lifelong learning, 
-                     creative thinking, and the ability to overcome challenges, 
-                     enabling us to deliver work of the highest quality standards while guiding the organization toward stable and sustainable growth.
+                    Our corporate culture emphasizes lifelong learning, 
+                    creative thinking, and the ability to overcome challenges, 
+                    enabling us to deliver work of the highest quality standards while guiding the organization toward stable and sustainable growth.
                 </p>
-                <!-- <div class="project-stats mt-5">
-                    <div class="stat-item mb-3">
-                        <span class="d-block text-yellow h4 m-0"></span>
-                        <small class="text-uppercase opacity-50"></small>
-                    </div>
-                    <div class="stat-item">
-                        <span class="d-block text-yellow h4 m-0"></span>
-                        <small class="text-uppercase opacity-50"></small>
-                    </div>
-                </div> -->
             </div>
         </div>
-            <div class="col-lg-8 px-3">
-    <!-- <div id="taStyleCarousel" class="carousel slide TA-image zoom-in" data-bs-ride="carousel" data-bs-interval="3000">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#taStyleCarousel" data-bs-slide-to="0" class="active"></button>
-            <button type="button" data-bs-target="#taStyleCarousel" data-bs-slide-to="1"></button>
-            <button type="button" data-bs-target="#taStyleCarousel" data-bs-slide-to="2"></button>
-        </div>
-
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="{% static 'core/images/TA1.jpg' %}" class="d-block w-100" alt="TA Style 1" style="object-fit: cover;">
-            </div>
-            <div class="carousel-item">
-                <img src="{% static 'core/images/TA2.jpg' %}" class="d-block w-100" alt="TA Style 2" style="object-fit: cover;">
-            </div>
-            <div class="carousel-item">
-                <img src="{% static 'core/images/TA3.jpg' %}" class="d-block w-100" alt="TA Style 3" style="object-fit: cover;">
-            </div>
-        </div>
-
-        <button class="carousel-control-prev" type="button" data-bs-target="#taStyleCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#taStyleCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div> -->
-</div>
     </div>
 </div> 
+
 {% block extra_js %}
 <script>
 document.addEventListener("splashFinished", () => {
