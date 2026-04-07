@@ -25,7 +25,7 @@
 - [x] **Portfolio:** 🖼️ จัดแสดงผลงานแยกตามหมวดหมู่
 
 ## 📸 Screenshots
-<img src="toparch_web/core/static/core/images/main-img.png" alt="website 1" width="100%">
+<img src="core/static/core/images/main-img.png" alt="website 1" width="100%">
 
 ## 📦 วิธีการติดตั้ง (Installation)
 
