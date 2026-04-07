@@ -20,7 +20,7 @@ html {
 }
 
 .search-card-wrapper a:hover {
-    color: #e9cb2f !important;
+    color: var(--accent-yellow) !important;
 }
 
 /* สไตล์ปุ่ม Back to Home */
@@ -28,9 +28,9 @@ html {
     display: inline-flex;
     align-items: center;
     padding: 8px 16px;
-    background-color: rgba(18, 18, 18, 0.8); /* พื้นหลังดำโปร่งแสง */
-    color: #c1c1c1;
-    border: 1px solid rgba(255, 215, 0, 0.4); /* เส้นขอบเหลืองทอง */
+    background-color: rgba(18, 18, 18, 0.8);
+    color: var(--text-primary);
+    border: 1px solid rgba(255, 215, 0, 0.4); 
     border-radius: 50px;
     text-decoration: none;
     font-size: 0.75rem;
@@ -46,15 +46,15 @@ html {
 }
 
 .btn-back-home:hover {
-    color: #e9cb2f ;
-    border-color: #e9cb2f ;
+    color: var(--accent-yellow); ;
+    border-color: var(--accent-yellow);
     background-color: #1a1a1a;
     transform: translateX(-10px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .search-title {
-    color: #a4a3a3;
+    color: var(--text-primary);
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 1px;
@@ -77,7 +77,7 @@ html {
 }
 
 .text-yellow {
-    color: #e9cb2f  !important;
+    color: var(--accent-yellow) !important;
 }
 .search-results-page {
     position: relative;
@@ -103,16 +103,13 @@ html {
     margin-right: 0;
 }
 
-/* ปล่อยให้ Bootstrap จัดการความกว้างผ่าน col-md-4 */
 .search-card-wrapper {
-    /* ไม่ต้องกำหนด width: 100% แล้ว ไม่งั้นมันจะลบล้าง 3 คอลัมน์ */
     display: block; 
 }
 
-/* ถ้าอยากให้รูปไม่ล้นการ์ดจริงๆ ให้ไปคุมที่ตัว .search-card แทน */
 .search-card {
     overflow: hidden;
     border: 1px solid rgba(255,255,255,0.1);
     transition: transform 0.4s ease;
-    width: 100%; /* ใส่ตรงนี้แทนได้ */
+    width: 100%;
 }

@@ -15,7 +15,6 @@
     <div class="row g-4">
         <div class="col-lg-4 sticky-col px-3">
 
-    <!-- ปุ่ม Back -->
     <div class="back-nav-container">
         <a href="{% url 'projects' %}{% if request.GET.page %}?page={{ request.GET.page }}{% endif %}"
         onclick="sessionStorage.setItem('skipSplash','true');"
@@ -24,7 +23,6 @@
         </a>
     </div>
 
-    <!-- Sticky content -->
     <div class="sticky-info">
 
         <h2 class="projects-title text-uppercase">
@@ -46,8 +44,6 @@
 <div class="col-lg-8 px-3">
     {% include "layouts/"|add:project.layout_type|add:".html" %}
 </div>
-
-<!-- Image Lightbox -->
 <div id="image-modal" class="image-modal">
 
     <div class="modal-content">
@@ -59,15 +55,11 @@
         <span class="modal-close">&times;</span>
 
 
-         <div class="modal-counter"></div>
+        <div class="modal-counter"></div>
 
         <div class="modal-img-wrapper">
             <img class="modal-img" src="" alt="">
         </div>
-
-        <!-- Caption
-        <div class="modal-caption"></div> -->
-
 
     </div>
 
@@ -81,9 +73,6 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* ===============================
-       ELEMENT SELECT
-    =============================== */
 
     const images = document.querySelectorAll('.project-thumb');
     const modal = document.getElementById('image-modal');
@@ -109,12 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let currentIndex = 0;
 
-    /* ===============================
-    MODAL LOGIC
-    =============================== */
-
     function updateModal() {
-        // 🔥 เปลี่ยนจาก .dataset.full เป็น .src หรือ .getAttribute('src')
     modalImg.src = images[currentIndex].getAttribute('src'); 
     counter.textContent = (currentIndex + 1) + " / " + images.length;
     }
@@ -165,10 +149,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (e.key === 'Escape') closeModal();
     });
 
-    /* ===============================
-       MOBILE SWIPE
-    =============================== */
-
     let touchStartX = 0;
     let touchEndX = 0;
     const swipeThreshold = 50;
@@ -185,10 +165,6 @@ document.addEventListener("DOMContentLoaded", function () {
             diff > 0 ? nextBtn.onclick() : prevBtn.onclick();
         }
     }, { passive: true });
-
-    /* ===============================
-       CUSTOM CURSOR
-    =============================== */
 
     let mouseX = 0;
     let mouseY = 0;
@@ -223,9 +199,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     animateCursor();
 
-    /* ===============================
-       MODAL TOOLS
-    =============================== */
     modalImg.addEventListener("dblclick", () => {
         window.open(images[currentIndex].dataset.full, "_blank");
     });
@@ -238,9 +211,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-/* ===============================
-   FULLSCREEN SLIDER + THUMB
-=============================== */
+
 if (track && slides.length > 0) {
 
     let slideIndex = 0;
@@ -249,7 +220,6 @@ if (track && slides.length > 0) {
     function updateSlider() {
         track.style.transform = `translateX(-${slideIndex * 100}%)`;
 
-        // update thumb
         thumbs.forEach(t => t.classList.remove("active"));
         thumbs[slideIndex]?.classList.add("active");
     }
@@ -264,7 +234,7 @@ if (track && slides.length > 0) {
         updateSlider();
     });
 
-    // click thumb
+
     thumbs.forEach(thumb => {
         thumb.addEventListener("click", () => {
             slideIndex = parseInt(thumb.dataset.index);
@@ -272,7 +242,6 @@ if (track && slides.length > 0) {
         });
     });
 
-    // auto
     function startAuto() {
         interval = setInterval(() => {
             slideIndex = (slideIndex + 1) % slides.length;
@@ -295,8 +264,6 @@ function updateThumbs(index) {
 
     if (thumbs[index]) {
         thumbs[index].classList.add('active');
-
-        // 🔥 เลื่อน thumbnail ตาม
         thumbs[index].scrollIntoView({
             behavior: "smooth",
             inline: "center",
@@ -307,7 +274,7 @@ function updateThumbs(index) {
 function updateSlide() {
     track.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-    updateThumbs(currentIndex); // 🔥 เพิ่มบรรทัดนี้
+    updateThumbs(currentIndex);
 }
 
     const cards = document.querySelectorAll('.stack-card');

@@ -4,31 +4,21 @@ main {
 }
 body.services-page {
     height: 100vh;
-    overflow: hidden; /*ปิดการ Scroll ทั้งหมด */
+    overflow: hidden; 
     display: flex;
     flex-direction: column;
     margin: 0;
 }
 
 body.services-page main {
-    flex: 1; /* ให้ main ขยายเต็มพื้นที่ที่เหลือจาก Header */
+    flex: 1; 
     display: flex;
     flex-direction: column;
 }
-.splash-services-text{
-    font-family: 'Chalkduster', cursive;
-    font-size: 3rem;
-    color: #c1c1c1;
-}
-.splash-services {
-    background:
-        linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8));
-    background-size: cover;
-    background-position: center;
-}
+
 .services-tital {
     font-size: 1.5rem;
-    color: #c1c1c1 !important;
+    color: var(--text-primary) !important;
     margin-top: 40px;
     margin-bottom: 16px;
     letter-spacing: 0.2px;
@@ -47,36 +37,11 @@ body.services-page main {
     -ms-hyphens: none;
     
 }
-/* .services-box {
-    width: 100%;
-    aspect-ratio: 16/9;
-    background-color: #1e1e1e;
-    border: 1px solid #333;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-} */
-
-/* .services-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.7;
-    transition: all 0.4s ease;
-    aspect-ratio: 3/2;
-    overflow: hidden;
-    display: block; 
-}
-.services-box:hover img {
-    transform: scale(1.1);
-    opacity: 1;
-
-} */
-
 .services-item {
     margin-bottom: 3rem;
 }
 .services-detail{
-    color: #c1c1c1 !important;
+    color: var(--text-primary) !important;
 }
 
 .vertical-row {
@@ -87,7 +52,7 @@ body.services-page main {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 คอลัมน์ */
+    grid-template-columns: repeat(2, 1fr);
     column-gap: 32px;
     row-gap: 20px;
 }
@@ -113,7 +78,7 @@ body.services-page main {
 }
 
 .services-image {
-    height: 600px;   /* ความสูงกรอบ */
+    height: 600px;  
     overflow: hidden;
 }
 
@@ -127,9 +92,9 @@ body.services-page main {
     display: inline-flex;
     align-items: center;
     padding: 8px 16px;
-    background-color: rgba(18, 18, 18, 0.8); /* พื้นหลังดำโปร่งแสง */
-    color: #c1c1c1;
-    border: 1px solid rgba(255, 215, 0, 0.4); /* เส้นขอบเหลืองทอง */
+    background-color: rgba(18, 18, 18, 0.8); 
+    color: var(--text-primary);
+    border: 1px solid rgba(255, 215, 0, 0.4); 
     border-radius: 50px;
     text-decoration: none;
     font-size: 0.75rem;
@@ -141,14 +106,14 @@ body.services-page main {
 }
 
 .btn-back-services:hover {
-    color: #e9cb2f ;
-    border-color: #e9cb2f ;
+    color: var(--accent-yellow) ;
+    border-color: var(--accent-yellow) ;
     background-color: #1a1a1a;
     transform: translateX(-10px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* ===== Image Modal ===== */
+
 .image-modal {
     position: fixed;
     inset: 0;
@@ -171,7 +136,7 @@ body.services-page main {
     z-index: 1;
 }
 
-/* Close button */
+
 .modal-close {
     position: absolute;
     top: 30px;
@@ -181,7 +146,7 @@ body.services-page main {
     cursor: pointer;
 }
 
-/* Navigation */
+
 .modal-nav {
     position: absolute;
     top: 50%;
@@ -196,11 +161,11 @@ body.services-page main {
 }
 
 .modal-nav.prev {
-    left: -90px;   /* 👈 ชิดซ้ายของรูป */
+    left: -90px;   
 }
 
 .modal-nav.next {
-    right: -90px;  /* 👈 ชิดขวาของรูป */
+    right: -90px;
 }
 
 .modal-nav:hover {
@@ -240,26 +205,6 @@ body.services-page main {
 }
     
 }
-/* มือถือ
-@media (max-width: 768px) {
-
-    .services-image {
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 10px;    
-    }
-
-    .services-image img {
-        width: 100%;
-        height: auto;
-    }
-} */
-
-/* =====================================
-    พื้นหลังของแต่ละ services
-    =====================================*/
-
 .services-1 {
     position: relative;
     min-height: calc(100vh - 70px); 
@@ -274,8 +219,7 @@ body.services-page main {
     width: 100%;
 
     background-image: 
-        /* linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), */
-        url("/static/core/images/DESIGN (1200x600 px).png");
+        url("/static/core/images/DESIGN-P.webp");
 
     background-size: cover;
     background-position: center;
@@ -299,8 +243,7 @@ body.services-page main {
     width: 100%;
 
     background-image: 
-        /* linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), */
-        url("/static/core/images/PRE CONSTUCTION (1200x600 px).png");
+        url("/static/core/images/PRE-CON-P.webp");
 
     background-size: cover;
     background-position: center;
@@ -326,8 +269,7 @@ body.services-page main {
     width: 100%;
 
     background-image: 
-        /* linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), */
-        url("/static/core/images/CONSTUCTION-3 (1200x600 px).png");
+        url("/static/core/images/CONSTUCTION-P.webp");
 
     background-size: cover;
     background-position: center;
@@ -351,8 +293,7 @@ body.services-page main {
     width: 100%;
 
     background-image: 
-         /* linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)),  */
-        url("/static/core/images/POST CONSTUCTION-2 (1200x600 px).png");
+        url("/static/core/images/POST-CON-P.webp");
 
     background-size: cover;
     background-position: center;
@@ -376,8 +317,7 @@ body.services-page main {
     width: 100%;
 
     background-image: 
-        /* linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), */
-        url("/static/core/images/AFTER CONSTUCTION (1200x600 px).png");
+        url("/static/core/images/AFTER-CON-P.webp");
 
     background-size: cover;
     background-position: center;
@@ -407,24 +347,30 @@ body.services-page .footer-minimal {
         line-height: 1.7;
         text-align: justify;
     }
-}
-@media (max-width: 768px) {
-    .service-description{
-        max-width: 100%;
-        text-align: left;
-        line-height: 1.7;
-        word-spacing: normal;
-        letter-spacing: normal;
-        text-align: justify;
+    .services-1::before {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.25), rgba(0,0,0,.5)),
+        url("/static/core/images/DESIGN-P.webp");
     }
-
-
-}
-
-@media (max-width: 425px) {
-    .service-description{
-        font-size: 0.95rem;
-        text-align: justify;
+    .services-2::before {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.25), rgba(0,0,0,.5)),
+        url("/static/core/images/PRE-CON-P.webp");
+    }
+    .services-3::before {       
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.25), rgba(0,0,0,.5)),
+        url("/static/core/images/CONSTUCTION-P.webp");      
+    }
+    .services-4::before {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.25), rgba(0,0,0,.5)),
+        url("/static/core/images/POST-CON-P.webp");
+    }
+    .services-5::before {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.25), rgba(0,0,0,.5)),
+        url("/static/core/images/AFTER-CON-P.webp");
     }
 
 }

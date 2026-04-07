@@ -1,4 +1,3 @@
-/* ---------- SECTION HEADER ---------- */
 
 .splash-content{
     display:inline-flex;
@@ -13,10 +12,12 @@
 }
 
 .splash-content .style{
-    font-family:'Chalkduster','MyChalk',cursive;
+    font-family: 'Chalkduster', cursive;
     font-size: var(--fs-big);
-    color:var(--text-primary);
-    line-height:1;
+    color: var(--text-primary);
+    font-size: clamp(2.6rem, 5vw, 3.6rem);
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .splash-ta-style{
@@ -57,17 +58,15 @@ html, body {
     pointer-events: none; 
 }
 
-/* ================== รูปกราฟิกตกแต่งฝั่งขวา ================== */
 .ta-graphic-right {
     position: absolute;
     
-    width: 100%; /* ให้รูปกว้างประมาณครึ่งนึงของจอ */
+    width: 100%; 
     height: 100%;
     
-    z-index: 1; /* ให้อยู่ระดับเดียวกับกล่องตกแต่งอื่นๆ */
-    pointer-events: none; /* สำคัญมาก: ป้องกันไม่ให้ตัวรูปไปบล็อกการใช้เมาส์คลิกเนื้อหาอื่นๆ */
+    z-index: 1; 
+    pointer-events: none; 
 }
-
 .TA-tital{
     font-size: var(--fs-h2);
     color: var(--div-black) !important;
@@ -75,8 +74,6 @@ html, body {
     letter-spacing:1px;
     z-index: 5;
 }
-
-/* ---------- TEXT ---------- */
 
 .description{
     max-width:65ch;
@@ -92,14 +89,9 @@ html, body {
     -ms-hyphens: none;
 }
 
-/* ---------- LAYOUT FIX ---------- */
-
 .row{
     align-items:stretch;
 }
-
-
-/* ---------- IMAGE / CAROUSEL ---------- */
 
 .TA-image{
     width:100%;
@@ -126,8 +118,6 @@ html, body {
     height:100%;
 }
 
-/* ---------- CAROUSEL CONTROLS --------- */
-
 .carousel-control-prev,
 .carousel-control-next{
     top:50%;
@@ -151,7 +141,6 @@ html, body {
 }
 
 }
-
 @media (max-width:991px){
 
     .description{
@@ -179,10 +168,6 @@ html, body {
     }
 }
 
-/* =========================================
-   TA STYLE: Decorations 
-   ========================================= */
-
 .ta-decorations {
     position: absolute; 
     top: 70px; 
@@ -194,7 +179,6 @@ html, body {
     overflow: hidden;
 }
 
-/* ================== มุมซ้ายบน (Top Left) ================== */
 .ta-tl-yellow-box3 {
     position: absolute;
     top: 31px;
@@ -247,7 +231,6 @@ html, body {
     z-index: 1;
 }
 
-/* ================== มุมซ้ายล่าง (Bottom Left) ================== */
 .ta-bl-gray-box {
     position: absolute;
     bottom: 65px;
@@ -279,7 +262,6 @@ html, body {
     z-index: 1;
 }
 
-/* ================== มุมขวาล่าง (Bottom Right) ================== */
 .ta-br-bracket {
     position: absolute;
     bottom: 36px;

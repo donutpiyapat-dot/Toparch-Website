@@ -4,10 +4,11 @@ import uuid
 from django.contrib.postgres.search import SearchVectorField
 from django.contrib.postgres.indexes import GinIndex
 from django.utils.html import format_html
+import os
+from io import BytesIO
+from PIL import Image
+from django.core.files.base import ContentFile
 
-# =========================
-# ฟังก์ชันสร้าง slug แบบไม่ซ้ำ
-# =========================
 def unique_slugify(instance, slug_field, slug_from):
     slug = slugify(slug_from)
     ModelClass = instance.__class__
@@ -21,9 +22,6 @@ def unique_slugify(instance, slug_field, slug_from):
 
     return unique_slug
 
-# =========================
-# Upload path helpers
-# =========================
 def project_image_path(instance, filename):
     """
     ใช้ได้ทั้ง Project.main_image และ ProjectImage.image
@@ -32,9 +30,6 @@ def project_image_path(instance, filename):
     return f'projects/{project.slug}/{filename}'
 
 
-# =========================
-# Category
-# =========================
 class Category(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField(unique=True)
@@ -51,10 +46,6 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-
-# =========================
-# Project
-# =========================
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(status='published')
@@ -62,7 +53,7 @@ class PublishedManager(models.Manager):
 STATUS_CHOICES = (
     ('draft', 'Draft'),
     ('published', 'Published'),
-    ('archived', 'Archived'),
+
     )
 
 class Project(models.Model):
@@ -80,18 +71,11 @@ class Project(models.Model):
         max_length=50,
         choices=[
             ('grid', 'Grid'),
-            ('hero', 'Hero + Gallery'),
+            ('hero', 'Hero'),
             ('masonry', 'Masonry'),
             ('split', 'Split Layout'),
             ('magazine', 'Magazine Layout'),
-            ('horizontal', 'Horizontal Scroll'),
-            ('fullscreen', 'Fullscreen Slider'),
-            ('stacked', 'Stacked Cards Slider'),
-            ('diagonal', 'Diagonal Grid Layout'),
-            ('bento', 'Bento Grid Layout'),
-            ('polaroid', 'Polaroid Layout'),
-            ('window', 'Window Layout'),
-            ('puzzle', 'Puzzle Layout')
+
         ],
         default='grid'
     )
@@ -121,14 +105,14 @@ class Project(models.Model):
             models.Index(fields=['slug']),
             models.Index(fields=['category']),
             models.Index(fields=['status']),
-            models.Index(fields=['created_at']),  # 🔥 เพิ่ม
+            models.Index(fields=['created_at']),  
             models.Index(fields=['title']),
-            GinIndex(fields=['search_vector']),  # full-text
+            GinIndex(fields=['search_vector']),  
 
             GinIndex(
                 fields=['title'],
                 name='title_trgm',
-                opclasses=['gin_trgm_ops']  # trigram ใช้กับ text field เท่านั้น
+                opclasses=['gin_trgm_ops'] 
             ),
         ]
 
@@ -146,11 +130,35 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+    
+    def save(self, *args, **kwargs):
+        if not self.slug and self.title:
+            base_slug = slugify(self.title)
+            slug = base_slug or "project"
+            i = 1
+            while Project.objects.filter(slug=slug).exclude(id=self.id).exists():
+                slug = f"{base_slug}-{i}"
+                i += 1
+            self.slug = slug
 
+        if self.main_image:
+            file_ext = os.path.splitext(self.main_image.name)[1].lower()
+            if file_ext not in ['.webp']:
+                img = Image.open(self.main_image)
+                if img.mode not in ('RGB', 'RGBA'):
+                    img = img.convert('RGBA')
+                
+                output = BytesIO()
+                img.save(output, format='WEBP', quality=85)
+                output.seek(0)
+                
+                original_filename = os.path.basename(self.main_image.name)
+                new_filename = f"{os.path.splitext(original_filename)[0]}.webp"
+                
+                self.main_image.save(new_filename, ContentFile(output.read()), save=False)
 
-# =========================
-# Project Gallery Images
-# =========================
+        super().save(*args, **kwargs)
+
 class ProjectImage(models.Model):
     project = models.ForeignKey(
         Project,
@@ -161,8 +169,8 @@ class ProjectImage(models.Model):
     image_type = models.CharField(
         max_length=10,
         choices=[('set1', 'Set 1'), ('set2', 'Set 2')],
-        default='set1', # กำหนดค่าเริ่มต้นไว้ก่อน
-        editable=False  # ถ้าอยากให้แก้ไม่ได้เลยแม้แต่ในหน้าอื่นๆ ของ Admin
+        default='set1', 
+        editable=False 
     )
     created_at = models.DateTimeField(auto_now_add=True)
     order = models.PositiveIntegerField(default=0)
@@ -182,10 +190,23 @@ class ProjectImage(models.Model):
 
     preview.short_description = "Preview"
 
+    def save(self, *args, **kwargs):
+        if self.image:
+            file_ext = os.path.splitext(self.image.name)[1].lower()
+            if file_ext not in ['.webp']:
+                img = Image.open(self.image) 
+                if img.mode not in ('RGB', 'RGBA'):
+                    img = img.convert('RGBA')
+                output = BytesIO()
+                img.save(output, format='WEBP', quality=85)
+                output.seek(0)
+                original_filename = os.path.basename(self.image.name)
+                new_filename = f"{os.path.splitext(original_filename)[0]}.webp"
+                self.image.save(new_filename, ContentFile(output.read()), save=False)
+        super().save(*args, **kwargs)
 
-# =========================
-# Project Documents
-# =========================
+
+
 class ProjectDocument(models.Model):
     project = models.ForeignKey(
         Project,
@@ -203,9 +224,6 @@ class ProjectDocument(models.Model):
         return f"Document for {self.project.title}"
 
 
-# =========================
-# Company Documents
-# =========================
 class Document(models.Model):
     title = models.CharField(max_length=255, verbose_name="ชื่อเอกสาร")
     file = models.FileField(upload_to='documents/', verbose_name="ไฟล์เอกสาร")

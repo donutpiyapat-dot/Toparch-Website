@@ -89,44 +89,41 @@
                             </a>
                         {% endfor %}
                     </div>
-                </div>
-        </div>
-                <div class="pagination-wrapper mt-5" onclick="sessionStorage.setItem('skipSplash','true');">
+                    
+                    <div class="pagination-wrapper mt-5" onclick="sessionStorage.setItem('skipSplash','true');">
+                        
+                        <div class="pagination-spacer"></div>
 
-                    {% if page_obj.has_previous %}
-                        <a href="?{% if query %}q={{ query }}&{% endif %}page=1"
-                            class="page-btn">« First</a>
-
-                        <a href="?{% if query %}q={{ query }}&{% endif %}page={{ page_obj.previous_page_number }}"
-                            class="page-btn">‹ Prev</a>
-                    {% endif %}
-
-                    {% for num in page_obj.paginator.page_range %}
-                        {% if num >= page_obj.number|add:'-2' and num <= page_obj.number|add:'2' %}
-            
-                            {% if page_obj.number == num %}
-                                <span class="page-number active">{{ num }}</span>
+                        <div class="pagination-controls">
+                            {% if page_obj.has_previous %}
+                                <a href="?{% if query %}q={{ query }}&{% endif %}page=1" class="page-icon" title="First">&laquo;</a>
+                                <a href="?{% if query %}q={{ query }}&{% endif %}page={{ page_obj.previous_page_number }}" class="page-icon" title="Previous">&lsaquo;</a>
                             {% else %}
-                                <a href="?{% if query %}q={{ query }}&{% endif %}page={{ num }}"class="page-number">
-                                    {{ num }}
-                                </a>
+                                <span class="page-icon disabled">&laquo;</span>
+                                <span class="page-icon disabled">&lsaquo;</span>
                             {% endif %}
 
-                        {% endif %}
-                    {% endfor %}
-    
-                {% if page_obj.has_next %}
-                    <a href="?{% if query %}q={{ query }}&{% endif %}page={{ page_obj.next_page_number }}"
-                        class="page-btn">Next ›</a>
+                            <div class="page-input-wrapper">
+                                <span class="current-page-box">{{ page_obj.number }}</span>
+                                <span class="total-pages">of &nbsp;{{ page_obj.paginator.num_pages }}</span>
+                            </div>
 
-                    <a href="?{% if query %}q={{ query }}&{% endif %}page={{ page_obj.paginator.num_pages }}"
-                        class="page-btn">Last »</a>
-                {% endif %}
-                </div>
+                            {% if page_obj.has_next %}
+                                <a href="?{% if query %}q={{ query }}&{% endif %}page={{ page_obj.next_page_number }}" class="page-icon" title="Next">&rsaquo;</a>
+                                <a href="?{% if query %}q={{ query }}&{% endif %}page={{ page_obj.paginator.num_pages }}" class="page-icon" title="Last">&raquo;</a>
+                            {% else %}
+                                <span class="page-icon disabled">&rsaquo;</span>
+                                <span class="page-icon disabled">&raquo;</span>
+                            {% endif %}
+                        </div>
 
-    
-</div>
-
+                        <div class="pagination-info">
+                            Showing {{ page_obj.start_index }}-{{ page_obj.end_index }} from {{ page_obj.paginator.count }}
+                        </div>
+                    </div> 
+                </div> 
+        </div>    
+    </div>
 
 {% block extra_js %}
 <script>
@@ -162,7 +159,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (entry.isIntersecting) {
 
-                // ✅ หน่วง 2 วินาที
                 setTimeout(() => {
                     animateCounter(entry.target);
                 }, 2000);

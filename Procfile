@@ -1,1 +1,1 @@
-web: gunicorn toparch_site.wsgi
+web: gunicorn toparch_site.wsgi 

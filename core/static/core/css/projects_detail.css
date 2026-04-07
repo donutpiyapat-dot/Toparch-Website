@@ -1,14 +1,6 @@
-/* =========================================================
-   BASE / GLOBAL
-========================================================= */
-
 body {
     background-color: #0c0c0c !important;
 }
-
-/* =========================================================
-   STICKY / SIDEBAR
-========================================================= */
 
 .sticky-info {
     position: sticky;
@@ -17,14 +9,6 @@ body {
     overflow-y: auto;
     padding-right: 10px;
 }
-.sticky-info::-webkit-scrollbar {
-    width: 4px;
-
-}
-.sticky-info::-webkit-scrollbar-thumb {
-    background: #919191; 
-
-}
 .back-nav-container {
     position: static;
     top: 120px;
@@ -32,17 +16,20 @@ body {
 }
 
 .projects-title {
-    color: #c1c1c1 !important;
+    color: var( --text-primary) !important;
     margin: 40px 0 16px;
 }
 
-.description{
+.description {
+    max-width: 40ch; 
+    line-height: 1.5;
     text-align: justify;
-    line-height: 1.57;
-    hyphens: auto;
-    text-justify: inter-word;
-    word-spacing: -0.05em;
-    letter-spacing: 0.3px;
+    text-justify: inter-character; 
+    word-spacing: normal;  
+    letter-spacing: -0.35px; 
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
 }
 
 /* Responsive fix */
@@ -56,16 +43,12 @@ body {
     }
 }
 
-/* =========================================================
-   BACK BUTTON
-========================================================= */
-
 .btn-back-projects {
     display: inline-flex;
     align-items: center;
     padding: 8px 16px;
     background: rgba(18,18,18,0.8);
-    color: #c1c1c1;
+    color: var(--text-primary);
     border: 1px solid rgba(255,215,0,0.4);
     border-radius: 50px;
     text-decoration: none;
@@ -77,16 +60,13 @@ body {
 }
 
 .btn-back-projects:hover {
-    color: #e9cb2f ;
-    border-color: #e9cb2f ;
-    background: #1a1a1a;
+    color: var( --accent-yellow); ;
+    border-color: var( --accent-yellow) ;
+    background: var(--bg-secondary);
     transform: translateX(-10px);
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* =========================================================
-   PROJECT GRID
-========================================================= */
 
 .projects-grid {
     display: grid;
@@ -99,7 +79,6 @@ body {
     .projects-grid {
         grid-template-columns: 1fr;
     }
-
 }
 
 .project-image {
@@ -113,7 +92,7 @@ body {
     width: 100%;
     aspect-ratio: 16/9;
     position: relative;
-    background: #0c0c0c;
+    background: var(--bg-secondary);
     border: 1px solid #333;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.165,0.84,0.44,1);
@@ -127,12 +106,11 @@ body {
     transition: transform 0.6s cubic-bezier(0.165,0.84,0.44,1);
 }
 
-/* Hover overlay light */
 .project-box::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(255,255,255,0.25);
+    background: #ffffff40;
     opacity: 0;
     transition: opacity 0.5s ease;
     pointer-events: none;
@@ -142,13 +120,10 @@ body {
     opacity: 1;
 }
 .project-caption {
-    font-size: 15px;   /* ปรับตามต้องการ */
+    font-size: 15px;
     line-height: 1.6;
 }
 
-/* =========================================================
-   IMAGE MODAL
-========================================================= */
 
 .image-modal {
     position: fixed;
@@ -217,14 +192,10 @@ body {
 
 #fullscreenBtn{
     position: absolute;
-    /* top: 12px; */
     right: 80px;
     width: 44px;
     height: 44px;
 }
-/* =========================================================
-   MODAL CLOSE BUTTON (รวมให้เหลือชุดเดียว)
-========================================================= */
 
 .modal-close {
     position: absolute;
@@ -264,9 +235,6 @@ body {
     background: rgba(255,0,0,0.08);
 }
 
-/* =========================================================
-   MODAL NAVIGATION
-========================================================= */
 
 .modal-nav {
     position: absolute;
@@ -289,16 +257,10 @@ body {
 .modal-nav.next { right: 30px; }
 
 .modal-nav:hover {
-    color: #e9cb2f ;
+    color: var(--accent-yellow) ;
     transform: translateY(-50%) scale(1.15);
     box-shadow: 0 0 25px rgba(255,215,0,0.25);
 }
-
-
-
-/* =========================================================
-   MODAL TOOLBAR
-========================================================= */
 
 .modal-toolbar {
     position: absolute;
@@ -332,16 +294,10 @@ body {
 }
 
 .modal-tool:hover {
-    background: #e9cb2f ;
+    background: var(--accent-yellow);
     color: #000;
     transform: scale(1.15);
 }
-
-/* Responsive toolbar position */
-
-/* =========================================================
-   CUSTOM CURSOR
-========================================================= */
 
 .custom-cursor {
     position: fixed;
@@ -349,7 +305,7 @@ body {
     left: 0;
     width: 48px;
     height: 48px;
-    border: 1.2px solid #e9cb2f ;
+    border: 1.2px solid var(--accent-yellow) ;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -357,7 +313,7 @@ body {
     font-size: 9px;
     font-weight: 600;
     letter-spacing: 1px;
-    color: #e9cb2f ;
+    color: var(--accent-yellow);
     pointer-events: none;
     transform: translate(-50%, -50%) scale(0.9);
     opacity: 0;
@@ -367,17 +323,11 @@ body {
 .project-thumb{
     cursor: pointer;
 }
-/* =========================================================
-   FAKE CURSOR FIX
-========================================================= */
-
 .fake-cursor,
 .cursor-halo {
     z-index: 100000 !important;
     pointer-events: none;
 }
-
-
 
 @media (min-width: 992px) {
     .modal-toolbar {
@@ -385,16 +335,14 @@ body {
         right: 240px;
     }
 }
-
-
 @media (max-width: 576px) {
     .modal-toolbar {
         top: 10px;
         right: 25px;
     }
     .modal-toolbar {
-        gap: 8px;          /* ลดระยะห่าง */
-        padding: 4px 8px;  /* ลด padding */
+        gap: 8px;         
+        padding: 4px 8px; 
     }
 
     .modal-tool {
@@ -404,7 +352,6 @@ body {
     }
 
 }
-
 
 @media (hover: none) and (pointer: coarse) {
 
@@ -439,9 +386,9 @@ body {
     }
     .modal-counter {
         position: absolute;
-        top: -10px;     /* ปรับตามตำแหน่งจริง */
-        left: 25px;    /* ย้ายไปฝั่งซ้าย */
-        right: auto;   /* ปิดฝั่งขวา */
+        top: -10px;   
+        left: 25px;    
+        right: auto;   
         text-align: left;
     }
 }
@@ -457,10 +404,6 @@ body {
 
 }
 }
-/* =========================================================
-   hero.html
-   (รูปใหญ่ + grid เล็ก)
-========================================================= */
 .hero-main img {
     width: 100%;
     height: 500px;
@@ -482,9 +425,6 @@ body {
     border-radius: 10px;
 }
 
-/* =========================================================
-   masonry.html (Pinterest style 🔥)
-========================================================= */
 .projects-masonry {
     column-count: 3;
     column-gap: 20px;
@@ -501,9 +441,7 @@ body {
     display: block;
 }
 
-/* =========================================================
-ฟSplit Layout
-========================================================= */
+
 .split-layout {
     display: flex;
     flex-direction: column;
@@ -541,9 +479,7 @@ body {
     color: #ccc;
     line-height: 1.6;
 }
-/* =========================================================
-Magazine style
-========================================================= */
+
 .magazine-layout {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -568,716 +504,40 @@ Magazine style
     object-fit: cover;
     border-radius: 10px;
 }
-/* =========================================================
-   Horizontal Scroll Layout
-========================================================= */
 
-.horizontal-layout {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    padding-bottom: 10px;
-
-    scroll-snap-type: x mandatory; /* 🔥 snap */
-    scroll-behavior: smooth;
-
-    -webkit-overflow-scrolling: touch;
-}
-
-/* ซ่อน scrollbar (สวยขึ้น) */
-.horizontal-layout::-webkit-scrollbar {
-    display: none;
-}
-
-/* item */
-.horizontal-item {
-    min-width: 70%;
-    flex: 0 0 auto;
-
-    scroll-snap-align: center;
-}
-
-/* รูป */
-.horizontal-item img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 16px;
-
-    transition: transform 0.4s ease, opacity 0.4s ease;
-}
-
-/* hover effect 🔥 */
-.horizontal-item img:hover {
-    transform: scale(1.03);
-    opacity: 0.9;
-}
-
-/* =========================================================
-Fullscreen Slider
-========================================================= */
-
-.fullscreen-slider {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-}
-
-/* track */
-.slider-track {
-    display: flex;
-    height: 100%;
-    transition: transform 0.6s ease-in-out;
-}
-
-/* slide */
-.slide {
-    min-width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* overlay gradient 🔥 */
-.slide::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-}
-
-/* ปุ่ม */
-.slider-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.4);
-    color: white;
-    border: none;
-    font-size: 2rem;
-    padding: 10px 16px;
-    cursor: pointer;
-    border-radius: 50%;
-    z-index: 10;
-}
-
-.slider-prev {
-    left: 20px;
-}
-
-.slider-next {
-    right: 20px;
-}
-
-.slider-btn:hover {
-    background: rgba(0,0,0,0.7);
-}
-/* thumbnail bar */
-.slider-thumbs {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+@media (max-width: 768px) {
     
-    display: flex;
-    gap: 10px;
-    padding: 10px;
-    background: rgba(0,0,0,0.4);
-    border-radius: 12px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-}
-
-/* thumbnail */
-.slider-thumbs .thumb {
-    width: 80px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 6px;
-    cursor: pointer;
-    opacity: 0.6;
-    transition: all 0.3s ease;
-}
-
-/* active */
-.slider-thumbs .thumb.active {
-    border: 2px solid white;
-    opacity: 1;
-    transform: scale(1.1);
-}
-
-/* hover */
-.slider-thumbs .thumb:hover {
-    opacity: 1;
-}
-
-/* =========================================================
-   “STACKED CARDS SLIDER”
-========================================================= */
-
-.stack-slider {
-    position: relative;
-    width: 100%;
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-/* track */
-.stack-track {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-/* card */
-.stack-card {
-    position: absolute;
-    aspect-ratio: 16 / 9;
-    width: 45%;
-    height: 60%;
-    top: 50%;
-    left: 50%;
-    width: 60%;
-    height: 70%;
-    transform: translate(-50%, -50%) scale(0.7);
-    opacity: 0;
-    transition: all 0.6s ease;
-    z-index: 1;
-}
-
-/* รูป */
-.stack-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-}
-
-/* center */
-.stack-card.active {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-    z-index: 5;
-}
-
-/* left */
-.stack-card.prev {
-    transform: translate(-120%, -50%) scale(0.8) rotate(-5deg);
-    opacity: 0.5;
-    z-index: 3;
-}
-
-/* right */
-.stack-card.next {
-    transform: translate(20%, -50%) scale(0.8) rotate(5deg);
-    opacity: 0.5;
-    z-index: 3;
-}
-
-/* far */
-.stack-card.hidden {
-    opacity: 0;
-    z-index: 0;
-}
-
-/* ปุ่ม */
-.stack-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2rem;
-    border: none;
-    background: rgba(0,0,0,0.4);
-    color: white;
-    padding: 10px 16px;
-    cursor: pointer;
-    border-radius: 50%;
-    z-index: 10;
-}
-
-.stack-btn.prev { left: 20px; }
-.stack-btn.next { right: 20px; }
-
-/* =========================================================
-   “Diagonal Grid Layout”
-========================================================= */
-.diagonal-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-/* item */
-.diagonal-item {
-    overflow: hidden;
-    border-radius: 16px;
-    position: relative;
-}
-
-/* รูป */
-.diagonal-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-/* hover zoom */
-.diagonal-item:hover img {
-    transform: scale(1.08);
-}
-
-/* 🔥 ลูกเล่นสลับ layout */
-.diagonal-item:nth-child(1) {
-    grid-row: span 2;
-}
-
-.diagonal-item:nth-child(2) {
-    transform: translateY(30px);
-}
-
-.diagonal-item:nth-child(4) {
-    transform: translateY(-30px);
-}
-
-.diagonal-item:nth-child(5) {
-    grid-column: span 2;
-}
-
-.diagonal-item:nth-child(7) {
-    transform: translateY(40px);
-}
-
-.diagonal-item::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
-    opacity: 0;
-    transition: 0.3s;
-}
-
-.diagonal-item:hover::after {
-    opacity: 1;
-}
-/* =========================================================
-Bento Grid
-========================================================= */
-.bento-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 200px;
-    gap: 20px;
-}
-
-/* item */
-.bento-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 20px;
-    background: #111;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    transition: transform 0.3s ease;
-}
-
-/* รูป */
-.bento-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-.bento-item::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
-    opacity: 0;
-    transition: 0.3s;
-}
-
-.bento-item:hover::after {
-    opacity: 1;
-}
-/* hover */
-.bento-item:hover {
-    transform: translateY(-6px);
-}
-.bento-item:hover img {
-    transform: scale(1.08);
-}
-/* ช่องใหญ่ */
-.bento-item:nth-child(1) {
-    grid-column: span 2;
-    grid-row: span 2;
-}
-
-/* สูง */
-.bento-item:nth-child(2) {
-    grid-row: span 2;
-}
-
-/* กว้าง */
-.bento-item:nth-child(3) {
-    grid-column: span 2;
-}
-
-/* ปรับ random ให้ดูไม่ซ้ำ */
-.bento-item:nth-child(6) {
-    grid-column: span 2;
-}
-
-.bento-item:nth-child(7) {
-    grid-row: span 2;
-}
-/* =========================================================
-   polaroid board 
-========================================================= */
-.polaroid {
-    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-}
-.polaroid::before {
-    content: "";
-    width: 60px;
-    height: 15px;
-    background: rgba(255,255,255,0.6);
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%) rotate(-5deg);
-}
-.polaroid-board {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-    padding: 40px;
-    background: #1a1a1a;
-    background: url('/static/images/wood-texture.jpg');
-    background-size: cover;
-}
-
-/* การ์ด */
-.polaroid {
-    width: 220px;
-    background: #fff;
-    padding: 12px 12px 30px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    transform: rotate(var(--rotate));
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-/* รูป */
-.polaroid img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
-}
-
-/* caption */
-.caption {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 14px;
-    color: #333;
-    font-family: 'Segoe UI', sans-serif;
-}
-.polaroid:nth-child(odd) {
-    --rotate: -5deg;
-}
-
-.polaroid:nth-child(even) {
-    --rotate: 5deg;
-}
-
-.polaroid:nth-child(3n) {
-    --rotate: -8deg;
-}
-
-.polaroid:nth-child(4n) {
-    --rotate: 8deg;
-}
-.polaroid:hover {
-    transform: rotate(0deg) scale(1.1);
-    z-index: 10;
-}
-
-/* =========================================================
-   polaroid board 
-========================================================= */
-.window-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 180px;
-    gap: 20px;
-}
-
-/* item */
-.window-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 16px;
-}
-
-/* รูป */
-.window-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-/* hover */
-.window-item:hover img {
-    transform: scale(1.08);
-}
-/* ช่องใหญ่ (hero) */
-.window-item:nth-child(1) {
-    grid-column: span 2;
-    grid-row: span 2;
-}
-
-/* ช่องสูง */
-.window-item:nth-child(2) {
-    grid-row: span 2;
-}
-
-/* ช่องกว้าง */
-.window-item:nth-child(4) {
-    grid-column: span 2;
-}
-.window-item::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
-    opacity: 0;
-    transition: 0.3s;
-}
-
-.window-item:hover::after {
-    opacity: 1;
-}
-.window-item {
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    background: #111;
-}
-
-/* =========================================================
-🧩 Puzzle Grid V2 (Clean + Layer + Random Feel)
-========================================================= */
-
-.puzzle-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 180px;
-    gap: 10px;
-}
-
-/* ===================== ITEM ===================== */
-.puzzle-item {
-    position: relative;
-    overflow: hidden;
-    background: #111;
-    border-radius: 16px;
-
-    /* depth */
-    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
-
-    /* animation */
-    transition: transform 0.4s ease, z-index 0.2s;
-}
-
-/* ===================== IMAGE ===================== */
-.puzzle-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-}
-
-/* ===================== SIZE PATTERN ===================== */
-
-/* ใหญ่ */
-.puzzle-item:nth-child(8n + 1) {
-    grid-column: span 2;
-    grid-row: span 2;
-}
-
-/* สูง */
-.puzzle-item:nth-child(8n + 2) {
-    grid-row: span 2;
-}
-
-/* กว้าง */
-.puzzle-item:nth-child(8n + 4),
-.puzzle-item:nth-child(8n + 7) {
-    grid-column: span 2;
-}
-
-/* ===================== RANDOM OFFSET ===================== */
-
-/* เหลื่อมขึ้นลง */
-.puzzle-item:nth-child(odd) {
-    transform: translateY(20px);
-}
-
-.puzzle-item:nth-child(3n) {
-    transform: translateY(-20px);
-}
-
-/* ===================== LAYER ===================== */
-
-.puzzle-item:nth-child(5n) {
-    z-index: 3;
-}
-
-.puzzle-item:nth-child(2n) {
-    z-index: 1;
-}
-
-/* ===================== BORDER VARIATION ===================== */
-
-.puzzle-item:nth-child(3n) {
-    border-radius: 30px;
-}
-
-.puzzle-item:nth-child(4n) {
-    border-radius: 10px;
-}
-
-.puzzle-item:nth-child(5n) {
-    border-radius: 50px;
-}
-
-/* ===================== OVERLAY ===================== */
-
-.puzzle-item::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border: 2px solid rgba(255,255,255,0.08);
-    border-radius: inherit;
-    pointer-events: none;
-}
-
-.puzzle-item::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-/* ===================== HOVER ===================== */
-
-.puzzle-item:hover {
-    transform: translateY(-10px) scale(1.05);
-    z-index: 10;
-}
-
-.puzzle-item:hover img {
-    transform: scale(1.08);
-}
-
-.puzzle-item:hover::after {
-    opacity: 1;
-}
-
-
-
-/* ===================== RESPONSIVE ===================== */
-
-@media (max-width: 991px) {
-    .puzzle-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 576px) {
-    .puzzle-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .puzzle-item {
-        grid-column: span 1 !important;
-        grid-row: span 1 !important;
-        transform: none !important;
-    }
-}
-
-
-@media (max-width: 991px) {
-    .window-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 576px) {
-    .window-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .window-item {
-        grid-column: span 1 !important;
-        grid-row: span 1 !important;
-    }
-}
-/* balance layout */
-.window-item:nth-child(7) {
-    grid-column: span 2;
-}
-@media (max-width: 576px) {
-    .polaroid {
-        width: 160px;
-    }
-
-    .polaroid img {
-        height: 140px;
-    }
-}
-
-@media (max-width: 991px) {
-    .bento-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: 180px;
-    }
-}
-
-@media (max-width: 576px) {
-    .bento-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .bento-item {
-        grid-column: span 1 !important;
-        grid-row: span 1 !important;
-    }
-}
-@media (max-width: 991px) {
-    .projects-masonry {
-        column-count: 2;
+    .split-layout {
+        display: grid;
+        grid-template-columns: 1fr; 
+        gap: 16px; 
+        padding: 16px;
     }
 
     .split-row {
-        flex-direction: column !important;
+        display: block; 
+        width: 100%;
+        margin-bottom: 0 !important; 
+    }
+
+    .split-image {
+        width: 100%;
+        aspect-ratio: 4 / 3; 
+        overflow: hidden;
+        border-radius: 12px; 
     }
 
     .split-image img {
-        height: 250px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; 
+        display: block;
+    }
+}
+
+@media (max-width: 991px) {
+    .projects-masonry {
+        column-count: 2;
     }
 
     .magazine-layout {
@@ -1287,18 +547,6 @@ Bento Grid
 
     .magazine-big {
         grid-row: span 2;
-    }
-
-    .horizontal-item {
-        min-width: 85%;
-    }
-
-    .horizontal-item img {
-        height: 300px;
-    }
-
-    .diagonal-grid {
-        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -1314,15 +562,25 @@ Bento Grid
     .magazine-big {
         grid-row: span 2;
     }
-
-    .horizontal-item {
-        min-width: 95%;
+}
+@media (max-width: 991px) {
+    .sticky-info {
+        position: relative; 
+        max-height: none; 
+        overflow-y: visible; 
+        padding-right: 0;
+        top: 0;
     }
-    .horizontal-item img {
-        height: 220px;
-    }
-    .diagonal-grid {
-        grid-template-columns: 1fr;
-    }
-
+    .description {
+    max-width: 100ch; 
+    line-height: 1.5;
+    text-align: justify;
+    text-justify: inter-character; 
+    word-spacing: normal;  
+    letter-spacing: -0.35px; 
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    margin-bottom: 40px;
+}
 }

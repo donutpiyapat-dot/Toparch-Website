@@ -2,6 +2,9 @@
     font-family: 'Chalkduster', cursive;
     font-size: var(--fs-big);
     color: var(--text-primary);
+    font-size: clamp(2.6rem, 5vw, 3.6rem);
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 .splash-contact{
     background:
@@ -29,9 +32,6 @@
     z-index: -1;
     pointer-events: none;
 }
-
-
-
 
 .description-line {
     width: 60px;
@@ -206,10 +206,6 @@ html, body.Contact-page {
     }
 }
 
-
-/* =========================================
-   Decorative Background Elements
-   ========================================= */
 .bg-decorations {
     position: absolute; 
     top: 70px; 

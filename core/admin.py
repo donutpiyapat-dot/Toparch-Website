@@ -7,12 +7,52 @@ from django.db.models import Count
 from django.utils.timezone import now
 from adminsortable2.admin import SortableAdminBase, SortableInlineAdminMixin
 from .models import Project,ProjectImage, ProjectDocument
-# ==============================
-# INLINES
-# ==============================
+from django.forms.models import BaseInlineFormSet
+from django import forms
+
+class ProjectImageSet1FormSet(BaseInlineFormSet):
+    def save_new(self, form, commit=True):
+        obj = super().save_new(form, commit=False)
+        obj.image_type = 'set1'
+        if commit:
+            obj.save()
+        return obj
+
+class ProjectImageSet2FormSet(BaseInlineFormSet):
+    def save_new(self, form, commit=True):
+        obj = super().save_new(form, commit=False)
+        obj.image_type = 'set2'
+        if commit:
+            obj.save()
+        return obj
+
+class ProjectImageSet1Form(forms.ModelForm):
+    class Meta:
+        model = ProjectImage
+        fields = '__all__'
+
+    def save(self, commit=True):
+        instance = super().save(commit=False)
+        instance.image_type = 'set1'  
+        if commit:
+            instance.save()
+        return instance
+
+class ProjectImageSet2Form(forms.ModelForm):
+    class Meta:
+        model = ProjectImage
+        fields = '__all__'
+
+    def save(self, commit=True):
+        instance = super().save(commit=False)
+        instance.image_type = 'set2'  
+        if commit:
+            instance.save()
+        return instance
 
 class ProjectImageInline(SortableInlineAdminMixin, admin.TabularInline):
     model = ProjectImage
+    form = ProjectImageSet1Form
     ordering = ('order',)
     extra = 0
     readonly_fields = ('image_preview',)
@@ -22,13 +62,6 @@ class ProjectImageInline(SortableInlineAdminMixin, admin.TabularInline):
 
     def get_queryset(self, request):
         return super().get_queryset(request).filter(image_type='set1')
-
-    def save_new(self, form, commit=True):
-        obj = super().save_new(form, commit=False)
-        obj.image_type = 'set1'
-        if commit:
-            obj.save()
-        return obj
     def image_preview(self, obj):
         if obj.image:
             return format_html(
@@ -41,6 +74,7 @@ class ProjectImageInline(SortableInlineAdminMixin, admin.TabularInline):
 
 class SecondaryProjectImageInline(SortableInlineAdminMixin, admin.TabularInline):
     model = ProjectImage
+    form = ProjectImageSet2Form
     ordering = ('order',)
     extra = 0
     fields = ('image','image_preview', 'order', 'alt_text')
@@ -51,12 +85,6 @@ class SecondaryProjectImageInline(SortableInlineAdminMixin, admin.TabularInline)
     def get_queryset(self, request):
         return super().get_queryset(request).filter(image_type='set2')
 
-    def save_new(self, form, commit=True):
-        obj = super().save_new(form, commit=False)
-        obj.image_type = 'set2'
-        if commit:
-            obj.save()
-        return obj
     def image_preview(self, obj):
         if obj.image:
             return format_html(
@@ -73,17 +101,11 @@ class ProjectDocumentInline(admin.TabularInline):
     fields = ['document', 'description']
 
 
-# ==============================
-# PROJECT ADMIN
-# ==============================
-
 @admin.register(Project)
 class ProjectAdmin(SortableAdminBase, admin.ModelAdmin):
 
-    # ---- PERFORMANCE ----
     list_select_related = ('category',)
 
-    # ---- LIST PAGE ----
     list_display = (
         'title',
         'category',
@@ -110,7 +132,6 @@ class ProjectAdmin(SortableAdminBase, admin.ModelAdmin):
 
     actions = ['make_published']
 
-    # ---- FORM PAGE ----
     inlines = [
         ProjectImageInline,
         SecondaryProjectImageInline,
@@ -145,7 +166,6 @@ class ProjectAdmin(SortableAdminBase, admin.ModelAdmin):
         }),
     )
 
-    # ---- CUSTOM DISPLAY ----
 
     def colored_status(self, obj):
         color_map = {
@@ -173,17 +193,10 @@ class ProjectAdmin(SortableAdminBase, admin.ModelAdmin):
 
     main_image_preview.short_description = 'Preview'
 
-    # ---- BULK ACTION ----
-
     def make_published(self, request, queryset):
         queryset.update(status='published')
 
     make_published.short_description = "Mark selected as Published"
-
-
-# ==============================
-# CATEGORY ADMIN
-# ==============================
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -192,11 +205,6 @@ class CategoryAdmin(admin.ModelAdmin):
     ordering = ('name',)
     prepopulated_fields = {"slug": ("name",)}
 
-
-# ==============================
-# DOCUMENT ADMIN
-# ==============================
-
 @admin.register(Document)
 class DocumentAdmin(admin.ModelAdmin):
     list_display = ('title', 'uploaded_at')
@@ -204,10 +212,6 @@ class DocumentAdmin(admin.ModelAdmin):
     list_filter = ('uploaded_at',)
     ordering = ('-uploaded_at',)
 
-
-# ==============================
-# CUSTOM ADMIN SITE
-# ==============================
 class CustomAdminSite(admin.AdminSite):
     site_header = "Toparch Admin"
     site_title = "Toparch Dashboard"
