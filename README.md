@@ -25,8 +25,7 @@
 - [x] **Portfolio:** 🖼️ จัดแสดงผลงานแยกตามหมวดหมู่
 
 ## 📸 Screenshots
-*(ลากรูปภาพหน้าจอเว็บของคุณมาวางตรงนี้)*
-> ตัวอย่าง: ![Home Page](path/to/your/image.png)
+ <img src="core/static/core/images/main-img.png" alt="website 1" 
 
 ## 📦 วิธีการติดตั้ง (Installation)
 
@@ -72,6 +71,5 @@ Plaintext
 ```
 👤 ติดต่อผู้พัฒนา
 [PIYAPAT JUNGKAPAE]
-
-📧 Email: piyapat.jun@spumail.net
-LinkIn:
+📧 Email: donutpiyapat@gmail.com
+LinkIn: https://www.linkedin.com/in/piyapat-jungkapae-435125381/
