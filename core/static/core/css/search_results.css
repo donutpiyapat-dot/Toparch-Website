@@ -23,7 +23,7 @@ html {
     color: var(--accent-yellow) !important;
 }
 
-/* สไตล์ปุ่ม Back to Home */
+
 .btn-back-home {
     display: inline-flex;
     align-items: center;

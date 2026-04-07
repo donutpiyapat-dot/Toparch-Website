@@ -1,4 +1,3 @@
-# core/views.py
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q, Case, When, IntegerField, Value,F
@@ -9,9 +8,6 @@ from .models import Project, Document, Category
 from django.db.models.functions import Greatest
 
 
-# =========================
-# BASIC PAGES
-# =========================
 
 def home_view(request):
     return render(request, 'index.html')
@@ -28,23 +24,17 @@ def infocus_view(request):
 def contact(request):
     return render(request, 'contact.html')
 
-
-# =========================
-# PROJECT
-# =========================
 def projects(request):
     query = request.GET.get('q')
     category = request.GET.get('cat')
     
     projects = Project.published.select_related('category').order_by('-created_at')
 
-    # filter category
     selected_category = None
     if category and category.lower() != 'all':
         selected_category = Category.objects.filter(slug=category).first()
         projects = projects.filter(category__slug=category)
 
-    # search
     if query:
         projects = projects.filter(
             Q(title__icontains=query) |
@@ -76,15 +66,13 @@ def projects_detail(request, pk):
 
     images = project.images.all() 
 
-    # กรองรูปภาพแยกเป็น 2 ชุด
     images_set1 = project.images.filter(image_type='set1')
     images_set2 = project.images.filter(image_type='set2')
 
-    # ส่วนของ Next/Previous (ถ้าคุณมี Logic เดิมอยู่แล้วให้คงไว้ครับ)
     next_project = Project.published.filter(id__gt=project.id).order_by('id').first()
     previous_project = Project.published.filter(id__lt=project.id).order_by('-id').first()
 
-    return render(request, 'projects_detail.html', { # ใช้ชื่อไฟล์ให้ถูกตามที่ระบบแจ้ง
+    return render(request, 'projects_detail.html', {
         'project': project,
         'images': images,
         'images_set1': images_set1,
@@ -93,10 +81,6 @@ def projects_detail(request, pk):
         'previous_project': previous_project,
     })
 
-
-# =========================
-# SERVICES
-# =========================
 def services_detail(request, slug):
     services = {
         "services-1": {
@@ -129,16 +113,12 @@ def services_detail(request, slug):
         "service": services[slug] 
     })
 
-# =========================
-# SEARCH
-# =========================
 def global_search(request):
     query = request.GET.get('q')
     results = Project.published.all()
 
     if query:
 
-        # ---------- FULL TEXT ----------
         search_vector = (
             SearchVector('title', weight='A') +
             SearchVector('category__name', weight='B') +
@@ -151,15 +131,12 @@ def global_search(request):
         results = results.annotate(
             rank=SearchRank(search_vector, search_query),
 
-            # ---------- TRIGRAM ----------
             trigram=(
                 TrigramSimilarity('title', query) +
                 TrigramSimilarity('category__name', query) +
                 TrigramSimilarity('area', query)
             )
         ).annotate(
-
-            # ---------- รวมคะแนน ----------
             score=F('rank') + F('trigram')
 
         ).filter(
@@ -172,9 +149,7 @@ def global_search(request):
         'total_results': results.count()
     })
 
-# =========================
-# DOCUMENTS
-# =========================
+
 
 @login_required
 def document_list(request):
@@ -202,16 +177,14 @@ def project_detail(request, slug):
     project = get_object_or_404(Project, slug=slug)
     images = list(project.images.all())
 
-    prev_big = False  # 👈 ต้องอยู่ก่อน loop
+    prev_big = False  
 
     for img in images:
-        # สุ่มขนาด
         img.size = random.choices(
             ['small', 'medium', 'big'],
             weights=[5, 3, 2]
         )[0]
 
-        # 🔥 กัน big ติดกัน + ลดโอกาส big
         if img.size == 'big':
             if prev_big or random.random() < 0.4:
                 img.size = 'medium'

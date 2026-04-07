@@ -255,9 +255,8 @@ body.services-page main {
 
 .services-3 {
     position: relative;
-    /* เปลี่ยนจาก height ธรรมดาเป็น min-height เพื่อให้ยืดตามเนื้อหาได้ */
     min-height: calc(100vh - 70px); 
-    padding-bottom: 60px; /* เผื่อระยะด้านล่างไว้หน่อย เนื้อหาจะได้ไม่ชนขอบ */
+    padding-bottom: 60px;
 }
 .services-3::before {
     content: "";

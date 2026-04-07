@@ -1,14 +1,11 @@
-/* ลบ margin ด้านล่างของ inline ตัวแรก */
 .inline-group {
     margin-bottom: 0 !important;
 }
 
-/* ลบเส้นขอบด้านบนของ inline ตัวถัดไป เพื่อให้ดูเหมือนต่อกัน */
 .inline-group + .inline-group {
     border-top: none !important;
 }
 
-/* ปรับแต่งหัวข้อ (h2) ของบล็อกที่สองให้ดูเล็กลง หรือซ่อนไปเลยถ้าอยากให้เนียนสุดๆ */
 .inline-group + .inline-group h2 {
-    display: none; /* หรือปรับ padding ให้ชิดกันมากขึ้น */
+    display: none; 
 }

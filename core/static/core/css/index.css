@@ -108,18 +108,13 @@ html, body {
     overflow: hidden;
     margin: 0 !important; 
 }
-/* ==============================================
-   Animation ข้อความสไลด์มาจากทางขวา
-   ============================================== */
 @keyframes slideInRight {
     0% {
         opacity: 0;
-        /* เริ่มต้นโดยถอยไปทางขวา 50px (X) และคงค่ากึ่งกลางแนวตั้งไว้ (Y) */
         transform: translate(50px, -50%); 
     }
     100% {
         opacity: 1;
-        /* เลื่อนกลับมาตำแหน่ง 0 ปกติ (X) และคงค่ากึ่งกลางแนวตั้งไว้ (Y) */
         transform: translate(0, -50%);
     }
 }
@@ -196,78 +191,56 @@ main {
     animation: popAndFocus 24s infinite ease-in-out;
     pointer-events: none;
 }
-/* ==============================================
-   Animation Delays (จัดสรรใหม่ ปิดช่องโหว่รอยต่อ 24 วิ)
-   ============================================== */
 
-/* เซ็ตที่ 1 */
 .delay-1  { animation-delay: 0s; }
 
-/* เซ็ตที่ 2 */
 .delay-2  { animation-delay: 2.7s; }
 .delay-3  { animation-delay: 3.3s; } 
 
-/* เซ็ตที่ 3 */
+
 .delay-4  { animation-delay: 5.8s; }
 .delay-5  { animation-delay: 6.3s; }
 
-/* เซ็ตที่ 4 (มี 4 รูป) */
 .delay-6  { animation-delay: 9.2s; }
 .delay-8  { animation-delay: 9.9s; }
 .delay-7  { animation-delay: 10.4s; }
 .delay-15 { animation-delay: 10.9s; }
 
-/* เซ็ตที่ 5 */
 .delay-9  { animation-delay: 13.6s; }
 .delay-10 { animation-delay: 14.6s; }
 
-/* เซ็ตที่ 6 */
 .delay-11 { animation-delay: 17.5s; }
 .delay-12 { animation-delay: 18.0s; }
 
-/* เซ็ตที่ 7: 
-   ขยับมาเริ่ม 21.5 พอโชว์ค้าง 2.5 วิ จะเริ่มเฟดออกที่ 24.0 วิ 
-   ทำให้ชนกับจังหวะที่เซ็ตที่ 1 เด้งขึ้นมาพอดีเป๊ะ! */
 .delay-13 { animation-delay: 21.0s; }
 .delay-14 { animation-delay: 21.5s; }
 
-/* ==============================================
-   Animation Keyframes (เนียน นุ่มนวล ไม่มีเด้งกระตุก)
-   ระยะเวลาแสดงผลรวม 3.5 วินาทีต่อรูป
-   ============================================== */
+
 @keyframes popAndFocus {
-    /* 0% (0 วินาที): เริ่มต้นโปร่งใสและเบลอมาก */
     0% {
         opacity: 0;
         filter: blur(15px);
         transform: translate(-50%, -50%) scale(0.95);
     }
     
-    /* 4.16% (ประมาณ 1.0 วินาที): ค่อยๆ เฟดและชัดขึ้นอย่างช้าๆ 
-       (จังหวะนี้จะใช้เวลา 1 วิเต็มๆ ในการค่อยๆ โผล่มา แทนที่จะเป็น 0.28 วิแบบเดิม) */
     4.16% {
         opacity: 1;
         filter: blur(0px);
-        transform: translate(-50%, -50%) scale(1); /* ขยายมาถึง 1 แล้วนิ่งเลย ไม่มีเด้งไป 1.02 */
+        transform: translate(-50%, -50%) scale(1); 
     }
     
-    /* 10.41% (ประมาณ 2.5 วินาที): โชว์ค้างไว้ชัดๆ 
-       (จังหวะนี้รูปถัดไปจะเริ่มค่อยๆ เฟดแทรกขึ้นมาแล้ว เกิดการซ้อนทับกัน) */
     10.41% {
         opacity: 1;
         filter: blur(0px);
         transform: translate(-50%, -50%) scale(1);
     }
     
-    /* 14.58% (3.5 วินาที): เฟดและเบลอหายไปอย่างนุ่มนวล
-       (เปลี่ยนให้ค่อยๆ ขยายออกไปที่ 1.05 แทนที่จะหดกลับ เพื่อไม่ให้รู้สึกขัดตา/กระตุก) */
     14.58% {
         opacity: 0;
         filter: blur(15px);
         transform: translate(-50%, -50%) scale(1.05);
     }
     
-    /* 14.6% - 100% (หลังจาก 3.5 วิ เป็นต้นไป): ซ่อนตัวยาวๆ รอจบลูป 24 วิ */
     14.6%, 100% {
         opacity: 0;
         filter: blur(15px);
@@ -348,7 +321,7 @@ main {
     position: absolute;
     right: 8.3%; 
     top: 58.2%;
-    transform: translateY(-50%); /* ค่านี้จะสัมพันธ์กับ Keyframes ด้านบน */
+    transform: translateY(-50%);
     height: 48vh; 
     max-width: 600px;
     
@@ -358,7 +331,6 @@ main {
     z-index: 10; 
     text-align: left; 
     
-    /* 🔥 เปลี่ยนมาเรียกใช้แอนิเมชันตัวใหม่ตรงนี้ */
     animation: slideInRight 1.2s ease forwards;
 }
 .hero-title,
