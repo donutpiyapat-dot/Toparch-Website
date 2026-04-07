@@ -25,7 +25,7 @@
 - [x] **Portfolio:** 🖼️ จัดแสดงผลงานแยกตามหมวดหมู่
 
 ## 📸 Screenshots
- <img src="core/static/core/images/main-img.png" alt="website 1" 
+<img src="toparch_web/core/static/core/images/main-img.png" alt="website 1" width="100%">
 
 ## 📦 วิธีการติดตั้ง (Installation)
 
@@ -71,5 +71,7 @@ Plaintext
 ```
 👤 ติดต่อผู้พัฒนา
 [PIYAPAT JUNGKAPAE]
+
 📧 Email: donutpiyapat@gmail.com
+
 LinkIn: https://www.linkedin.com/in/piyapat-jungkapae-435125381/
