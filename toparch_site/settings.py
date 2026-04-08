@@ -28,11 +28,11 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     'toparch-website.onrender.com',
+]
 
 CSRF_TRUSTED_ORIGINS = [
     'https://toparch-website.onrender.com',
 ]
-
 
 
 
