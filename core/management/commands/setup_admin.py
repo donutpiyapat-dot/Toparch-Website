@@ -1,5 +1,6 @@
 from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
+from django.db import connection
 
 class Command(BaseCommand):
     help = 'Create or update superuser'
@@ -18,3 +19,10 @@ class Command(BaseCommand):
             user.set_password(password)
             user.save()
             self.stdout.write(self.style.SUCCESS(f'Successfully updated password for existing superuser: {username}'))
+
+    help = 'Enable pg_trgm extension in PostgreSQL'
+
+    def handle(self, *args, **kwargs):
+        with connection.cursor() as cursor:
+            cursor.execute("CREATE EXTENSION IF NOT EXISTS pg_trgm;")
+        self.stdout.write(self.style.SUCCESS('Successfully enabled pg_trgm extension'))
