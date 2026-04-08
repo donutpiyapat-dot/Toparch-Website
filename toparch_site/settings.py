@@ -26,7 +26,19 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['.onrender.com']
+ALLOWED_HOSTS = [
+    'toparch-website.onrender.com', # URL เดิมของ Render
+    'toparch.com',                  # โดเมนใหม่
+    'www.toparch.com',              # โดเมนใหม่แบบมี www
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://toparch-website.onrender.com',
+    'https://toparch.com',
+    'https://www.toparch.com',
+]
+
+
 
 
 # Application definition
