@@ -332,7 +332,7 @@ html, body {
     right: 0;
     bottom: 0; 
     width: 100%;
-    background-image: url("/static/core/images/Project-bg.jpg");
+    background-image: url("/static/core/images/Project-bg.webp");
     
     background-size: cover;
     background-position: center;
