@@ -50,15 +50,3 @@ def delete_gallery_image_on_delete(sender, instance, **kwargs):
         os.remove(instance.image.path)
 
 
-
-from django.contrib.auth import get_user_model
-
-User = get_user_model()
-
-def create_superuser():
-    if not User.objects.filter(username="admin").exists():
-        User.objects.create_superuser(
-            username="admin",
-            email="admin@gmail.com",
-            password="12345678"
-        )
