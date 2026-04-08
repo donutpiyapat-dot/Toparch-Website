@@ -48,3 +48,17 @@ def delete_project_image_on_delete(sender, instance, **kwargs):
 def delete_gallery_image_on_delete(sender, instance, **kwargs):
     if instance.image and os.path.isfile(instance.image.path):
         os.remove(instance.image.path)
+
+
+
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
+
+def create_superuser():
+    if not User.objects.filter(username="admin").exists():
+        User.objects.create_superuser(
+            username="admin",
+            email="admin@gmail.com",
+            password="12345678"
+        )
