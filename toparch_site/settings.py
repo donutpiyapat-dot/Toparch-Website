@@ -27,15 +27,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'toparch-website.onrender.com', # URL เดิมของ Render
-    'toparch.com',                  # โดเมนใหม่
-    'www.toparch.com',              # โดเมนใหม่แบบมี www
-]
+    'toparch-website.onrender.com',
 
 CSRF_TRUSTED_ORIGINS = [
     'https://toparch-website.onrender.com',
-    'https://toparch.com',
-    'https://www.toparch.com',
 ]
 
 
