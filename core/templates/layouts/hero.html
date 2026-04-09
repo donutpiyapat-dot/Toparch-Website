@@ -1,31 +1,11 @@
-<div class="hero-layout">
-
-    <!-- รูปหลัก -->
-    {% if images and images|length > 0 %}
-    <div class="hero-main">
-        <img
-            src="{{ img.image.url }}?f_auto,q_auto,w_800"
-            class="project-thumb"
-            data-full="{{ img.image.url }}?f_auto,q_auto,w_1600"
-            loading="lazy"
-            alt="{{ project.title }}"
-        >
-    </div>
-    {% endif %}
-
-    <!-- รูปรอง -->
-    <div class="hero-grid">
-        {% for img in images|slice:"1:5" %}
-        <div class="hero-item">
-            <img
-                src="{{ img.image.url }}?f_auto,q_auto,w_800"
-                class="project-thumb"
-                data-full="{{ img.image.url }}?f_auto,q_auto,w_1600"
-                loading="lazy"
-                alt="{{ project.title }}"
-            >
-        </div>
-        {% endfor %}
-    </div>
-
+{% if images and images|length > 0 %}
+<div class="hero-main">
+    <img
+        src="{{ images.0.image.url }}?f_auto,q_auto,w_800"
+        class="project-thumb"
+        data-full="{{ images.0.image.url }}?f_auto,q_auto,w_1600"
+        loading="lazy"
+        alt="{{ project.title }}"
+    >
 </div>
+{% endif %}

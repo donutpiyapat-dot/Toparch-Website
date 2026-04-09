@@ -43,6 +43,7 @@
 
 <div class="col-lg-8 px-3">
     {% with template="layouts/"|add:project.layout_type|add:".html" %}
+        {% include template %}
     {% endwith %}
 </div>
 <div id="image-modal" class="image-modal">
@@ -303,15 +304,17 @@ function updateSlide() {
         });
     }
 
-    nextBt.onclick = () => {
-        current = (current + 1) % cards.length;
-        updateStack();
-    };
+    if (nextBt && prevBt) {
+        nextBt.onclick = () => {
+            current = (current + 1) % cards.length;
+            updateStack();
+        };
 
-    prevBt.onclick = () => {
-        current = (current - 1 + cards.length) % cards.length;
-        updateStack();
-    };
+        prevBt.onclick = () => {
+            current = (current - 1 + cards.length) % cards.length;
+            updateStack();
+        };
+}
 
     updateStack();
 });
