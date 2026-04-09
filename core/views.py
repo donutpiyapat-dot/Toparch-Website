@@ -69,8 +69,8 @@ def projects_detail(request, pk):
     images_set1 = project.images.filter(image_type='set1')
     images_set2 = project.images.filter(image_type='set2')
 
-    next_project = Project.published.filter(id__gt=project.id).order_by('id').first()
-    previous_project = Project.published.filter(id__lt=project.id).order_by('-id').first()
+    next_project = Project.published.filter(id__gt=project.id).order_by('created_at').first()
+    previous_project = Project.published.filter(id__lt=project.id).order_by('-created_at').first()
 
     return render(request, 'projects_detail.html', {
         'project': project,
@@ -153,30 +153,30 @@ def document_list(request):
     })
 
 
-import random
+# import random
 
-def project_detail(request, slug):
-    project = get_object_or_404(Project, slug=slug)
-    images = list(project.images.all())
+# def project_detail(request, slug):
+#     project = get_object_or_404(Project, slug=slug)
+#     images = list(project.images.all())
 
-    prev_big = False  
+#     prev_big = False  
 
-    for img in images:
-        img.size = random.choices(
-            ['small', 'medium', 'big'],
-            weights=[5, 3, 2]
-        )[0]
+#     for img in images:
+#         img.size = random.choices(
+#             ['small', 'medium', 'big'],
+#             weights=[5, 3, 2]
+#         )[0]
 
-        if img.size == 'big':
-            if prev_big or random.random() < 0.4:
-                img.size = 'medium'
-                prev_big = False
-            else:
-                prev_big = True
-        else:
-            prev_big = False
+#         if img.size == 'big':
+#             if prev_big or random.random() < 0.4:
+#                 img.size = 'medium'
+#                 prev_big = False
+#             else:
+#                 prev_big = True
+#         else:
+#             prev_big = False
 
-    return render(request, 'project_detail.html', {
-        'project': project,
-        'images': images
-    })
+#     return render(request, 'project_detail.html', {
+#         'project': project,
+#         'images': images
+#     })

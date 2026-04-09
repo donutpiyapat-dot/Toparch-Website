@@ -492,7 +492,7 @@ main {
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
     
     .tech-overlay {
         width: 70%; 
@@ -519,7 +519,28 @@ main {
         width: 85%;
         height: 85%;
     }
+.delay-1  { animation-delay: 0s; }
 
+.delay-2  { animation-delay: 2.7s; }
+.delay-3  { animation-delay: 3.3s; } 
+
+
+.delay-4  { animation-delay: 5.8s; }
+.delay-5  { animation-delay: 6.3s; }
+
+.delay-6  { animation-delay: 9.2s; }
+.delay-8  { animation-delay: 9.9s; }
+.delay-7  { animation-delay: 10.4s; }
+.delay-15 { animation-delay: 10.9s; }
+
+.delay-9  { animation-delay: 13.6s; }
+.delay-10 { animation-delay: 14.6s; }
+
+.delay-11 { animation-delay: 17.5s; }
+.delay-12 { animation-delay: 18.0s; }
+
+.delay-13 { animation-delay: 21.0s; }
+.delay-14 { animation-delay: 21.5s; }
     @keyframes popAndFocusMobile {
         0% {
             opacity: 0;
@@ -551,4 +572,11 @@ main {
             transform: translate(-50%, -50%) scale(0.95);
         }
     }
+    .hero-title{
+        font-size: var(--fs-p);
+    }
+    .hero-desc{
+        font-size: 0.9rem;
+    }
+    
 }
