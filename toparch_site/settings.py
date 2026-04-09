@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'django.contrib.postgres',
     'django_extensions',
     'adminsortable2',
+    'cloudinary',
+    'cloudinary_storage',
 
 ]
 
@@ -140,7 +142,7 @@ import os
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 LOGIN_REDIRECT_URL = '/admin/'
 
@@ -148,3 +150,12 @@ LOGOUT_REDIRECT_URL = 'login'
 SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
+
+
+import cloudinary
+
+cloudinary.config(
+    cloud_name = os.environ.get("CLOUDINARY_CLOUD_NAME"),
+    api_key = os.environ.get("CLOUDINARY_API_KEY"),
+    api_secret = os.environ.get("CLOUDINARY_API_SECRET"),
+)
