@@ -489,3 +489,66 @@ main {
     pointer-events: none;
     border-radius: 0;
 }
+
+
+
+@media (max-width: 768px) {
+    
+    .tech-overlay {
+        width: 70%; 
+        height: 70%;
+        animation: popAndFocusMobile 24s infinite ease-in-out; 
+    }
+    .delay-2 {
+        top: 60%;
+        right: 15%; 
+        left: auto; 
+    } 
+
+    .delay-3 {
+        left: 20%;
+    }
+    .delay-6 {
+        top: 50%;
+        width: 80%;
+        height: 80%;
+    }
+
+    .delay-8 {
+        top: 60%;
+        width: 85%;
+        height: 85%;
+    }
+
+    @keyframes popAndFocusMobile {
+        0% {
+            opacity: 0;
+            filter: blur(15px);
+            transform: translate(-50%, -50%) scale(0.85); 
+        }
+        
+        4.16% {
+            opacity: 0.4; 
+            filter: blur(0px);
+            transform: translate(-50%, -50%) scale(0.9); 
+        }
+        
+        10.41% {
+            opacity: 0.4; 
+            filter: blur(0px);
+            transform: translate(-50%, -50%) scale(0.9);
+        }
+        
+        14.58% {
+            opacity: 0;
+            filter: blur(15px);
+            transform: translate(-50%, -50%) scale(0.95);
+        }
+        
+        14.6%, 100% {
+            opacity: 0;
+            filter: blur(15px);
+            transform: translate(-50%, -50%) scale(0.95);
+        }
+    }
+}
