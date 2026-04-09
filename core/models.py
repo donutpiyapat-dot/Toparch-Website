@@ -8,6 +8,7 @@ import os
 from io import BytesIO
 from PIL import Image
 from django.core.files.base import ContentFile
+from cloudinary.models import CloudinaryField
 
 def unique_slugify(instance, slug_field, slug_from):
     slug = slugify(slug_from)
@@ -75,7 +76,6 @@ class Project(models.Model):
             ('masonry', 'Masonry'),
             ('split', 'Split Layout'),
             ('magazine', 'Magazine Layout'),
-
         ],
         default='grid'
     )
@@ -86,35 +86,31 @@ class Project(models.Model):
         null=True,
         related_name='projects'
     )
-    main_image = models.ImageField(upload_to=project_image_path)
-    description = models.TextField(blank=True)
 
+
+    main_image = CloudinaryField(
+        'image',
+        transformation={
+            "quality": "auto",
+            "fetch_format": "auto"
+        }
+    )
+
+    description = models.TextField(blank=True)
     area = models.CharField(max_length=100, blank=True)
     year = models.IntegerField(null=True, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    status = models.CharField(max_length=20,choices=STATUS_CHOICES,default='draft')
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='draft')
+
     search_vector = SearchVectorField(null=True)
+
     objects = models.Manager()
     published = PublishedManager()
 
     class Meta:
         ordering = ['-created_at']
-        indexes = [
-            models.Index(fields=['slug']),
-            models.Index(fields=['category']),
-            models.Index(fields=['status']),
-            models.Index(fields=['created_at']),  
-            models.Index(fields=['title']),
-            GinIndex(fields=['search_vector']),  
-
-            GinIndex(
-                fields=['title'],
-                name='title_trgm',
-                opclasses=['gin_trgm_ops'] 
-            ),
-        ]
 
     def save(self, *args, **kwargs):
         if not self.slug and self.title:
@@ -125,37 +121,6 @@ class Project(models.Model):
                 slug = f"{base_slug}-{i}"
                 i += 1
             self.slug = slug
-        super().save(*args, **kwargs)
-
-
-    def __str__(self):
-        return self.title
-    
-    def save(self, *args, **kwargs):
-        if not self.slug and self.title:
-            base_slug = slugify(self.title)
-            slug = base_slug or "project"
-            i = 1
-            while Project.objects.filter(slug=slug).exclude(id=self.id).exists():
-                slug = f"{base_slug}-{i}"
-                i += 1
-            self.slug = slug
-
-        if self.main_image:
-            file_ext = os.path.splitext(self.main_image.name)[1].lower()
-            if file_ext not in ['.webp']:
-                img = Image.open(self.main_image)
-                if img.mode not in ('RGB', 'RGBA'):
-                    img = img.convert('RGBA')
-                
-                output = BytesIO()
-                img.save(output, format='WEBP', quality=85)
-                output.seek(0)
-                
-                original_filename = os.path.basename(self.main_image.name)
-                new_filename = f"{os.path.splitext(original_filename)[0]}.webp"
-                
-                self.main_image.save(new_filename, ContentFile(output.read()), save=False)
 
         super().save(*args, **kwargs)
 
@@ -165,21 +130,23 @@ class ProjectImage(models.Model):
         related_name='images',
         on_delete=models.CASCADE
     )
-    image = models.ImageField(upload_to=project_image_path)
+
+    image = CloudinaryField('image')
+
     image_type = models.CharField(
         max_length=10,
         choices=[('set1', 'Set 1'), ('set2', 'Set 2')],
-        default='set1', 
-        editable=False 
+        default='set1',
+        editable=False
     )
+
     created_at = models.DateTimeField(auto_now_add=True)
     order = models.PositiveIntegerField(default=0)
     alt_text = models.CharField(max_length=255, blank=True)
+
     class Meta:
         ordering = ['order']
-        indexes = [
-            models.Index(fields=['project']),
-        ]
+
     def preview(self):
         if self.image:
             return format_html(
@@ -187,23 +154,6 @@ class ProjectImage(models.Model):
                 self.image.url
             )
         return "-"
-
-    preview.short_description = "Preview"
-
-    def save(self, *args, **kwargs):
-        if self.image:
-            file_ext = os.path.splitext(self.image.name)[1].lower()
-            if file_ext not in ['.webp']:
-                img = Image.open(self.image) 
-                if img.mode not in ('RGB', 'RGBA'):
-                    img = img.convert('RGBA')
-                output = BytesIO()
-                img.save(output, format='WEBP', quality=85)
-                output.seek(0)
-                original_filename = os.path.basename(self.image.name)
-                new_filename = f"{os.path.splitext(original_filename)[0]}.webp"
-                self.image.save(new_filename, ContentFile(output.read()), save=False)
-        super().save(*args, **kwargs)
 
 
 

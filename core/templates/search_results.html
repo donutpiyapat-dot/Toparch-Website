@@ -31,7 +31,12 @@
                 <div class="col-md-4 mb-4 search-card-wrapper">
                     <a href="{% url 'projects_detail' project.id %}">
                         <div class="search-card">
-                            <img src="{{ project.main_image.url }}" class="img-fluid">
+                            <img
+                                src="{{ project.main_image.url }}?f_auto,q_auto,w_600"
+                                class="img-fluid"
+                                loading="lazy"
+                                alt="{{ image.alt_text|default:project.title }}"
+                            >
                         </div>
                         <h5 class="mt-2 text-uppercase">{{ project.title }}</h5>
                         <small class="text-yellow text-uppercase">{{ project.category }}</small>

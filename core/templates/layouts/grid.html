@@ -4,11 +4,11 @@
         <div class="project-image">
             <div class="project-box">
                 <img
-                 src="{{ image.image.url }}"
-                 alt="{{ project.title }}"
-                 class="project-thumb"
-                 data-full="{{ image.image.url }}"
-                 data-caption="{{ image.caption|default:'' }}">
+                src="{{ image.image.url }}?f_auto,q_auto,w_800"
+                alt="{{ image.alt_text|default:project.title }}"
+                class="project-thumb"
+                data-full="{{ image.image.url }}?f_auto,q_auto,w_1600"
+                loading="lazy"
             </div>
         </div>
         {% endfor %}
@@ -17,11 +17,11 @@
         <div class="project-image">
             <div class="project-box">
                 <img
-                 src="{{ image.image.url }}"
-                 alt="{{ project.title }}"
-                 class="project-thumb"
-                 data-full="{{ image.image.url }}"
-                 data-caption="{{ image.caption|default:'' }}">
+                src="{{ image.image.url }}?f_auto,q_auto,w_800"
+                alt="{{ image.alt_text|default:project.title }}"alt="{{ image.alt_text|default:project.title }}"
+                class="project-thumb"
+                data-full="{{ image.image.url }}?f_auto,q_auto,w_1600"
+                loading="lazy"
             </div>
         </div>
         {% endfor %}

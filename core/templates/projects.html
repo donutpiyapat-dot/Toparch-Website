@@ -29,7 +29,7 @@
         
                 <div class="col-lg-4 sticky-col px-3">
                     <div class="sticky-info">
-                        <h2 class="projects-tital">Our Projects<br></h2>
+                        <h2 class="projects-title">Our Projects<br></h2>
                             <div class="description-line my-4"></div>
                             <p class="description text-white opacity-75">
                                 {% if selected_category %}
@@ -74,7 +74,11 @@
                             <a href="{% url 'projects_detail' project.id %}?page={{ page_obj.number }}"  class="project-link">
                                 <div class="project-item">
                                     <div class="project-box">
-                                        <img src="{{ project.main_image.url }}" alt="{{ project.title }}">
+                                        <img
+                                            src="{{ project.main_image.url }}?f_auto,q_auto,w_800"
+                                            alt="{{ project.title }}"
+                                            loading="lazy"
+                                        >
                                     </div>
 
                                     <div class="project-detail mb-1 ">

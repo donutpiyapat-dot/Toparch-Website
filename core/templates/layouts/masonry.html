@@ -3,10 +3,11 @@
     {% for img in images %}
     <div class="masonry-item">
         <img
-            src="{{ img.image.url }}"
-            alt="{{ project.title }}"
+            src="{{ img.image.url }}?f_auto,q_auto,w_800"
             class="project-thumb"
-            data-full="{{ img.image.url }}"
+            data-full="{{ img.image.url }}?f_auto,q_auto,w_1600"
+            loading="lazy"
+            alt="{{ image.alt_text|default:project.title }}"
         >
     </div>
     {% endfor %}

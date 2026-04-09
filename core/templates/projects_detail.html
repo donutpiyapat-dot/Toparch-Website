@@ -42,7 +42,9 @@
 </div>
 
 <div class="col-lg-8 px-3">
-    {% include "layouts/"|add:project.layout_type|add:".html" %}
+    {% with template="layouts/"|add:project.layout_type|add:".html" %}
+        {% include template ignore missing %}
+    {% endwith %}
 </div>
 <div id="image-modal" class="image-modal">
 
@@ -99,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentIndex = 0;
 
     function updateModal() {
-    modalImg.src = images[currentIndex].getAttribute('src'); 
+    modalImg.src = images[currentIndex].dataset.full;
     counter.textContent = (currentIndex + 1) + " / " + images.length;
     }
 

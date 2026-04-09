@@ -6,10 +6,11 @@
         <!-- รูป -->
         <div class="split-image">
             <img
-                src="{{ img.image.url }}"
-                alt="{{ project.title }}"
-                class="project-thumb"
-                data-full="{{ img.image.url }}"
+            src="{{ img.image.url }}?f_auto,q_auto,w_800"
+            class="project-thumb"
+            data-full="{{ img.image.url }}?f_auto,q_auto,w_1600"
+            loading="lazy"
+            alt="{{ image.alt_text|default:project.title }}"
             >
         </div>
 

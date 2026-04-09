@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 import os
 from pathlib import Path
-import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -88,13 +87,24 @@ WSGI_APPLICATION = 'toparch_site.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASES = {
-    'default': dj_database_url.config(
-        conn_max_age=600,
-        ssl_require=True
-    )
-}
+import dj_database_url
 
+if os.environ.get('DATABASE_URL'):
+    # 👉 ใช้ตอน deploy (Render)
+    DATABASES = {
+        'default': dj_database_url.config(
+            conn_max_age=600,
+            ssl_require=True
+        )
+    }
+else:
+    # 👉 ใช้ตอน local
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -142,7 +152,7 @@ import os
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 
 LOGIN_REDIRECT_URL = '/admin/'
 
@@ -152,8 +162,8 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
 
-import cloudinary
-
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+import cloudinary 
 cloudinary.config(
     cloud_name = os.environ.get("CLOUDINARY_CLOUD_NAME"),
     api_key = os.environ.get("CLOUDINARY_API_KEY"),
