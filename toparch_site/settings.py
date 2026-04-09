@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'django.contrib.postgres',
     'django_extensions',
     'adminsortable2',
-    'core',
 
 ]
 
