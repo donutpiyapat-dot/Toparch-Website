@@ -104,7 +104,7 @@ class Project(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='draft')
 
-    search_vector = SearchVectorField(null=True)
+    # search_vector = SearchVectorField(null=True)
 
     objects = models.Manager()
     published = PublishedManager()

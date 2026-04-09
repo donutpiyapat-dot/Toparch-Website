@@ -3,9 +3,9 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q, Case, When, IntegerField, Value,F
 from django.http import Http404
 from django.core.paginator import Paginator
-from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank,TrigramSimilarity
+# from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank,TrigramSimilarity
 from .models import Project, Document, Category
-from django.db.models.functions import Greatest
+# from django.db.models.functions import Greatest
 
 
 
@@ -118,30 +118,12 @@ def global_search(request):
     results = Project.published.all()
 
     if query:
-
-        search_vector = (
-            SearchVector('title', weight='A') +
-            SearchVector('category__name', weight='B') +
-            SearchVector('area', weight='C') +
-            SearchVector('description', weight='D')
+        results = results.filter(
+            Q(title__icontains=query) |
+            Q(category__name__icontains=query) |
+            Q(area__icontains=query) |
+            Q(description__icontains=query)
         )
-
-        search_query = SearchQuery(query, search_type='websearch')
-
-        results = results.annotate(
-            rank=SearchRank(search_vector, search_query),
-
-            trigram=(
-                TrigramSimilarity('title', query) +
-                TrigramSimilarity('category__name', query) +
-                TrigramSimilarity('area', query)
-            )
-        ).annotate(
-            score=F('rank') + F('trigram')
-
-        ).filter(
-            score__gt=0.1
-        ).order_by('-score')
 
     return render(request, 'search_results.html', {
         'projects': results,
