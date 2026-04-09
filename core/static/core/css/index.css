@@ -572,11 +572,16 @@ main {
             transform: translate(-50%, -50%) scale(0.95);
         }
     }
-    .hero-title{
-        font-size: var(--fs-p);
-    }
-    .hero-desc{
-        font-size: 0.9rem;
-    }
+}
+@media (max-width: 991px) {
     
+    .home-page .title-small {
+        font-size: 1rem; 
+    }
+    .home-page .title-big {
+        font-size: 28px; 
+    }
+    .home-page .hero-desc {
+        font-size: 0.9rem; 
+    }
 }
