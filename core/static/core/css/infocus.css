@@ -30,7 +30,6 @@
     text-justify: inter-character; 
     word-spacing: normal;  
     letter-spacing: -0.35px; 
-    font-size: clamp(0.938rem, 1.5vw, 1.25rem);
 
     hyphens: none;
     -webkit-hyphens: none;
@@ -126,6 +125,7 @@ html, body {
         /* 1. เปลี่ยนมาจัดชิดซ้าย เพื่อความเนี้ยบและเป็นธรรมชาติของภาษาอังกฤษ */
         text-align: justify;
         line-height: 1.7;
+        font-size: 1rem;
         color: rgba(255, 255, 255, 0.9); 
         /* letter-spacing: 0.01em;  */
         text-justify: inter-word;
@@ -134,11 +134,13 @@ html, body {
         max-width: 100%;
         margin-bottom: 25px;
 
-        -webkit-hyphens: auto;
-        -ms-hyphens: auto;
-        hyphens: auto;
-        word-break: break-word;
+        -webkit-hyphens: none;
+        -ms-hyphens: none;
+        hyphens: none;
+        word-break: normal; 
+        overflow-wrap: anywhere;
         max-width: 100%;
+        width: 100%;
         margin-bottom: 25px;
     }
     .description::first-line {
