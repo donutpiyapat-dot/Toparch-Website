@@ -128,7 +128,7 @@ html, body {
     text-align: justify;
     text-justify: inter-character; 
     word-spacing: normal;  
-    letter-spacing: -0.35px; 
+    letter-spacing: -0.5px; 
 
     hyphens: none;
     -webkit-hyphens: none;
