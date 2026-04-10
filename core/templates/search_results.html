@@ -20,7 +20,7 @@
             <i class="fas fa-chevron-left"></i> BACK TO HOME
         </a>
     </div>
-    <h3 class="mb-4">
+    <h3 class="Search-results mb-4">
         Search results for "{{ query }}"
         ({{ total_results }} found)
     </h3>
@@ -45,7 +45,7 @@
             {% endfor %}
         </div>
     {% else %}
-        <p>No projects found.</p>
+        <p class="Search-results-no">No projects found.</p>
     {% endif %}
 </div>
 

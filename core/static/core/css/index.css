@@ -130,7 +130,6 @@ main {
 
 
 @media (max-width: 991px) {
-
     .home-page .nav-links-section {
         flex-direction: column;
         align-items: center;
@@ -598,4 +597,33 @@ main {
     .home-page .hero-desc {
         font-size: 0.8rem; 
     }
+}
+
+@media (max-width: 480px) {
+
+    .hero-content {
+        padding: 0 20px;
+    }
+
+    .home-page .title-small {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+    }
+
+    .home-page .title-big {
+        font-size: 26px;
+        line-height: 1.2;
+        letter-spacing: 1px;
+    }
+
+    .home-page .hero-desc {
+        font-size: 0.75rem;
+        line-height: 1.6;
+        margin-top: 10px;
+    }
+    .hero-content {
+    position: absolute;
+    bottom: 80px;
+    left: 20px;
+}
 }
