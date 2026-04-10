@@ -122,23 +122,32 @@ html, body {
             center / cover no-repeat;
     }
     .description {
+        /* 1. เปลี่ยนมาจัดชิดซ้าย เพื่อความเนี้ยบและเป็นธรรมชาติของภาษาอังกฤษ */
+        text-align: left;
+        
+        /* 2. เพิ่มระยะห่างบรรทัดให้โปร่งขึ้น (หัวใจของเว็บดีไซน์สมัยใหม่) */
+        line-height: 1.8; 
+        
+        /* 3. คุมขนาดตัวอักษรให้พอดี ไม่เล็กไปไม่ใหญ่ไป */
+        font-size: 1rem; 
+        
+        /* 4. ใช้ฟอนต์ที่เป็นกลางและอ่านง่าย (ใกล้เคียง Tahoma/San Francisco) */
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        
+        /* 5. ปรับค่าความโปร่งแสงเล็กน้อย เพื่อให้ดูนุ่มนวล (ถ้าพื้นหลังเข้ม) */
+        color: rgba(255, 255, 255, 0.9); 
+        
+        /* 6. เพิ่มระยะห่างระหว่างตัวอักษรนิดเดียวเพื่อให้ดูหรูขึ้น */
+        letter-spacing: 0.01em; 
+
         max-width: 100%;
-        text-align: justify; 
-        
-        /* 1. เปลี่ยนเป็น inter-word แทน เพราะ iOS เสถียรกว่ามาก */
-        text-justify: inter-word; 
-        
-        /* 2. ห้ามใช้ค่าลบใน letter-spacing พร้อมกับการ justify ใน iOS */
-        letter-spacing: normal; 
-        
-        /* 3. ใช้ตัวช่วยตัดคำ (สำคัญมากสำหรับ iOS) */
-        -webkit-hyphens: auto;
-        hyphens: auto;
-        
-        /* 4. ป้องกันคำยาวๆ ดีดจนเกิดช่องว่าง */
-        word-break: break-word;
-        
-        line-height: 1.6;
+        margin-bottom: 30px;
+    }
+
+    /* เทคนิคเพิ่มเติม: จัดการย่อหน้าแรกให้ดูเด่น */
+    .description::first-line {
+        color: #fff;
+        font-weight: 500;
     }
 }
 
