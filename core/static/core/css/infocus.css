@@ -122,18 +122,17 @@ html, body {
             center / cover no-repeat;
     }
     .description {
-        max-width: 100%;
-        text-align: justify; /* ยังคงความเรียบทั้งสองข้างไว้ */
-        
-        /* เปลี่ยนวิธีกระจายตัวอักษร */
-        text-justify: inter-word; 
-        
-        /* เปิดระบบช่วยตัดคำเพื่อลดช่องว่างห่างๆ */
-        -webkit-hyphens: auto;
-        -ms-hyphens: auto;
-        hyphens: auto;
-        line-height: 1.6;
-        letter-spacing: 0; /* รีเซ็ตให้เป็น 0 เพื่อให้อ่านง่ายขึ้นในที่แคบ */
+        max-width: 100%; 
+    line-height: 1.5;
+    margin-bottom: 32px;
+    text-align: justify;
+    text-justify: inter-character; 
+    word-spacing: normal;  
+    letter-spacing: -0.35px; 
+
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
     }
 }
 
