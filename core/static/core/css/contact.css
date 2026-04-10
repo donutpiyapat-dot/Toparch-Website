@@ -165,6 +165,19 @@ html, body.Contact-page {
     overflow-y: visible;
 }
 
+
+.map{
+    font-size: clamp(16px, 1.2vw + 10px, 20px);
+}
+
+.mail {
+    font-size: clamp(16px, 1.2vw + 10px, 20px);
+}
+
+.phone-number{
+    font-size: clamp(16px, 1.2vw + 10px, 20px);
+}
+
 @media (max-width:991px){
 
     .sticky-info{
@@ -203,18 +216,6 @@ html, body.Contact-page {
     .description-line{
         width:50px;
         height:3px;
-    }
-
-    .map{
-        font-size: clamp(16px, 5vw, 20px);
-    }
-
-    .mail {
-        font-size: clamp(16px, 5vw, 20px);
-    }
-
-    .phone-number{
-        font-size: clamp(16px, 5vw, 20px);
     }
     .Contact-page::before {
     content: "";

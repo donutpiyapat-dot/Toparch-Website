@@ -94,7 +94,7 @@
     position: relative;
 }
 
-.services-detail{
+.services-D{
     color: var(--text-primary) !important;
     text-decoration: none;
     font-size: clamp(16px, 1.2vw + 10px, 20px);
