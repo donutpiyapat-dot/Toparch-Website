@@ -150,27 +150,30 @@ html, body {
             center / cover no-repeat;
     }
     .description {
-        text-align: justify;
-        /* 1. เปลี่ยนจาก inter-character เป็น auto เพื่อให้ iOS คำนวณเองแบบธรรมชาติขึ้น */
-        text-justify: auto; 
-        
-        /* 2. บีบระยะห่างตัวอักษร (ติดลบเพื่อให้ตัวหนังสือเบียดกันมากขึ้น) */
-        letter-spacing: -0.8px; 
-        
-        /* 3. บีบช่องว่างระหว่างคำให้เล็กลง (ป้องกันรูโหว่) */
-        word-spacing: -2.5px; 
-        
-        /* 4. ลดฟอนต์ลงอีกนิดเดียว เพื่อให้คำว่า construction หรือ strategic มีโอกาสเบียดขึ้นบรรทัดบนได้ */
-        font-size: 0.88rem; 
-        
-        line-height: 1.5;
-        width: 100%;
-        max-width: 100%;
-        
-        /* ปิดการตัดคำตามต้องการ */
-        -webkit-hyphens: none;
-        hyphens: none;
-        word-break: normal;
+        /* 1. เปลี่ยนมาจัดชิดซ้าย (ขอบขวาจะปล่อยให้หยักตามธรรมชาติ หรือ Ragged Right) */
+            text-align: left;
+            
+            /* 2. เมื่อชิดซ้ายแล้ว ให้คืนค่าระยะห่างเป็นปกติ (ห้ามติดลบ) เพื่อให้อ่านง่าย */
+            text-justify: none; 
+            letter-spacing: normal; 
+            word-spacing: normal; 
+            
+            /* 3. ปรับฟอนต์ให้ใหญ่ขึ้นนิดนึงได้ เพราะไม่ต้องกลัวคำจะดีดจนเกิดรู */
+            font-size: 1rem; 
+            
+            /* 4. เพิ่มระยะห่างบรรทัดให้โปร่งขึ้น จะดูแพงและอ่านสบายตาขึ้นมาก */
+            line-height: 1.7; 
+            
+            /* 5. ปิดการตัดคำตามเดิม */
+            -webkit-hyphens: none;
+            hyphens: none;
+            word-break: normal;
+            
+            /* คืนค่าพื้นฐาน */
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 25px;
+            color: rgba(255, 255, 255, 0.9);
     }
     .description::first-line {
         color: #fff;
