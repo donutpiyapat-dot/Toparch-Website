@@ -214,22 +214,55 @@ main {
 
 @media (max-width:768px){
 
-    .description{
-        text-align:left;
-        max-width:100%;
-        line-height:1.7;
+    .description {
         text-align: justify;
+        text-justify: inter-character; 
+        word-spacing: -0.9px; 
+        font-size: 0.92rem; 
+        line-height: 1.5;
+        -webkit-hyphens: none;
+        hyphens: none;
+        word-break: normal; 
+        overflow-wrap: anywhere;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 25px;
     }
 }
 
-
-@media (max-width:425px){
+@supports (-webkit-touch-callout: none) {
+@media (max-width: 768px) {
+    .navbar{
+        height: 55px;
+    }
+    .description {
+        text-align: justify;
+        text-justify: inter-character; 
+        letter-spacing: -0.8px; 
+        word-spacing: -1.4px; 
+        font-size: 0.92rem;    
+        line-height: 1.5;
+        -webkit-hyphens: none;
+        hyphens: none;
+        word-break: normal; 
+        overflow-wrap: anywhere;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 25px;
+    }
+    .description::first-line {
+        color: #fff;
+        font-weight: 500;
+    }
+}
+}
+/* @media (max-width:425px){
 
     .description{
         font-size:.95rem;
         text-align: justify;
     }
-}
+} */
 
 .srv-decorations {
     position: absolute;
