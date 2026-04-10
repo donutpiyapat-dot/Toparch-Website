@@ -122,17 +122,23 @@ html, body {
             center / cover no-repeat;
     }
     .description {
-        max-width: 100%; 
-    line-height: 1.5;
-    margin-bottom: 25px;
-    text-align: justify;
-    text-justify: inter-character; 
-    word-spacing: normal;  
-    letter-spacing: -1px; 
-
-    hyphens: none;
-    -webkit-hyphens: none;
-    -ms-hyphens: none;
+        max-width: 100%;
+        text-align: justify; 
+        
+        /* 1. เปลี่ยนเป็น inter-word แทน เพราะ iOS เสถียรกว่ามาก */
+        text-justify: inter-word; 
+        
+        /* 2. ห้ามใช้ค่าลบใน letter-spacing พร้อมกับการ justify ใน iOS */
+        letter-spacing: normal; 
+        
+        /* 3. ใช้ตัวช่วยตัดคำ (สำคัญมากสำหรับ iOS) */
+        -webkit-hyphens: auto;
+        hyphens: auto;
+        
+        /* 4. ป้องกันคำยาวๆ ดีดจนเกิดช่องว่าง */
+        word-break: break-word;
+        
+        line-height: 1.6;
     }
 }
 
