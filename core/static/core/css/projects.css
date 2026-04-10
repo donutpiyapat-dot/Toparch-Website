@@ -138,7 +138,10 @@
 .project-detail{
     color: var(--text-primary) !important;
     text-decoration: none;
-
+    font-size: clamp(16px, 5vw, 20px);
+}
+.project-category{
+    font-size: clamp(8px, 5vw, 14px);
 }
 
 .vertical-row {
@@ -304,7 +307,6 @@
         letter-spacing: normal;
         text-align: justify;
     }
-
 
 }
 

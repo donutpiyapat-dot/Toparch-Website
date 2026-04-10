@@ -385,3 +385,12 @@ main {
     }
 
 }
+
+@media (max-width:768px){
+.navbar{
+    height: 55px;
+    }
+.services-detail{
+    font-size: clamp(16px, 5vw, 20px);
+}
+}

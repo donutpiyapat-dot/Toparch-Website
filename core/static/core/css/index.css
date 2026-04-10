@@ -512,12 +512,26 @@ main {
         top: 50%;
         width: 80%;
         height: 80%;
+        width: 50%;
+        height: 50%;
     }
 
+    .delay-7{
+        width: 50%;
+        height: 50%;
+        width: 50%;
+        height: 50%;
+    }
     .delay-8 {
         top: 60%;
         width: 85%;
         height: 85%;
+        width: 50%;
+        height: 50%;
+    }
+    .delay-15{
+        width: 50%;
+        height: 50%;
     }
 .delay-1  { animation-delay: 0s; }
 
@@ -579,9 +593,9 @@ main {
         font-size: 1rem; 
     }
     .home-page .title-big {
-        font-size: 35px; 
+        font-size: 30px; 
     }
     .home-page .hero-desc {
-        font-size: 0.9rem; 
+        font-size: 0.8rem; 
     }
 }

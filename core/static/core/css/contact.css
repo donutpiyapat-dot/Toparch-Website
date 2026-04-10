@@ -204,6 +204,38 @@ html, body.Contact-page {
         width:50px;
         height:3px;
     }
+
+    .map{
+        font-size: clamp(16px, 5vw, 20px);
+    }
+
+    .mail {
+        font-size: clamp(16px, 5vw, 20px);
+    }
+
+    .phone-number{
+        font-size: clamp(16px, 5vw, 20px);
+    }
+    .Contact-page::before {
+    content: "";
+    position: absolute;
+    top: 55px;   
+    left: 0;
+    right: 0;
+    bottom: 0;  
+    width: 100%;
+    
+    background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    url("/static/core/images/Contract 1200 x 600 rev.1.jpg");
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    z-index: -1;
+    pointer-events: none;
+}
 }
 
 .bg-decorations {
