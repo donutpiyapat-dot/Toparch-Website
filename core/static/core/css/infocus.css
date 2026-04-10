@@ -7,8 +7,7 @@
     text-transform: uppercase;
 }
 .splash-infocus {
-    background:
-        linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8));
+    background: linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8));
     background-size: cover;
     background-position: center;
 }
@@ -77,9 +76,8 @@ html, body {
     right: 0;
     bottom: 0;  
     width: 100%;
-    
     background-image:
-    url("/static/core/images/IN FOCUS.webp");
+    url("/static/core/images/IN-FOCUS.webp");
     
     background-size: cover;
     background-position: center;
@@ -108,13 +106,8 @@ html, body {
 
     .infocus-page::before {
         background:
-            url("/static/core/images/IN FOCUS22.webp")
+            url("/static/core/images/IN-FOCUS1.webp")
             center / cover no-repeat;
-    }
-    .description{
-        max-width: 90ch;
-        line-height: 1.7;
-        text-align: justify;
     }
     .inf-decorations {
         display: none; 
@@ -125,36 +118,28 @@ html, body {
 @media (max-width: 768px) {
     .infocus-page::before {
         background:
-            url("/static/core/images/IN FOCUS22.webp")
+            url("/static/core/images/IN-FOCUS1.webp")
             center / cover no-repeat;
     }
-    .description{
+    .description {
         max-width: 100%;
-        text-align: left;
-        line-height: 1.8;
-        word-spacing: normal;
+        text-align: left; 
+        line-height: 1.6;
         letter-spacing: normal;
-        text-align: justify;
+        margin-bottom: 25px;
+        hyphens: none;
+        -webkit-hyphens: none;
     }
-
-
 }
 
 @media (max-width: 425px) {
 
     .infocus-page::before {
         top: 55px;
-
         background:
-            url("/static/core/images/IN FOCUS.png")
+            url("/static/core/images/IN-FOCUS.webp")
             center / cover no-repeat;
-    }s
-    .description{
-        font-size: 0.95rem;
-        line-height: 1.9;
-        text-align: justify;
     }
-
 }
 
 .inf-decorations {
@@ -167,7 +152,6 @@ html, body {
     pointer-events: none; 
     overflow: hidden;
 }
-
 
 .inf-tl-yellow-bracket {
     position: absolute;
