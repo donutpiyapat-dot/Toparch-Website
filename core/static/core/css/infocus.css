@@ -122,24 +122,29 @@ html, body {
             center / cover no-repeat;
     }
     .description {
-        /* 1. เปลี่ยนมาจัดชิดซ้าย เพื่อความเนี้ยบและเป็นธรรมชาติของภาษาอังกฤษ */
         text-align: justify;
-        line-height: 1.7;
-        font-size: 1rem;
-        color: rgba(255, 255, 255, 0.9); 
-        /* letter-spacing: 0.01em;  */
-        /* word-spacing: normal;   */
-        letter-spacing: -0.5px; 
-        max-width: 100%;
-        margin-bottom: 25px;
+        /* 1. ใช้ inter-character เพื่อให้มันกระจายช่องว่างทุกตัวอักษร บรรทัดจะดูเต็มที่สุด */
+        text-justify: inter-character; 
+        
+        /* 2. บีบระยะห่างระหว่างตัวอักษรให้แน่นขึ้นอีกนิด */
+        letter-spacing: -0.8px; 
+        
+        /* 3. บีบระยะห่างระหว่างคำให้แคบลง เพื่อให้คำในบรรทัดเบียดกันได้มากขึ้น */
+        word-spacing: -1px; 
 
+        /* 4. ลดขนาดฟอนต์ลงนิดเดียวเพื่อให้คำมัน 'ลงล็อค' ง่ายขึ้น */
+        font-size: 0.92rem; 
+        
+        /* 5. ปรับระยะบรรทัดให้กระชับขึ้น */
+        line-height: 1.5;
+
+        /* ตั้งค่าอื่นๆ ตามเดิม */
         -webkit-hyphens: none;
-        -ms-hyphens: none;
         hyphens: none;
         word-break: normal; 
         overflow-wrap: anywhere;
-        max-width: 100%;
         width: 100%;
+        max-width: 100%;
         margin-bottom: 25px;
     }
     .description::first-line {
