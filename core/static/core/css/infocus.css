@@ -124,11 +124,11 @@ html, body {
     .description {
         max-width: 100%; 
     line-height: 1.5;
-    margin-bottom: 32px;
+    margin-bottom: 25px;
     text-align: left;
     text-justify: inter-character; 
     word-spacing: normal;  
-    letter-spacing: -0.9px; 
+    letter-spacing: 1px; 
 
     hyphens: none;
     -webkit-hyphens: none;
