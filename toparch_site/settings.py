@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'toparch-website.onrender.com',
+    'toparch.co.th',
+    'www.toparch.co.th',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
