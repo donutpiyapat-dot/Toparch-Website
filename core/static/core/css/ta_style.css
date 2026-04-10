@@ -82,7 +82,7 @@ html, body {
     text-justify: inter-character; 
     word-spacing: normal;  
     letter-spacing: -0.35px; 
-
+    font-size: clamp(16px, 1.2vw + 10px, 20px);
     hyphens: none;
     -webkit-hyphens: none;
     -ms-hyphens: none;
@@ -173,8 +173,7 @@ html, body {
     .ta-style-page::before {
     top: 55px;
     content: "";
-    position: absolute;     
-    top: 70px;             
+    position: absolute;               
     left: 0;
     right: 0;
     bottom: 0;             
