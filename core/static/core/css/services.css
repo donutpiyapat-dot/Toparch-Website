@@ -62,6 +62,7 @@
     -webkit-hyphens: none;
     -ms-hyphens: none;
 }
+
 .services-box {
     width: 100%;
     aspect-ratio: 16/9; 
@@ -96,6 +97,7 @@
 .services-detail{
     color: var(--text-primary) !important;
     text-decoration: none;
+    font-size: clamp(16px, 1.2vw + 10px, 20px);
 }
 
 
@@ -265,13 +267,6 @@ main {
     }
 }
 }
-/* @media (max-width:425px){
-
-    .description{
-        font-size:.95rem;
-        text-align: justify;
-    }
-} */
 
 .srv-decorations {
     position: absolute;
@@ -390,7 +385,4 @@ main {
 .navbar{
     height: 55px;
     }
-.services-detail{
-    font-size: clamp(16px, 5vw, 20px);
-}
 }
