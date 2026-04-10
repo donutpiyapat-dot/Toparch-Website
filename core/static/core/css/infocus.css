@@ -124,25 +124,16 @@ html, body {
     .description {
         /* 1. เปลี่ยนมาจัดชิดซ้าย เพื่อความเนี้ยบและเป็นธรรมชาติของภาษาอังกฤษ */
         text-align: justify;
-        
-        /* 2. เพิ่มระยะห่างบรรทัดให้โปร่งขึ้น (หัวใจของเว็บดีไซน์สมัยใหม่) */
         line-height: 1.7; 
-        
-        /* 3. คุมขนาดตัวอักษรให้พอดี ไม่เล็กไปไม่ใหญ่ไป */
         font-size: 1rem; 
-        
-        
-        /* 5. ปรับค่าความโปร่งแสงเล็กน้อย เพื่อให้ดูนุ่มนวล (ถ้าพื้นหลังเข้ม) */
         color: rgba(255, 255, 255, 0.9); 
-        
-        /* 6. เพิ่มระยะห่างระหว่างตัวอักษรนิดเดียวเพื่อให้ดูหรูขึ้น */
-        letter-spacing: 0.01em; 
-
+        /* letter-spacing: 0.01em;  */
+        text-justify: inter-character; 
+        word-spacing: normal;  
+        letter-spacing: -0.35px; 
         max-width: 100%;
         margin-bottom: 25px;
     }
-
-    /* เทคนิคเพิ่มเติม: จัดการย่อหน้าแรกให้ดูเด่น */
     .description::first-line {
         color: #fff;
         font-weight: 500;
