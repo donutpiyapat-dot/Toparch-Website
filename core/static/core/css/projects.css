@@ -307,6 +307,9 @@
     
 }
 @media (max-width: 768px) {
+    .navbar{
+        height: 55px;
+    }
     .description{
         max-width: 100%;
         text-align: left;

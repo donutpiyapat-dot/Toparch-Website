@@ -215,6 +215,9 @@ main {
 
 
 @media (max-width:768px){
+    .navbar{
+        height: 55px;
+    }
     .services-page::before{
     top: 55px;
     background-image:
