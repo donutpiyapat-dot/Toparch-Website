@@ -30,7 +30,7 @@
     text-justify: inter-character; 
     word-spacing: normal;  
     letter-spacing: -0.35px; 
-
+    font-size: clamp(16px, 1.2vw + 10px, 20px);
     hyphens: none;
     -webkit-hyphens: none;
     -ms-hyphens: none;
@@ -128,7 +128,6 @@ html, body {
         text-align: justify;
         text-justify: inter-character; 
         word-spacing: -0.9px; 
-        font-size: 0.92rem; 
         line-height: 1.5;
         -webkit-hyphens: none;
         hyphens: none;

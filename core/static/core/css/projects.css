@@ -44,6 +44,7 @@
     -webkit-hyphens: auto; 
     -ms-hyphens: auto;
     transition: opacity 0.5s ease, transform 0.5s ease;
+    font-size: clamp(16px, 1.2vw + 10px, 20px);
 }
 
 .description.fade-out {
@@ -310,23 +311,11 @@
     .navbar{
         height: 55px;
     }
-    .description{
-        max-width: 100%;
-        text-align: left;
-        line-height: 1.8;
-        word-spacing: normal;
-        letter-spacing: normal;
-        text-align: justify;
-    }
 }
-
-@media (max-width: 425px) {
-    .description{
-        font-size: 0.95rem;
-        line-height: 1.9;
-        text-align: justify;
+@media (max-width:425px){
+.navbar{
+    height: 55px;
     }
-
 }
 html, body {
     height: auto;

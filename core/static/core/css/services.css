@@ -57,7 +57,7 @@
     text-justify: inter-character; 
     word-spacing: normal;  
     letter-spacing: -0.35px; 
-
+    font-size: clamp(16px, 1.2vw + 10px, 20px);
     hyphens: none;
     -webkit-hyphens: none;
     -ms-hyphens: none;
@@ -227,7 +227,7 @@ main {
         text-align: justify;
         text-justify: inter-character; 
         word-spacing: -0.9px; 
-        font-size: 0.92rem; 
+        font-size: clamp(16px, 1.2vw + 10px, 20px);
         line-height: 1.5;
         -webkit-hyphens: none;
         hyphens: none;
@@ -254,7 +254,7 @@ main {
         text-justify: inter-character; 
         letter-spacing: 0.5px; 
         word-spacing: -1.5px; 
-        font-size: 0.92rem;    
+        font-size: clamp(16px, 1.2vw + 10px, 20px);    
         line-height: 1.5;
         -webkit-hyphens: none;
         hyphens: none;

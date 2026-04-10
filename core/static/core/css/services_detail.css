@@ -25,18 +25,20 @@ body.services-page main {
 }
 .service-description {
     max-width: 60ch; 
-    line-height: 1.5;
-    margin-bottom: 32px;
-    text-align: justify;
-    text-justify: inter-character; 
-    word-spacing: normal;  
-    letter-spacing: -0.5px; 
-
-    hyphens: none;
-    -webkit-hyphens: none;
-    -ms-hyphens: none;
-    
-}
+        text-align: justify;
+        text-justify: inter-character; 
+        letter-spacing: 0.5px; 
+        word-spacing: -1.5px; 
+        font-size: clamp(16px, 1.2vw + 10px, 20px);    
+        line-height: 1.5;
+        -webkit-hyphens: none;
+        hyphens: none;
+        word-break: normal; 
+        overflow-wrap: anywhere;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 25px;
+    }
 .services-item {
     margin-bottom: 3rem;
 }

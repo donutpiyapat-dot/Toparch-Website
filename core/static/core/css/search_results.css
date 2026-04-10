@@ -113,3 +113,16 @@ html {
     transition: transform 0.4s ease;
     width: 100%;
 }
+
+.Search-results{
+
+}
+@media (max-width:991px){
+
+    .Search-results{
+        font-size: 16px;
+    }
+    .Search-results-no{
+        font-size: 16px;
+    }
+}
