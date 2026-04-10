@@ -157,12 +157,8 @@ html, body {
             text-justify: none; 
             letter-spacing: normal; 
             word-spacing: normal; 
-            
-            /* 3. ปรับฟอนต์ให้ใหญ่ขึ้นนิดนึงได้ เพราะไม่ต้องกลัวคำจะดีดจนเกิดรู */
-            font-size: 1rem; 
-            
             /* 4. เพิ่มระยะห่างบรรทัดให้โปร่งขึ้น จะดูแพงและอ่านสบายตาขึ้นมาก */
-            line-height: 1.7; 
+            line-height: 1.5; 
             
             /* 5. ปิดการตัดคำตามเดิม */
             -webkit-hyphens: none;
