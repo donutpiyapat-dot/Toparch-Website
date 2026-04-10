@@ -342,7 +342,7 @@ body.services-page .footer-minimal {
 }
 
 @media (max-width: 991px) {
-    .description {
+    .service-description{
         text-align: left;
         text-justify: none; 
         letter-spacing: normal; 

@@ -48,8 +48,7 @@ html, body {
     right: 0;
     bottom: 0;             
     width: 100%;
-    background-image:url("/static/core/images/TA-STYLE.webp");
-    
+    background-image: url("/static/core/images/TA-STYLE.webp");
     background-size: cover;
     background-position: center top; 
     background-repeat: no-repeat;
@@ -134,26 +133,8 @@ html, body {
     height:9px;
     border-radius:50%;
 }
-@media (min-width:992px){
-.ta-style-page::before {
-    content: "";
-    position: absolute;     
-    top: 70px;             
-    left: 0;
-    right: 0;
-    bottom: 0;             
-    width: 100%;
-    background-image:url("/static/core/images/TA-STYLE.webp");
-    
-    background-size: cover;
-    background-position: center top; 
-    background-repeat: no-repeat;
-    
-    z-index: -1;
-    pointer-events: none; 
-}
 
-}
+
 @media (max-width:991px){
 .ta-style-page::before {
     content: "";
@@ -172,21 +153,23 @@ html, body {
     z-index: -1;
     pointer-events: none; 
 }
-    .description{
-        max-width:90ch;
-        line-height:1.6;
-        text-align: justify;
+    .description {
+        text-align: left;
+        text-justify: none; 
+        letter-spacing: normal; 
+        word-spacing: normal; 
+        line-height: 1.5; 
+        -webkit-hyphens: none;
+        hyphens: none;
+        word-break: normal;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 25px;
     }
 
 }
 
 @media (max-width:768px){
-    .description{
-        text-align:left;
-        max-width:100%;
-        line-height:1.8;
-        text-align: justify;
-    }
     .ta-style-page::before {
     top: 55px;
     content: "";
@@ -207,13 +190,6 @@ html, body {
 }
 }
 
-@media (max-width:425px){
-    .description{
-        font-size:.95rem;
-        line-height:1.9;
-        text-align: justify;
-    }
-}
 
 .ta-decorations {
     position: absolute; 
