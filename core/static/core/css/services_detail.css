@@ -342,11 +342,18 @@ body.services-page .footer-minimal {
 }
 
 @media (max-width: 991px) {
-    .service-description{
-        word-spacing: -0.11em;
-        max-width: 100ch;
-        line-height: 1.7;
-        text-align: justify;
+    .description {
+        text-align: left;
+        text-justify: none; 
+        letter-spacing: normal; 
+        word-spacing: normal; 
+        line-height: 1.5; 
+        -webkit-hyphens: none;
+        hyphens: none;
+        word-break: normal;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 25px;
     }
     .services-1::before {
     background-image:

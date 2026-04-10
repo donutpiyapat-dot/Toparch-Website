@@ -112,34 +112,20 @@ html, body {
     .inf-decorations {
         display: none; 
     }
-
-
-}
-@media (max-width: 768px) {
-    .navbar{
-        height: 55px;
-    }
-    .infocus-page::before {
-        background:
-            url("/static/core/images/IN-FOCUS1.webp")
-            center / cover no-repeat;
-    }
     .description {
-        text-align: justify;
-        text-justify: inter-character; 
-        word-spacing: -0.9px; 
-        line-height: 1.5;
+        text-align: left;
+        text-justify: none; 
+        letter-spacing: normal; 
+        word-spacing: normal; 
+        line-height: 1.5; 
         -webkit-hyphens: none;
         hyphens: none;
-        word-break: normal; 
-        overflow-wrap: anywhere;
+        word-break: normal;
         width: 100%;
         max-width: 100%;
         margin-bottom: 25px;
     }
 }
-
-@supports (-webkit-touch-callout: none) {
 @media (max-width: 768px) {
     .navbar{
         height: 55px;
@@ -150,32 +136,22 @@ html, body {
             center / cover no-repeat;
     }
     .description {
-        /* 1. เปลี่ยนมาจัดชิดซ้าย (ขอบขวาจะปล่อยให้หยักตามธรรมชาติ หรือ Ragged Right) */
-            text-align: left;
-            
-            /* 2. เมื่อชิดซ้ายแล้ว ให้คืนค่าระยะห่างเป็นปกติ (ห้ามติดลบ) เพื่อให้อ่านง่าย */
-            text-justify: none; 
-            letter-spacing: normal; 
-            word-spacing: normal; 
-            /* 4. เพิ่มระยะห่างบรรทัดให้โปร่งขึ้น จะดูแพงและอ่านสบายตาขึ้นมาก */
-            line-height: 1.5; 
-            
-            /* 5. ปิดการตัดคำตามเดิม */
-            -webkit-hyphens: none;
-            hyphens: none;
-            word-break: normal;
-            
-            /* คืนค่าพื้นฐาน */
-            width: 100%;
-            max-width: 100%;
-            margin-bottom: 25px;
-            color: rgba(255, 255, 255, 0.9);
+        text-align: left;
+        text-justify: none; 
+        letter-spacing: normal; 
+        word-spacing: normal; 
+        line-height: 1.5; 
+        -webkit-hyphens: none;
+        hyphens: none;
+        word-break: normal;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 25px;
     }
     .description::first-line {
         color: #fff;
         font-weight: 500;
     }
-}
 }
 
 @media (max-width: 425px) {

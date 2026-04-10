@@ -224,52 +224,20 @@ main {
         url("/static/core/images/SERVICE.png"); 
     }
     .description {
-        text-align: justify;
-        text-justify: inter-character; 
-        word-spacing: -0.9px; 
-        font-size: clamp(16px, 1.2vw + 10px, 20px);
-        line-height: 1.5;
+        text-align: left;
+        text-justify: none; 
+        letter-spacing: normal; 
+        word-spacing: normal; 
+        line-height: 1.5; 
         -webkit-hyphens: none;
         hyphens: none;
-        word-break: normal; 
-        overflow-wrap: anywhere;
+        word-break: normal;
         width: 100%;
         max-width: 100%;
         margin-bottom: 25px;
     }
 }
 
-@supports (-webkit-touch-callout: none) {
-@media (max-width: 768px) {
-    .navbar{
-        height: 55px;
-    }
-    .services-page::before{
-    top: 55px;
-    background-image:
-        url("/static/core/images/SERVICE.png"); 
-    }
-    .description {
-        text-align: justify;
-        text-justify: inter-character; 
-        letter-spacing: 0.5px; 
-        word-spacing: -1.5px; 
-        font-size: clamp(16px, 1.2vw + 10px, 20px);    
-        line-height: 1.5;
-        -webkit-hyphens: none;
-        hyphens: none;
-        word-break: normal; 
-        overflow-wrap: anywhere;
-        width: 100%;
-        max-width: 100%;
-        margin-bottom: 25px;
-    }
-    .description::first-line {
-        color: #fff;
-        font-weight: 500;
-    }
-}
-}
 
 .srv-decorations {
     position: absolute;
