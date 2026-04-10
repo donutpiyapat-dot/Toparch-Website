@@ -156,7 +156,7 @@ html, body {
         text-justify: inter-character; 
         
         /* 2. บีบระยะห่างระหว่างตัวอักษรให้แน่นขึ้นอีกนิด */
-        letter-spacing: -0.8px; 
+        letter-spacing: 0.5px; 
         
         /* 3. บีบระยะห่างระหว่างคำให้แคบลง เพื่อให้คำในบรรทัดเบียดกันได้มากขึ้น */
         word-spacing: -1.4px; 

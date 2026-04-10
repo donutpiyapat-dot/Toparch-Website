@@ -213,7 +213,11 @@ main {
 
 
 @media (max-width:768px){
-
+    .services-page::before{
+    top: 55px;
+    background-image:
+        url("/static/core/images/SERVICE.png"); 
+    }
     .description {
         text-align: justify;
         text-justify: inter-character; 
@@ -235,11 +239,16 @@ main {
     .navbar{
         height: 55px;
     }
+    .services-page::before{
+    top: 55px;
+    background-image:
+        url("/static/core/images/SERVICE.png"); 
+    }
     .description {
         text-align: justify;
         text-justify: inter-character; 
-        letter-spacing: -0.8px; 
-        word-spacing: -1.4px; 
+        letter-spacing: 0.5px; 
+        word-spacing: -1.5px; 
         font-size: 0.92rem;    
         line-height: 1.5;
         -webkit-hyphens: none;

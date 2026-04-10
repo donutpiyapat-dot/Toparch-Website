@@ -675,3 +675,16 @@ main, .container-fluid {
     padding: 0;
     color: inherit;
 }
+
+@supports (-webkit-touch-callout: none) {
+@media (max-width: 768px) {
+    .navbar-collapse{
+        top: 55px;;
+    }
+}
+}
+@media (max-width: 768px) {
+    .navbar-collapse{
+        top: 55px;;
+    }
+}
