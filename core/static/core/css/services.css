@@ -206,7 +206,7 @@ main {
     .description{
         max-width:90ch;
         line-height:1.6;
-        text-align: justify;
+        text-align: left;
     }
 
 }

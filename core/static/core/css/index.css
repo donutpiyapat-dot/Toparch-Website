@@ -354,7 +354,7 @@ main {
 }
 
 .home-page .title-big {
-    font-size: clamp(28px, 3vw + 10px, 56px);
+    font-size: clamp(28px, 3vw + 10px, 35px);
     font-weight: 800; 
     letter-spacing: 2px;
     display: block;
@@ -461,7 +461,7 @@ main {
     right: -4.75%;
     top: 15.8%; 
     width: 24vw;
-    height: 17vh; 
+    height: 16vh; 
     background-color: var(--div-black); 
     z-index: 2;
     pointer-events: none;
