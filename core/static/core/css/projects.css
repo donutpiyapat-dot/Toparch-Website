@@ -385,10 +385,6 @@
 html, body {
     height: auto;
 }
-.projects-page {
-    position: relative;
-    min-height: 100vh; 
-}
 
 .projects-page::before {
     content: "";

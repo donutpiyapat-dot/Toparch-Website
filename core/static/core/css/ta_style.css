@@ -230,7 +230,7 @@ html, body {
         hyphens: none;
         word-break: normal;
         width: 100%;
-        max-width: 80ch;
+        max-width: 60ch;
         margin-bottom: 25px;
     }
     .ta-decorations{

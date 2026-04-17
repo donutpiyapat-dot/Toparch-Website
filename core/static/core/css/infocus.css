@@ -195,7 +195,6 @@ html, body {
     right: 0;
     bottom: 0; 
     width: 100%;
-    height: calc(100dvh - 70px); 
     background-image: url("/static/core/images/IN-FOCUS.webp");
     background-size: cover;  
     background-position: center center; 
