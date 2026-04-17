@@ -594,18 +594,18 @@ main {
     }
 
     .home-page .title-small {
-        font-size: 0.75rem;
+        font-size: 0.75rem !important;
         letter-spacing: 2px;
     }
 
     .home-page .title-big {
-        font-size: 26px;
+        font-size: 26px !important;
         line-height: 1.2;
         letter-spacing: 1px;
     }
 
     .home-page .hero-desc {
-        font-size: 0.75rem;
+        font-size: 0.75rem !important;
         line-height: 1.6;
         margin-top: 10px;
     }
@@ -634,21 +634,21 @@ main {
     animation: slideInRight 1.2s ease forwards;
 }
     .home-page .title-small {
-    font-size: 24px; 
+    font-size: 24px !important;
     font-weight: 600; 
     letter-spacing: 2px;
     display: block;
 }
 
 .home-page .title-big {
-    font-size: 40px; 
+    font-size: 40px !important;
     font-weight: 800; 
     letter-spacing: 2px;
     display: block;
 }
 .home-page .hero-desc {
     color: var(--text-secondary); 
-    font-size: 1.05rem; 
+    font-size: 1.05rem !important;
     font-weight: 400; 
     line-height: 1.5; 
     margin: 0;
