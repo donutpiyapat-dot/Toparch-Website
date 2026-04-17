@@ -39,7 +39,9 @@ html, body {
     display: flex;
     flex-direction: column; 
 }
-
+.navbar{
+        height: 70px;
+    }
 .ta-style-page::before {
     content: "";
     position: absolute;     
@@ -135,6 +137,9 @@ html, body {
 }
 
 @media (max-width:991px){
+    .navbar{
+        height: 70px;
+    }
 .ta-style-page::before {
     content: "";
     position: absolute;     
@@ -228,9 +233,29 @@ html, body {
         max-width: 45ch;
         margin-bottom: 25px;
     }
-    .inf-decorations{
+    .ta-decorations{
         display: none; 
     }
+    .navbar{
+        height: 70px;
+    }
+    .ta-style-page::before {
+    content: "";
+    position: absolute;     
+    top: 70px;             
+    left: 0;
+    right: 0;
+    bottom: 0;             
+    width: 100%;
+    background-image:url("/static/core/images/TA-STYLE.webp");
+    
+    background-size: cover;
+    background-position: center top; 
+    background-repeat: no-repeat;
+    
+    z-index: -1;
+    pointer-events: none; 
+}
 }
 
 .ta-decorations {
