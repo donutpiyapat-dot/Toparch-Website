@@ -328,7 +328,7 @@ html, body {
 }
 @media (max-width: 768px) {
     .navbar{
-        top: 55px !important;
+        height: 55px !important;
     }
     .projects-page::before {
     content: "";
