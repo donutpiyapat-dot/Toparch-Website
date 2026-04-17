@@ -155,7 +155,10 @@
     text-decoration: underline;
     text-underline-offset: 6px;
 }
-
+.Contact-page {
+    min-height: 100vh;
+    position: relative;
+}
 
 html, body.Contact-page {
     overflow-y: visible;
