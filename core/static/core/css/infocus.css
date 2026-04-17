@@ -189,17 +189,17 @@ html, body {
     }
     .infocus-page::before {
     content: "";
-    position: fixed; /* <--- 1. เปลี่ยนจาก absolute เป็น fixed เพื่อล็อคให้อยู่กับหน้าจอ */
-    top: 70px;   
+    position: absolute; 
+    top: 70px; 
     left: 0;
+    right: 0;
+    bottom: 0; 
     width: 100%;
-    height: calc(100dvh - 70px); /* <--- 2. ใช้ความสูงหน้าจอแบบ dvh ลบด้วยความสูงของ Navbar (70px) */
-    
+    height: calc(100dvh - 70px); 
     background-image: url("/static/core/images/IN-FOCUS.webp");
-    background-size: cover; /* <--- 3. คลุมเต็มพื้นที่ (อาจจะมีโดนตัดขอบซ้ายขวาบ้างตามสัดส่วนจอ iPad) */
-    background-position: center center; /* <--- 4. จัดให้อยู่กึ่งกลางเสมอ */
+    background-size: cover;  
+    background-position: center center; 
     background-repeat: no-repeat;
-    
     z-index: -1;
     pointer-events: none;
 }
