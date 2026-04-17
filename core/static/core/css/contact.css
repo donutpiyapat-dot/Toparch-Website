@@ -182,10 +182,24 @@ html, body.Contact-page {
     .contact-image{
         height:450px;
     }
+        .bg-decorations {
+        display: none; 
+    }
+.map-preview {
+        position: fixed; 
+        top: 370px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        transform: translateY(10px);
+        width: 85vw;
+        max-width: 90vw;
+    }
 }
 @media (max-width: 768px) {
     .navbar{
-        height: 55px;
+        height: 70px;
     }
     .contact-image {
         display: flex;
@@ -193,6 +207,7 @@ html, body.Contact-page {
         justify-content: center;
         padding-top: 10px;  
         height:auto;
+        
     }
 
     .contact-image img {
@@ -218,6 +233,30 @@ html, body.Contact-page {
     .Contact-page::before {
     content: "";
     position: absolute;
+    top: 70px;   
+    left: 0;
+    right: 0;
+    bottom: 0;  
+    width: 100%;
+    
+    background-image:url("/static/core/images/Contract-bg.webp");
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    z-index: -1;
+    pointer-events: none;
+    }
+}
+
+@media (max-width: 425px) {
+    .navbar{
+        height: 55px;
+    }
+    .Contact-page::before {
+    content: "";
+    position: absolute;
     top: 55px;   
     left: 0;
     right: 0;
@@ -232,7 +271,7 @@ html, body.Contact-page {
     
     z-index: -1;
     pointer-events: none;
-}
+    }
 }
 
 .bg-decorations {
@@ -369,20 +408,5 @@ html, body.Contact-page {
     background-color:var(--div-yellow);
 }
 
-@media (max-width: 991px) {
-    .bg-decorations {
-        display: none; 
-    }
-.map-preview {
-        position: fixed; 
-        top: 370px;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
-        transform: translateY(10px);
-        width: 85vw;
-        max-width: 90vw;
-    }
-}   
+
 

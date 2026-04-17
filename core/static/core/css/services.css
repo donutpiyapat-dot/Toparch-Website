@@ -199,12 +199,8 @@ main {
     .services-page::before{
     background-image:
         linear-gradient(rgba(0, 0, 0, 0.15), rgba(0,0,0,.15)), 
-        url("/static/core/images/SERVICE.png"); 
+        url("/static/core/images/SERVICE.webp"); 
     }
-}
-
-@media (max-width:991px){
-
     .description{
         max-width:90ch;
         line-height:1.6;
@@ -216,12 +212,35 @@ main {
 
 @media (max-width:768px){
     .navbar{
+        height: 70px;
+    }
+    .services-page::before{
+    top: 70px;
+    background-image:
+        url("/static/core/images/SERVICE.webp"); 
+    }
+    .description {
+        text-align: left;
+        text-justify: none; 
+        letter-spacing: normal; 
+        word-spacing: normal; 
+        line-height: 1.5; 
+        -webkit-hyphens: none;
+        hyphens: none;
+        word-break: normal;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 25px;
+    }
+}
+@media (max-width: 425px){
+    .navbar{
         height: 55px;
     }
     .services-page::before{
     top: 55px;
     background-image:
-        url("/static/core/images/SERVICE.png"); 
+        url("/static/core/images/SERVICE.webp"); 
     }
     .description {
         text-align: left;
