@@ -230,7 +230,7 @@ html, body {
         hyphens: none;
         word-break: normal;
         width: 100%;
-        max-width: 45ch;
+        max-width: 50ch;
         margin-bottom: 25px;
     }
     .ta-decorations{
@@ -256,6 +256,9 @@ html, body {
     z-index: -1;
     pointer-events: none; 
 }
+.TA-tital{
+        color:var(--text-primary) !important;
+    }
     
 }
 
