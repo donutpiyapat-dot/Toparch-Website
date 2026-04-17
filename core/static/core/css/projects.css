@@ -320,12 +320,22 @@
     .navbar{
         height: 55px;
     }
-}
-@media (max-width:425px){
-.navbar{
-    height: 55px;
+    .projects-page::before {
+     content: "";
+    position: absolute;
+    top: 55px; 
+    left: 0;
+    right: 0;
+    bottom: 0; 
+    width: 100%;
+    background-image: url("/static/core/images/Project-bg.webp");
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     }
 }
+
 html, body {
     height: auto;
 }
@@ -364,5 +374,73 @@ html, body {
 @media (max-width: 991px) {
     .yellow-side-line {
         display: none; 
+    }
+}
+
+/* ปรับตัวครอบทั้งหมดให้ยืดหยุ่นขึ้น */
+.pagination-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 30px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 10px; /* เพิ่มช่องว่างกันชน */
+}
+
+/* ส่วนตัวเลขและลูกศร */
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* เพิ่มช่องว่างระหว่างลูกศรกับกล่องเลข */
+    flex: 2;   /* ให้ส่วนนี้มีพื้นที่มากกว่าส่วนอื่น */
+}
+
+.page-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap; /* สำคัญ: ห้ามไม่ให้ตัวเลขกับคำว่า of ดีดลงมาบรรทัดใหม่ */
+}
+
+.total-pages {
+    color: #aaa;
+    font-size: 14px;
+    margin-left: 5px;
+    letter-spacing: 1px; /* ปรับจาก word-spacing เป็น letter-spacing แทน */
+}
+
+/* ปรับปรุงกล่องเลขปัจจุบัน */
+.current-page-box {
+    padding: 4px 10px;
+    border: 1px solid rgba(255,215,0,0.4);
+    border-radius: 4px;
+    color: var(--accent-yellow);
+    background: rgba(255, 215, 0, 0.1);
+    text-align: center;
+    min-width: 35px;
+    font-weight: bold;
+}
+
+/* จัดการ Pagination ในจอมือถือ */
+@media (max-width: 768px) {
+    .pagination-wrapper {
+        flex-direction: column; /* เปลี่ยนเป็นแนวตั้ง */
+        gap: 20px;
+    }
+    
+    .pagination-info {
+        order: 2; /* เอาข้อมูลจำนวนหน้าไว้ข้างล่าง */
+        text-align: center;
+    }
+    
+    .pagination-controls {
+        order: 1; /* เอาปุ่มกดไว้ข้างบน */
+        width: 100%;
+    }
+    
+    .pagination-spacer {
+        display: none;
     }
 }
