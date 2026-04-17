@@ -588,3 +588,19 @@ body {
         margin-bottom: 25px;
     }
 }
+
+@media (max-width: 1180px) and (orientation: landscape){
+    .description {
+        text-align: left;
+        text-justify: none; 
+        letter-spacing: normal; 
+        word-spacing: normal; 
+        line-height: 1.5; 
+        -webkit-hyphens: none;
+        hyphens: none;
+        word-break: normal;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 25px;
+    }
+}

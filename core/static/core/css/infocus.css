@@ -187,11 +187,6 @@ html, body {
     .inf-decorations{
         display: none; 
     }
-    .infocus-page::before {
-        background-image: url("/static/core/images/IN-FOCUS.webp");
-        background-position: left;
-        background-size: cover;
-    }
 }
 
 .inf-decorations {
