@@ -180,12 +180,17 @@ html, body {
         -webkit-hyphens: none;
         hyphens: none;
         word-break: normal;
-        width: 35ch;
+        width: 30ch;
         max-width: 100%;
         margin-bottom: 25px;
     }
     .inf-decorations{
         display: none; 
+    }
+    .infocus-page::before {
+        background-image: url("/static/core/images/IN-FOCUS-IPAD.webp");
+        background-position: center top;
+        background-size: cover;
     }
 }
 
