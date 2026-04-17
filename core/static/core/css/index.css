@@ -608,24 +608,31 @@ main {
 /* --- Tablet (iPad แนวตั้ง และจอขนาดกลาง) --- */
 @media (max-width: 991px) {
     .home-page .hero-content {
-        right: 5%; 
-        top: 50%; /* ขยับขึ้นมาตรงกลางมากขึ้น */
+        top: 58%; /* ดึงลงมาให้อยู่ระดับเดียวกับหน้าจอคอม */
+        right: 12%; /* ดันออกจากขอบขวาให้มากขึ้น เพื่อให้อยู่ในร่องสีเหลืองพอดี */
+        transform: translateY(-50%); /* รักษาแกน Y ไว้เหมือนจอคอม */
         height: auto; 
-        max-width: 500px;
-        gap: 15px; /* ใช้ gap แทน justify เพื่อคุมระยะห่าง */
+        max-width: 450px; /* บีบกล่องข้อความนิดหน่อยไม่ให้ล้นไปทับฝั่งซ้าย */
+        display: flex;
+        flex-direction: column;
+        gap: 15px; 
+        text-align: left; /* จัดข้อความชิดซ้ายในกล่องให้เหมือนจอคอม */
     }
 
     .home-page .title-big {
-        font-size: 40px; 
+        font-size: 38px; /* ปรับขนาดให้พอดีจอ iPad ไม่ให้คำว่า TRUE ตกบรรทัด */
+        line-height: 1.1;
     }
 
     .home-page .title-small {
         font-size: 1.4rem;
+        letter-spacing: 2px;
     }
 
     .home-page .hero-desc {
         font-size: 1rem;
-        margin-bottom: 15px;
+        margin-bottom: 0;
+        line-height: 1.5;
     }
 }
 
@@ -652,26 +659,28 @@ main {
 /* --- Mobile S (จอมือถือขนาดเล็ก เช่น iPhone SE) --- */
 @media (max-width: 425px) {
     .home-page .hero-content {
-        top: 40%;
-        text-align: center; /* จอเล็กมาก การจัดกลางมักจะดูสวยกว่า */
-        right: auto;
-        left: 50%;
-        transform: translate(-50%, -50%); /* จัดวางกึ่งกลางหน้าจอพอดี */
-        width: 90%;
+        top: 58%; /* ขยับต่ำลงมาจากเดิม (เลขยิ่งมากยิ่งลงต่ำ) */
+        right: 15%; /* ดันหนีแถบสีเหลืองด้านขวา (ปรับเลขเพิ่มลดได้ถ้ายังทับ) */
+        left: 5%; /* กันขอบฝั่งซ้ายไม่ให้ชิดจอเกินไป */
+        width: auto; /* ยกเลิก width: 90% เพื่อให้กว้างเต็มพื้นที่ left/right ที่กำหนดไว้ */
+        transform: translateY(-50%); /* ยกเลิกจัดกลางแนวนอน เอาแค่แนวตั้ง */
+        text-align: right; /* จัดตัวหนังสือชิดขวาให้ล้อไปกับแถบเหลืองเหมือนในจอคอม */
     }
 
     .home-page .title-big {
-        font-size: 28px; 
-        line-height: 1.1;
+        font-size: 26px; /* ปรับขนาดให้พอดี ไม่ให้ตกบรรทัดแปลกๆ */
+        line-height: 1.2;
     }
 
     .home-page .title-small {
-        font-size: 1.1rem;
+        font-size: 1rem;
         margin-bottom: 5px;
+        letter-spacing: 1px;
     }
 
     .home-page .hero-desc {
-        font-size: 0.9rem;
-        line-height: 1.4;
+        font-size: 0.85rem;
+        line-height: 1.5;
+        margin-left: auto; /* ดันกล่องข้อความ desc ให้ชิดขวา */
     }
 }
