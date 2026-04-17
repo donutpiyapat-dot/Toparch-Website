@@ -50,16 +50,18 @@
 
 
 .description{
-    max-width:60ch;
-    line-height:1.5;
-    margin-bottom:32px;
-    text-align: justify;
-    text-justify: inter-character; 
-    word-spacing: normal;  
-    letter-spacing: -0.35px; 
-    font-size: clamp(16px, 1.2vw + 10px, 20px);
-    hyphens: none;
+    text-align: left;
+    text-justify: none; 
+    letter-spacing: normal; 
+    word-spacing: normal; 
+    line-height: 1.5; 
     -webkit-hyphens: none;
+    hyphens: none;
+    word-break: normal;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 25px; 
+    font-size: clamp(16px, 1.2vw + 10px, 20px);
     -ms-hyphens: none;
 }
 
