@@ -156,7 +156,13 @@ html, body {
     
     z-index: -1;
     pointer-events: none; 
-}
+    }
+    .description-line {
+    width: 60px;
+    height: 4px;
+    background-color: var( --accent-yellow) ;
+    transition: width 0.8s ease;
+    }
     .description {
         text-align: left;
         text-justify: none; 
@@ -260,6 +266,13 @@ html, body {
         color:var(--text-primary) !important;
     }
     
+    .description-line {
+    width: 60px;
+    height: 4px;
+    background-color: var( --accent-yellow) ;
+    transition: width 0.8s ease;
+}
+
 }
 
 .ta-decorations {
