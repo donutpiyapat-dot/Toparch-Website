@@ -315,7 +315,6 @@ main {
 
 }
 
-
 .home-page .hero-content {
     position: absolute;
     right: 8.3%; 
@@ -588,72 +587,91 @@ main {
 }
 
 @media (max-width: 480px) {
-
-    .hero-content {
-        padding: 0 20px;
-    }
-
-    .home-page .title-small {
-        font-size: 0.75rem !important;
-        letter-spacing: 2px;
-    }
-
-    .home-page .title-big {
-        font-size: 26px !important;
-        line-height: 1.2;
-        letter-spacing: 1px;
-    }
-
-    .home-page .hero-desc {
-        font-size: 0.75rem !important;
-        line-height: 1.6;
-        margin-top: 10px;
-    }
-    .hero-content {
-    position: absolute;
-    bottom: 80px;
-    left: 50px;
+.home-page .hero-decor-box-4 {
+    height: 16vh; 
+}
+.home-page .hero-decor-box-3 {
+    width: 7vw; 
 }
 }
 
 @media (max-width: 768px) {
+.home-page .hero-decor-box-2 {
+    width: 14vw; 
+}
+.home-page .hero-decor-box-4 {
+    height: 14vh; 
+}
+}
+
+
+/* --- Tablet (iPad แนวตั้ง และจอขนาดกลาง) --- */
+@media (max-width: 991px) {
     .home-page .hero-content {
-    position: absolute;
-    right: 9%; 
-    top: 58.5%;
-    transform: translateY(-50%);
-    height: 48vh; 
-    max-width: 600px;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
-    z-index: 10; 
-    text-align: left; 
-    
-    animation: slideInRight 1.2s ease forwards;
-}
+        right: 5%; 
+        top: 50%; /* ขยับขึ้นมาตรงกลางมากขึ้น */
+        height: auto; 
+        max-width: 500px;
+        gap: 15px; /* ใช้ gap แทน justify เพื่อคุมระยะห่าง */
+    }
+
+    .home-page .title-big {
+        font-size: 40px; 
+    }
+
     .home-page .title-small {
-    font-size: 24px !important;
-    font-weight: 600; 
-    letter-spacing: 2px;
-    display: block;
+        font-size: 1.4rem;
+    }
+
+    .home-page .hero-desc {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
 }
 
-.home-page .title-big {
-    font-size: 40px !important;
-    font-weight: 800; 
-    letter-spacing: 2px;
-    display: block;
-}
-.home-page .hero-desc {
-    color: var(--text-secondary); 
-    font-size: 1.05rem !important;
-    font-weight: 400; 
-    line-height: 1.5; 
-    margin: 0;
-    margin-bottom: 20px; 
-    letter-spacing: 0.5px;
+/* --- Mobile L (จอโทรศัพท์ขนาดใหญ่ / แนวนอน) --- */
+@media (max-width: 767px) {
+    .home-page .hero-content {
+        right: 5%;
+        left: 5%; /* บังคับชิดซ้ายขวาเท่ากันเพื่อให้ดูเต็มจอ */
+        top: 45%;
+        max-width: none;
+        text-align: left; /* หรือเปลี่ยนเป็น center ถ้าอยากให้ดูสมดุล */
+    }
+
+    .home-page .title-big {
+        font-size: 34px; 
+        letter-spacing: 1px;
+    }
+
+    .home-page .title-small {
+        font-size: 1.2rem;
+    }
 }
 
+/* --- Mobile S (จอมือถือขนาดเล็ก เช่น iPhone SE) --- */
+@media (max-width: 425px) {
+    .home-page .hero-content {
+        top: 40%;
+        text-align: center; /* จอเล็กมาก การจัดกลางมักจะดูสวยกว่า */
+        right: auto;
+        left: 50%;
+        transform: translate(-50%, -50%); /* จัดวางกึ่งกลางหน้าจอพอดี */
+        width: 90%;
+    }
+
+    .home-page .title-big {
+        font-size: 28px; 
+        line-height: 1.1;
+    }
+
+    .home-page .title-small {
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+    }
+
+    .home-page .hero-desc {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
 }
