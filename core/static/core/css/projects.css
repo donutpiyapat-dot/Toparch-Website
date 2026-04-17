@@ -77,13 +77,14 @@
 }
 
 .stat-label {
+    font-size: clamp(14px, 1.2vw + 10px, 16px);
     text-transform: uppercase;
     letter-spacing: 4px;
     color: rgba(255,255,255,0.4);
 }
 
 .filter-title{
-    font-size:14px;
+    font-size: clamp(12px, 1.2vw + 10px, 14px);
     letter-spacing:2px;
     color:#aaa;
     margin-bottom:15px;
@@ -94,7 +95,7 @@
     padding:8px 0;
     color:#777;
     text-decoration:none;
-    font-size:14px;
+    font-size: clamp(12px, 1.2vw + 10px, 14px);
     transition:0.3s;
 }
 
