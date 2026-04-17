@@ -187,20 +187,24 @@ html, body {
     .inf-decorations{
         display: none; 
     }
+    .infocus-page {
+    position: relative;
+    min-height: 100dvh; ฃ
+    }
     .infocus-page::before {
     content: "";
-    position: absolute; 
-    top: 70px; 
-    left: 0;
-    right: 0;
-    bottom: 0; 
-    width: 100%;
-    background-image: url("/static/core/images/IN-FOCUS.webp");
-    background-size: cover;  
-    background-position: center center; 
+    position: absolute;
+    inset: 0; 
+    
+    background-image: url("/static/core/images/Project-bg.webp");
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
+
     z-index: -1;
-    pointer-events: none;
+}
+.infocus-page {
+    padding-top: 70px;
 }
 }
 

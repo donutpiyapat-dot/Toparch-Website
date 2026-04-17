@@ -419,24 +419,18 @@ html, body {
         display: none; 
     }
 }
-@media (max-width: 1180px) and (orientation: landscape){
-    .navbar{
-    height: 70px;
-    }
-
-.projects-page::before {
+@media (max-width: 1180px) and (orientation: landscape) {
+    .projects-page::before {
     content: "";
     position: absolute;
-    top: 70px; 
-    left: 0;
-    right: 0;
-    bottom: 0; 
-    width: 100%;
+    inset: 0; 
+
     background-image: url("/static/core/images/Project-bg.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
     z-index: -1;
-    pointer-events: none;
 }
+
 }
