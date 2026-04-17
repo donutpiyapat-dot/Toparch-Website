@@ -179,7 +179,7 @@
     }
     .services-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 20px;
     }
     .services-box {
@@ -192,6 +192,32 @@
     .container-fluid {
         padding-left: 20px;
         padding-right: 20px;
+    }
+    .services-page .col-lg-8.px-3 {
+        margin-top: 0; 
+    }
+    .services-page::before{
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.15), rgba(0,0,0,.15)), 
+        url("/static/core/images/SERVICE.webp"); 
+    }
+    .description{
+        max-width:90ch;
+        line-height:1.6;
+        text-align: left;
+    }
+    .srv-decorations {
+        display: none; 
+    }
+}
+@media (max-width: 900px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 576px) {
+    .services-grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -224,22 +250,7 @@ main {
     margin-top: 11px; 
 }
 
-@media (max-width: 991px) {
-    .services-page .col-lg-8.px-3 {
-        margin-top: 0; 
-    }
-    .services-page::before{
-    background-image:
-        linear-gradient(rgba(0, 0, 0, 0.15), rgba(0,0,0,.15)), 
-        url("/static/core/images/SERVICE.webp"); 
-    }
-    .description{
-        max-width:90ch;
-        line-height:1.6;
-        text-align: left;
-    }
 
-}
 
 @media (hover: none) {
     .services-box:hover img {
@@ -402,12 +413,7 @@ main {
     background-color: var(--div-light-gray);
 }
 
-@media (max-width: 991px) {
-    .srv-decorations {
-        display: none; 
-    }
 
-}
 
 @media (max-width:768px){
 .navbar{
