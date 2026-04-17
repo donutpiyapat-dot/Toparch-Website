@@ -317,6 +317,15 @@
     }
     
 }
+
+
+html, body {
+    height: auto;
+}
+.projects-page {
+    position: relative;
+    min-height: 100vh; 
+}
 @media (max-width: 768px) {
     .projects-page::before {
     content: "";
@@ -349,15 +358,6 @@
     background-repeat: no-repeat;
     }
 }
-
-html, body {
-    height: auto;
-}
-.projects-page {
-    position: relative;
-    min-height: 100vh; 
-}
-
 .projects-page::before {
     content: "";
     position: absolute;
