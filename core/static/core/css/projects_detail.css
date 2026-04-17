@@ -30,8 +30,11 @@ body {
     hyphens: none;
     -webkit-hyphens: none;
     -ms-hyphens: none;
+    font-size: clamp(16px, 1.2vw + 10px, 20px);
 }
-
+.description-area{
+    font-size: clamp(16px, 1.2vw + 10px, 20px);
+}
 
 @media (max-width: 992px) {
     .back-nav-container {
