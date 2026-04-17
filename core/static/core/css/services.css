@@ -179,7 +179,7 @@
     }
     .services-grid {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
     .services-box {
@@ -212,12 +212,23 @@
 }
 @media (max-width: 900px) {
     .services-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
-@media (max-width: 576px) {
+@media (max-width: 1180px) and (orientation: landscape) {
+    .row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .col-lg-4,
+    .col-lg-8 {
+        width: 100%;
+        max-width: 100%;
+    }
+
     .services-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
