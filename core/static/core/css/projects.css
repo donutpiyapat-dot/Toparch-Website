@@ -69,6 +69,7 @@
 }
 
 .stat-number {
+    font-size: clamp(12px, 1.2vw + 10px, 16px);
     font-weight: 700;
     color: var(--accent-yellow) ;
     letter-spacing: 3px;
@@ -77,14 +78,14 @@
 }
 
 .stat-label {
-    font-size: clamp(14px, 1.2vw + 10px, 16px);
+    font-size: clamp(12px, 1.2vw + 10px, 16px);
     text-transform: uppercase;
     letter-spacing: 4px;
     color: rgba(255,255,255,0.4);
 }
 
 .filter-title{
-    font-size:clamp(12px, 1.2vw + 10px, 14px);
+    font-size:clamp(10px, 1.2vw + 10px, 14px);
     letter-spacing:2px;
     color:#aaa;
     margin-bottom:15px;
@@ -317,11 +318,24 @@
     
 }
 @media (max-width: 768px) {
-    .navbar{
-        height: 55px;
-    }
     .projects-page::before {
-     content: "";
+    content: "";
+    position: absolute;
+    top: 55px; 
+    left: 0;
+    right: 0;
+    bottom: 0; 
+    width: 100%;
+    background-image: url("/static/core/images/Project-bg.webp");
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    }
+}
+@media (max-width: 425px) {
+    .projects-page::before {
+    content: "";
     position: absolute;
     top: 55px; 
     left: 0;
