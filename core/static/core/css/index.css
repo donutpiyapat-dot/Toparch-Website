@@ -340,7 +340,7 @@ main {
 }
 
 .home-page .hero-title {
-    color: #ffffff;
+    color: var(--text-primary);
     margin: 0;
     line-height: 1.2; 
 }
@@ -364,7 +364,7 @@ main {
 }
 
 .home-page .hero-desc {
-    color: #e0e0e0; 
+    color: var(--text-secondary); 
     font-size: 1.05rem; 
     font-weight: 400; 
     line-height: 1.5; 
@@ -460,7 +460,7 @@ main {
 .home-page .hero-decor-box-4 {
     right: -4.75%;
     top: 15.8%; 
-    width: 25vw;
+    width: 24vw;
     height: 17vh; 
     background-color: var(--div-black); 
     z-index: 2;
@@ -626,4 +626,46 @@ main {
     bottom: 80px;
     left: 50px;
 }
+}
+
+@media (max-width: 768px) {
+    .home-page .hero-content {
+    position: absolute;
+    right: 9%; 
+    top: 58.5%;
+    transform: translateY(-50%);
+    height: 48vh; 
+    max-width: 600px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    z-index: 10; 
+    text-align: left; 
+    
+    animation: slideInRight 1.2s ease forwards;
+}
+    .home-page .title-small {
+    font-size: 24px; 
+    font-weight: 600; 
+    letter-spacing: 2px;
+    display: block;
+}
+
+.home-page .title-big {
+    font-size: 40px; 
+    font-weight: 800; 
+    letter-spacing: 2px;
+    display: block;
+}
+/* .home-page .hero-desc {
+    color: var(--text-secondary); 
+    font-size: 1.05rem; 
+    font-weight: 400; 
+    line-height: 1.5; 
+    margin: 0;
+    margin-bottom: 20px; 
+    letter-spacing: 0.5px;
+} */
+
 }
