@@ -214,6 +214,24 @@ html, body {
     }
 }
 
+@media (max-width: 1180px) and (orientation: landscape){
+    .description {
+        text-align: left;
+        text-justify: none; 
+        letter-spacing: normal; 
+        word-spacing: normal; 
+        line-height: 1.5; 
+        -webkit-hyphens: none;
+        hyphens: none;
+        word-break: normal;
+        width: 100%;
+        max-width: 45ch;
+        margin-bottom: 25px;
+    }
+    .inf-decorations{
+        display: none; 
+    }
+}
 
 .ta-decorations {
     position: absolute; 

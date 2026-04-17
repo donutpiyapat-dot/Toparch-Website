@@ -214,6 +214,9 @@
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    .srv-decorations {
+        display: none; 
+    }
 }
 @media (max-width: 1180px) and (orientation: landscape) {
     .row {
@@ -229,6 +232,9 @@
 
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .srv-decorations {
+        display: none; 
     }
 }
 

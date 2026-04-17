@@ -103,8 +103,11 @@ html, body {
 }
 
 @media (max-width: 991px) {
-
+    .navbar{
+        height: 70px;
+    }
     .infocus-page::before {
+        top: 70px; 
         background:
             url("/static/core/images/IN-FOCUS1.webp")
             center / cover no-repeat;
@@ -128,9 +131,10 @@ html, body {
 }
 @media (max-width: 768px) {
     .navbar{
-        height: 55px;
+        height: 70px;
     }
     .infocus-page::before {
+        top: 70px; 
         background:
             url("/static/core/images/IN-FOCUS1.webp")
             center / cover no-repeat;
@@ -155,12 +159,33 @@ html, body {
 }
 
 @media (max-width: 425px) {
-
+    .navbar{
+        height: 55px;
+    }
     .infocus-page::before {
         top: 55px;
         background:
             url("/static/core/images/IN-FOCUS1.webp")
             center / cover no-repeat;
+    }
+}
+
+@media (max-width: 1180px) and (orientation: landscape){
+    .description {
+        text-align: left;
+        text-justify: none; 
+        letter-spacing: normal; 
+        word-spacing: normal; 
+        line-height: 1.5; 
+        -webkit-hyphens: none;
+        hyphens: none;
+        word-break: normal;
+        width: 35ch;
+        max-width: 100%;
+        margin-bottom: 25px;
+    }
+    .inf-decorations{
+        display: none; 
     }
 }
 

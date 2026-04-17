@@ -275,6 +275,11 @@ html, body.Contact-page {
     pointer-events: none;
     }
 }
+@media (max-width: 1180px) and (orientation: landscape) {
+    .bg-decorations {
+        display: none; 
+    }
+}
 
 .bg-decorations {
     position: absolute; 
