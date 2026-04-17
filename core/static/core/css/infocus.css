@@ -189,8 +189,8 @@ html, body {
     }
     .infocus-page::before {
         background-image: url("/static/core/images/IN-FOCUS.webp");
-        background-position: center top;
-        background-size: cover;
+        background-position: left;
+        /* background-size: cover; */
     }
 }
 
