@@ -327,10 +327,13 @@ html, body {
     min-height: 100vh; 
 }
 @media (max-width: 768px) {
+    .navbar{
+        top: 55px !important;
+    }
     .projects-page::before {
     content: "";
     position: absolute;
-    top: 55px; 
+    top: 55px !important;
     left: 0;
     right: 0;
     bottom: 0; 
@@ -342,22 +345,7 @@ html, body {
     background-repeat: no-repeat;
     }
 }
-@media (max-width: 425px) {
-    .projects-page::before {
-    content: "";
-    position: absolute;
-    top: 55px; 
-    left: 0;
-    right: 0;
-    bottom: 0; 
-    width: 100%;
-    background-image: url("/static/core/images/Project-bg.webp");
-    
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    }
-}
+
 .projects-page::before {
     content: "";
     position: absolute;
