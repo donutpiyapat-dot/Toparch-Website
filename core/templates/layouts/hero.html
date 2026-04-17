@@ -1,11 +1,13 @@
-{% if images and images|length > 0 %}
+{% if images %}
 <div class="hero-main">
-    <img
-        src="{{ images.0.image.url }}?f_auto,q_auto,w_800"
-        class="project-thumb"
-        data-full="{{ images.0.image.url }}?f_auto,q_auto,w_1600"
-        loading="lazy"
-        alt="{{ project.title }}"
-    >
+    {% for image in images %}
+        <img
+            src="{{ image.image.url }}?f_auto,q_auto,w_800"
+            class="project-thumb"
+            data-full="{{ image.image.url }}?f_auto,q_auto,w_1600"
+            loading="lazy"
+            alt="{{ project.title }}"
+        >
+    {% endfor %}
 </div>
 {% endif %}
