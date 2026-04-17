@@ -210,14 +210,6 @@
         display: none; 
     }
 }
-@media (max-width: 900px) {
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .srv-decorations {
-        display: none; 
-    }
-}
 @media (max-width: 1180px) and (orientation: landscape) {
     .row {
         display: flex;
@@ -321,8 +313,13 @@ main {
         max-width: 100%;
         margin-bottom: 25px;
     }
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    .services-box {
+        aspect-ratio: 7/5; 
+    }
 }
-
 
 .srv-decorations {
     position: absolute;
