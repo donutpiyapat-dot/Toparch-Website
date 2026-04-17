@@ -420,11 +420,11 @@ html, body {
     }
 }
 @media (max-width: 1180px) and (orientation: landscape) {
-    .projects-page::before {
+    .projects-page::before {s
     content: "";
     position: absolute;
     inset: 0; 
-
+    
     background-image: url("/static/core/images/Project-bg.webp");
     background-size: cover;
     background-position: center;
