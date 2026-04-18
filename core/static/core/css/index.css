@@ -651,7 +651,10 @@ main {
     }
 
     .home-page .title-small {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
+    }
+    .home-page .hero-desc {
+        font-size: 0.7rem;
     }
 }
 
@@ -664,7 +667,7 @@ main {
         width: auto; /* ยกเลิก width: 90% เพื่อให้กว้างเต็มพื้นที่ left/right ที่กำหนดไว้ */
         transform: translateY(-50%); /* ยกเลิกจัดกลางแนวนอน เอาแค่แนวตั้ง */
         text-align: right; /* จัดตัวหนังสือชิดขวาให้ล้อไปกับแถบเหลืองเหมือนในจอคอม */
-        gap: 100px;
+        gap: 120px;
     }
 
     .home-page .title-big {
