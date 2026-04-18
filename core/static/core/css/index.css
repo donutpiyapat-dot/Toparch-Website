@@ -637,11 +637,11 @@ main {
 /* --- Mobile L (จอโทรศัพท์ขนาดใหญ่ / แนวนอน) --- */
 @media (max-width: 767px) {
     .home-page .hero-content {
-        right: 40%;
+        right: 15%;
         left: 5%; /* บังคับชิดซ้ายขวาเท่ากันเพื่อให้ดูเต็มจอ */
         top: 56%;
         max-width: none;
-        text-align: left; /* หรือเปลี่ยนเป็น center ถ้าอยากให้ดูสมดุล */
+        text-align: right; /* หรือเปลี่ยนเป็น center ถ้าอยากให้ดูสมดุล */
         gap: 100px;
     }
 
@@ -651,7 +651,7 @@ main {
     }
 
     .home-page .title-small {
-        font-size: 1rem;
+        font-size: 0.85rem;
     }
 }
 
