@@ -188,11 +188,17 @@ html, body {
         display: none; 
     }
     .infocus-page::before {
-        background-size: 90%;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-color: #000;
-    }
+    content: "";
+    position: absolute;
+    inset: 0; /* ใช้ตัวนี้แทน top/left/right/bottom */
+    
+    background-image: url("/static/core/images/IN-FOCUS.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    z-index: -1;
+}
 
 }
 
