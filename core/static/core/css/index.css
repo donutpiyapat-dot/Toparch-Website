@@ -605,7 +605,6 @@ main {
 /* --- Tablet (iPad แนวตั้ง และจอขนาดกลาง) --- */
 @media (max-width: 991px) {
     .home-page .hero-content {
-        top: 54%; /* ดึงลงมาให้อยู่ระดับเดียวกับหน้าจอคอม */
         right: 12%; /* ดันออกจากขอบขวาให้มากขึ้น เพื่อให้อยู่ในร่องสีเหลืองพอดี */
         transform: translateY(-50%); /* รักษาแกน Y ไว้เหมือนจอคอม */
         height: auto; 
@@ -673,12 +672,14 @@ main {
         font-size: 26px; /* ปรับขนาดให้พอดี ไม่ให้ตกบรรทัดแปลกๆ */
         line-height: 1.2;
         text-align: left;
+        margin-left: auto;
     }
 
     .home-page .title-small {
         font-size: 0.85rem;
         margin-bottom: 5px;
         letter-spacing: 1px;
+        margin-left: auto;
         text-align: left;
     }
 
