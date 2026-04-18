@@ -605,19 +605,19 @@ main {
 /* --- Tablet (iPad แนวตั้ง และจอขนาดกลาง) --- */
 @media (max-width: 991px) {
     .home-page .hero-content {
-        top: 54%; /* ดึงลงมาให้อยู่ระดับเดียวกับหน้าจอคอม */
+        top: 52%; /* ดึงลงมาให้อยู่ระดับเดียวกับหน้าจอคอม */
         right: 12%; /* ดันออกจากขอบขวาให้มากขึ้น เพื่อให้อยู่ในร่องสีเหลืองพอดี */
         transform: translateY(-50%); /* รักษาแกน Y ไว้เหมือนจอคอม */
         height: auto; 
         max-width: 450px; /* บีบกล่องข้อความนิดหน่อยไม่ให้ล้นไปทับฝั่งซ้าย */
         display: flex;
         flex-direction: column;
-        gap: 200px; 
+        gap: 250px; 
         text-align: left; /* จัดข้อความชิดซ้ายในกล่องให้เหมือนจอคอม */
     }
 
     .home-page .title-big {
-        font-size: 45px; /* ปรับขนาดให้พอดีจอ iPad ไม่ให้คำว่า TRUE ตกบรรทัด */
+        font-size: 46px; /* ปรับขนาดให้พอดีจอ iPad ไม่ให้คำว่า TRUE ตกบรรทัด */
         line-height: 1.1;
     }
 
