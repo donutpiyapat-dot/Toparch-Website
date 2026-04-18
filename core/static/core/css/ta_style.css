@@ -137,7 +137,7 @@ html, body {
 }
 
 @media (max-width:991px){
-    .navbar{
+.navbar{
         height: 70px;
     }
 .ta-style-page::before {
@@ -163,7 +163,7 @@ html, body {
     background-color: var( --accent-yellow) ;
     transition: width 0.8s ease;
     }
-    .description {
+.description {
         text-align: left;
         text-justify: none; 
         letter-spacing: normal; 
@@ -173,17 +173,19 @@ html, body {
         hyphens: none;
         word-break: normal;
         width: 100%;
-        max-width: 100%;
+        max-width: 100% !important;
         margin-bottom: 25px;
     }
 
+
 }
 
+
 @media (max-width:768px){
-    .navbar{
+.navbar{
         height: 70px;
     }
-    .ta-style-page::before {
+.ta-style-page::before {
     top: 70px;
     content: "";
     position: absolute;               
@@ -203,10 +205,10 @@ html, body {
 }
 
 @media (max-width: 425px) {
-    .navbar{
+.navbar{
         height: 55px;
     }
-    .ta-style-page::before {
+.ta-style-page::before {
     top: 55px;
     content: "";
     position: absolute;               
@@ -226,26 +228,25 @@ html, body {
 }
 
 @media (max-width: 1180px) and (orientation: landscape){
-    .description {
-        text-align: left;
-        text-justify: none; 
-        letter-spacing: normal; 
-        word-spacing: normal; 
-        line-height: 1.5; 
-        -webkit-hyphens: none;
-        hyphens: none;
-        word-break: normal;
-        width: 100%;
-        max-width: 45ch;
-        margin-bottom: 25px;
+.description {
+    text-align: left;
+    text-justify: none; 
+    letter-spacing: normal; 
+    word-spacing: normal; 
+    line-height: 1.5; 
+    -webkit-hyphens: none;
+    hyphens: none;
+    word-break: normal;
+    width: 100%;
+    margin-bottom: 25px;
     }
-    .ta-decorations{
+.ta-decorations{
         display: none; 
     }
-    .navbar{
+.navbar{
         height: 70px;
     }
-    .ta-style-page::before {
+.ta-style-page::before {
     content: "";
     position: absolute;     
     top: 70px;             
@@ -380,10 +381,10 @@ html, body {
 }
 
 @media (max-width: 991px) {
-    .ta-decorations {
+.ta-decorations {
         display: none; 
     }
-    .TA-tital{
+.TA-tital{
         color:var(--text-primary) !important;
     }
 }
@@ -398,4 +399,9 @@ html, body {
     .ta-decorations{
         display: none; 
     }
+
+    .TA-tital{
+        color:var(--text-primary) !important;
+    }
+
 }
