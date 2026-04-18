@@ -613,22 +613,22 @@ main {
         max-width: 450px; /* บีบกล่องข้อความนิดหน่อยไม่ให้ล้นไปทับฝั่งซ้าย */
         display: flex;
         flex-direction: column;
-        gap: 80px; 
+        gap: 150px; 
         text-align: left; /* จัดข้อความชิดซ้ายในกล่องให้เหมือนจอคอม */
     }
 
     .home-page .title-big {
-        font-size: 40px; /* ปรับขนาดให้พอดีจอ iPad ไม่ให้คำว่า TRUE ตกบรรทัด */
+        font-size: 45px; /* ปรับขนาดให้พอดีจอ iPad ไม่ให้คำว่า TRUE ตกบรรทัด */
         line-height: 1.1;
     }
 
     .home-page .title-small {
-        font-size: 1.4rem;
+        font-size: 1.8rem;
         letter-spacing: 2px;
     }
 
     .home-page .hero-desc {
-        font-size: 1rem;
+        font-size: 1.2rem;
         margin-bottom: 0;
         line-height: 1.5;
     }
@@ -637,11 +637,12 @@ main {
 /* --- Mobile L (จอโทรศัพท์ขนาดใหญ่ / แนวนอน) --- */
 @media (max-width: 767px) {
     .home-page .hero-content {
-        right: 5%;
+        right: 15%;
         left: 5%; /* บังคับชิดซ้ายขวาเท่ากันเพื่อให้ดูเต็มจอ */
-        top: 45%;
+        top: 50%;
         max-width: none;
         text-align: left; /* หรือเปลี่ยนเป็น center ถ้าอยากให้ดูสมดุล */
+        gap: 100px;
     }
 
     .home-page .title-big {
@@ -663,7 +664,7 @@ main {
         width: auto; /* ยกเลิก width: 90% เพื่อให้กว้างเต็มพื้นที่ left/right ที่กำหนดไว้ */
         transform: translateY(-50%); /* ยกเลิกจัดกลางแนวนอน เอาแค่แนวตั้ง */
         text-align: right; /* จัดตัวหนังสือชิดขวาให้ล้อไปกับแถบเหลืองเหมือนในจอคอม */
-        gap: 70px;
+        gap: 80px;
     }
 
     .home-page .title-big {
@@ -672,13 +673,13 @@ main {
     }
 
     .home-page .title-small {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         margin-bottom: 5px;
         letter-spacing: 1px;
     }
 
     .home-page .hero-desc {
-        font-size: 0.75rem;
+        font-size: 0.65rem;
         line-height: 1.5;
         margin-left: auto; /* ดันกล่องข้อความ desc ให้ชิดขวา */
     }
