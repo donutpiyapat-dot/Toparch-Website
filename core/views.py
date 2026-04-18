@@ -180,3 +180,33 @@ def document_list(request):
 #         'project': project,
 #         'images': images
 #     })
+
+from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect
+
+def custom_login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        next_url = request.POST.get('next')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            if user.is_staff:
+                login(request, user)
+
+                if next_url:
+                    return redirect(next_url)
+
+                return redirect('/admin/')
+            else:
+                return render(request, 'login.html', {
+                    'error': 'คุณไม่มีสิทธิ์เข้าใช้งาน'
+                })
+        else:
+            return render(request, 'login.html', {
+                'error': 'Username หรือ Password ไม่ถูกต้อง'
+            })
+
+    return render(request, 'login.html')
