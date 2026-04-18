@@ -387,3 +387,10 @@ html, body {
         color:var(--text-primary) !important;
     }
 }
+
+@media (max-width: 1199px) {
+    .description { /* เปลี่ยนเป็นชื่อ Class ที่ครอบข้อความของคุณ */
+        max-width: 30ch; /* หรือลองใช้ประมาณ 450px - 500px */
+        /* ข้อความจะถูกบีบไม่ให้ล้นไปทับลายเส้นฝั่งขวา */
+    }
+}
