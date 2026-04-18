@@ -434,3 +434,10 @@ main {
     height: 55px;
     }
 }
+
+/* สำหรับ iPad และ Tablet แนวนอน */
+@media (max-width: 1366px) {
+    .srv-decorations{
+        display: none; 
+    }
+}

@@ -203,6 +203,9 @@ html, body {
         /* หรือใช้ max-width: 420px; ก็ได้ถ้าอยากล็อคตายตัว */
         padding-right: 20px; /* เผื่อระยะขอบนิดนึงกันข้อความไปชนเส้น */
     }
+    .inf-decorations{
+        display: none; 
+    }
 }
 
 
