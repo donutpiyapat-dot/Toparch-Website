@@ -25,7 +25,7 @@ urlpatterns = [
     path('services/<slug:slug>/', views.services_detail, name='services_detail'),
     path('search/', views.global_search, name='global_search'),
     path('documents/', views.document_list, name='document_list'),
-    path('logout/', auth_views.LogoutView.as_view(next_page='/login/'), name='logout')
+    path('logout/', auth_views.LogoutView.as_view(next_page='/login/'), name='logout'),
     path('favicon.ico', RedirectView.as_view(url=settings.STATIC_URL + 'core/images/favicon.ico')),
 ]
 
