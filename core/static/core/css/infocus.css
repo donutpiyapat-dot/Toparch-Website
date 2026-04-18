@@ -23,7 +23,7 @@
 
 }
 .description {
-    max-width: 40ch; 
+    max-width: clamp(25ch, 45vw, 40ch);
     line-height: 1.5;
     margin-bottom: 32px;
     text-align: left;
@@ -180,7 +180,7 @@ html, body {
         -webkit-hyphens: none;
         hyphens: none;
         word-break: normal;
-        width: 30ch;
+        width: 25ch;
         max-width: 100%;
         margin-bottom: 25px;
     }
@@ -198,12 +198,7 @@ html, body {
 
 }
 
-@media (max-width: 1199px) {
-    .description { /* เปลี่ยนเป็นชื่อ Class ที่ครอบข้อความของคุณ */
-        max-width: 30ch; /* หรือลองใช้ประมาณ 450px - 500px */
-        /* ข้อความจะถูกบีบไม่ให้ล้นไปทับลายเส้นฝั่งขวา */
-    }
-}
+
 
 .inf-decorations {
     position: absolute;
