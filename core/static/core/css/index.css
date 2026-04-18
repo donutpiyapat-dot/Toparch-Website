@@ -660,7 +660,7 @@ main {
 /* --- Mobile S (จอมือถือขนาดเล็ก เช่น iPhone SE) --- */
 @media (max-width: 425px) {
     .home-page .hero-content {
-        top: 54%; /* ขยับต่ำลงมาจากเดิม (เลขยิ่งมากยิ่งลงต่ำ) */
+        top: 55%; /* ขยับต่ำลงมาจากเดิม (เลขยิ่งมากยิ่งลงต่ำ) */
         right: 15%; /* ดันหนีแถบสีเหลืองด้านขวา (ปรับเลขเพิ่มลดได้ถ้ายังทับ) */
         left: 5%; /* กันขอบฝั่งซ้ายไม่ให้ชิดจอเกินไป */
         width: auto; /* ยกเลิก width: 90% เพื่อให้กว้างเต็มพื้นที่ left/right ที่กำหนดไว้ */
@@ -684,6 +684,7 @@ main {
         font-size: 0.65rem;
         line-height: 1.5;
         margin-left: auto; /* ดันกล่องข้อความ desc ให้ชิดขวา */
+        text-align: left;
     }
     .hero-overlay{
         display: none;
