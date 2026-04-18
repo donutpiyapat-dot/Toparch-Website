@@ -62,7 +62,7 @@ html, body {
 
 
 
-.home-page .hero-overlay {
+.home-page .hero-bg{
     position: absolute;
     inset: 0;
     background:
@@ -70,6 +70,12 @@ html, body {
     background-size: cover;
     background-position: center;
     z-index: 1;
+}
+
+.home-page .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
 }
 
 .home-page .hero-content {
