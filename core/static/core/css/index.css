@@ -86,10 +86,10 @@ html, body {
 }
 
 .home-page .footer-minimal {
-    position: absolute;
+    position: relative;
+    width: 100%;
     bottom: 0;
     left: 0;
-    width: 100%;
     z-index: 10; 
     background: transparent; 
 }
@@ -658,13 +658,13 @@ main {
 /* --- Mobile S (จอมือถือขนาดเล็ก เช่น iPhone SE) --- */
 @media (max-width: 425px) {
     .home-page .hero-content {
-        top: 56%; /* ขยับต่ำลงมาจากเดิม (เลขยิ่งมากยิ่งลงต่ำ) */
+        top: 54%; /* ขยับต่ำลงมาจากเดิม (เลขยิ่งมากยิ่งลงต่ำ) */
         right: 15%; /* ดันหนีแถบสีเหลืองด้านขวา (ปรับเลขเพิ่มลดได้ถ้ายังทับ) */
         left: 5%; /* กันขอบฝั่งซ้ายไม่ให้ชิดจอเกินไป */
         width: auto; /* ยกเลิก width: 90% เพื่อให้กว้างเต็มพื้นที่ left/right ที่กำหนดไว้ */
         transform: translateY(-50%); /* ยกเลิกจัดกลางแนวนอน เอาแค่แนวตั้ง */
         text-align: right; /* จัดตัวหนังสือชิดขวาให้ล้อไปกับแถบเหลืองเหมือนในจอคอม */
-        gap: 80px;
+        gap: 100px;
     }
 
     .home-page .title-big {
