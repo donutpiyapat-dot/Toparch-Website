@@ -632,14 +632,13 @@ main {
     }
 }
 
-/* --- Mobile L (จอโทรศัพท์ขนาดใหญ่ / แนวนอน) --- */
 @media (max-width: 767px) {
     .home-page .hero-content {
         right: 15%;
-        left: 5%; /* บังคับชิดซ้ายขวาเท่ากันเพื่อให้ดูเต็มจอ */
+        left: 5%; 
         top: 56%;
         max-width: none;
-        text-align: right; /* หรือเปลี่ยนเป็น center ถ้าอยากให้ดูสมดุล */
+        text-align: right; 
         gap: 100px;
     }
 
@@ -656,36 +655,49 @@ main {
     }
 }
 
-/* --- Mobile S (จอมือถือขนาดเล็ก เช่น iPhone SE) --- */
+
 @media (max-width: 425px) {
     .home-page .hero-content {
-        top: 55%; /* ขยับต่ำลงมาจากเดิม (เลขยิ่งมากยิ่งลงต่ำ) */
-        right: 15%; /* ดันหนีแถบสีเหลืองด้านขวา (ปรับเลขเพิ่มลดได้ถ้ายังทับ) */
-        left: 5%; /* กันขอบฝั่งซ้ายไม่ให้ชิดจอเกินไป */
-        width: auto; /* ยกเลิก width: 90% เพื่อให้กว้างเต็มพื้นที่ left/right ที่กำหนดไว้ */
-        transform: translateY(-50%); /* ยกเลิกจัดกลางแนวนอน เอาแค่แนวตั้ง */
-        text-align: right; /* จัดตัวหนังสือชิดขวาให้ล้อไปกับแถบเหลืองเหมือนในจอคอม */
+        top: 55%; 
+        right: 15%; 
+        left: 5%; 
+        width: auto; 
+        transform: translateY(-50%); 
+        /* เปลี่ยนจาก right เป็น left หรือเอาออกไปเลย เพื่อไม่ให้กวนตัวลูก */
+        text-align: left; 
         gap: 120px;
     }
 
     .home-page .hero-title {
-        margin-left: auto !important; /* ผลักทั้งกลุ่มหัวข้อไปชิดขวา */
-        width: max-content; /* บังคับให้กล่อง <h1> กว้างเท่ากับข้อความที่ยาวที่สุด ไม่กว้าง 100% */
-        text-align: left; /* ให้ตัวหนังสือเรียงชิดซ้ายของกล่องตัวเอง */
+        margin-left: auto !important; 
+        width: max-content; 
+        text-align: left; 
     }
 
     .home-page .title-big {
         font-size: 26px; 
         line-height: 1.2;
-        /* ไม่ต้องใส่ margin-left: auto ที่นี่แล้ว */
     }
 
     .home-page .title-small {
         font-size: 0.85rem;
         margin-bottom: 5px;
         letter-spacing: 1px;
-        /* ไม่ต้องใส่ margin-left: auto ที่นี่แล้ว */
     }
+    
+    /* --- เพิ่ม/แก้ไขส่วนนี้ --- */
+    .home-page .hero-desc {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        /* ผลักกล่องไปชิดขวา ให้ขอบขวาตรงกับกล่อง title */
+        margin-left: auto !important; 
+        /* จัดข้อความในกล่องให้เรียงชิดซ้ายตรงกัน */
+        text-align: left !important; 
+        /* ล็อคความกว้างไว้ เพื่อไม่ให้มันยาวทะลุไปฝั่งซ้ายเยอะเกินไป 
+           ปรับเลข 220px หรือ 250px ได้ตามความเหมาะสมครับ */
+        max-width: 250px; 
+    }
+
     .hero-overlay{
         display: none;
     }
