@@ -685,4 +685,18 @@ main {
     .hero-overlay{
         display: none;
     }
+    .home-page .hero-decor-box-4 {
+    right: -4.75%;
+    top: 15.8%; 
+    width: 24vw;
+    height: 18vh;
+}
+
+.home-page .hero-decor-box-5 {
+    left: 0; 
+    top: 16.3%; 
+    width: 9vw; 
+    height: 14.2vh; 
+
+}
 }
