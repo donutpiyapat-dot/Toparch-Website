@@ -607,12 +607,12 @@ main {
         max-width: 450px; /* บีบกล่องข้อความนิดหน่อยไม่ให้ล้นไปทับฝั่งซ้าย */
         display: flex;
         flex-direction: column;
-        gap: 60px; 
+        gap: 80px; 
         text-align: left; /* จัดข้อความชิดซ้ายในกล่องให้เหมือนจอคอม */
     }
 
     .home-page .title-big {
-        font-size: 38px; /* ปรับขนาดให้พอดีจอ iPad ไม่ให้คำว่า TRUE ตกบรรทัด */
+        font-size: 40px; /* ปรับขนาดให้พอดีจอ iPad ไม่ให้คำว่า TRUE ตกบรรทัด */
         line-height: 1.1;
     }
 
@@ -657,7 +657,7 @@ main {
         width: auto; /* ยกเลิก width: 90% เพื่อให้กว้างเต็มพื้นที่ left/right ที่กำหนดไว้ */
         transform: translateY(-50%); /* ยกเลิกจัดกลางแนวนอน เอาแค่แนวตั้ง */
         text-align: right; /* จัดตัวหนังสือชิดขวาให้ล้อไปกับแถบเหลืองเหมือนในจอคอม */
-        gap: 65px;
+        gap: 70px;
     }
 
     .home-page .title-big {
@@ -675,5 +675,8 @@ main {
         font-size: 0.75rem;
         line-height: 1.5;
         margin-left: auto; /* ดันกล่องข้อความ desc ให้ชิดขวา */
+    }
+    .hero-overlay{
+        display: none;
     }
 }
