@@ -668,26 +668,23 @@ main {
         gap: 120px;
     }
 
+    .home-page .hero-title {
+        margin-left: auto !important; /* ผลักทั้งกลุ่มหัวข้อไปชิดขวา */
+        width: max-content; /* บังคับให้กล่อง <h1> กว้างเท่ากับข้อความที่ยาวที่สุด ไม่กว้าง 100% */
+        text-align: left; /* ให้ตัวหนังสือเรียงชิดซ้ายของกล่องตัวเอง */
+    }
+
     .home-page .title-big {
-        font-size: 26px; /* ปรับขนาดให้พอดี ไม่ให้ตกบรรทัดแปลกๆ */
+        font-size: 26px; 
         line-height: 1.2;
-        text-align: left;
-        margin-left: auto !important;
+        /* ไม่ต้องใส่ margin-left: auto ที่นี่แล้ว */
     }
 
     .home-page .title-small {
         font-size: 0.85rem;
         margin-bottom: 5px;
         letter-spacing: 1px;
-        margin-left: auto!important;
-        text-align: left;
-    }
-
-    .home-page .hero-desc {
-        font-size: 0.65rem;
-        line-height: 1.5;
-        margin-left: auto !important; /* ดันกล่องข้อความ desc ให้ชิดขวา */
-        text-align: left;
+        /* ไม่ต้องใส่ margin-left: auto ที่นี่แล้ว */
     }
     .hero-overlay{
         display: none;
