@@ -187,6 +187,12 @@ html, body {
     .inf-decorations{
         display: none; 
     }
+    .infocus-page::before {
+        background-size: 90%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #000;
+    }
 
 }
 

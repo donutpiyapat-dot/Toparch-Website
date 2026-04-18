@@ -60,15 +60,7 @@ html, body {
 
 
 
-.home-page .hero-architecture {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 0 8%;
-    color: #fff;
-    overflow: hidden;
-}
+
 
 .home-page .hero-overlay {
     position: absolute;
@@ -100,7 +92,7 @@ html, body {
 .home-page .hero-architecture {
     position: relative;
     width: 100% !important; 
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     padding: 0 8%;
@@ -659,12 +651,13 @@ main {
 /* --- Mobile S (จอมือถือขนาดเล็ก เช่น iPhone SE) --- */
 @media (max-width: 425px) {
     .home-page .hero-content {
-        top: 58%; /* ขยับต่ำลงมาจากเดิม (เลขยิ่งมากยิ่งลงต่ำ) */
+        top: 56%; /* ขยับต่ำลงมาจากเดิม (เลขยิ่งมากยิ่งลงต่ำ) */
         right: 15%; /* ดันหนีแถบสีเหลืองด้านขวา (ปรับเลขเพิ่มลดได้ถ้ายังทับ) */
         left: 5%; /* กันขอบฝั่งซ้ายไม่ให้ชิดจอเกินไป */
         width: auto; /* ยกเลิก width: 90% เพื่อให้กว้างเต็มพื้นที่ left/right ที่กำหนดไว้ */
         transform: translateY(-50%); /* ยกเลิกจัดกลางแนวนอน เอาแค่แนวตั้ง */
         text-align: right; /* จัดตัวหนังสือชิดขวาให้ล้อไปกับแถบเหลืองเหมือนในจอคอม */
+        gap: 65px;
     }
 
     .home-page .title-big {
@@ -673,13 +666,13 @@ main {
     }
 
     .home-page .title-small {
-        font-size: 1rem;
+        font-size: 0.9rem;
         margin-bottom: 5px;
         letter-spacing: 1px;
     }
 
     .home-page .hero-desc {
-        font-size: 0.85rem;
+        font-size: 0.75rem;
         line-height: 1.5;
         margin-left: auto; /* ดันกล่องข้อความ desc ให้ชิดขวา */
     }
