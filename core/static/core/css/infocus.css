@@ -180,7 +180,6 @@ html, body {
         -webkit-hyphens: none;
         hyphens: none;
         word-break: normal;
-        width: 25ch;
         max-width: 100%;
         margin-bottom: 25px;
     }
@@ -196,6 +195,14 @@ html, body {
         background-repeat: no-repeat;
     }
 
+}
+/* สำหรับ iPad และ Tablet แนวนอน */
+@media (max-width: 1366px) {
+    .description {
+        max-width: 30vw; /* บังคับให้กว้างไม่เกิน 45% ของจอ */
+        /* หรือใช้ max-width: 420px; ก็ได้ถ้าอยากล็อคตายตัว */
+        padding-right: 20px; /* เผื่อระยะขอบนิดนึงกันข้อความไปชนเส้น */
+    }
 }
 
 
