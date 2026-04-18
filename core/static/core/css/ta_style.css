@@ -176,7 +176,9 @@ html, body {
         max-width: 100% !important;
         margin-bottom: 25px;
     }
-
+    .ta-graphic-right{
+        display: none;
+    }
 
 }
 
@@ -403,5 +405,6 @@ html, body {
     .TA-tital{
         color:var(--text-primary) !important;
     }
+
 
 }
