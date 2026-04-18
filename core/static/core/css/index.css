@@ -663,13 +663,11 @@ main {
         left: 5%; 
         width: auto; 
         transform: translateY(-50%); 
-        /* เปลี่ยนจาก right เป็น left หรือเอาออกไปเลย เพื่อไม่ให้กวนตัวลูก */
-        text-align: left; 
         gap: 120px;
     }
 
     .home-page .hero-title {
-        margin-left: auto !important; 
+        margin-left: auto !important;  
         width: max-content; 
         text-align: left; 
     }
@@ -684,20 +682,6 @@ main {
         margin-bottom: 5px;
         letter-spacing: 1px;
     }
-    
-    /* --- เพิ่ม/แก้ไขส่วนนี้ --- */
-    .home-page .hero-desc {
-        font-size: 0.85rem;
-        line-height: 1.5;
-        /* ผลักกล่องไปชิดขวา ให้ขอบขวาตรงกับกล่อง title */
-        margin-left: auto !important; 
-        /* จัดข้อความในกล่องให้เรียงชิดซ้ายตรงกัน */
-        text-align: left !important; 
-        /* ล็อคความกว้างไว้ เพื่อไม่ให้มันยาวทะลุไปฝั่งซ้ายเยอะเกินไป 
-           ปรับเลข 220px หรือ 250px ได้ตามความเหมาะสมครับ */
-        max-width: 250px; 
-    }
-
     .hero-overlay{
         display: none;
     }
