@@ -615,7 +615,7 @@ main {
         max-width: 450px; /* บีบกล่องข้อความนิดหน่อยไม่ให้ล้นไปทับฝั่งซ้าย */
         display: flex;
         flex-direction: column;
-        gap: 15px; 
+        gap: 60px; 
         text-align: left; /* จัดข้อความชิดซ้ายในกล่องให้เหมือนจอคอม */
     }
 

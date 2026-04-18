@@ -123,6 +123,12 @@ class Project(models.Model):
             self.slug = slug
 
         super().save(*args, **kwargs)
+    
+    def __str__(self):
+        return self.title
+
+
+
 
 class ProjectImage(models.Model):
     project = models.ForeignKey(
@@ -154,6 +160,9 @@ class ProjectImage(models.Model):
                 self.image.url
             )
         return "-"
+
+    def __str__(self):
+        return f"Image for {self.project.title}"
 
 
 
