@@ -672,21 +672,21 @@ main {
         font-size: 26px; /* ปรับขนาดให้พอดี ไม่ให้ตกบรรทัดแปลกๆ */
         line-height: 1.2;
         text-align: left;
-        margin-left: auto;
+        margin-left: auto !important;
     }
 
     .home-page .title-small {
         font-size: 0.85rem;
         margin-bottom: 5px;
         letter-spacing: 1px;
-        margin-left: auto;
+        margin-left: auto!important;
         text-align: left;
     }
 
     .home-page .hero-desc {
         font-size: 0.65rem;
         line-height: 1.5;
-        margin-left: auto; /* ดันกล่องข้อความ desc ให้ชิดขวา */
+        margin-left: auto !important; /* ดันกล่องข้อความ desc ให้ชิดขวา */
         text-align: left;
     }
     .hero-overlay{
