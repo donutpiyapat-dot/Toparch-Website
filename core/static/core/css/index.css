@@ -627,6 +627,14 @@ main {
 }
 
 @media (max-width: 767px) {
+    .home-page .hero-architecture {
+    min-height: 100dvh;
+    height: auto;
+}
+
+.home-page .footer-minimal {
+    position: relative;
+}
     .home-page .hero-content {
         right: 15%;
         left: 5%; 
@@ -660,6 +668,14 @@ main {
 
 
 @media (max-width: 425px) {
+    .home-page .hero-architecture {
+    min-height: 100dvh;
+    height: auto;
+}
+
+.home-page .footer-minimal {
+    position: relative;
+}
     .home-page .hero-content {
         top: 56%; 
         right: 15%; 
