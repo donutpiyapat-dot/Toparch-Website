@@ -828,10 +828,10 @@ main {
     }
 }
 
-@media (max-width: 1366px){
+@media (max-width: 1366px) and (orientation: landscape){
     .tech-overlay {
-        width: 60%;
-        height: 60%;
+        width: 50%;
+        height: 50%;
     }
     .delay-1 {
         left: 37%;
