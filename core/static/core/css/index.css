@@ -711,7 +711,7 @@ main {
 }
 @media (max-width: 767px) and (orientation: landscape) {
     .home-page .hero-architecture {
-        height: 100dvh;   /* ✅ แก้หลัก */
+        height: 100dvh;  
         min-height: 100dvh;
     }
     .home-page {
@@ -743,13 +743,8 @@ main {
         font-size: 0.6rem;
     }
 
-    .home-page .hero-architecture {
-        height: 100vh;   
-        min-height: unset;
-        padding-bottom: 0;
-    }
     .home-page .footer-minimal {
-    position: absolute !important;
+    position: relative;
     bottom: 0;
     left: 0;
     width: 100%;
