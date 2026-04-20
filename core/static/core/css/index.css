@@ -718,10 +718,15 @@ main {
 @media (max-width: 950px) and (orientation: landscape) {
     
     .home-page .hero-architecture {
-        height: 100dvh !important;
+        position: absolute !important; /* เปลี่ยนเป็น absolute เพื่อให้มันแปะติดจอ */
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100dvh !important;     /* สูงเต็มจอ */
         min-height: 100dvh !important;
-        overflow: hidden !important; 
-        padding-bottom: 0 !important;
+        overflow: hidden !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
 
     .home-page .hero-decorations,
@@ -749,7 +754,6 @@ main {
         max-width: 500px; /* ไม่ให้บรรทัดยาวเกินไปจนอ่านยาก */
     }
 
-    /* 5. จัด Footer ให้อยู่ติดขอบล่างพอดี */
     .home-page .footer-minimal {
         position: absolute !important;
         bottom: 0;
