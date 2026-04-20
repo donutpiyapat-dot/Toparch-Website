@@ -249,6 +249,9 @@ main {
 .hero-overlay {
     position: relative; 
 }
+.tech-overlay {
+    position: absolute;
+}
 
 .delay-2 {
     top: 420px;
@@ -366,13 +369,15 @@ main {
     letter-spacing: 0.5px;
 }
 
-.home-page .hero-decorations{
+
+.home-page [class^="hero-decor-box-"] {
     position: absolute;
     top: 50%; 
     z-index: 2; 
     pointer-events: none; 
     border-radius: 0; 
 }
+
 .home-page .hero-decor-left {
     position: absolute;
     left: 4.9%; 
@@ -747,8 +752,8 @@ main {
 
 @media (max-width: 1180px) and (orientation: landscape){
     .tech-overlay {
-        width: 70%;
-        height: 70%;
+        width: 60%;
+        height: 60%;
     }
     /* .delay-1{
 
