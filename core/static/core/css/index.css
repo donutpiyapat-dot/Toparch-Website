@@ -633,7 +633,7 @@ main {
 }
 
 .home-page .footer-minimal {
-    position: relative;
+    position: absolute;
 }
     .home-page .hero-content {
         right: 15%;
@@ -662,7 +662,7 @@ main {
     }
 
     .home-page .footer-minimal {
-        position: relative;    
+        position: absolute;    
     }
 }
 
@@ -674,7 +674,7 @@ main {
 }
 
 .home-page .footer-minimal {
-    position: relative;
+    position: absolute;
 }
     .home-page .hero-content {
         top: 56%; 
@@ -754,7 +754,7 @@ main {
     }
 
     .home-page .footer-minimal {
-    position: relative;
+    position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;

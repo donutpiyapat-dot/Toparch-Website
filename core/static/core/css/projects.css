@@ -22,7 +22,14 @@
 }
 .sticky-col {
     border-right: 1px solid rgba(255,255,255,0.15);
-
+}
+/* ล็อค Navbar ให้อยู่ด้านบนและใส่สีพื้นหลังทึบแสง */
+.projects-page .navbar, 
+.projects-page .nav-wrapper {
+    position: sticky;
+    top: 0;
+    background-color: #000; /* เทสีพื้นหลังทึบ จะได้ไม่มีอะไรรอดขึ้นมาเห็น */
+    z-index: 1000;
 }
 
 .projects-title {
