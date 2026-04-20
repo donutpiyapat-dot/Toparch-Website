@@ -747,6 +747,14 @@ main {
         transform: scale(0.8);
         transform-origin: center;
     }
+    .home-page .hero-bg {
+    position: fixed; /* <--- เปลี่ยนจาก absolute เป็น fixed เพื่อให้ภาพพื้นหลังเต็มจอเสมอแม้เลื่อนหน้าลง */
+    inset: 0;
+    background: url("/static/core/images/BG-01.webp");
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
 }
 
 @media (max-width: 1180px) and (orientation: landscape){
@@ -754,61 +762,68 @@ main {
         width: 60%;
         height: 60%;
     }
-    .delay-1{
+    .delay-1 {
         left: 37%;
     }
-    .delay-2{
-        right: 50%;
+    .delay-2 {
+        /* ล้างค่า left จากคลาสหลักทิ้ง เพื่อให้ right ทำงานได้ */
+        left: auto; 
+        right: 40%;
+        /* เปลี่ยน top จาก 420px (ในคลาสหลัก) เป็น % เพื่อให้พอดีกับความสูงจอ iPad */
+        top: 50%; 
     }
-    .delay-3{
-        left: 250px;
+    .delay-3 {
+        /* เปลี่ยนจาก 250px เป็น % เพื่อให้ยืดหยุ่นตามหน้าจอ */
+        left: 25%; 
         width: 70%;
         height: 70%;
     }
-    .delay-4{
+    .delay-4 {
         left: 50%; 
     }
-    .delay-6{
+    .delay-6 {
         top: 55%;
         left: 15%;
         width: 50%;
         height: 50%;
     }
-    .delay-7{
+    .delay-7 {
         top: 30%;
         left: 50%;
         width: 30%;
         height: 30%;
     }
-    .delay-8{
+    .delay-8 {
         top: 55%;
         left: 20%;
         width: 90%;
         height: 90%;
     }
-    .delay-9{
-        left: 40%;
+    .delay-9 {
+        /* ต้องล้างค่า left ทิ้งด้วยเมื่อใช้ right */
+        left: auto;
+        right: 40%;
     }
-    .delay-10{
+    .delay-10 {
         left: 45%;
     }
-    .delay-11{
-        
+    .delay-11 {
         left: 50%;
         width: 80%;
         height: 80%;
     }
-    .delay-12{
+    .delay-12 {
         left: 40%;
     }
-    .delay-13{
+    .delay-13 {
         left: 40%;
     }
-    .delay-14{
+    .delay-14 {
         left: 40%;
     }
-    .delay-15{
-
+    .delay-15 {
+        /* ขยับ top ขึ้นมานิดหน่อยไม่ให้หลุดจอล่าง */
+        top: 60%; 
         left: 50%;
         width: 35%;
         height: 35%;
