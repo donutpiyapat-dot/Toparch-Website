@@ -627,14 +627,7 @@ main {
 }
 
 @media (max-width: 767px) {
-    .home-page .hero-architecture {
-    min-height: 100dvh;
-    height: auto;
-}
-
-.home-page .footer-minimal {
-    position: absolute;
-}
+    
     .home-page .hero-content {
         right: 15%;
         left: 5%; 
@@ -662,7 +655,7 @@ main {
     }
 
     .home-page .footer-minimal {
-        position: absolute;    
+        position: relative;    
     }
 }
 
@@ -674,7 +667,7 @@ main {
 }
 
 .home-page .footer-minimal {
-    position: absolute;
+    position: relative;
 }
     .home-page .hero-content {
         top: 56%; 
@@ -719,77 +712,50 @@ main {
 
 }
 }
-/* ---------------------------------------------------
-   จัดระเบียบหน้าจอแนวนอน (Mobile Landscape) 
---------------------------------------------------- */
-@media (max-width: 950px) and (orientation: landscape) {
-    
-    /* 1. ล็อคความสูงหน้าจอให้พอดีเป๊ะ ห้ามมีขอบดำ ห้ามเลื่อน */
+@media (max-width: 767px) and (orientation: landscape) {
     .home-page .hero-architecture {
-        height: 100dvh !important;
-        min-height: 100dvh !important;
-        overflow: hidden !important; 
-        padding-bottom: 0 !important;
-    }
-
-    /* 2. ซ่อนของตกแต่งสีเหลือง/เทา ทั้งหมด เพราะมันจะเกะกะและเพี้ยน */
-    .home-page .hero-decorations,
-    .home-page [class^="hero-decor-box-"],
-    .home-page .hero-decor-left,
-    .home-page .hero-decor-right {
-        display: none !important; 
-    }
-
-    /* 3. จัดกล่องข้อความให้อยู่ตรงกลางหน้าจอพอดี */
-    .home-page .hero-content {
-        position: absolute;
-        top: 50% !important;
-        left: 50% !important;
-        right: auto !important;
-        transform: translate(-50%, -50%) !important;
-        width: 90%;
-        max-width: 600px;
         height: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;  /* จัดให้อยู่กึ่งกลาง */
-        text-align: center;   /* ให้ตัวหนังสืออยู่กึ่งกลาง */
-        gap: 15px !important; /* ลดช่องว่างระหว่างบรรทัดลง ป้องกันการล้นจอ */
+        min-height: 100dvh;
+    }
+    .home-page {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
     }
 
-    /* 4. จัดข้อความ และ ปรับขนาด Font ให้พอดีกับจอแนวนอน */
-    .home-page .hero-title {
-        margin: 0 auto !important;
-        text-align: center;
+    .home-page main {
+    flex: 1;
     }
-
-    .home-page .title-small {
-        font-size: 1rem !important;
-        letter-spacing: 2px;
-        margin-bottom: 5px;
+    .home-page .hero-content {
+        top: 50%;
+        transform: translateY(-50%);
+        gap: 40px; 
+        right: 10%;
+        left: 10%;
     }
 
     .home-page .title-big {
-        font-size: 28px !important; 
-        line-height: 1.2;
+        font-size: 24px; 
+    }
+
+    .home-page .title-small {
+        font-size: 0.7rem;
     }
 
     .home-page .hero-desc {
-        font-size: 0.85rem !important;
-        line-height: 1.4;
-        margin-bottom: 0;
-        max-width: 500px; /* ไม่ให้บรรทัดยาวเกินไปจนอ่านยาก */
+        font-size: 0.6rem;
     }
 
-    /* 5. จัด Footer ให้อยู่ติดขอบล่างพอดี */
     .home-page .footer-minimal {
-        position: absolute !important;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background: transparent !important; 
-        z-index: 10;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: transparent !important; 
+    }
+    .home-page .hero-decorations{
+        transform: scale(0.8);
+        transform-origin: center;
     }
 }
 
@@ -863,6 +829,7 @@ main {
     }
 
 }
+
 
 /* @media (max-width: 1366px){
     .delay-1{}
