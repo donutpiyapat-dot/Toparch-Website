@@ -705,7 +705,7 @@ main {
 }
 @media (max-width: 950px) and (orientation: landscape){
     .home-page .hero-architecture {
-        height: 100dvh;  
+        height: auto;
         min-height: 100dvh;
     }
     .home-page {
@@ -722,7 +722,6 @@ main {
         transform: translateY(-50%);
         gap: 40px; 
         right: 10%;
-        left: 10%;
     }
 
     .home-page .title-big {
@@ -738,7 +737,7 @@ main {
     }
 
     .home-page .footer-minimal {
-    position: relative;
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -759,15 +758,15 @@ main {
         left: 37%;
     }
     .delay-2{
-        right: 40%;
+        right: 50%;
     }
     .delay-3{
         left: 250px;
-         width: 70%;
+        width: 70%;
         height: 70%;
     }
     .delay-4{
-       left: 50%; 
+        left: 50%; 
     }
     .delay-6{
         top: 55%;
@@ -794,9 +793,10 @@ main {
         left: 45%;
     }
     .delay-11{
-        left: 40%;
-        width: 70%;
-        height: 70%;
+        
+        left: 50%;
+        width: 80%;
+        height: 80%;
     }
     .delay-12{
         left: 40%;
