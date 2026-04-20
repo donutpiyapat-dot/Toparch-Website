@@ -734,7 +734,7 @@ main {
     }
 
     .home-page .hero-architecture {
-        height: 100vh;   /* ❗ ห้าม auto */
+        height: 100vh;   
         min-height: unset;
         padding-bottom: 0;
     }
@@ -744,8 +744,7 @@ main {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: transparent !important; /* ✅ กันพื้นดำ */
-}
+    background: transparent !important; 
     .hero-decorations{
          transform: scale(0.8);
     }
