@@ -755,37 +755,41 @@ main {
         width: 60%;
         height: 60%;
     }
-    /* .delay-1{
-
+    .delay-1{
+        left: 20%;
     }
     .delay-2{
-
+        right: 300px;
     }
     .delay-3{
+        left: 250px;
 
     }
     .delay-4{
-
+        right: 60%; 
     }
-    .delay-5{
+    /* .delay-5{
 
-    }
+    } */
     .delay-6{
-
+    left: 20%;
     }
     .delay-7{
-
+        left: 50%;
+        width: 30%;
+        height: 30%;
     }
     .delay-8{
-
+    width: 105%;
+    height: 105%;
     }
-    .delay-9{
+    /* .delay-9{
 
-    }
-    .delay-10{
+    } */
+    /* .delay-10{
 
-    }
-    .delay-11{
+    } */
+    /* .delay-11{
 
     }
     .delay-12{
@@ -796,10 +800,11 @@ main {
     }
     .delay-14{
 
-    }
-    .delay-15{
-
     } */
+    .delay-15{
+        width: 35%;
+        height: 35%;
+    }
 }
 
 /* @media (max-width: 1366px){
