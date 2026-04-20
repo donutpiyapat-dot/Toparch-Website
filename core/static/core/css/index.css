@@ -777,6 +777,8 @@ main {
     }
     .delay-4 {
         left: 40%; 
+        width: 70%;
+        height: 70%;
     }
     .delay-6 {
         top: 50%;
@@ -800,7 +802,7 @@ main {
         left: 40%;
     }
     .delay-10 {
-        left: 40%;
+        left: 43%;
     }
     .delay-11 {
         left: 50%;
@@ -808,6 +810,7 @@ main {
         height: 80%;
     }
     .delay-12 {
+        top: 50%;
         left: 40%;
     }
     .delay-13 {
