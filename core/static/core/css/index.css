@@ -712,53 +712,53 @@ main {
 
 }
 }
-@media (max-width: 767px) and (orientation: landscape) {
+/* ---------------------------------------------------
+   จัดระเบียบหน้าจอแนวนอน (Mobile Landscape) 
+--------------------------------------------------- */
+@media (max-width: 950px) and (orientation: landscape) {
+    
     .home-page .hero-architecture {
-        height: auto;
-        min-height: 100dvh;
-    }
-    .home-page {
-    min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
+        height: 100dvh !important;
+        min-height: 100dvh !important;
+        overflow: hidden !important; 
+        padding-bottom: 0 !important;
     }
 
-    .home-page main {
-    flex: 1;
-    }
-    .home-page .hero-content {
-        top: 50%;
-        transform: translateY(-50%);
-        gap: 40px; 
-        right: 10%;
-        left: 10%;
-    }
-
-    .home-page .title-big {
-        font-size: 24px; 
+    .home-page .hero-decorations,
+    .home-page [class^="hero-decor-box-"],
+    .home-page .hero-decor-left,
+    .home-page .hero-decor-right {
+        display: none !important; 
     }
 
     .home-page .title-small {
-        font-size: 0.7rem;
+        font-size: 1rem !important;
+        letter-spacing: 2px;
+        margin-bottom: 5px;
+    }
+
+    .home-page .title-big {
+        font-size: 28px !important; 
+        line-height: 1.2;
     }
 
     .home-page .hero-desc {
-        font-size: 0.6rem;
+        font-size: 0.85rem !important;
+        line-height: 1.4;
+        margin-bottom: 0;
+        max-width: 500px; /* ไม่ให้บรรทัดยาวเกินไปจนอ่านยาก */
     }
 
+    /* 5. จัด Footer ให้อยู่ติดขอบล่างพอดี */
     .home-page .footer-minimal {
-    position: relative;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: transparent !important; 
-    }
-    .home-page .hero-decorations{
-        transform: scale(0.8);
-        transform-origin: center;
+        position: absolute !important;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: transparent !important; 
+        z-index: 10;
     }
 }
-
 @media (max-width: 1180px) and (orientation: landscape){
     .tech-overlay {
         width: 60%;
