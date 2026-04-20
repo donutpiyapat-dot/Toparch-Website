@@ -759,31 +759,31 @@ main {
         left: 37%;
     }
     .delay-2{
-        right: 400px;
+        right: 450px;
     }
     .delay-3{
         left: 200px;
     }
     .delay-4{
-        right: 70%; 
+        right: 80%; 
     }
     /* .delay-5{
-
     } */
     .delay-6{
         top: 50%;
         left: 15%;
+        width: 70%;
+        height: 70%;
     }
     .delay-7{
         top:20%;
         left: 50%;
-        width: 30%;
-        height: 30%;
     }
     .delay-8{
+        top: 65%;
         left: 20%;
-    width: 105%;
-    height: 105%;
+        width: 105%;
+        height: 105%;
     }
     .delay-9{
         right: 50%;
