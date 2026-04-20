@@ -667,12 +667,12 @@ main {
 
 @media (max-width: 425px) {
     .home-page .hero-content {
-        top: 55%; 
+        top: 56%; 
         right: 15%; 
         left: 5%; 
         width: auto; 
         transform: translateY(-50%); 
-        gap: 120px;
+        gap: 125px;
     }
 
     .home-page .hero-title {
@@ -701,7 +701,7 @@ main {
     height: 19svh;
 }
 
-.home-page .hero-decor-box-5 {
+    .home-page .hero-decor-box-5 {
     left: 0; 
     top: 16.5%; 
     width: 10vw; 
