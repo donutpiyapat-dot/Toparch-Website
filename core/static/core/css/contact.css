@@ -12,7 +12,7 @@
     background-size: cover;
     background-position: center;
 }
-.Contact-page::before {
+.contact-page::before {
     content: "";
     position: absolute;
     top: 70px;   
@@ -155,12 +155,13 @@
     text-decoration: underline;
     text-underline-offset: 6px;
 }
-.Contact-page {
+.contact-page {
     min-height: 100vh;
     position: relative;
 }
 
-html, body.Contact-page {
+html, body.contact-page {
+    height: auto;
     overflow-y: visible;
 }
 
@@ -232,7 +233,7 @@ html, body.Contact-page {
         width:50px;
         height:3px;
     }
-    .Contact-page::before {
+    .contact-page::before {
     content: "";
     position: absolute;
     top: 70px;   
@@ -256,7 +257,7 @@ html, body.Contact-page {
     .navbar{
         height: 55px;
     }
-    .Contact-page::before {
+    .contact-page::before {
     content: "";
     position: absolute;
     top: 55px;   
