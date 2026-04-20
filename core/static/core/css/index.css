@@ -770,17 +770,17 @@ main {
         right: 90%; 
     }
     .delay-6{
-        top: 45%;
+        top: 55%;
         left: 15%;
     }
     .delay-7{
-        top:20%;
+        top: 30%;
         left: 50%;
         width: 30%;
         height: 30%;
     }
     .delay-8{
-        top: 45%;
+        top: 55%;
         left: 20%;
         width: 90%;
         height: 90%;
@@ -806,6 +806,7 @@ main {
         left: 40%;
     }
     .delay-15{
+        
         left: 50%;
         width: 35%;
         height: 35%;
