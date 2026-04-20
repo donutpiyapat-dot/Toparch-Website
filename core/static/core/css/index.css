@@ -627,7 +627,6 @@ main {
 }
 
 @media (max-width: 767px) {
-    
     .home-page .hero-content {
         right: 15%;
         left: 5%; 
@@ -661,14 +660,6 @@ main {
 
 
 @media (max-width: 425px) {
-    .home-page .hero-architecture {
-    min-height: 100dvh;
-    height: auto;
-}
-
-.home-page .footer-minimal {
-    position: relative;
-}
     .home-page .hero-content {
         top: 56%; 
         right: 15%; 
@@ -712,59 +703,53 @@ main {
 
 }
 }
-/* ---------------------------------------------------
-   จัดระเบียบหน้าจอแนวนอน (Mobile Landscape) 
---------------------------------------------------- */
-@media (max-width: 950px) and (orientation: landscape) {
-    body.home-page {
-        overflow: hidden;
-    }
+@media (max-width: 767px) and (orientation: landscape) {
     .home-page .hero-architecture {
-        position: relative !important; /* เปลี่ยนเป็น absolute เพื่อให้มันแปะติดจอ */
-        top: 0;
-        left: 0;
-        width: 100% !important;
-        height: 100dvh !important;     /* สูงเต็มจอ */
-        min-height: 100dvh !important;
-        overflow: hidden !important;
-        padding: 0 !important;
-        margin: 0 !important;
+        height: 100dvh;  
+        min-height: 100dvh;
+    }
+    .home-page {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
     }
 
-    .home-page .hero-decorations,
-    .home-page [class^="hero-decor-box-"],
-    .home-page .hero-decor-left,
-    .home-page .hero-decor-right {
-        display: none !important; 
+    .home-page main {
+    flex: 1;
     }
-
-    .home-page .title-small {
-        font-size: 1rem !important;
-        letter-spacing: 2px;
-        margin-bottom: 5px;
+    .home-page .hero-content {
+        top: 50%;
+        transform: translateY(-50%);
+        gap: 40px; 
+        right: 10%;
+        left: 10%;
     }
 
     .home-page .title-big {
-        font-size: 28px !important; 
-        line-height: 1.2;
+        font-size: 24px; 
+    }
+
+    .home-page .title-small {
+        font-size: 0.7rem;
     }
 
     .home-page .hero-desc {
-        font-size: 0.85rem !important;
-        line-height: 1.4;
-        margin-bottom: 0;
-        max-width: 500px; /* ไม่ให้บรรทัดยาวเกินไปจนอ่านยาก */
+        font-size: 0.6rem;
     }
 
     .home-page .footer-minimal {
-        position: absolute !important;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background: transparent !important; 
-        z-index: 10;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: transparent !important; 
+    }
+    .home-page .hero-decorations{
+        transform: scale(0.8);
+        transform-origin: center;
     }
 }
+
 @media (max-width: 1180px) and (orientation: landscape){
     .tech-overlay {
         width: 60%;
@@ -774,9 +759,8 @@ main {
         left: 37%;
     }
     .delay-2{
-        right: 45%;
+        right: 40%;
     }
-
     .delay-3{
         left: 250px;
          width: 70%;
@@ -785,12 +769,11 @@ main {
     .delay-4{
        left: 50%; 
     }
-
     .delay-6{
-        top: 50%;
+        top: 55%;
         left: 15%;
-        width: 75%;
-        height: 75%;
+        width: 50%;
+        height: 50%;
     }
     .delay-7{
         top: 30%;
@@ -804,38 +787,33 @@ main {
         width: 90%;
         height: 90%;
     }
-    .delay-15{
-
-        left: 50%;
-        width: 35%;
-        height: 35%;
-    }
-
     .delay-9{
         left: 40%;
     }
     .delay-10{
         left: 45%;
     }
-
     .delay-11{
-        left: 45%;
+        left: 40%;
         width: 70%;
         height: 70%;
     }
     .delay-12{
         left: 40%;
     }
-
     .delay-13{
         left: 40%;
     }
     .delay-14{
         left: 40%;
     }
+    .delay-15{
 
+        left: 50%;
+        width: 35%;
+        height: 35%;
+    }
 }
-
 
 /* @media (max-width: 1366px){
     .delay-1{}
