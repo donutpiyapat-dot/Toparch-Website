@@ -716,9 +716,11 @@ main {
    จัดระเบียบหน้าจอแนวนอน (Mobile Landscape) 
 --------------------------------------------------- */
 @media (max-width: 950px) and (orientation: landscape) {
-    
+    body.home-page {
+        overflow: hidden;
+    }
     .home-page .hero-architecture {
-        position: absolute !important; /* เปลี่ยนเป็น absolute เพื่อให้มันแปะติดจอ */
+        position: relative !important; /* เปลี่ยนเป็น absolute เพื่อให้มันแปะติดจอ */
         top: 0;
         left: 0;
         width: 100% !important;
