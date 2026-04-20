@@ -709,3 +709,39 @@ main {
 
 }
 }
+@media (max-width: 767px) and (orientation: landscape) {
+
+    .home-page .hero-content {
+        top: 50%;
+        transform: translateY(-50%);
+        gap: 40px; /* ลดช่องว่าง */
+        right: 10%;
+        left: 10%;
+    }
+
+    .home-page .title-big {
+        font-size: 24px; /* ลดลง */
+    }
+
+    .home-page .title-small {
+        font-size: 0.7rem;
+    }
+
+    .home-page .hero-desc {
+        font-size: 0.6rem;
+    }
+
+    .home-page .hero-architecture {
+        height: 100vh;   /* ❗ ห้าม auto */
+        min-height: unset;
+        padding-bottom: 0;
+    }
+
+    .home-page .footer-minimal {
+        position: absolute;
+        bottom: 0;
+    }
+    .hero-decorations{
+        display: none;
+    }
+}
