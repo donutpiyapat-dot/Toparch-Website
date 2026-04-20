@@ -710,7 +710,9 @@ main {
 }
 }
 @media (max-width: 767px) and (orientation: landscape) {
-
+    .home-page .hero-architecture {
+    height: 100svh; 
+    }
     .home-page .hero-content {
         top: 50%;
         transform: translateY(-50%);
@@ -738,10 +740,13 @@ main {
     }
 
     .home-page .footer-minimal {
-        position: absolute;
-        bottom: 0;
-    }
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: transparent !important; /* ✅ กันพื้นดำ */
+}
     .hero-decorations{
-        display: none;
+         transform: scale(0.8);
     }
 }
