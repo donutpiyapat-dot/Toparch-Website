@@ -37,10 +37,6 @@ html, body {
     background:var(--div-black);
 }
 
-html, body {
-    height: auto;
-}
-
 .ta-style-page {
     position: relative;
     min-height: 100vh;
@@ -146,10 +142,21 @@ html, body {
 
 
 @media (max-width:768px){
-.navbar{
+     html, body {
+        height: auto;
+        overflow-y: auto;   
+        overflow-x: hidden; 
+    }
+
+    .ta-style-page {
+        height: auto;
+        min-height: 100vh;
+        overflow: visible;
+    }
+    .navbar{
         height: 70px;
     }
-.ta-style-page::before {
+    .ta-style-page::before {
     top: 70px;
     content: "";
     position: absolute;               
@@ -165,6 +172,9 @@ html, body {
     
     z-index: -1;
     pointer-events: none; 
+    }
+    .ta-style-page {
+        min-height: 100svh;
     }
 }
 
