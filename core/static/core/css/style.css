@@ -688,3 +688,151 @@ main, .container-fluid {
         top: 55px;;
     }
 }
+
+/* =========================================
+   1. ควบคุมการทำงานหลักของ Navbar Dropdown (จุดที่เปลี่ยนเป็น Hamburger)
+   ========================================= */
+@media (max-width: 991.98px) {
+    html { scrollbar-gutter: stable both-edges; }
+    
+    .navbar-collapse {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: #000;
+        border-top: 1px solid #333;
+        z-index: 999;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        
+        /* จุดแก้ปัญหา: บังคับให้เมนูมีความสูงไม่เกินจอ และ Scroll ได้ในตัวมันเอง */
+        max-height: calc(100dvh - 70px); 
+        overflow-y: auto !important; 
+        overflow-x: hidden !important;
+
+        /* อนิเมชั่นซ่อนเมนู */
+        display: block !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transform: translateY(-15px) !important;
+        pointer-events: none !important;
+        transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease !important; 
+    }
+
+    /* อนิเมชั่นแสดงเมนู */
+    :root:has(.navbar-toggler[aria-expanded="true"]) .navbar-collapse {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+    }
+
+    .nav-logo-section {
+        width: 100%;
+        height: 70px;
+        border: none;
+    }
+
+    .nav-links-section {
+        background-color: #111; 
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+
+    .nav-link-item {
+        justify-content: flex-start; 
+        border-right: none;
+        border-bottom: 1px solid #222;
+        padding: 18px 25px; /* ลด padding ลงนิดหน่อยไม่ให้เมนูยาวเกิน */
+    }
+    
+    .search-bar { order: 1; min-width: 0; }
+    .navbar-toggler { order: 2; }
+}
+
+/* =========================================
+   2. สำหรับ iPad & Tablet (หน้าจอ 768px - 991px)
+   ========================================= */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .nav-wrapper { padding: 0 20px; }
+    .search-wrapper {
+        max-width: 300px;
+        width: 100%;
+        margin: 0 20px;
+    }
+    .search-wrapper input { width: 100%; }
+}
+
+/* =========================================
+   3. สำหรับ โทรศัพท์มือถือ (หน้าจอน้อยกว่า 767px)
+   ========================================= */
+@media (max-width: 767.98px) {
+    /* บีบขนาด Navbar หลักให้แคบลงเหลือ 55px */
+    .nav-container, .nav-wrapper, .navbar, .nav-logo-section {
+        height: 55px !important;
+        min-height: 55px !important;
+    }
+    
+    .navbar { padding: 0; justify-content: space-between; }
+    .nav-wrapper { width: 100%; padding: 0 10px; }
+
+    /* ปรับตำแหน่ง Top ของเมนู Dropdown ให้พอดีกับ Navbar ที่เล็กลง */
+    .navbar-collapse {
+        top: 55px !important;
+        max-height: calc(100dvh - 55px); /* พื้นที่ Scroll ของเมนูในมือถือ */
+    }
+
+    /* ปรับขนาดโลโก้ */
+    .navbar-brand img {
+        width: 110px;
+        height: auto;
+    }
+
+    /* ปรับขนาดช่องค้นหา */
+    .search-wrapper {
+        width: 160px;
+        max-width: 160px;
+        margin-right: 10px;
+    }
+    .search-wrapper input {
+        height: 32px;
+        width: 100%;
+        padding: 5px 25px 5px 10px;
+        font-size: 12px;
+    }
+    .search-btn {
+        right: 8px;
+        font-size: 12px;
+    }
+
+    /* ปรับปุ่ม Hamburger */
+    .navbar-toggler-icon {
+        width: 22px;
+        height: 22px;
+    }
+    .custom-toggler { padding: 2px 6px; }
+}
+
+/* =========================================
+   4. สำหรับ มือถือเครื่องเล็กมาก (iPhone SE / หน้าจอ < 375px)
+   ========================================= */
+@media (max-width: 375px) {
+    .navbar-brand img { width: 90px; }
+    .search-wrapper { width: 130px; }
+    .search-wrapper input { font-size: 11px; }
+}
+
+/* =========================================
+   5. กฎพิเศษ: สำหรับ โหมดแนวนอน (Landscape) บนมือถือและ iPad
+   ป้องกับเมนูทะลุจอเมื่อความสูงของจอน้อยมาก
+   ========================================= */
+@media (max-height: 500px) and (orientation: landscape) {
+    .navbar-collapse {
+        /* บังคับให้เมนูเตี้ยลงและต้องใช้การไถนิ้ว (Scroll) เพื่อดูเมนูด้านล่าง */
+        max-height: calc(100dvh - 55px) !important;
+    }
+    .nav-link-item {
+        padding: 10px 20px; /* บีบช่องว่างเมนูให้ชิดกันขึ้นในจอนอน */
+        min-height: auto;
+    }
+}

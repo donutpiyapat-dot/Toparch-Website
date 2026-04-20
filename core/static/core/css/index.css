@@ -766,10 +766,8 @@ main {
         left: 37%;
     }
     .delay-2 {
-        /* ล้างค่า left จากคลาสหลักทิ้ง เพื่อให้ right ทำงานได้ */
         left: auto; 
         right: 40%;
-        /* เปลี่ยน top จาก 420px (ในคลาสหลัก) เป็น % เพื่อให้พอดีกับความสูงจอ iPad */
         top: 50%; 
     }
     .delay-3 {
@@ -779,13 +777,13 @@ main {
         height: 70%;
     }
     .delay-4 {
-        left: 50%; 
+        left: 40%; 
     }
     .delay-6 {
         top: 55%;
         left: 15%;
-        width: 50%;
-        height: 50%;
+        width: 70%;
+        height: 70%;
     }
     .delay-7 {
         top: 30%;
@@ -800,9 +798,7 @@ main {
         height: 90%;
     }
     .delay-9 {
-        /* ต้องล้างค่า left ทิ้งด้วยเมื่อใช้ right */
-        left: auto;
-        right: 40%;
+        left: 45%;
     }
     .delay-10 {
         left: 45%;
@@ -822,8 +818,7 @@ main {
         left: 40%;
     }
     .delay-15 {
-        /* ขยับ top ขึ้นมานิดหน่อยไม่ให้หลุดจอล่าง */
-        top: 60%; 
+        top: 80%; 
         left: 50%;
         width: 35%;
         height: 35%;
