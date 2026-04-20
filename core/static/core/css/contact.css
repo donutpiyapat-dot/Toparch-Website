@@ -251,6 +251,9 @@ html, body.contact-page {
     z-index: -1;
     pointer-events: none;
     }
+    .map-preview{
+        display: none;
+    }
 }
 
 @media (max-width: 425px) {

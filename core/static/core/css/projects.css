@@ -327,7 +327,7 @@ html, body {
     min-height: 100vh; 
 }
 @media (max-width: 768px) {
-    .search-wrapper{
+    .navbarwrapper{
         height: 55px !important;
     }
     .projects-page::before {
