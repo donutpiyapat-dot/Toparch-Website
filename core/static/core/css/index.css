@@ -249,9 +249,6 @@ main {
 .hero-overlay {
     position: relative; 
 }
-.tech-overlay {
-    position: absolute;
-}
 
 .delay-2 {
     top: 420px;
@@ -369,15 +366,13 @@ main {
     letter-spacing: 0.5px;
 }
 
-
-.home-page [class^="hero-decor-box-"] {
+.home-page .hero-decorations{
     position: absolute;
     top: 50%; 
     z-index: 2; 
     pointer-events: none; 
     border-radius: 0; 
 }
-
 .home-page .hero-decor-left {
     position: absolute;
     left: 4.9%; 
@@ -390,7 +385,6 @@ main {
     pointer-events: none; 
     border-radius: 0; 
 }
-
 .home-page .hero-decor-right {
     position: absolute;
     right: 3.2%; 
@@ -408,7 +402,6 @@ main {
     pointer-events: none;
     border-radius: 0;
 }
-
 .home-page .hero-decor-right::before,
 .home-page .hero-decor-right::after {
     content: "";
@@ -418,11 +411,9 @@ main {
     height: 80px;   
     background-color: var(--div-yellow); 
 }
-
 .home-page .hero-decor-right::before {
     top: -20px;        
 }
-
 .home-page .hero-decor-right::after {
     bottom: -20px;  
 }
@@ -463,7 +454,6 @@ main {
     pointer-events: none;
     border-radius: 0;
 }
-
 .home-page .hero-decor-box-5 {
     left: 0; 
     top: 16.3%; 
@@ -602,7 +592,6 @@ main {
 }
 
 
-/* --- Tablet (iPad แนวตั้ง และจอขนาดกลาง) --- */
 @media (max-width: 991px) {
     .home-page .hero-content {
         right: 12%; /* ดันออกจากขอบขวาให้มากขึ้น เพื่อให้อยู่ในร่องสีเหลืองพอดี */
@@ -751,7 +740,77 @@ main {
     background: transparent !important; 
     }
     .home-page .hero-decorations{
-         transform: scale(0.8);
+        transform: scale(0.8);
         transform-origin: center;
     }
 }
+
+@media (max-width: 1180px) and (orientation: landscape){
+    .tech-overlay {
+        width: 70%;
+        height: 70%;
+    }
+    /* .delay-1{
+
+    }
+    .delay-2{
+
+    }
+    .delay-3{
+
+    }
+    .delay-4{
+
+    }
+    .delay-5{
+
+    }
+    .delay-6{
+
+    }
+    .delay-7{
+
+    }
+    .delay-8{
+
+    }
+    .delay-9{
+
+    }
+    .delay-10{
+
+    }
+    .delay-11{
+
+    }
+    .delay-12{
+
+    }
+    .delay-13{
+
+    }
+    .delay-14{
+
+    }
+    .delay-15{
+
+    } */
+}
+
+/* @media (max-width: 1366px){
+    .delay-1{}
+    .delay-2{}
+    .delay-3{}
+    .delay-4{}
+    .delay-5{}
+    .delay-6{}
+    .delay-7{}
+    .delay-8{}
+    .delay-9{}
+    .delay-10{}
+    .delay-11{}
+    .delay-12{}
+    .delay-13{}
+    .delay-14{}
+    .delay-15{}
+} */
