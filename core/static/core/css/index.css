@@ -703,7 +703,7 @@ main {
 
 }
 }
-@media (max-width: 767px) and (orientation: landscape) {
+@media (max-width: 950px) and (orientation: landscape){
     .home-page .hero-architecture {
         height: 100dvh;  
         min-height: 100dvh;
