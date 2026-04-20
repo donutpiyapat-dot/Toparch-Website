@@ -759,18 +759,16 @@ main {
         left: 37%;
     }
     .delay-2{
-        right: 500px;
+        right: 550px;
     }
     .delay-3{
-        left: 200px;
+        left: 250px;
          width: 70%;
         height: 70%;
     }
     .delay-4{
-        right: 80%; 
+        right: 90%; 
     }
-    /* .delay-5{
-    } */
     .delay-6{
         top: 45%;
         left: 15%;
@@ -778,12 +776,14 @@ main {
     .delay-7{
         top:20%;
         left: 50%;
+        width: 30%;
+        height: 30%;
     }
     .delay-8{
         top: 45%;
         left: 20%;
-        width: 105%;
-        height: 105%;
+        width: 90%;
+        height: 90%;
     }
     .delay-9{
         right: 50%;
@@ -793,6 +793,8 @@ main {
     }
     .delay-11{
         left: 40%;
+        width: 70%;
+        height: 70%;
     }
     .delay-12{
         left: 40%;
