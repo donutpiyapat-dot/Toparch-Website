@@ -653,6 +653,15 @@ main {
     .home-page .hero-desc {
         font-size: 0.7rem;
     }
+    .home-page .hero-architecture {
+        height: auto;         
+        min-height: 100vh;    
+        padding-bottom: 80px; 
+    }
+
+    .home-page .footer-minimal {
+        position: relative;    
+    }
 }
 
 
