@@ -674,11 +674,24 @@ main, .container-fluid {
     outline: none;
     padding: 0;
     color: inherit;
-    /* เพิ่ม 4 บรรทัดด้านล่างนี้เข้าไปครับ */
-    font-size: 13px;        /* ให้ขนาดเท่ากับ .nav-link-item */
-    font-weight: bold;      /* ให้ตัวหนาเท่ากับเมนูอื่น */
-    font-family: inherit;   /* บังคับให้ใช้ฟอนต์เดียวกับเว็บไซต์ (ไม่ใช้ฟอนต์ตั้งต้นของปุ่ม) */
-    cursor: pointer;        /* ให้เมาส์เปลี่ยนเป็นรูปมือตอนชี้ */
+    
+    /* บังคับฟอนต์ ขนาด และความหนาให้ตรงกับเมนูอื่นแบบ 100% */
+    font-size: 13px !important;        
+    font-weight: bold !important;      
+    font-family: 'Tahoma', 'Verdana', sans-serif !important;   
+    
+    cursor: pointer;        
+}
+
+/* บังคับให้ Form ของปุ่ม Logout กว้างและแบ่งสัดส่วนเท่าเมนูอื่น */
+form[action="/logout/"] {
+    flex: 1;
+    display: flex;
+}
+
+/* บังคับให้พื้นที่คลิกของปุ่ม Logout เต็มช่อง */
+form[action="/logout/"] .logout-nav-btn {
+    width: 100%;
 }
 
 @supports (-webkit-touch-callout: none) {
