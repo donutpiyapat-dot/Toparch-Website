@@ -466,7 +466,7 @@ main {
 
 @media only screen and (min-width: 1024px) and (max-width: 1366px) {
 
-    /* 1. กำหนด Animation ให้กับภาพทุกลำดับ */
+    /* 1. กำหนด Animation ให้กับภาพทุกลำดับ
     .home-page .tech-overlay {
         width: 70% !important; 
         height: auto !important;
@@ -475,13 +475,12 @@ main {
         transform: translate(-50%, -50%) !important;
         opacity: 0;
         filter: blur(10px);
-        /* กำหนดชื่อ Animation ใหม่ */
         animation: popAndFocusTablet 24s infinite ease-in-out !important;
-    }
+    } */
 
     /* 2. บังคับลำดับเวลา (Delay) ใหม่สำหรับ iPad Pro โดยเฉพาะ */
     /* ใส่ !important เพื่อป้องกันไม่ให้มันเริ่มพร้อมกันที่ 0s */
-    .home-page .delay-1  { animation-delay: 0s !important; }
+    /* .home-page .delay-1  { animation-delay: 0s !important; }
     .home-page .delay-2  { animation-delay: 2.7s !important; }
     .home-page .delay-3  { animation-delay: 3.3s !important; } 
     .home-page .delay-4  { animation-delay: 5.8s !important; }
@@ -495,11 +494,11 @@ main {
     .home-page .delay-11 { animation-delay: 17.5s !important; }
     .home-page .delay-12 { animation-delay: 18.0s !important; }
     .home-page .delay-13 { animation-delay: 21.0s !important; }
-    .home-page .delay-14 { animation-delay: 21.5s !important; }
+    .home-page .delay-14 { animation-delay: 21.5s !important; } */
 
 
     /* 3. Animation Keyframes (จางลงเพื่อความสวยงาม) */
-    @keyframes popAndFocusTablet{
+    /* @keyframes popAndFocusTablet{
         0% {
             opacity: 0;
             filter: blur(15px);
@@ -529,12 +528,12 @@ main {
             filter: blur(15px);
             transform: translate(-50%, -50%) scale(0.95);
         }
-    }
+    } */
 
     /* ------------------------------------------------------------
        แนวนอน (Landscape)
        ------------------------------------------------------------ */
-    @media (orientation: landscape) {
+    /* @media (orientation: landscape) {
         .home-page .delay-1 { left: 30% !important; top: 40% !important; }
         .home-page .delay-2 { left: 42% !important; top: 55% !important; width: 35% !important; }
         .home-page .delay-3 { left: 25% !important; top: 30% !important; width: 50% !important; }
@@ -542,12 +541,12 @@ main {
         .home-page .delay-7 { left: 50% !important; top: 30% !important; width: 25% !important; }
         .home-page .delay-10 { left: 40% !important; top: 45% !important; }
         .home-page .delay-15 { left: 45% !important; top: 65% !important; width: 25% !important; }
-    }
+    } */
 
     /* ------------------------------------------------------------
        แนวตั้ง (Portrait)
        ------------------------------------------------------------ */
-    @media (orientation: portrait) {
+    /* @media (orientation: portrait) {
         .home-page .tech-overlay { width: 100% !important; }
 
         .home-page .delay-1 { left: 37% !important; }
@@ -565,7 +564,7 @@ main {
         .home-page .delay-13 { left: 40% !important; top: 65% !important; width: 70% !important; right: 40% !important; }
         .home-page .delay-14 { left: 40% !important; top: 75% !important; width: 70% !important; right: 40% !important; }
         .home-page .delay-15 { left: 55% !important; top: 52% !important; width: 45% !important; }
-}
+} */
 }
 
 /* @media (max-width: 1366px) and (orientation: landscape){
