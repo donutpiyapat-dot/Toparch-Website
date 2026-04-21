@@ -221,13 +221,11 @@ main {
     }
 .ta-style-page::before {
         content: "";
-        position: fixed !important;     
+        position: absolute !important;     
         top: 70px;             
         left: 0;
         right: 0;
-        bottom: 0 !important; /* ให้ยึดขอบล่างของจอเสมอ */
-        
-        /* ❌ ลบ width: 100vw; และ height: 100vh; ทิ้งไปเลยครับ ไม่ต้องใช้แล้ว */
+        bottom: 0 !important; 
         
         background-image:url("/static/core/images/TA-STYLE.webp");
         background-size: cover;
@@ -235,9 +233,6 @@ main {
         background-repeat: no-repeat;
         z-index: -1;
         pointer-events: none; 
-        height: calc(100svh - 70px);
-        
-        /* ✅ เพิ่ม 2 บรรทัดนี้เข้าไป เป็นเทคนิคบังคับให้ iPad ประมวลผลกราฟิกให้เต็มจอเสมอ (แก้อาการภาพขยับ/แหว่ง) */
         -webkit-transform: translateZ(0);
         transform: translateZ(0);
     }
