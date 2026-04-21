@@ -456,136 +456,98 @@ main {
     border-radius: 0;
 }
 /* ============================================================
-   iPad Pro Specific Fix (1024px - 1366px)
+   iPad Pro Specific Fix (1024px - 1366px) 
    ============================================================ */
 
 @media only screen and (min-width: 1024px) and (max-width: 1366px) {
-.delay-1  { animation-delay: 0s; }
 
-.delay-2  { animation-delay: 2.7s; }
-.delay-3  { animation-delay: 3.3s; } 
-
-
-.delay-4  { animation-delay: 5.8s; }
-.delay-5  { animation-delay: 6.3s; }
-
-.delay-6  { animation-delay: 9.2s; }
-.delay-8  { animation-delay: 9.9s; }
-.delay-7  { animation-delay: 10.4s; }
-.delay-15 { animation-delay: 10.9s; }
-
-.delay-9  { animation-delay: 13.6s; }
-.delay-10 { animation-delay: 14.6s; }
-
-.delay-11 { animation-delay: 17.5s; }
-.delay-12 { animation-delay: 18.0s; }
-
-.delay-13 { animation-delay: 21.0s; }
-.delay-14 { animation-delay: 21.5s; }
-
+    /* 1. กำหนด Animation ให้กับภาพทุกลำดับ */
     .home-page .tech-overlay {
-        width: 50% !important;   /* ลดขนาดภาพลงไม่ให้ล้นจอ */
+        width: 45% !important; 
         height: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: translate(-50%, -50%) !important;
         opacity: 0;
-        filter: blur(8px);
-        /* ใช้ Animation ตัวใหม่ที่ลดความชัดลง */
+        filter: blur(10px);
+        /* กำหนดชื่อ Animation ใหม่ */
         animation: popAndFocusTablet 24s infinite ease-in-out !important;
     }
 
-    /* 2. สร้าง Animation ใหม่สำหรับ iPad (ให้จางลง) */
+    /* 2. บังคับลำดับเวลา (Delay) ใหม่สำหรับ iPad Pro โดยเฉพาะ */
+    /* ใส่ !important เพื่อป้องกันไม่ให้มันเริ่มพร้อมกันที่ 0s */
+    .home-page .delay-1  { animation-delay: 0s !important; }
+    .home-page .delay-2  { animation-delay: 2.7s !important; }
+    .home-page .delay-3  { animation-delay: 3.3s !important; } 
+    .home-page .delay-4  { animation-delay: 5.8s !important; }
+    .home-page .delay-5  { animation-delay: 6.3s !important; }
+    .home-page .delay-6  { animation-delay: 9.2s !important; }
+    .home-page .delay-8  { animation-delay: 9.9s !important; }
+    .home-page .delay-7  { animation-delay: 10.4s !important; }
+    .home-page .delay-15 { animation-delay: 10.9s !important; }
+    .home-page .delay-9  { animation-delay: 13.6s !important; }
+    .home-page .delay-10 { animation-delay: 14.6s !important; }
+    .home-page .delay-11 { animation-delay: 17.5s !important; }
+    .home-page .delay-12 { animation-delay: 18.0s !important; }
+    .home-page .delay-13 { animation-delay: 21.0s !important; }
+    .home-page .delay-14 { animation-delay: 21.5s !important; }
+
+    /* เลือกซ่อนบางภาพที่ทับกันมั่วบน Tablet (เอาออกถ้าอยากให้โชว์ครบ) */
+    .home-page .delay-4, .home-page .delay-5, .home-page .delay-8, 
+    .home-page .delay-11, .home-page .delay-13 {
+        display: none !important;
+    }
+
+    /* 3. Animation Keyframes (จางลงเพื่อความสวยงาม) */
     @keyframes popAndFocusTablet {
         0% { opacity: 0; filter: blur(12px); transform: translate(-50%, -50%) scale(0.9); }
-        4% { opacity: 0.6; filter: blur(1px); transform: translate(-50%, -50%) scale(1); } /* ชัดแค่ 60% */
-        10% { opacity: 0.6; filter: blur(1px); transform: translate(-50%, -50%) scale(1); }
+        4% { opacity: 0.5; filter: blur(0px); transform: translate(-50%, -50%) scale(1); }
+        10% { opacity: 0.5; filter: blur(0px); transform: translate(-50%, -50%) scale(1); }
         14% { opacity: 0; filter: blur(12px); transform: translate(-50%, -50%) scale(1.05); }
         100% { opacity: 0; }
     }
 
     /* ------------------------------------------------------------
-       แนวนอน (Landscape) - iPad Pro 12.9" & 11"
+       แนวนอน (Landscape)
        ------------------------------------------------------------ */
     @media (orientation: landscape) {
-        .home-page .tech-overlay {
-            width: 70% !important; /* แนวตั้งให้ภาพใหญ่ขึ้นนิดนึงเพื่อให้เห็นรายละเอียด */
-            height: auto !important;
-        }
-        .home-page .delay-1 { left: 35%; top: 40%; }
-        .home-page .delay-2 { left: 45%; top: 55%; width: 40% !important; }
-        .home-page .delay-3 { left: 30%; top: 30%; width: 60% !important; }
-        .home-page .delay-6 { left: 40%; top: 50%; width: 65% !important; }
-        .home-page .delay-7 { left: 55%; top: 35%; width: 25% !important; }
-        .home-page .delay-15 { left: 50%; top: 65%; width: 30% !important; }
-        
-        /* ซ่อนบางตัวที่ทำให้ดูรกเกินไปบน Tablet */
-        .home-page .delay-8, .home-page .delay-11 { display: none; }
-
-        .delay-1  { animation-delay: 0s; }
-
-.delay-2  { animation-delay: 2.7s; }
-.delay-3  { animation-delay: 3.3s; } 
-
-
-.delay-4  { animation-delay: 5.8s; }
-.delay-5  { animation-delay: 6.3s; }
-
-.delay-6  { animation-delay: 9.2s; }
-.delay-8  { animation-delay: 9.9s; }
-.delay-7  { animation-delay: 10.4s; }
-.delay-15 { animation-delay: 10.9s; }
-
-.delay-9  { animation-delay: 13.6s; }
-.delay-10 { animation-delay: 14.6s; }
-
-.delay-11 { animation-delay: 17.5s; }
-.delay-12 { animation-delay: 18.0s; }
-
-.delay-13 { animation-delay: 21.0s; }
-.delay-14 { animation-delay: 21.5s; }
+        .home-page .delay-1 { left: 30% !important; top: 40% !important; }
+        .home-page .delay-2 { left: 42% !important; top: 55% !important; width: 35% !important; }
+        .home-page .delay-3 { left: 25% !important; top: 30% !important; width: 50% !important; }
+        .home-page .delay-6 { left: 35% !important; top: 50% !important; width: 55% !important; }
+        .home-page .delay-7 { left: 50% !important; top: 30% !important; width: 25% !important; }
+        .home-page .delay-10 { left: 40% !important; top: 45% !important; }
+        .home-page .delay-15 { left: 45% !important; top: 65% !important; width: 25% !important; }
     }
 
     /* ------------------------------------------------------------
-       แนวตั้ง (Portrait) - iPad Pro 12.9" & 11"
+       แนวตั้ง (Portrait)
        ------------------------------------------------------------ */
     @media (orientation: portrait) {
-        .home-page .hero-architecture {
-            padding: 0 5%;
+        .home-page .tech-overlay { width: 65% !important; }
+
+        .home-page .delay-1 { left: 50% !important; top: 30% !important; }
+        .home-page .delay-2 { left: 40% !important; top: 40% !important; }
+        .home-page .delay-3 { left: 55% !important; top: 25% !important; }
+        .home-page .delay-6 { left: 50% !important; top: 42% !important; width: 85% !important; }
+        .home-page .delay-7 { left: 65% !important; top: 20% !important; width: 35% !important; }
+        .home-page .delay-10 { left: 45% !important; top: 35% !important; }
+        .home-page .delay-15 { left: 55% !important; top: 52% !important; width: 45% !important; }
+
+        /* ปรับ Layout เนื้อหาแนวตั้ง */
+        .home-page .hero-content {
+            right: 8% !important;
+            top: 68% !important;
+            max-width: 85% !important;
+            text-align: right !important;
         }
-
-        /* ปรับตำแหน่งภาพ Blueprint ให้รวมกลุ่มอยู่กลางๆ ไม่ให้ทับ Text มากไป */
-        .home-page .tech-overlay {
-            width: 70% !important; /* แนวตั้งให้ภาพใหญ่ขึ้นนิดนึงเพื่อให้เห็นรายละเอียด */
+        .home-page .hero-decor-right {
+            right: 3% !important;
+            top: 68% !important;
+            height: 52vh !important;
+            width: 28vw !important;
         }
-
-        .home-page .delay-1 { left: 50%; top: 35%; }
-        .home-page .delay-2 { left: 40%; top: 45%; }
-        .home-page .delay-3 { left: 50%; top: 30%; }
-        .home-page .delay-6 { left: 45%; top: 40%; width: 80% !important; }
-        .home-page .delay-7 { left: 60%; top: 25%; width: 40% !important; }
-        .home-page .delay-15 { left: 55%; top: 55%; width: 45% !important; }
-
-        .delay-1  { animation-delay: 0s; }
-
-.delay-2  { animation-delay: 2.7s; }
-.delay-3  { animation-delay: 3.3s; } 
-
-
-.delay-4  { animation-delay: 5.8s; }
-.delay-5  { animation-delay: 6.3s; }
-
-.delay-6  { animation-delay: 9.2s; }
-.delay-8  { animation-delay: 9.9s; }
-.delay-7  { animation-delay: 10.4s; }
-.delay-15 { animation-delay: 10.9s; }
-
-.delay-9  { animation-delay: 13.6s; }
-.delay-10 { animation-delay: 14.6s; }
-
-.delay-11 { animation-delay: 17.5s; }
-.delay-12 { animation-delay: 18.0s; }
-
-.delay-13 { animation-delay: 21.0s; }
-.delay-14 { animation-delay: 21.5s; }
-
+        .home-page .title-big { font-size: 36px !important; }
     }
 }
 
