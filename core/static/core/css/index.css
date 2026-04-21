@@ -711,22 +711,20 @@ main {
     }
     .delay-6 {
         top: 50%;
-        width: 50%;
-        height: 50%;
     }
 
     .delay-7{
-        top: 10%;
+        top: 40%;
         width: 50%;
         height: 50%;
     }
     .delay-8 {
-        top: 70%;
+        top: 40%;
         width: 30%;
         height: 30%;
     }
     .delay-15{
-        top: 80%;
+        top: 60%;
         width: 30%;
         height: 30%;
     }
