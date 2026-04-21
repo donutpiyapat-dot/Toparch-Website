@@ -681,6 +681,7 @@ main, .container-fluid {
     font-family: 'Tahoma', 'Verdana', sans-serif !important;   
     
     cursor: pointer;        
+    border-right: 1px solid #333;
 }
 
 /* บังคับให้ Form ของปุ่ม Logout กว้างและแบ่งสัดส่วนเท่าเมนูอื่น */
