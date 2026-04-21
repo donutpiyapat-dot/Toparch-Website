@@ -456,68 +456,68 @@ main {
 
 
 @media (max-width: 1366px) and (orientation: landscape){
-    .tech-overlay {
-        width: 50%;
-        height: 50%;
+    .home-page .tech-overlay {
+        width: 40% !important;
+        height: 40% !important;
     }
-    .delay-1 {
+    .home-page .delay-1 {
         left: 37%;
     }
-    .delay-2 {
+    .home-page .delay-2 {
         right: 50%;
         top: 50%; 
     }
-    .delay-3 {
+    .home-page .delay-3 {
         left: 20%; 
         width: 70%;
         height: 70%;
     }
-    .delay-4 {
+    .home-page .delay-4 {
         left: 40%; 
         width: 70%;
         height: 70%;
     }
-    .delay-6 {
+    .home-page .delay-6 {
         top: 50%;
         left: 20%;
         width: 70%;
         height: 70%;
     }
-    .delay-7 {
+    .home-page.delay-7 {
         top: 30%;
         left: 50%;
         width: 30%;
         height: 30%;
     }
-    .delay-8 {
+    .home-page.delay-8 {
         top: 55%;
         left: 20%;
         width: 90%;
         height: 90%;
     }
-    .delay-9 {
+    .home-page.delay-9 {
         left: 40%;
     }
-    .delay-10 {
+    .home-page.delay-10 {
         left: 43%;
     }
-    .delay-11 {
+    .home-page.delay-11 {
         left: 50%;
         width: 80%;
         height: 80%;
     }
-    .delay-12 {
+    .home-page.delay-12 {
         top: 60%;
         left: 40%;
     }
-    .delay-13 {
+    .home-page.delay-13 {
         left: 40%;
     }
-    .delay-14 {
+    .home-page.delay-14 {
         top: 50%;
         left: 40%;
     }
-    .delay-15 {
+    .home-page .delay-15 {
         top: 70%; 
         left: 50%;
         width: 35%;
@@ -709,36 +709,18 @@ main {
         letter-spacing: 2px;
     }
     .home-page .hero-desc {
+        font-size: 0.75rem;
         margin-bottom: 0;
         line-height: 1.5;
     }
     .hero-decorations {
         z-index: 20;
     }
-    .tech-overlay {
-        width: 70%; 
-        height: 70%;
-        animation: popAndFocusMobile 24s infinite ease-in-out; 
-        /* บังคับจุดศูนย์กลางให้กลับมาเป็นปกติ เพื่อแก้ปัญหาคลาส 10 */
-        transform: translate(-50%, -50%) !important; 
+    .hero-overlay {
+        display: none;
     }
 
 
-    .delay-1  { top: 50%; left: 45%; right: auto !important; bottom: auto !important; } 
-    .delay-2  { top: 60%; right: 15%; left: auto !important; bottom: auto !important; } 
-    .delay-3  { top: 50%; left: 20%; right: auto !important; bottom: auto !important; }
-    .delay-4  { top: 50%; left: 50%; right: auto !important; bottom: auto !important; width: 60%; height: 60%; } 
-    .delay-5  { top: 70%; left: 20%; right: auto !important; bottom: auto !important; } /* แก้บัค bottom */
-    .delay-6  { top: 50%; left: 25%; right: auto !important; bottom: auto !important; }
-    .delay-7  { top: 50%; left: 55%; width: 70%; height: 70%; right: auto !important; bottom: auto !important; }
-    .delay-8  { top: 40%; left: 26%; width: 30%; height: 30%; right: auto !important; bottom: auto !important; }
-    .delay-9  { top: 50%; left: 50%; width: 50%; height: 50%; right: auto !important; bottom: auto !important; } /* แก้บัค right */
-    .delay-10 { top: 60%; left: 60%; width: 50%; height: 50%; right: auto !important; bottom: auto !important; }
-    .delay-11 { top: 50%; left: 70%; width: 80%; height: 80%; right: auto !important; bottom: auto !important; }
-    .delay-12 { top: 60%; left: 70%; width: 50%; height: 50%; right: auto !important; bottom: auto !important; }
-    .delay-13 { top: 50%; left: 48%; width: 50%; height: 50%; right: auto !important; bottom: auto !important; }
-    .delay-14 { top: 50%; left: 50%; width: 50%; height: 50%; right: auto !important; bottom: auto !important; }
-    .delay-15 { top: 70%; left: 55%; width: 50%; height: 50%; right: auto !important; bottom: auto !important; }
 
     @keyframes popAndFocusMobile {
         0% {
