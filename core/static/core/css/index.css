@@ -459,7 +459,7 @@ main {
 .hero-decorations {
         z-index: 20;
     }
-    
+
 /* ============================================================
    iPad Pro Specific Fix (1024px - 1366px) 
    ============================================================ */
@@ -468,7 +468,7 @@ main {
 
     /* 1. กำหนด Animation ให้กับภาพทุกลำดับ */
     .home-page .tech-overlay {
-        width: 45% !important; 
+        width: 70% !important; 
         height: auto !important;
         right: auto !important;
         bottom: auto !important;
@@ -548,16 +548,24 @@ main {
        แนวตั้ง (Portrait)
        ------------------------------------------------------------ */
     @media (orientation: portrait) {
-        .home-page .tech-overlay { width: 65% !important; }
+        .home-page .tech-overlay { width: 70% !important; }
 
-        .home-page .delay-1 { left: 50% !important; top: 30% !important; }
-        .home-page .delay-2 { left: 40% !important; top: 40% !important; }
-        .home-page .delay-3 { left: 55% !important; top: 25% !important; }
+        .home-page .delay-1 { left: 37% !important; }
+        .home-page .delay-2 { right: 50% !important; top: 50% !important; }
+        .home-page .delay-3 { left: 20% !important; width: 70% !important; height: 70% !important; }
+        .home-page .delay-4 { left: 40% !important; top: 40% !important; width: 70% !important; right: 40% !important; }
+        .home-page .delay-5 { left: 40% !important; top: 50% !important; width: 70% !important; right: 40% !important; }
         .home-page .delay-6 { left: 50% !important; top: 42% !important; width: 85% !important; }
         .home-page .delay-7 { left: 65% !important; top: 20% !important; width: 35% !important; }
+        .home-page .delay-8 { left: 20% !important; top: 60% !important; width: 70% !important; right: 40% !important; }
+        .home-page .delay-9 { left: 40% !important; }
         .home-page .delay-10 { left: 45% !important; top: 35% !important; }
+        .home-page .delay-11 { left: 50% !important; top: 45% !important; width: 80% !important; right: 40% !important; }
+        .home-page .delay-12 { left: 40% !important; top: 55% !important; width: 70% !important; right: 40% !important; }
+        .home-page .delay-13 { left: 40% !important; top: 65% !important; width: 70% !important; right: 40% !important; }
+        .home-page .delay-14 { left: 40% !important; top: 75% !important; width: 70% !important; right: 40% !important; }
         .home-page .delay-15 { left: 55% !important; top: 52% !important; width: 45% !important; }
-    }
+}
 }
 
 /* @media (max-width: 1366px) and (orientation: landscape){
