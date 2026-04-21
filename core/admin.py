@@ -9,6 +9,9 @@ from adminsortable2.admin import SortableAdminBase, SortableInlineAdminMixin
 from .models import Project,ProjectImage, ProjectDocument
 from django.forms.models import BaseInlineFormSet
 from django import forms
+from django.contrib.auth.admin import UserAdmin
+
+
 
 class ProjectImageSet1FormSet(BaseInlineFormSet):
     def save_new(self, form, commit=True):
@@ -250,5 +253,5 @@ class CustomAdminSite(admin.AdminSite):
 admin_site = CustomAdminSite(name='custom_admin')
 admin_site.register(Project, ProjectAdmin)
 admin_site.register(Category, CategoryAdmin)
-admin_site.register(User)
+admin_site.register(User, UserAdmin)
 admin_site.register(Group)
