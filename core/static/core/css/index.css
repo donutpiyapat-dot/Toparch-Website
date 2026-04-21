@@ -548,7 +548,7 @@ main {
        แนวตั้ง (Portrait)
        ------------------------------------------------------------ */
     @media (orientation: portrait) {
-        .home-page .tech-overlay { width: 70% !important; }
+        .home-page .tech-overlay { width: 100% !important; }
 
         .home-page .delay-1 { left: 37% !important; }
         .home-page .delay-2 { right: 50% !important; top: 50% !important; }
