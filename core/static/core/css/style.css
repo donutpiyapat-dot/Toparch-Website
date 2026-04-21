@@ -756,9 +756,9 @@ main, .container-fluid {
 @media (min-width: 768px) and (max-width: 991.98px) {
     .nav-wrapper { padding: 0 20px; }
     .search-wrapper {
-        max-width: 300px;
+        max-width: 400px;
         width: 100%;
-        margin: 0 20px;
+        /* margin: 0 20px; */
     }
     .search-wrapper input { width: 100%; }
 }
