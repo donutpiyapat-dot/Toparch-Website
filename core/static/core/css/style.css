@@ -71,7 +71,19 @@ body{
     min-height:100vh;
     display:flex;
     flex-direction:column;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
 }
+body.fade-out {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+body:not(.fade-out) {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .text-yellow, .text-warning {
     color: var(--accent-yellow) !important;
 }
