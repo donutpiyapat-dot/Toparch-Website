@@ -220,22 +220,27 @@ main {
         height: 70px;
     }
 .ta-style-page::before {
-    content: "";
-    position: absolute;     
-    top: 70px;             
-    left: 0;
-    right: 0;
-    bottom: 0;             
-    width: 100%;
-    background-image:url("/static/core/images/TA-STYLE.webp");
-    
-    background-size: cover;
-    background-position: center top; 
-    background-repeat: no-repeat;
-    
-    z-index: -1;
-    pointer-events: none; 
-}
+        content: "";
+        
+        /* 1. เปลี่ยนจาก absolute เป็น fixed เพื่อตรึงพื้นหลังไม่ให้เลื่อนตามตอนไถจอ */
+        position: fixed !important;     
+        
+        top: 70px;             
+        left: 0;
+        right: 0;
+        
+        /* 2. บังคับความสูงให้เต็มจอพอดีเสมอ */
+        bottom: 0;             
+        width: 100vw;
+        height: 100vh;
+        
+        background-image:url("/static/core/images/TA-STYLE.webp");
+        background-size: cover;
+        background-position: center top; 
+        background-repeat: no-repeat;
+        z-index: -1;
+        pointer-events: none; 
+    }
 .TA-tital{
         color:var(--text-primary) !important;
     }
