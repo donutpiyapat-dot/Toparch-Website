@@ -505,6 +505,10 @@ main {
        แนวนอน (Landscape) - iPad Pro 12.9" & 11"
        ------------------------------------------------------------ */
     @media (orientation: landscape) {
+        .home-page .tech-overlay {
+            width: 70% !important; /* แนวตั้งให้ภาพใหญ่ขึ้นนิดนึงเพื่อให้เห็นรายละเอียด */
+            height: auto !important;
+        }
         .home-page .delay-1 { left: 35%; top: 40%; }
         .home-page .delay-2 { left: 45%; top: 55%; width: 40% !important; }
         .home-page .delay-3 { left: 30%; top: 30%; width: 60% !important; }
