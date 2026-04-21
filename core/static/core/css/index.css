@@ -465,7 +465,9 @@ main {
    ============================================================ */
 
 @media only screen and (min-width: 1024px) and (max-width: 1366px) {
-
+     .home-page .tech-overlay{
+        display: none !important;
+     }
     /* 1. กำหนด Animation ให้กับภาพทุกลำดับ
     .home-page .tech-overlay {
         width: 70% !important; 
