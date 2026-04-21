@@ -460,7 +460,7 @@ main {
    ============================================================ */
 
 @media only screen and (min-width: 1024px) and (max-width: 1366px) {
-    .delay-1  { animation-delay: 0s; }
+.delay-1  { animation-delay: 0s; }
 
 .delay-2  { animation-delay: 2.7s; }
 .delay-3  { animation-delay: 3.3s; } 
@@ -482,7 +482,7 @@ main {
 
 .delay-13 { animation-delay: 21.0s; }
 .delay-14 { animation-delay: 21.5s; }
-    /* 1. ปรับขนาดภาพรวมและลดความชัด */
+
     .home-page .tech-overlay {
         width: 50% !important;   /* ลดขนาดภาพลงไม่ให้ล้นจอ */
         height: auto !important;
@@ -539,7 +539,7 @@ main {
     }
 }
 
-@media (max-width: 1366px) and (orientation: landscape){
+/* @media (max-width: 1366px) and (orientation: landscape){
 
     .home-page .tech-overlay {
         width: 40% !important;
@@ -607,9 +607,9 @@ main {
         left: 50%;
         width: 35%;
         height: 35%;
-    }
+    } */
 
-    @keyframes popAndFocusMobile {
+    /* @keyframes popAndFocusMobile {
         0% {
             opacity: 0;
             filter: blur(15px);
@@ -662,7 +662,7 @@ main {
 
 .delay-13 { animation-delay: 21.0s; }
 .delay-14 { animation-delay: 21.5s; }
-}
+} */
 
 
 @media (max-width: 768px) {
