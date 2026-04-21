@@ -455,7 +455,68 @@ main {
     pointer-events: none;
     border-radius: 0;
 }
+/* ============================================================
+   iPad Pro Specific Fix (1024px - 1366px)
+   ============================================================ */
 
+@media only screen and (min-width: 1024px) and (max-width: 1366px) {
+    
+    /* 1. ปรับขนาดภาพรวมและลดความชัด */
+    .home-page .tech-overlay {
+        width: 50% !important;   /* ลดขนาดภาพลงไม่ให้ล้นจอ */
+        height: auto !important;
+        opacity: 0;
+        filter: blur(8px);
+        /* ใช้ Animation ตัวใหม่ที่ลดความชัดลง */
+        animation: popAndFocusTablet 24s infinite ease-in-out !important;
+    }
+
+    /* 2. สร้าง Animation ใหม่สำหรับ iPad (ให้จางลง) */
+    @keyframes popAndFocusTablet {
+        0% { opacity: 0; filter: blur(12px); transform: translate(-50%, -50%) scale(0.9); }
+        4% { opacity: 0.6; filter: blur(1px); transform: translate(-50%, -50%) scale(1); } /* ชัดแค่ 60% */
+        10% { opacity: 0.6; filter: blur(1px); transform: translate(-50%, -50%) scale(1); }
+        14% { opacity: 0; filter: blur(12px); transform: translate(-50%, -50%) scale(1.05); }
+        100% { opacity: 0; }
+    }
+
+    /* ------------------------------------------------------------
+       แนวนอน (Landscape) - iPad Pro 12.9" & 11"
+       ------------------------------------------------------------ */
+    @media (orientation: landscape) {
+        .home-page .delay-1 { left: 35%; top: 40%; }
+        .home-page .delay-2 { left: 45%; top: 55%; width: 40% !important; }
+        .home-page .delay-3 { left: 30%; top: 30%; width: 60% !important; }
+        .home-page .delay-6 { left: 40%; top: 50%; width: 65% !important; }
+        .home-page .delay-7 { left: 55%; top: 35%; width: 25% !important; }
+        .home-page .delay-15 { left: 50%; top: 65%; width: 30% !important; }
+        
+        /* ซ่อนบางตัวที่ทำให้ดูรกเกินไปบน Tablet */
+        .home-page .delay-8, .home-page .delay-11 { display: none; }
+    }
+
+    /* ------------------------------------------------------------
+       แนวตั้ง (Portrait) - iPad Pro 12.9" & 11"
+       ------------------------------------------------------------ */
+    @media (orientation: portrait) {
+        .home-page .hero-architecture {
+            padding: 0 5%;
+        }
+
+        /* ปรับตำแหน่งภาพ Blueprint ให้รวมกลุ่มอยู่กลางๆ ไม่ให้ทับ Text มากไป */
+        .home-page .tech-overlay {
+            width: 70% !important; /* แนวตั้งให้ภาพใหญ่ขึ้นนิดนึงเพื่อให้เห็นรายละเอียด */
+        }
+
+        .home-page .delay-1 { left: 50%; top: 35%; }
+        .home-page .delay-2 { left: 40%; top: 45%; }
+        .home-page .delay-3 { left: 50%; top: 30%; }
+        .home-page .delay-6 { left: 45%; top: 40%; width: 80% !important; }
+        .home-page .delay-7 { left: 60%; top: 25%; width: 40% !important; }
+        .home-page .delay-15 { left: 55%; top: 55%; width: 45% !important; }
+
+    }
+}
 
 @media (max-width: 1366px) and (orientation: landscape){
 
