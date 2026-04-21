@@ -455,6 +455,11 @@ main {
     pointer-events: none;
     border-radius: 0;
 }
+
+.hero-decorations {
+        z-index: 20;
+    }
+    
 /* ============================================================
    iPad Pro Specific Fix (1024px - 1366px) 
    ============================================================ */
@@ -870,9 +875,6 @@ main {
         font-size: 0.95rem;
         margin-bottom: 0;
         line-height: 1.5;
-    }
-    .hero-decorations {
-        z-index: 20;
     }
     .hero-overlay {
         display: none;
