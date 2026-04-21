@@ -143,15 +143,15 @@ html, body {
 
 @media (max-width:768px){
      html, body {
-        height: auto;
-        overflow-y: auto;   
-        overflow-x: hidden; 
+        height: auto !important;
+        overflow-y: auto !important;   
+        overflow-x: hidden !important; 
     }
 
     .ta-style-page {
-        height: auto;
-        min-height: 100vh;
-        overflow: visible;
+        height: auto !important;
+        min-height: 100vh !important;
+        overflow: visible !important;
     }
     .navbar{
         height: 70px;

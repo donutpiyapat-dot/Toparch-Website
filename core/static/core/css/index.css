@@ -284,7 +284,6 @@ main {
     left: 55%;
     width: 35%;
     height: 35%;
-
 }
 
 .home-page .hero-content {
@@ -594,7 +593,6 @@ main {
 @media (max-width: 767px) {
     .home-page .hero-content {
         right: 15%;
-        left: 5%; 
         top: 56%;
         max-width: none;
         text-align: right; 
