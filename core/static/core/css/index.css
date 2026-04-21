@@ -667,7 +667,6 @@ main {
         left: 0;
         width: 100%;
         z-index: 10;
-        padding-bottom: 15px; /* ดันข้อความ copyright ขึ้นมานิดนึงให้อ่านง่าย */
     }
 
     .home-page .nav-links-section {
