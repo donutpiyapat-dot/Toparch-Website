@@ -7,14 +7,13 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from django.shortcuts import redirect
 
-def redirect_admin_login(request):
-    return redirect('/login/')
+def redirect_to_admin(request):
+    return redirect('/admin/')
 
 urlpatterns = [
-    path('admin/login/', redirect_admin_login),  
     path('admin/', admin_site.urls),
-    path('login/', views.custom_login, name='login'),
-    path('', views.home_view, name='home'),
+    path('login/', redirect_to_admin),
+    path('', views.home_view),
     path('index/', views.home_view, name='home'),
     path('ta_style/', views.ta_style, name='ta_style'),
     path('infocus/', views.infocus_view, name='infocus'), 
@@ -25,7 +24,7 @@ urlpatterns = [
     path('services/<slug:slug>/', views.services_detail, name='services_detail'),
     path('search/', views.global_search, name='global_search'),
     path('documents/', views.document_list, name='document_list'),
-    path('logout/', auth_views.LogoutView.as_view(next_page='/login/'), name='logout'),
+    path('logout/', auth_views.LogoutView.as_view(next_page='/admin/'), name='logout'),
     path('favicon.ico', RedirectView.as_view(url=settings.STATIC_URL + 'core/images/favicon.ico')),
 ]
 
