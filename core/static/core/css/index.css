@@ -715,6 +715,9 @@ main {
         margin-bottom: 0;
         line-height: 1.5;
     }
+    .hero-decorations {
+        z-index: 20;
+    }
     .tech-overlay {
         width: 70%; 
         height: 70%;
@@ -723,10 +726,7 @@ main {
         transform: translate(-50%, -50%) !important; 
     }
 
-    /* 
-       ใส่ auto เพื่อล้างค่าจากหน้าคอมให้หมด ภาพจะได้ไม่กระเด็นตกขอบ
-       ผมไล่ลำดับให้ครบ 15 รูปแล้ว คุณสามารถปรับ % ตรง top, left ได้ตามต้องการเลยครับ
-    */
+
     .delay-1  { top: 50%; left: 45%; right: auto !important; bottom: auto !important; } 
     .delay-2  { top: 60%; right: 15%; left: auto !important; bottom: auto !important; } 
     .delay-3  { top: 50%; left: 20%; right: auto !important; bottom: auto !important; }
@@ -734,14 +734,14 @@ main {
     .delay-5  { top: 70%; left: 20%; right: auto !important; bottom: auto !important; } /* แก้บัค bottom */
     .delay-6  { top: 50%; left: 25%; right: auto !important; bottom: auto !important; }
     .delay-7  { top: 50%; left: 55%; width: 70%; height: 70%; right: auto !important; bottom: auto !important; }
-    .delay-8  { top: 40%; left: 26%; width: 20%; height: 20%; right: auto !important; bottom: auto !important; }
-    .delay-9  { top: 50%;  right: auto !important; bottom: auto !important; } แก้บัค right
+    .delay-8  { top: 40%; left: 26%; width: 30%; height: 30%; right: auto !important; bottom: auto !important; }
+    .delay-9  { top: 50%; left: 50%; width: 50%; height: 50%; right: auto !important; bottom: auto !important; } /* แก้บัค right */
     .delay-10 { top: 60%; left: 60%; width: 50%; height: 50%; right: auto !important; bottom: auto !important; }
     .delay-11 { top: 50%; left: 70%; width: 80%; height: 80%; right: auto !important; bottom: auto !important; }
     .delay-12 { top: 60%; left: 70%; width: 50%; height: 50%; right: auto !important; bottom: auto !important; }
-    .delay-13 { top: 50%; left: 48%; right: auto !important; bottom: auto !important; }
-    .delay-14 { top: 50%; left: 50%; right: auto !important; bottom: auto !important; }
-    .delay-15 { top: 65%; left: 55%; width: 50%; height: 50%; right: auto !important; bottom: auto !important; }
+    .delay-13 { top: 50%; left: 48%; width: 50%; height: 50%; right: auto !important; bottom: auto !important; }
+    .delay-14 { top: 50%; left: 50%; width: 50%; height: 50%; right: auto !important; bottom: auto !important; }
+    .delay-15 { top: 70%; left: 55%; width: 50%; height: 50%; right: auto !important; bottom: auto !important; }
 
     @keyframes popAndFocusMobile {
         0% {
