@@ -127,33 +127,7 @@ main {
 }
 
 
-@media (max-width: 991px) {
-    .home-page .nav-links-section {
-        flex-direction: column;
-        align-items: center;
-        gap: 18px;
-        padding: 24px 0 28px;
-        background: transparent;
-        background: rgba(20, 20, 20, 0.35);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-    }
 
-    .home-page .nav-link-item {
-        background: transparent;
-        color: var(--text-primary);
-        font-size: 12px;
-        letter-spacing: 2px;
-        text-align: center;
-        position: relative;
-        transition: 
-        color 0.3s ease,
-        transform 0.3s ease;
-    }
-    .home-page .nav-link-item:hover::after {
-        transform: translateX(-50%) scaleX(1);
-    }
-}
 .blueprint-container {
     position: relative;
     width: 100%;
@@ -561,35 +535,6 @@ main {
 }
 
 
-@media (max-width: 991px) {
-    .home-page .hero-content {
-        right: 12%; /* ดันออกจากขอบขวาให้มากขึ้น เพื่อให้อยู่ในร่องสีเหลืองพอดี */
-        transform: translateY(-50%); /* รักษาแกน Y ไว้เหมือนจอคอม */
-        height: auto; 
-        max-width: 450px; /* บีบกล่องข้อความนิดหน่อยไม่ให้ล้นไปทับฝั่งซ้าย */
-        display: flex;
-        flex-direction: column;
-        gap: 250px; 
-        text-align: left; /* จัดข้อความชิดซ้ายในกล่องให้เหมือนจอคอม */
-    }
-
-    .home-page .title-big {
-        font-size: 46px; /* ปรับขนาดให้พอดีจอ iPad ไม่ให้คำว่า TRUE ตกบรรทัด */
-        line-height: 1.1;
-    }
-
-    .home-page .title-small {
-        font-size: 1.55rem;
-        letter-spacing: 2px;
-    }
-
-    .home-page .hero-desc {
-        font-size: 1rem;
-        margin-bottom: 0;
-        line-height: 1.5;
-    }
-}
-
 @media (max-width: 767px) {
     .home-page .hero-content {
         right: 15%;
@@ -693,89 +638,85 @@ main {
     }
 }
 
+
 @media (max-width: 991px) {
     
+    
+    .home-page .hero-architecture {
+        height: auto !important;
+        min-height: 100dvh !important; 
+        /* padding-bottom: 50px; */
+    }
+
+    .home-page .footer-minimal {
+        position: absolute !important;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+    }
+
+    .home-page .nav-links-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        padding: 24px 0 28px;
+        background: rgba(20, 20, 20, 0.35);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+    .home-page .nav-link-item {
+        background: transparent;
+        color: var(--text-primary);
+        font-size: 12px;
+        letter-spacing: 2px;
+        text-align: center;
+        position: relative;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .home-page .nav-link-item:hover::after {
+        transform: translateX(-50%) scaleX(1);
+    }
+
+    .home-page .hero-content {
+        right: 12%; 
+        transform: translateY(-50%); 
+        height: auto; 
+        max-width: 450px; 
+        display: flex;
+        flex-direction: column;
+        gap: 250px; 
+        text-align: left; 
+    }
+    .home-page .title-big {
+        font-size: 46px; 
+        line-height: 1.1;
+    }
+    .home-page .title-small {
+        font-size: 1.55rem;
+        letter-spacing: 2px;
+    }
+    .home-page .hero-desc {
+        font-size: 1rem;
+        margin-bottom: 0;
+        line-height: 1.5;
+    }
     .tech-overlay {
         width: 70%; 
         height: 70%;
         animation: popAndFocusMobile 24s infinite ease-in-out; 
     }
-    .delay-2 {
-        top: 60%;
-        right: 15%; 
-        left: auto; 
-    } 
+    .delay-2 { top: 60%; right: 15%; left: auto; } 
+    .delay-3 { left: 20%; }
+    .delay-6 { top: 50%; }
+    .delay-7 { top: 40%; width: 50%; height: 50%; }
+    .delay-8 { top: 40%; width: 30%; height: 30%; }
+    .delay-15 { top: 60%; width: 30%; height: 30%; }
+    .delay-9 { left: 40%; width: 50%; height: 50%; }
+    .delay-10 { left: 43%; width: 50%; height: 50%; }
+    .delay-11 { left: 70%; width: 80%; height: 80%; }
+    .delay-12 { top: 60%; left: 70%; width: 50%; height: 50%; }
 
-    .delay-3 {
-        left: 20%;
-    }
-    .delay-6 {
-        top: 50%;
-    }
-
-    .delay-7{
-        top: 40%;
-        width: 50%;
-        height: 50%;
-    }
-    .delay-8 {
-        top: 40%;
-        width: 30%;
-        height: 30%;
-    }
-    .delay-15{
-        top: 60%;
-        width: 30%;
-        height: 30%;
-    }
-
-    .delay-9 {
-        left: 40%;
-        width: 50%;
-        height: 50%;
-    }
-    .delay-10 {
-        left: 43%;
-        width: 50%;
-        height: 50%;
-    }
-
-    .delay-11 {
-        left: 70%;
-        width: 80%;
-        height: 80%;
-    }
-
-    .delay-12 {
-        top: 60%;
-        left: 70%;
-        width: 50%;
-        height: 50%;
-    }
-
-
-.delay-1  { animation-delay: 0s; }
-
-.delay-2  { animation-delay: 2.7s; }
-.delay-3  { animation-delay: 3.3s; } 
-
-
-.delay-4  { animation-delay: 5.8s; }
-.delay-5  { animation-delay: 6.3s; }
-
-.delay-6  { animation-delay: 9.2s; }
-.delay-8  { animation-delay: 9.9s; }
-.delay-7  { animation-delay: 10.4s; }
-.delay-15 { animation-delay: 10.9s; }
-
-.delay-9  { animation-delay: 13.6s; }
-.delay-10 { animation-delay: 14.6s; }
-
-.delay-11 { animation-delay: 17.5s; }
-.delay-12 { animation-delay: 18.0s; }
-
-.delay-13 { animation-delay: 21.0s; }
-.delay-14 { animation-delay: 21.5s; }
     @keyframes popAndFocusMobile {
         0% {
             opacity: 0;
