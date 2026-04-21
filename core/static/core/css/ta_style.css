@@ -251,7 +251,9 @@ main {
     background-color: var( --accent-yellow) ;
     transition: width 0.8s ease;
 }
-
+.ta-graphic-right {
+    display: none;
+}
 }
 
 .ta-decorations {
