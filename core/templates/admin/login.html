@@ -1,0 +1,20 @@
+{% extends "admin/login.html" %}
+
+{% block content %}
+<div style="margin-bottom: 20px;">
+    <a href="/" style="
+        display:inline-block;
+        padding:8px 16px;
+        border-radius:20px;
+        background:#111;
+        color:#fff;
+        text-decoration:none;
+        font-size:13px;
+        border:1px solid #444;
+    ">
+        ← กลับหน้า Home
+    </a>
+</div>
+
+{{ block.super }}
+{% endblock %}
