@@ -1,6 +1,7 @@
 html, body {
     height: auto;
     overflow-x: hidden;
+    overflow-y: auto;
 }
 .home-page {
     position: relative;
@@ -99,7 +100,9 @@ html, body {
 .home-page .hero-architecture {
     position: relative;
     width: 100% !important; 
-    height: 100vh;  
+    min-height: 100vh;
+    height: auto;
+    overflow: visible;
     display: flex;
     align-items: center;
     padding: 0 8%;
@@ -117,12 +120,11 @@ html, body {
         transform: translate(0, -50%);
     }
 }
-body.home-page {
-    min-height: 100vh;
-    /* display: flex; */
+body {
+    display: flex;
     flex-direction: column;
-    margin: 0;
 }
+
 main {
     flex: 1;
 }
@@ -612,8 +614,9 @@ main {
         font-size: 0.7rem;
     }
     .home-page .hero-architecture {
-        height: auto;         
-        min-height: 100vh;    
+        min-height: 100vh;
+        height: auto;
+        overflow: visible;   
         padding-bottom: 80px; 
     }
 
@@ -704,18 +707,11 @@ main {
 
 
 @media (max-width: 991px) {
-    /* 1. ล็อคหน้าจอไม่ให้เลื่อน และตรึง Footer */
-    html, body.home-page {
-        overflow: hidden !important; /* บังคับห้ามเลื่อนหน้าจอเด็ดขาด */
-        height: 100%;
-    }
-
     .home-page .hero-architecture {
-        height: 100dvh !important; /* บังคับความสูงให้เท่าจอพอดีเป๊ะ */
-        min-height: 100dvh !important;
-        padding-bottom: 0 !important; /* เอา Padding ออกเพื่อไม่ให้จอยืด */
-        overflow: hidden !important;
-    }
+    min-height: 100vh;
+    height: auto;
+    overflow: visible;
+}
 
     /* ตรึงภาพพื้นหลังให้อยู่กับที่ แม้จะเกิดการเด้งของจอ Safari */
     .home-page .hero-bg {
@@ -788,10 +784,10 @@ main {
 @media (max-width: 950px) and (orientation: landscape) {
     /* --- 1. ตั้งค่า Layout หลักให้อยู่กับที่ --- */
     .home-page .hero-architecture {
-        height: 100dvh;
-        min-height: 100dvh;
-        overflow: hidden;
-    }
+    min-height: 100vh;
+    height: auto;
+    overflow: visible;
+}
     .home-page {
         min-height: 100dvh;
         display: flex;

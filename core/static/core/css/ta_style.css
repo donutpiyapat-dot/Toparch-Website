@@ -4,11 +4,19 @@
 }
 
 /* ให้ scroll ได้ */
-html, body.ta-style-page {
+html, body {
     height: auto;
-    overflow-y: visible;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+body {
+    display: flex;
+    flex-direction: column;
 }
 
+main {
+    flex: 1;
+}
 .splash-content{
     display:inline-flex;
     align-items:center;
