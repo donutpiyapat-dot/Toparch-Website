@@ -674,6 +674,11 @@ main, .container-fluid {
     outline: none;
     padding: 0;
     color: inherit;
+    /* เพิ่ม 4 บรรทัดด้านล่างนี้เข้าไปครับ */
+    font-size: 13px;        /* ให้ขนาดเท่ากับ .nav-link-item */
+    font-weight: bold;      /* ให้ตัวหนาเท่ากับเมนูอื่น */
+    font-family: inherit;   /* บังคับให้ใช้ฟอนต์เดียวกับเว็บไซต์ (ไม่ใช้ฟอนต์ตั้งต้นของปุ่ม) */
+    cursor: pointer;        /* ให้เมาส์เปลี่ยนเป็นรูปมือตอนชี้ */
 }
 
 @supports (-webkit-touch-callout: none) {

@@ -700,7 +700,6 @@ main {
         display: flex;
         flex-direction: column;
         gap: 250px; 
-        text-align: left; 
     }
     .home-page .title-big {
         font-size: 46px; 
@@ -711,7 +710,6 @@ main {
         letter-spacing: 2px;
     }
     .home-page .hero-desc {
-        font-size: 1rem;
         margin-bottom: 0;
         line-height: 1.5;
     }
