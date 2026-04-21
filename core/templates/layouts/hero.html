@@ -1,13 +1,46 @@
 {% if images %}
-<div class="hero-main">
+    
     {% for image in images %}
-        <img
-            src="{{ image.image.url }}?f_auto,q_auto,w_800"
-            class="project-thumb"
-            data-full="{{ image.image.url }}?f_auto,q_auto,w_1600"
-            loading="lazy"
-            alt="{{ project.title }}"
-        >
+        
+        {# --- HERO --- #}
+        {% if forloop.counter0|divisibleby:5 %}
+            <div class="hero-main">
+                <img
+                    src="{{ image.image.url }}?f_auto,q_auto,w_1600"
+                    class="project-thumb"
+                    data-full="{{ image.image.url }}?f_auto,q_auto,w_1600"
+                    loading="lazy"
+                    alt="{{ project.title }}"
+                >
+            </div>
+
+            <div class="hero-grid">
+        
+        {% else %}
+        
+            {# --- GRID IMAGE --- #}
+            <div class="hero-item">
+                <img
+                    src="{{ image.image.url }}?f_auto,q_auto,w_800"
+                    class="project-thumb"
+                    data-full="{{ image.image.url }}?f_auto,q_auto,w_1600"
+                    loading="lazy"
+                    alt="{{ project.title }}"
+                >
+            </div>
+
+        {% endif %}
+
+        {# --- ปิด grid ทุก 5 รูป --- #}
+        {% if forloop.counter0|add:1|divisibleby:5 %}
+            </div>
+        {% endif %}
+
+        {# 🔥 สำคัญ: ปิด grid ตอน loop สุดท้าย --- #}
+        {% if forloop.last %}
+            </div>
+        {% endif %}
+
     {% endfor %}
-</div>
+
 {% endif %}
