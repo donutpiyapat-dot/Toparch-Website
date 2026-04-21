@@ -709,11 +709,11 @@ main {
     .delay-2 { top: 60%; right: 15%; left: auto; } 
     .delay-3 { left: 20%; }
     .delay-6 { top: 50%; }
-    .delay-7 { top: 40%; width: 50%; height: 50%; }
-    .delay-8 { top: 40%; width: 30%; height: 30%; }
-    .delay-15 { top: 60%; width: 30%; height: 30%; }
-    .delay-9 { left: 40%; width: 50%; height: 50%; }
-    .delay-10 { left: 43%; width: 50%; height: 50%; }
+    .delay-7 { top: 40%; width: 70%; height: 70%; }
+    .delay-8 { top: 40%; width: 20%; height: 20%; }
+    .delay-15 { top: 70%; width: 40%; height: 40%; }
+    .delay-9 { left: 50%; width: 50%; height: 50%; }
+    .delay-10 { left: 60%; width: 50%; height: 50%; }
     .delay-11 { left: 70%; width: 80%; height: 80%; }
     .delay-12 { top: 60%; left: 70%; width: 50%; height: 50%; }
 
