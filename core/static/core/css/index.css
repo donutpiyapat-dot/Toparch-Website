@@ -1,9 +1,10 @@
 html, body {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow-x: hidden !important; 
+    height: auto;
+    overflow-x: hidden;
+}
+.home-page {
+    position: relative;
+    min-height: 100vh;
 }
 
 .home-page main {

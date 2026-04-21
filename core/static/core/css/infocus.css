@@ -205,6 +205,15 @@ html, body {
     .inf-decorations{
         display: none; 
     }
+
+    .infocus-page::before {
+        background:
+            linear-gradient(to left, rgba(0,0,0,0.2), rgba(0,0,0,0.7)),
+            url("/static/core/images/IN-FOCUS.webp");
+        background-size: cover;
+        background-position: 85% center;
+        background-repeat: no-repeat;
+    }
 }
 
 
