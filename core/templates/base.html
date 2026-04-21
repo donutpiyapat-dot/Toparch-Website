@@ -18,7 +18,7 @@
 </head>
 <body class="{% block body_class %}{% endblock %}">
 
-{% if request.path != '/login/' %}
+{% if request.path != '/admin/login/' %}
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark p-0 home-navbar">
         <div class="nav-wrapper d-flex w-100 align-items-center">
@@ -106,7 +106,7 @@
         <div class="container-fluid text-center py-4">
             <span class="copyright-text m-0">
                 
-                &copy; {% now "Y" %} <a href="{% url 'login' %}" class="secret-login-link">TOPARCH</a> Co., Ltd. All Rights Reserved.
+                &copy; {% now "Y" %} <a href="/admin/" class="secret-login-link">TOPARCH</a> Co., Ltd. All Rights Reserved.
                 
             </span>
         </div>
