@@ -784,59 +784,99 @@ main {
     }
 }
 
-@media (max-width: 950px) and (orientation: landscape){
+@media (max-width: 950px) and (orientation: landscape) {
+    /* --- 1. ตั้งค่า Layout หลักให้อยู่กับที่ --- */
     .home-page .hero-architecture {
-        height: auto;
+        height: 100dvh;
         min-height: 100dvh;
+        overflow: hidden;
     }
     .home-page {
-    min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
     }
-
     .home-page main {
-    flex: 1;
-    }
-    .home-page .hero-content {
-        top: 50%;
-        transform: translateY(-50%);
-        gap: 40px; 
-        right: 10%;
+        flex: 1;
     }
 
-    .home-page .title-big {
-        font-size: 24px; 
-    }
-
-    .home-page .title-small {
-        font-size: 0.7rem;
-    }
-
-    .home-page .hero-desc {
-        font-size: 0.6rem;
+    /* --- 2. ล็อกพื้นหลังให้อยู่กับที่ --- */
+    .home-page .hero-bg {
+        position: fixed; 
+        inset: 0;
+        background: url("/static/core/images/BG-01.webp");
+        background-size: cover;
+        background-position: center;
+        z-index: 1;
     }
 
     .home-page .footer-minimal {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: transparent !important; 
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: transparent !important; 
+        z-index: 10;
     }
-    .home-page .hero-decorations{
-        transform: scale(0.8);
-        transform-origin: center;
-    }
-    .home-page .hero-bg {
-    position: fixed; /* <--- เปลี่ยนจาก absolute เป็น fixed เพื่อให้ภาพพื้นหลังเต็มจอเสมอแม้เลื่อนหน้าลง */
-    inset: 0;
-    background: url("/static/core/images/BG-01.webp");
-    background-size: cover;
-    background-position: center;
-    z-index: 1;
 
-}
+    /* --- 3. จัดตำแหน่งข้อความให้อยู่ในกรอบขวา --- */
+    .home-page .hero-content {
+        top: 50%;
+        transform: translateY(-50%);
+        right: 6%; /* ขยับข้อความให้พอดีกับกรอบ */
+        width: 45%; /* จำกัดความกว้างไม่ให้ล้นไปซ้าย */
+        gap: 20px; 
+    }
+    .home-page .title-big { font-size: 28px; }
+    .home-page .title-small { font-size: 0.9rem; }
+    .home-page .hero-desc { font-size: 0.75rem; line-height: 1.4; }
+
+    /* --- 4. แก้ไขกล่องตกแต่ง (สำคัญมาก) --- */
+    .home-page .hero-decorations {
+        transform: none !important; /* เอาคำสั่งย่อส่วนที่ทำให้เพี้ยนออก */
+    }
+
+    /* ซ่อนกล่องที่อยู่ตรงกลางๆ หน้าจอทิ้งไป เพื่อไม่ให้รกและบังรูป */
+    .home-page .hero-decor-box-1,
+    .home-page .hero-decor-box-2,
+    .home-page .hero-decor-box-4,
+    .home-page .hero-decor-box-6 {
+        display: none !important;
+    }
+
+    /* ปรับเส้นสีเหลืองฝั่งขวา ให้บางลงและชิดขอบ */
+    .home-page .hero-decor-right {
+        right: 2%; 
+        width: 35vw; 
+        height: 60vh; 
+        /* ลดความหนาของเส้นจาก 20px เหลือ 10px */
+        border-top: 10px solid var(--div-yellow);
+        border-right: 10px solid var(--div-yellow);
+        border-bottom: 10px solid var(--div-yellow);
+    }
+    .home-page .hero-decor-right::before,
+    .home-page .hero-decor-right::after {
+        width: 10px; /* ให้ติ่งสีเหลืองหนา 10px เท่าเส้น */
+        height: 40px;
+    }
+    .home-page .hero-decor-right::before { top: -10px; }
+    .home-page .hero-decor-right::after { bottom: -10px; }
+
+    /* ปรับเส้นสีเหลืองฝั่งซ้าย ให้บางลง */
+    .home-page .hero-decor-left {
+        left: 2%; 
+        width: 10px; 
+    }
+
+    /* ปรับกล่องดำและเทาฝั่งซ้าย ให้เล็กลงและชิดขอบ */
+    .home-page .hero-decor-box-3 {
+        left: 0; 
+        width: 4vw; 
+    }
+    .home-page .hero-decor-box-5 {
+        left: 0; 
+        width: 6vw; 
+    }
 }
 
 @media (max-width: 480px) {
