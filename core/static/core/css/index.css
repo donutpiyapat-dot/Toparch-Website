@@ -456,6 +456,7 @@ main {
 
 
 @media (max-width: 1366px) and (orientation: landscape){
+
     .home-page .tech-overlay {
         width: 40% !important;
         height: 40% !important;
@@ -624,6 +625,15 @@ main {
 
 
 @media (max-width: 1180px) and (orientation: landscape){
+    html, body {
+        height: auto !important;
+        overflow-y: auto !important; 
+    }
+    .ta-style-page {
+        height: auto !important;
+        min-height: 100vh !important;
+        overflow-y: auto !important;
+    }
     .tech-overlay {
         width: 60%;
         height: 60%;
@@ -764,7 +774,7 @@ main {
         letter-spacing: 2px;
     }
     .home-page .hero-desc {
-        font-size: 0.75rem;
+        font-size: 0.95rem;
         margin-bottom: 0;
         line-height: 1.5;
     }
