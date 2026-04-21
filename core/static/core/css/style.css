@@ -754,13 +754,27 @@ main, .container-fluid {
    2. สำหรับ iPad & Tablet (หน้าจอ 768px - 991px)
    ========================================= */
 @media (min-width: 768px) and (max-width: 991.98px) {
-    .nav-wrapper { padding: 0 20px; }
-    .search-wrapper {
-        max-width: 400px;
-        width: 100%;
-        /* margin: 0 20px; */
+     .nav-wrapper { 
+        padding: 0 20px; 
     }
-    .search-wrapper input { width: 100%; }
+    
+    .search-wrapper {
+        /* บังคับให้ยาวได้สูงสุดตามที่คุณต้องการ (ปรับเพิ่มลดจาก 400px ได้เลย) */
+        max-width: 400px; 
+        
+        /* ขยายให้เต็มพื้นที่ที่เหลืออยู่ */
+        width: 100%; 
+        
+        /* จุดสำคัญ: ดันตัวเองออกห่างจากโลโก้ฝั่งซ้ายให้มากที่สุด */
+        margin-left: auto; 
+        
+        /* จุดสำคัญ: เว้นระยะห่างด้านขวา 20px เพื่อไม่ให้ไปชนกับปุ่มแฮมเบอร์เกอร์ */
+        margin-right: 20px; 
+    }
+    
+    .search-wrapper input { 
+        width: 100%; 
+}
 }
 
 /* =========================================

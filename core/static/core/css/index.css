@@ -640,12 +640,25 @@ main {
 
 
 @media (max-width: 991px) {
-    
-    
+    /* 1. ล็อคหน้าจอไม่ให้เลื่อน และตรึง Footer */
+    html, body.home-page {
+        overflow: hidden !important; /* บังคับห้ามเลื่อนหน้าจอเด็ดขาด */
+        height: 100%;
+    }
+
     .home-page .hero-architecture {
-        height: auto !important;
-        min-height: 100dvh !important; 
-        /* padding-bottom: 50px; */
+        height: 100dvh !important; /* บังคับความสูงให้เท่าจอพอดีเป๊ะ */
+        min-height: 100dvh !important;
+        padding-bottom: 0 !important; /* เอา Padding ออกเพื่อไม่ให้จอยืด */
+        overflow: hidden !important;
+    }
+
+    /* ตรึงภาพพื้นหลังให้อยู่กับที่ แม้จะเกิดการเด้งของจอ Safari */
+    .home-page .hero-bg {
+        position: fixed !important;
+        inset: 0;
+        width: 100vw;
+        height: 100dvh;
     }
 
     .home-page .footer-minimal {
@@ -654,6 +667,7 @@ main {
         left: 0;
         width: 100%;
         z-index: 10;
+        padding-bottom: 15px; /* ดันข้อความ copyright ขึ้นมานิดนึงให้อ่านง่าย */
     }
 
     .home-page .nav-links-section {
@@ -705,19 +719,29 @@ main {
         width: 70%; 
         height: 70%;
         animation: popAndFocusMobile 24s infinite ease-in-out; 
+        /* บังคับจุดศูนย์กลางให้กลับมาเป็นปกติ เพื่อแก้ปัญหาคลาส 10 */
+        transform: translate(-50%, -50%) !important; 
     }
-    .delay-2 { top: 60%; right: 15%; left: auto; } 
-    .delay-3 { left: 20%; }
-    .delay-6 { top: 50%; }
-    .delay-7 { top: 40%; width: 70%; height: 70%; }
-    .delay-8 { top: 40%; width: 70%; height: 70%; }
-    .delay-15 { top: 70%; width: 40%; height: 40%; }
-    .delay-9 { left: 50%; width: 50%; height: 50%; }
-    .delay-10 { left: 60%; width: 50%; height: 50%; }
-    .delay-11 { left: 70%; width: 80%; height: 80%; }
-    .delay-12 { top: 60%; left: 70%; width: 50%; height: 50%; }
-    .delay-13 { left: 60%; width: 50%; height: 50%; }
-    .delay-14 { top: 50%; left: 60%; width: 50%; height: 50%; }
+
+    /* 
+       ใส่ auto เพื่อล้างค่าจากหน้าคอมให้หมด ภาพจะได้ไม่กระเด็นตกขอบ
+       ผมไล่ลำดับให้ครบ 15 รูปแล้ว คุณสามารถปรับ % ตรง top, left ได้ตามต้องการเลยครับ
+    */
+    .delay-1  { top: 50%; left: 45%; right: auto !important; bottom: auto !important; } 
+    .delay-2  { top: 60%; right: 15%; left: auto !important; bottom: auto !important; } 
+    .delay-3  { top: 50%; left: 20%; right: auto !important; bottom: auto !important; }
+    .delay-4  { top: 50%; left: 50%; right: auto !important; bottom: auto !important; width: 60%; height: 60%; } 
+    .delay-5  { top: 70%; left: 20%; right: auto !important; bottom: auto !important; } /* แก้บัค bottom */
+    .delay-6  { top: 50%; left: 25%; right: auto !important; bottom: auto !important; }
+    .delay-7  { top: 50%; left: 55%; width: 70%; height: 70%; right: auto !important; bottom: auto !important; }
+    .delay-8  { top: 40%; left: 26%; width: 20%; height: 20%; right: auto !important; bottom: auto !important; }
+    .delay-9  { top: 50%;  right: auto !important; bottom: auto !important; } แก้บัค right
+    .delay-10 { top: 60%; left: 60%; width: 50%; height: 50%; right: auto !important; bottom: auto !important; }
+    .delay-11 { top: 50%; left: 70%; width: 80%; height: 80%; right: auto !important; bottom: auto !important; }
+    .delay-12 { top: 60%; left: 70%; width: 50%; height: 50%; right: auto !important; bottom: auto !important; }
+    .delay-13 { top: 50%; left: 48%; right: auto !important; bottom: auto !important; }
+    .delay-14 { top: 50%; left: 50%; right: auto !important; bottom: auto !important; }
+    .delay-15 { top: 65%; left: 55%; width: 50%; height: 50%; right: auto !important; bottom: auto !important; }
 
     @keyframes popAndFocusMobile {
         0% {
