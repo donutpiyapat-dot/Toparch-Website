@@ -533,21 +533,6 @@ main {
         .home-page .delay-7 { left: 65% !important; top: 20% !important; width: 35% !important; }
         .home-page .delay-10 { left: 45% !important; top: 35% !important; }
         .home-page .delay-15 { left: 55% !important; top: 52% !important; width: 45% !important; }
-
-        /* ปรับ Layout เนื้อหาแนวตั้ง */
-        .home-page .hero-content {
-            right: 8% !important;
-            top: 68% !important;
-            max-width: 85% !important;
-            text-align: right !important;
-        }
-        .home-page .hero-decor-right {
-            right: 3% !important;
-            top: 68% !important;
-            height: 52vh !important;
-            width: 28vw !important;
-        }
-        .home-page .title-big { font-size: 36px !important; }
     }
 }
 
