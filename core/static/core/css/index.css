@@ -492,14 +492,9 @@ main {
     .home-page .delay-13 { animation-delay: 21.0s !important; }
     .home-page .delay-14 { animation-delay: 21.5s !important; }
 
-    /* เลือกซ่อนบางภาพที่ทับกันมั่วบน Tablet (เอาออกถ้าอยากให้โชว์ครบ) */
-    .home-page .delay-4, .home-page .delay-5, .home-page .delay-8, 
-    .home-page .delay-11, .home-page .delay-13 {
-        display: none !important;
-    }
 
     /* 3. Animation Keyframes (จางลงเพื่อความสวยงาม) */
-    @keyframes popAndFocusMobile {
+    @keyframes popAndFocusTablet{
         0% {
             opacity: 0;
             filter: blur(15px);
