@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'toparch-website-3q9s.onrender.com',
+    'toparch-website.onrender.com',
     'toparch.co.th',
     'www.toparch.co.th',
 
@@ -36,7 +36,7 @@ ALLOWED_HOSTS = [
 CSRF_TRUSTED_ORIGINS = [
     'https://toparch.co.th',
     'https://www.toparch.co.th',
-    'https://toparch-website-3q9s.onrender.com/'
+    'https://toparch-website.onrender.com',
 
 ]
 
