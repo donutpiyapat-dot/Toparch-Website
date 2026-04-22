@@ -68,10 +68,4 @@ Plaintext
 ├── apps/               # Business Logic Apps
 ├── static/             # CSS, JS, Images
 └── templates/          # HTML Templates
-```
-👤 ติดต่อผู้พัฒนา
-[PIYAPAT JUNGKAPAE]
 
-📧 Email: donutpiyapat@gmail.com
-
-LinkIn: https://www.linkedin.com/in/piyapat-jungkapae-435125381/
