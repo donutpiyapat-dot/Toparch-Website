@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="core/static/core/images/TOPARCH-LOGO-ol-2.png" alt="Logo" width="100" height="25">
+  <img src="core/static/core/images/TOPARCH-LOGO-ol-2.webp" alt="Logo" width="100" height="25">
   <h1 align="center">TOPARCH Website Project</h1>
   
   <p align="center">
