@@ -84,6 +84,11 @@ body:not(.fade-out) {
     transform: translateY(0);
 }
 
+body.fake-active,
+body.fake-active * {
+    cursor: none !important;
+}
+
 .text-yellow, .text-warning {
     color: var(--accent-yellow) !important;
 }
