@@ -150,6 +150,7 @@ body {
     gap: 14px;
     position: relative;
     letter-spacing: 1px;
+    margin-top: 10px;
 }
 .modal-counter{
     font-size: 12px
