@@ -16,6 +16,10 @@
     justify-content: center;
     min-height: 100vh;
 }
+.splash-content {
+    padding-top: 45vh;
+}
+
 @media (max-width: 576px) {
     .splash-content {
         padding-top: 40vh;
