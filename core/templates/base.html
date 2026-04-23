@@ -173,50 +173,48 @@ document.querySelectorAll("a").forEach(link => {
 const fakeCursor = document.querySelector('.fake-cursor');
 const halo = document.querySelector('.cursor-halo');
 
-document.addEventListener('mousemove', (e) => {
-    window.requestAnimationFrame(() => {
-        fakeCursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
-        
-        const isHover = document.body.classList.contains('cursor-hover');
-        const scale = isHover ? 1 : 0.6;
-        
-        halo.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%) scale(${scale})`;
-    });
-});
+if (!fakeCursor || !halo) return;
 
-const hoverTargets = document.querySelectorAll(
-  'a, button, input, textarea, select, [data-cursor]'
-);
+let lastX = 0;
+let lastY = 0;
 
-hoverTargets.forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    document.body.classList.add('cursor-hover');
-  });
+function updateCursor(x, y) {
+    fakeCursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
 
-  el.addEventListener('mouseleave', () => {
-    document.body.classList.remove('cursor-hover');
-  });
-});
+    const isHover = document.body.classList.contains('cursor-hover');
+    const scale = isHover ? 1 : 0.6;
 
-if ('ontouchstart' in window) {
-  document.body.style.cursor = 'default';
-  document.querySelector('.fake-cursor')?.remove();
-  document.querySelector('.cursor-halo')?.remove();
+    halo.style.transform =
+        `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%) scale(${scale})`;
 }
-document.body.classList.add("fake-active");
 
-document.addEventListener("fullscreenchange", () => {
-    if (document.fullscreenElement) {
-        document.body.classList.remove("fake-active");
-        fakeCursor.style.display = "none";
-        halo.style.display = "none";
-    } else {
-        document.body.classList.add("fake-active");
-        fakeCursor.style.display = "block";
-        halo.style.display = "block";
+document.addEventListener('mousemove', (e) => {
+    lastX = e.clientX;
+    lastY = e.clientY;
+
+    requestAnimationFrame(() => updateCursor(lastX, lastY));
+});
+
+window.addEventListener('scroll', () => {
+    requestAnimationFrame(() => updateCursor(lastX, lastY));
+}, { passive: true });
+
+window.addEventListener('wheel', () => {
+    updateCursor(lastX, lastY);
+});
+
+// hover แบบ dynamic
+document.addEventListener('mouseover', (e) => {
+    if (e.target.closest('a, button, input, textarea, select, [data-cursor]')) {
+        document.body.classList.add('cursor-hover');
     }
 });
-const isTouchDevice = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+
+document.addEventListener('mouseout', (e) => {
+    if (e.target.closest('a, button, input, textarea, select, [data-cursor]')) {
+        document.body.classList.remove('cursor-hover');
+    }
+});
 </script>
 
 {% block extra_js %}{% endblock %}
