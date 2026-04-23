@@ -429,7 +429,7 @@ body {
     border-radius: 10px;
 }
 .hero-block {
-    margin-bottom: 40px; /* 🔥 ระยะห่างระหว่างแต่ละชุด */
+    margin-bottom: 20px;
 }
 
 .projects-masonry {
