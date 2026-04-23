@@ -19,12 +19,12 @@
 }
 
 .splash-content {
-    padding-top: 30vh;
+    padding-top: 40vh;
 }
 
 @media (max-width: 991px) {
     .splash-content {
-        padding-top: 25vh;
+        padding-top: 30vh;
     }
 }
 
