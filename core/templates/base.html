@@ -168,13 +168,12 @@ const halo = document.querySelector('.cursor-halo');
 document.addEventListener("DOMContentLoaded", () => {
     const fakeCursor = document.querySelector(".fake-cursor");
     const halo = document.querySelector(".cursor-halo");
-    if (!fakeCursor || !halo) {
-        console.warn("Cursor elements not found");
-        return;
-    }
+    if (!fakeCursor || !halo) return;
+
     let mouseX = 0;
     let mouseY = 0;
     let rafId = null;
+
     function renderCursor() {
         fakeCursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
         const isHover = document.body.classList.contains("cursor-hover");
@@ -182,37 +181,42 @@ document.addEventListener("DOMContentLoaded", () => {
         halo.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%) scale(${scale})`;
         rafId = null;
     }
+
     function requestRender() {
-        if (!rafId) {
-            rafId = requestAnimationFrame(renderCursor);
-        }
+        if (!rafId) rafId = requestAnimationFrame(renderCursor);
     }
+
     document.addEventListener("mousemove", (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
         requestRender();
     });
+
     document.addEventListener("mouseover", (e) => {
         if (e.target.closest("a, button, input, textarea, select, [data-cursor]")) {
             document.body.classList.add("cursor-hover");
             requestRender();
         }
     });
+
     document.addEventListener("mouseout", (e) => {
         if (e.target.closest("a, button, input, textarea, select, [data-cursor]")) {
             document.body.classList.remove("cursor-hover");
             requestRender();
         }
     });
+
     document.addEventListener("mouseleave", () => {
         fakeCursor.style.opacity = "0";
         halo.style.opacity = "0";
     });
+
     document.addEventListener("mouseenter", () => {
         fakeCursor.style.opacity = "1";
-        halo.style.opacity = document.body.classList.contains("cursor-hover") ? "1" : "";
+        halo.style.opacity = "";
         requestRender();
     });
+
     requestRender();
 });
 </script>
