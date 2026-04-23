@@ -136,7 +136,6 @@ body {
     background: rgba(0,0,0,0.9);
     display: none;
     align-items: center;
-    justify-content: center;
     z-index: 9999;
     touch-action: pan-y;
 }
