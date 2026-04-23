@@ -1,25 +1,31 @@
 {% if images %}
-    
-    {% for image in images %}
-        
-        {# --- HERO --- #}
-        {% if forloop.counter0|divisibleby:5 %}
-        <div class="hero-block">
-            <div class="hero-main">
-                <img
-                    src="{{ image.image.url }}?f_auto,q_auto,w_1600"
-                    class="project-thumb"
-                    data-full="{{ image.image.url }}?f_auto,q_auto,w_1600"
-                    loading="lazy"
-                    alt="{{ project.title }}"
-                >
-            </div>
 
-            <div class="hero-grid">
-        
+    {% for image in images %}
+
+        {# 🔥 เปิด block ใหม่ทุก 5 รูป #}
+        {% if forloop.counter0|divisibleby:5 %}
+            
+            {# 👉 ปิดของเก่าก่อน (ยกเว้นรอบแรก) #}
+            {% if not forloop.first %}
+                </div> <!-- close hero-grid -->
+                </div> <!-- close hero-block -->
+            {% endif %}
+
+            <div class="hero-block">
+                <div class="hero-main">
+                    <img
+                        src="{{ image.image.url }}?f_auto,q_auto,w_1600"
+                        class="project-thumb"
+                        data-full="{{ image.image.url }}?f_auto,q_auto,w_1600"
+                        loading="lazy"
+                        alt="{{ project.title }}"
+                    >
+                </div>
+
+                <div class="hero-grid">
+
         {% else %}
-        
-            {# --- GRID IMAGE --- #}
+
             <div class="hero-item">
                 <img
                     src="{{ image.image.url }}?f_auto,q_auto,w_800"
@@ -32,15 +38,10 @@
 
         {% endif %}
 
-        {# --- ปิด grid ทุก 5 รูป --- #}
-        {% if forloop.counter0|add:1|divisibleby:5 %}
-            </div>
-        {% endif %}
-
-        {# 🔥 สำคัญ: ปิด grid ตอน loop สุดท้าย --- #}
+        {# 🔥 ปิด block ตอนสุดท้าย #}
         {% if forloop.last %}
-            </div>
-        </div>
+                </div> <!-- close hero-grid -->
+            </div> <!-- close hero-block -->
         {% endif %}
 
     {% endfor %}
