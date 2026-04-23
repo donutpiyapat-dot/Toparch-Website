@@ -12,14 +12,16 @@
             {% endif %}
 
             <div class="hero-block">
-                <div class="hero-main">
-                    <img
+                <div class="hero-main">ฃ
+                    <div class="hover-reveal">
+                        <img 
                         src="{{ image.image.url }}?f_auto,q_auto,w_1600"
                         class="project-thumb"
                         data-full="{{ image.image.url }}?f_auto,q_auto,w_1600"
                         loading="lazy"
                         alt="{{ project.title }}"
-                    >
+                        >
+                    </div>
                 </div>
 
                 <div class="hero-grid">
@@ -27,13 +29,15 @@
         {% else %}
 
             <div class="hero-item">
-                <img
-                    src="{{ image.image.url }}?f_auto,q_auto,w_800"
-                    class="project-thumb"
-                    data-full="{{ image.image.url }}?f_auto,q_auto,w_1600"
-                    loading="lazy"
-                    alt="{{ project.title }}"
-                >
+                <div class="hover-reveal">
+                        <img 
+                        src="{{ image.image.url }}?f_auto,q_auto,w_800"
+                        class="project-thumb"
+                        data-full="{{ image.image.url }}?f_auto,q_auto,w_1600"
+                        loading="lazy"
+                        alt="{{ project.title }}"
+                        >
+                    </div>
             </div>
 
         {% endif %}

@@ -2,13 +2,15 @@
 
     {% for img in images %}
     <div class="masonry-item">
-        <img
+        <div class="hover-reveal">
+            <img
             src="{{ img.image.url }}?f_auto,q_auto,w_800"
-            class="project-thumb"
+            class="project-thumb hover-reveal"
             data-full="{{ img.image.url }}?f_auto,q_auto,w_1600"
             loading="lazy"
             alt="{{ image.alt_text|default:project.title }}"
         >
+        </div>
     </div>
     {% endfor %}
 

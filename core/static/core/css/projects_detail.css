@@ -122,9 +122,8 @@ body {
 .project-box:hover::after {
     opacity: 1;
 }
-.project-caption {
-    font-size: 15px;
-    line-height: 1.6;
+.project-box:hover img {
+    transform: scale(1.05);
 }
 
 
@@ -612,4 +611,39 @@ body {
         max-width: 100%;
         margin-bottom: 25px;
     }
+}
+
+/* สร้าง Effect กลางสำหรับทุก Layout */
+.hover-reveal {
+    position: relative; /* สำคัญมาก: เพื่อให้ ::after เกาะติด */
+    overflow: hidden;
+    display: block;
+    border-radius: 10px; /* ปรับตามความเหมาะสม */
+}
+
+.hover-reveal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* ตัวแผ่นสีขาว Overlay */
+.hover-reveal::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #ffffff40; /* 👈 ตรงนี้แหละครับ! คือสีขาวที่มีความโปร่งใส (รหัส Hex แบบมี Alpha) */
+    opacity: 0; /* เริ่มต้นให้มองไม่เห็น */
+    transition: opacity 0
+}
+
+/* เมื่อ Hover ให้ขาวขึ้นและรูปขยายเล็กน้อย */
+.hover-reveal:hover::after {
+    opacity: 1;
+}
+
+.hover-reveal:hover img {
+    transform: scale(1.05);
 }

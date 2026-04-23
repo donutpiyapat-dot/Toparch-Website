@@ -3,15 +3,17 @@
     {% for img in images %}
     <div class="split-row {% if forloop.counter|divisibleby:2 %}reverse{% endif %}">
 
-        <!-- รูป -->
+        
         <div class="split-image">
-            <img
-            src="{{ img.image.url }}?f_auto,q_auto,w_800"
-            class="project-thumb"
-            data-full="{{ img.image.url }}?f_auto,q_auto,w_1600"
-            loading="lazy"
-            alt="{{ image.alt_text|default:project.title }}"
-            >
+            <div class="hover-reveal">
+                <img
+                src="{{ img.image.url }}?f_auto,q_auto,w_800"
+                class="project-thumb hover-reveal"
+                data-full="{{ img.image.url }}?f_auto,q_auto,w_1600"
+                loading="lazy"
+                alt="{{ image.alt_text|default:project.title }}"
+                >
+            </div>
         </div>
 
     </div>
