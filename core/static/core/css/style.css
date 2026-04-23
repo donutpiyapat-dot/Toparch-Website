@@ -79,6 +79,10 @@ body.page-ready {
     opacity: 1;
     transform: translateY(0);
 }
+body:not(.fade-out) {
+    opacity: 1;
+    transform: translateY(0);
+}
 body.fade-out {
     opacity: 0;
     transform: translateY(-10px);
