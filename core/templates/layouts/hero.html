@@ -4,6 +4,7 @@
         
         {# --- HERO --- #}
         {% if forloop.counter0|divisibleby:5 %}
+        <div class="hero-block">
             <div class="hero-main">
                 <img
                     src="{{ image.image.url }}?f_auto,q_auto,w_1600"
@@ -39,6 +40,7 @@
         {# 🔥 สำคัญ: ปิด grid ตอน loop สุดท้าย --- #}
         {% if forloop.last %}
             </div>
+        </div>
         {% endif %}
 
     {% endfor %}

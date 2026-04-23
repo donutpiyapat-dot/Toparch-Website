@@ -428,6 +428,9 @@ body {
     object-fit: cover;
     border-radius: 10px;
 }
+.hero-block {
+    margin-bottom: 40px; /* 🔥 ระยะห่างระหว่างแต่ละชุด */
+}
 
 .projects-masonry {
     column-count: 3;
