@@ -393,6 +393,7 @@ html, body {
 }
 
 .yellow-side-line {
+    position: absolute;
     top: 112px;
     left: 17px;
     width: 15px;

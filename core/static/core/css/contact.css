@@ -67,6 +67,7 @@
 .sticky-info {
     position: sticky;
     top: 120px;
+    z-index: 20;
 }
 
 .contact-image {
