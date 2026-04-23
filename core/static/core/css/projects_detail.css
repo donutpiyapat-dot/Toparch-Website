@@ -167,6 +167,7 @@ body {
     align-items: center;
     justify-content: center;
     object-fit: contain;
+    position: relative;
 }
 
 .modal-img {
@@ -241,8 +242,8 @@ body {
 .modal-nav {
     position: absolute;
     top: 50%;
-    /* width: 64px;
-    height: 64px; */ 
+    width: 64px;
+    height: 64px; 
     border-radius: 50%;
     display: flex;
     font-size: 34px;
