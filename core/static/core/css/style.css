@@ -110,7 +110,7 @@ body:not(.fade-out) {
     width: 20px;
     height: 26px;
     pointer-events: none;
-    z-index: 10000;
+    z-index: 2147483647; /* ค่า z-index สูงสุดที่ browser รองรับ */
     transform: translate3d(0, 0, 0);
     will-change: transform, opacity;
     opacity: 1;
@@ -133,7 +133,7 @@ body:not(.fade-out) {
     border: 1px solid rgba(255,255,255,0.6);
     background: rgba(255,255,255,0.05);
     pointer-events: none;
-    z-index: 9999;
+    z-index: 2147483646; /* ต่ำกว่า fake-cursor นิดนึง */
     transform: translate3d(0, 0, 0) translate(-50%, -50%) scale(0.6);
     will-change: transform, opacity;
     transition: opacity 0.2s ease, border-color 0.2s ease, background 0.2s ease, transform 0.15s ease;
@@ -615,13 +615,6 @@ footer.footer-minimal {
 
 main, .container-fluid {
     flex: 1; 
-}
-
-.fake-cursor,
-.cursor-halo{
-    pointer-events: none;
-    position: fixed;
-    z-index: 9999;
 }
 
 .secret-login-link {
