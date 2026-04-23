@@ -33,6 +33,13 @@
         padding-top: 40vh;
     }
 }
+.fake-cursor {
+    z-index: 9999 !important;
+}
+
+.cursor-halo {
+    z-index: 9998 !important;
+}
 
 .container-fluid{
     max-width: 100%;
