@@ -74,6 +74,7 @@ body{
     opacity: 0;
     transform: translateY(10px);
     transition: opacity 0.35s ease, transform 0.35s ease;
+    position: relative;
 }
 body.page-ready {
     opacity: 1;
@@ -109,8 +110,8 @@ body:not(.fade-out) {
     left: 0;
     width: 20px;
     height: 26px;
-    pointer-events: none;
-    z-index: 10000;
+    pointer-events: none !important;
+    z-index: 2147483647;
     transform: translate3d(0, 0, 0);
     will-change: transform, opacity;
     opacity: 1;
@@ -132,8 +133,8 @@ body:not(.fade-out) {
     border-radius: 50%;
     border: 1px solid rgba(255,255,255,0.6);
     background: rgba(255,255,255,0.05);
-    pointer-events: none;
-    z-index: 9999;
+    pointer-events: none !important;
+    z-index: 2147483646;
     transform: translate3d(0, 0, 0) translate(-50%, -50%) scale(0.6);
     will-change: transform, opacity;
     transition: opacity 0.2s ease, border-color 0.2s ease, background 0.2s ease, transform 0.15s ease;
@@ -149,13 +150,13 @@ body:not(.fade-out) {
 }
 
 @media (hover: hover) and (pointer: fine) {
-    html, body, a, button, input, textarea, select {
+    html, body, a, button, input, textarea, select, * {
         cursor: none !important;
     }
-
     .fake-cursor,
     .cursor-halo {
-        display: block;
+        display: block !important;
+        visibility: visible !important;
     }
 }
 
