@@ -64,9 +64,7 @@
     </div>
 </div>
 
-<div id="customCursor" class="custom-cursor"></div>
 
-   
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -85,13 +83,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextSlideBtn = document.querySelector(".slider-next");
     const prevSlideBtn = document.querySelector(".slider-prev");
     const thumbs = document.querySelectorAll('.thumb');
-
-    const fakeCursor = document.querySelector(".fake-cursor");
-    const cursorHalo = document.querySelector(".cursor-halo");
     
     const fullscreenBtn = document.getElementById("fullscreenBtn");
 
-    const cursor = document.getElementById('customCursor');
 
     let currentIndex = 0;
 
@@ -168,39 +162,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let posX = 0;
     let posY = 0;
     let isHovering = false;
-
-    // 1. ให้เมาส์วงกลมโชว์ตลอดเวลาที่ขยับ
-    document.addEventListener("mousemove", (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        cursor.style.opacity = "1"; 
-    });
-
-    // 2. เลือกจุดที่อยากให้วงกลม "ขยาย" เมื่อเอาเมาส์ไปชี้ (เพิ่มเมนูด้านบน และปุ่มต่างๆ เข้าไปแล้ว)
-    const hoverElements = document.querySelectorAll('a, button, .project-thumb, .nav-link, .modal-tool, .modal-close, .modal-nav, .modal-img');
-
-    hoverElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            isHovering = true;
-            cursor.style.transform = "translate(-50%, -50%) scale(1.5)"; // ขยายวงกลมเมื่อชี้เมนู/ปุ่ม/รูป
-        });
-
-        el.addEventListener('mouseleave', () => {
-            isHovering = false;
-            cursor.style.transform = "translate(-50%, -50%) scale(0.6)"; // หดกลับเมื่อเอาออก
-        });
-    });
-
-    function animateCursor() {
-        posX += (mouseX - posX) * 0.15;
-        posY += (mouseY - posY) * 0.15;
-
-        cursor.style.left = posX + "px";
-        cursor.style.top = posY + "px";
-
-        requestAnimationFrame(animateCursor);
-    }
-    animateCursor();
 
     fullscreenBtn.addEventListener("click", () => {
         if (!document.fullscreenElement) {
