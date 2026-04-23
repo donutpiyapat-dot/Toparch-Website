@@ -70,11 +70,11 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-
-    const images = document.querySelectorAll('.project-thumb');
     const modal = document.getElementById('image-modal');
+
+    document.body.appendChild(modal);
+    const images = document.querySelectorAll('.project-thumb');
     const modalImg = modal.querySelector('.modal-img');
-    // const modalCaption = modal.querySelector('.modal-caption');
     const closeBtn = modal.querySelector('.modal-close');
     const nextBtn = modal.querySelector('.next');
     const prevBtn = modal.querySelector('.prev');
