@@ -329,7 +329,7 @@ html, body.contact-page {
     bottom: 25px;
     left: 25px;
     width: 303px;
-    height: 400px;
+    height: 380px;
     border-left: 20px solid var(--div-yellow);
     border-bottom: 20px solid var(--div-yellow);
     z-index: 2;
@@ -339,7 +339,7 @@ html, body.contact-page {
     bottom: 25px;
     left: 45px;
     width: 303px;
-    height: 400px;
+    height: 380px;
     border-left: 15px solid var(--div-dark-gray);
     border-bottom: 36px solid var(--div-dark-gray);
     z-index: 1;
