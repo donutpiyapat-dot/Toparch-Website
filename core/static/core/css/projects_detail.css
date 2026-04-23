@@ -141,6 +141,8 @@ body {
 
 .image-modal.active {
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .modal-content {
@@ -150,7 +152,7 @@ body {
     gap: 14px;
     position: relative;
     letter-spacing: 1px;
-    margin-top: 10px;
+    margin: 0; 
 }
 .modal-counter{
     font-size: 12px
