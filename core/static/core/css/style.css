@@ -72,21 +72,16 @@ body{
     display:flex;
     flex-direction:column;
     opacity: 0;
-    transition: opacity 0.35s ease, transform 0.35s ease;
+    transition: opacity 0.35s;
 }
 body.page-ready {
     opacity: 1;
-    transform: translateY(0);
-}
-body:not(.fade-out) main {
-    transform: translateY(0);
 }
 body.fade-out {
     opacity: 0;
 }
 body:not(.fade-out) {
     opacity: 1;
-    transform: translateY(0);
 }
 main {
     transform: translateY(10px);
