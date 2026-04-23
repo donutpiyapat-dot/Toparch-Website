@@ -172,29 +172,30 @@ window.addEventListener("resize", requestRender, { passive: true });
 document.addEventListener("DOMContentLoaded", () => {
     const fakeCursor = document.querySelector(".fake-cursor");
     const halo = document.querySelector(".cursor-halo");
-    if (!fakeCursor || !halo) return;
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
+    if (!fakeCursor || !halo) {
+        console.warn("Cursor elements not found");
+        return;
+    }
+    let mouseX = 0;
+    let mouseY = 0;
     let rafId = null;
     function renderCursor() {
         fakeCursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
         const isHover = document.body.classList.contains("cursor-hover");
         const scale = isHover ? 1 : 0.6;
         halo.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%) scale(${scale})`;
-        fakeCursor.style.opacity = "1";
-        halo.style.opacity = isHover ? "1" : "0";
         rafId = null;
     }
     function requestRender() {
-        if (!rafId) rafId = requestAnimationFrame(renderCursor);
+        if (!rafId) {
+            rafId = requestAnimationFrame(renderCursor);
+        }
     }
     document.addEventListener("mousemove", (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
         requestRender();
-    }, { passive: true });
-    document.addEventListener("scroll", requestRender, { passive: true });
-    window.addEventListener("resize", requestRender, { passive: true });
+    });
     document.addEventListener("mouseover", (e) => {
         if (e.target.closest("a, button, input, textarea, select, [data-cursor]")) {
             document.body.classList.add("cursor-hover");
@@ -213,7 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     document.addEventListener("mouseenter", () => {
         fakeCursor.style.opacity = "1";
-        halo.style.opacity = document.body.classList.contains("cursor-hover") ? "1" : "0";
+        halo.style.opacity = document.body.classList.contains("cursor-hover") ? "1" : "";
         requestRender();
     });
     requestRender();
