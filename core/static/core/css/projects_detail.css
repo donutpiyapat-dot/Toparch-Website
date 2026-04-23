@@ -613,35 +613,40 @@ body {
     }
 }
 
-/* สร้าง Effect กลางสำหรับทุก Layout */
+/* คลาสสำหรับหุ้มรูปภาพ */
 .hover-reveal {
-    position: relative; /* สำคัญมาก: เพื่อให้ ::after เกาะติด */
+    position: relative;
+    display: block; 
     overflow: hidden;
-    display: block;
-    border-radius: 10px; /* ปรับตามความเหมาะสม */
+    border-radius: 12px; /* ปรับความโค้งให้เนียนไปกับรูป */
 }
 
-.hover-reveal img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-/* ตัวแผ่นสีขาว Overlay */
+/* แผ่นสีขาว Overlay */
 .hover-reveal::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: #ffffff40; /* 👈 ตรงนี้แหละครับ! คือสีขาวที่มีความโปร่งใส (รหัส Hex แบบมี Alpha) */
-    opacity: 0; /* เริ่มต้นให้มองไม่เห็น */
-    transition: opacity 0
+    background: rgba(255, 255, 255, 0.3);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    
+    /* 🔥 บรรทัดนี้คือเวทมนตร์! ทำให้เมาส์ทะลุแผ่นขาวไปคลิกโดนรูป .project-thumb ได้ */
+    pointer-events: none !important; 
+    z-index: 2;
 }
 
-/* เมื่อ Hover ให้ขาวขึ้นและรูปขยายเล็กน้อย */
+/* เอฟเฟกต์ตอนจ่อเมาส์ */
 .hover-reveal:hover::after {
     opacity: 1;
+}
+
+/* ตั้งค่าให้รูปภาพขยายตอน Hover */
+.hover-reveal img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .hover-reveal:hover img {
