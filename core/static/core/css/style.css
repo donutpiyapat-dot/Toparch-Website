@@ -128,8 +128,7 @@ body.fade-out main {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.6);
-    background: #e9ca2f88;
+    border:  1.2px solid var(--accent-yellow) ;
     pointer-events: none;
     z-index: 2147483646; /* ต่ำกว่า fake-cursor นิดนึง */
     transform: translate3d(0, 0, 0) translate(-50%, -50%) scale(0.6);

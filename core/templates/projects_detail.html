@@ -167,22 +167,28 @@ document.addEventListener("DOMContentLoaded", function () {
     let mouseY = 0;
     let posX = 0;
     let posY = 0;
+    let isHovering = false;
 
-    images.forEach(img => {
-        img.addEventListener('mouseenter', () => {
-            cursor.style.opacity = "1";
-            cursor.style.transform = "translate(-50%, -50%) scale(1)";
-        });
-
-        img.addEventListener('mouseleave', () => {
-            cursor.style.opacity = "0";
-            cursor.style.transform = "translate(-50%, -50%) scale(0.8)";
-        });
-    });
-
+    // 1. ให้เมาส์วงกลมโชว์ตลอดเวลาที่ขยับ
     document.addEventListener("mousemove", (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
+        cursor.style.opacity = "1"; 
+    });
+
+    // 2. เลือกจุดที่อยากให้วงกลม "ขยาย" เมื่อเอาเมาส์ไปชี้ (เพิ่มเมนูด้านบน และปุ่มต่างๆ เข้าไปแล้ว)
+    const hoverElements = document.querySelectorAll('a, button, .project-thumb, .nav-link, .modal-tool, .modal-close, .modal-nav, .modal-img');
+
+    hoverElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            isHovering = true;
+            cursor.style.transform = "translate(-50%, -50%) scale(1.5)"; // ขยายวงกลมเมื่อชี้เมนู/ปุ่ม/รูป
+        });
+
+        el.addEventListener('mouseleave', () => {
+            isHovering = false;
+            cursor.style.transform = "translate(-50%, -50%) scale(0.6)"; // หดกลับเมื่อเอาออก
+        });
     });
 
     function animateCursor() {
@@ -195,10 +201,6 @@ document.addEventListener("DOMContentLoaded", function () {
         requestAnimationFrame(animateCursor);
     }
     animateCursor();
-
-    modalImg.addEventListener("dblclick", () => {
-        window.open(images[currentIndex].dataset.full, "_blank");
-    });
 
     fullscreenBtn.addEventListener("click", () => {
         if (!document.fullscreenElement) {
