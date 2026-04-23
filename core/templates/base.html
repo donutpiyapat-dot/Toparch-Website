@@ -170,51 +170,50 @@ document.querySelectorAll("a").forEach(link => {
 <div class="cursor-halo"></div>
 
 <script>
-const fakeCursor = document.querySelector('.fake-cursor');
-const halo = document.querySelector('.cursor-halo');
+if (!fakeCursor || !halo) {
+    console.warn("Cursor elements not found");
+} else {
 
-if (!fakeCursor || !halo) return;
+    let lastX = 0;
+    let lastY = 0;
 
-let lastX = 0;
-let lastY = 0;
+    function updateCursor(x, y) {
+        fakeCursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
 
-function updateCursor(x, y) {
-    fakeCursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+        const isHover = document.body.classList.contains('cursor-hover');
+        const scale = isHover ? 1 : 0.6;
 
-    const isHover = document.body.classList.contains('cursor-hover');
-    const scale = isHover ? 1 : 0.6;
+        halo.style.transform =
+            `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%) scale(${scale})`;
+    }
 
-    halo.style.transform =
-        `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%) scale(${scale})`;
+    document.addEventListener('mousemove', (e) => {
+        lastX = e.clientX;
+        lastY = e.clientY;
+
+        requestAnimationFrame(() => updateCursor(lastX, lastY));
+    });
+
+    window.addEventListener('scroll', () => {
+        requestAnimationFrame(() => updateCursor(lastX, lastY));
+    }, { passive: true });
+
+    window.addEventListener('wheel', () => {
+        updateCursor(lastX, lastY);
+    });
+
+    document.addEventListener('mouseover', (e) => {
+        if (e.target.closest('a, button, input, textarea, select, [data-cursor]')) {
+            document.body.classList.add('cursor-hover');
+        }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+        if (e.target.closest('a, button, input, textarea, select, [data-cursor]')) {
+            document.body.classList.remove('cursor-hover');
+        }
+    });
 }
-
-document.addEventListener('mousemove', (e) => {
-    lastX = e.clientX;
-    lastY = e.clientY;
-
-    requestAnimationFrame(() => updateCursor(lastX, lastY));
-});
-
-window.addEventListener('scroll', () => {
-    requestAnimationFrame(() => updateCursor(lastX, lastY));
-}, { passive: true });
-
-window.addEventListener('wheel', () => {
-    updateCursor(lastX, lastY);
-});
-
-// hover แบบ dynamic
-document.addEventListener('mouseover', (e) => {
-    if (e.target.closest('a, button, input, textarea, select, [data-cursor]')) {
-        document.body.classList.add('cursor-hover');
-    }
-});
-
-document.addEventListener('mouseout', (e) => {
-    if (e.target.closest('a, button, input, textarea, select, [data-cursor]')) {
-        document.body.classList.remove('cursor-hover');
-    }
-});
 </script>
 
 {% block extra_js %}{% endblock %}
