@@ -204,8 +204,8 @@ body {
 
 #fullscreenBtn{
     position: absolute;
-    top: -4px;
-    right: 80px;
+    top: -3px;
+    right: 85px;
     width: 44px;
     height: 44px;
 }
