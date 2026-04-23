@@ -11,6 +11,15 @@
         linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8));
     background-size: cover;
     background-position: center;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.splash-content {
+    padding-top: clamp(60px, 10vh, 120px);
 }
 
 .container-fluid{
