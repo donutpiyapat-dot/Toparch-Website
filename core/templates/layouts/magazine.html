@@ -5,25 +5,29 @@
     {% if forloop.first %}
     <!-- รูปแรก = ใหญ่ -->
     <div class="magazine-big">
+        <div class="hover-reveal">
             <img
             src="{{ img.image.url }}?f_auto,q_auto,w_800"
-            class="hover-reveal project-thumb"
+            class="project-thumb"
             data-full="{{ img.image.url }}?f_auto,q_auto,w_1600"
             loading="lazy"
             alt="{{ image.alt_text|default:project.title }}"
         >
+        </div>
     </div>
 
     {% else %}
     <!-- รูปอื่น = เล็ก -->
     <div class="magazine-small">
+        <div class="hover-reveal">
             <img
             src="{{ img.image.url }}?f_auto,q_auto,w_800"
             data-full="{{ img.image.url }}?f_auto,q_auto,w_1600"
-            class="hover-reveal project-thumb"
+            class="project-thumb"
             loading="lazy"
             alt="{{ image.alt_text|default:project.title }}"
         >
+        </div>
     </div>
     {% endif %}
 
