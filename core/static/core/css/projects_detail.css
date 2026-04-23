@@ -410,7 +410,7 @@ body {
 
 .hero-main img {
     width: 100%;
-    height: 500px;
+    /* height: 500px; */
     object-fit: cover;
     border-radius: 12px;
     margin-bottom: 20px;
@@ -646,4 +646,32 @@ body {
 
 .hover-reveal:hover img {
     transform: scale(1.05);
+}
+/* ---------------------------------------------------
+   1. จัดการขนาดของ Layout แบบ Hero (รูปใหญ่ซ้าย 1 รูปเล็กขวา 2)
+--------------------------------------------------- */
+.hero-main .hover-reveal {
+    height: 500px; /* บังคับให้กรอบสูง 500px เหมือนที่รูปเคยเป็น */
+    margin-bottom: 20px; /* ดันระยะห่างด้านล่าง */
+    border-radius: 12px;
+}
+
+.hero-item .hover-reveal {
+    height: 200px; /* บังคับให้กรอบรูปเล็กสูง 200px */
+    border-radius: 10px;
+}
+
+/* ---------------------------------------------------
+   2. จัดการขนาดของ Layout แบบ Split (รูปครึ่ง จอข้อความครึ่งจอ)
+--------------------------------------------------- */
+.split-image .hover-reveal {
+    height: 400px;
+}
+
+/* ---------------------------------------------------
+   3. จัดการขนาดของ Layout แบบ Magazine
+--------------------------------------------------- */
+.magazine-big .hover-reveal,
+.magazine-small .hover-reveal {
+    height: 100%; /* ให้สูงเต็มพื้นที่ Grid ที่กำหนดไว้ */
 }
