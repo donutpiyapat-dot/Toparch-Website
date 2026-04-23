@@ -2,7 +2,6 @@
 
     {% for img in images %}
     <div class="masonry-item">
-        <div class="hover-reveal">
             <img
             src="{{ img.image.url }}?f_auto,q_auto,w_800"
             class="project-thumb hover-reveal"
@@ -10,7 +9,6 @@
             loading="lazy"
             alt="{{ image.alt_text|default:project.title }}"
         >
-        </div>
     </div>
     {% endfor %}
 
