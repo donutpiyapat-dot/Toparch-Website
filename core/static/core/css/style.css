@@ -75,6 +75,10 @@ body{
     transform: translateY(10px);
     transition: opacity 0.35s ease, transform 0.35s ease;
 }
+body.page-ready {
+    opacity: 1;
+    transform: translateY(0);
+}
 body.fade-out {
     opacity: 0;
     transform: translateY(-10px);
@@ -84,10 +88,7 @@ body:not(.fade-out) {
     transform: translateY(0);
 }
 
-body.fake-active,
-body.fake-active * {
-    cursor: none !important;
-}
+
 
 .text-yellow, .text-warning {
     color: var(--accent-yellow) !important;
@@ -106,50 +107,45 @@ body.fake-active * {
     height: 26px;
     pointer-events: none;
     z-index: 10000;
-    will-change: transform; 
+    transform: translate3d(0, 0, 0);
+    will-change: transform, opacity;
+    opacity: 1;
 }
+
 .fake-cursor svg {
     width: 100%;
     height: 100%;
-    fill: var(--text-primary); 
+    fill: var(--text-primary);
     transition: fill 0.15s ease;
+}
+
+.cursor-halo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.05);
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate3d(0, 0, 0) translate(-50%, -50%) scale(0.6);
+    will-change: transform, opacity;
+    transition: opacity 0.2s ease, border-color 0.2s ease, background 0.2s ease, transform 0.15s ease;
+    opacity: 0;
 }
 
 .cursor-hover .fake-cursor svg {
     fill: var(--accent-yellow);
 }
 
-.cursor-halo {
-    position: fixed;
-    pointer-events: none;
-    top: 0;
-    left: 0;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    background: rgba(255, 255, 255, 0.05);
-    opacity: 0;
-    z-index: 9999;
-    transition: opacity 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-    will-change: transform;
-}
-
-
 .cursor-hover .cursor-halo {
     opacity: 1;
-    
-}
-
-.fake-cursor,
-.cursor-halo {
-    will-change: transform;
-    transform: translate3d(0,0,0);
 }
 
 @media (hover: hover) and (pointer: fine) {
-    body,
-    body * {
+    html, body, a, button, input, textarea, select {
         cursor: none !important;
     }
 
@@ -160,8 +156,7 @@ body.fake-active * {
 }
 
 @media (hover: none) and (pointer: coarse) {
-    body,
-    body * {
+    html, body, a, button, input, textarea, select {
         cursor: auto !important;
     }
 
@@ -169,12 +164,6 @@ body.fake-active * {
     .cursor-halo {
         display: none !important;
     }
-}
-
-a,
-button,
-.cursor-hover-target {
-    cursor: pointer;
 }
 
 .nav-container {
