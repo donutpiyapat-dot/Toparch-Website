@@ -287,18 +287,18 @@ html, body.contact-page {
 
 .bg-decorations {
     position: absolute; 
-    top: 70px; 
+    top: 60px; 
     left: 0;
     right: 0;
     bottom: 0;
     z-index: 0; 
     pointer-events: none; 
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 .dec-tl-gray {
     position: absolute;
-    top: -10px;
+    top: 39px;
     left: 27px;
     width: 180px;
     height: 52.5px; 
@@ -307,7 +307,7 @@ html, body.contact-page {
 }
 .dec-tl-yellow {
     position: absolute;
-    top: -10px;
+    top: 39px;
     left: 205px;
     width: 165px;
     height: 8px;
@@ -316,7 +316,7 @@ html, body.contact-page {
 }
 .dec-tl-L-gray {
     position: absolute;
-    top: 5px;
+    top: 45px;
     left: 205px;
     width: 165px;
     height: 25px; 

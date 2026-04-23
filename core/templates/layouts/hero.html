@@ -7,13 +7,12 @@
             
             {# 👉 ปิดของเก่าก่อน (ยกเว้นรอบแรก) #}
             {% if not forloop.first %}
-                </div> <!-- close hero-grid -->
-                </div> <!-- close hero-block -->
+                </div> 
+                </div> 
             {% endif %}
 
             <div class="hero-block">
                 <div class="hero-main">
-                    <!-- <div class="project-thumb hover-reveal"> -->
                         <img 
                         src="{{ image.image.url }}?f_auto,q_auto,w_1600"
                         class="hover-reveal project-thumb"
@@ -21,7 +20,6 @@
                         loading="lazy"
                         alt="{{ project.title }}"
                         >
-                    <!-- </div> -->
                 </div>
 
                 <div class="hero-grid">
@@ -29,7 +27,6 @@
         {% else %}
 
             <div class="hero-item">
-                <!-- <div class="project-thumb "> -->
                         <img 
                         src="{{ image.image.url }}?f_auto,q_auto,w_800"
                         class="hover-reveal project-thumb"
@@ -37,7 +34,6 @@
                         loading="lazy"
                         alt="{{ project.title }}"
                         >
-                    <!-- </div> -->
             </div>
 
         {% endif %}
