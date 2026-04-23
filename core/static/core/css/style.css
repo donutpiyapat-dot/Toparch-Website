@@ -147,10 +147,9 @@ body.fade-out main {
 }
 
 @media (hover: hover) and (pointer: fine) {
-    html, body, a, button, input, textarea, select {
+    /* html, body, a, button, input, textarea, select {
         cursor: none !important;
-    }
-
+    } */
     .fake-cursor,
     .cursor-halo {
         display: block !important;
