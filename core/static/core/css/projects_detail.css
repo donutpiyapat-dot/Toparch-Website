@@ -222,7 +222,7 @@ body {
     justify-content: center;
     font-size: 28px;
     color: rgba(255,255,255,0.8);
-    cursor: pointer;
+    cursor: none;
     transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
 }
 
@@ -257,7 +257,7 @@ body {
     display: flex;
     font-size: 34px;
     color: rgba(255,255,255,0.7);
-    cursor: pointer;
+    cursor: none;
     user-select: none;
     transform: translateY(-50%);
     transition: all 0.35s cubic-bezier(0.22,1,0.36,1);
@@ -301,7 +301,7 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 16px;
-    cursor: pointer;
+    cursor:none;
     transition: all 0.3s ease;
 }
 
@@ -333,11 +333,11 @@ body {
     z-index: 2147483647;
 }
 .project-thumb{
-    cursor: pointer;
+    cursor: none;
 }
 .fake-cursor,
 .cursor-halo {
-    z-index: 100000 !important;
+    z-index:  2147483649 !important;
     pointer-events: none;
 }
 
