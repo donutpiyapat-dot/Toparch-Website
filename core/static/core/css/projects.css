@@ -19,7 +19,7 @@
 }
 
 .splash-content {
-    padding-top: clamp(60px, 10vh, 120px);
+    padding-top: clamp(10%px, 10vh, 20%);
 }
 
 .container-fluid{
