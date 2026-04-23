@@ -141,23 +141,41 @@ body.fake-active * {
     
 }
 
+.fake-cursor,
+.cursor-halo {
+    will-change: transform;
+    transform: translate3d(0,0,0);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    body,
+    body * {
+        cursor: none !important;
+    }
+
+    .fake-cursor,
+    .cursor-halo {
+        display: block;
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    body,
+    body * {
+        cursor: auto !important;
+    }
+
+    .fake-cursor,
+    .cursor-halo {
+        display: none !important;
+    }
+}
+
 a,
 button,
 .cursor-hover-target {
     cursor: pointer;
 }
-body.custom-cursor-active {
-    cursor: none;
-}
-body.fake-active {
-    cursor: none;
-}
-
-body.fake-active * {
-    cursor: none !important;
-}
-
-
 
 .nav-container {
     height: 70px; 
@@ -567,7 +585,7 @@ body.fake-active * {
 
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(
-    180deg,SS
+    180deg,
     var(--accent-yellow) ,
     #967800
 );
@@ -577,7 +595,6 @@ body.fake-active * {
 .main-content{
     flex:1;
 }
-
 
 
 .footer-minimal {
@@ -607,60 +624,6 @@ main, .container-fluid {
     flex: 1; 
 }
 
-@media (hover: none) and (pointer: coarse) {
-    html, body, * {
-        cursor: auto !important;
-    }
-}
-
-@media (max-width: 768px) {
-
-    body {
-        cursor: auto !important;
-    }
-
-    .fake-cursor,
-    .cursor-halo {
-        display: none !important;
-    }
-
-    body.fake-active * {
-        cursor: auto !important;
-    }
-}
-@media (hover: none) and (pointer: coarse) {
-
-    .fake-cursor,
-    .cursor-halo {
-        display: none !important;
-    }
-
-    body.fake-active,
-    body.fake-active * {
-        cursor: auto !important;
-    }
-    .custom-cursor,
-    .cursor-halo,
-    .fake-cursor {
-        display: none !important;
-    }
-
-    * {
-        cursor: auto !important;
-    }
-}
-@media (max-width: 768px) {
-
-    .custom-cursor,
-    .cursor-halo,
-    .fake-cursor {
-        display: none !important;
-    }
-
-    * {
-        cursor: auto !important;
-    }
-}
 .fake-cursor,
 .cursor-halo{
     pointer-events: none;
@@ -692,7 +655,6 @@ main, .container-fluid {
     padding: 0;
     color: inherit;
     
-    /* บังคับฟอนต์ ขนาด และความหนาให้ตรงกับเมนูอื่นแบบ 100% */
     font-size: 13px !important;        
     font-weight: bold !important;      
     font-family: 'Tahoma', 'Verdana', sans-serif !important;   
@@ -701,13 +663,11 @@ main, .container-fluid {
     border-right: 1px solid #333;
 }
 
-/* บังคับให้ Form ของปุ่ม Logout กว้างและแบ่งสัดส่วนเท่าเมนูอื่น */
 form[action="/logout/"] {
     flex: 1;
     display: flex;
 }
 
-/* บังคับให้พื้นที่คลิกของปุ่ม Logout เต็มช่อง */
 form[action="/logout/"] .logout-nav-btn {
     width: 100%;
 }
