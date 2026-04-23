@@ -298,7 +298,7 @@ html, body.contact-page {
 
 .dec-tl-gray {
     position: absolute;
-    /* top: 39px; */
+    top: -20px;
     left: 27px;
     width: 180px;
     height: 52.5px; 
@@ -307,7 +307,7 @@ html, body.contact-page {
 }
 .dec-tl-yellow {
     position: absolute;
-    /* top: 39px; */
+    top: -20px;
     left: 205px;
     width: 165px;
     height: 8px;
@@ -403,7 +403,7 @@ html, body.contact-page {
 }    
 .dec-br-gray {
     position: absolute;
-    top: 91px;
+    /* top: 91px; */
     right: 76px;
     width: 29px;
     height: 232px;
@@ -412,7 +412,7 @@ html, body.contact-page {
 }   
 .dec-br-bracket {
     position: absolute;
-    /* bottom: 28px; */
+    bottom: 28px;
     right: 53px;
     width: 230px;
     height: 20px;

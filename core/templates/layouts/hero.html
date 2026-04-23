@@ -12,11 +12,11 @@
             {% endif %}
 
             <div class="hero-block">
-                <div class="hero-main">ฃ
-                    <div class="hover-reveal">
+                <div class="hero-main">
+                    <div class="project-thumb hover-reveal">
                         <img 
                         src="{{ image.image.url }}?f_auto,q_auto,w_1600"
-                        class="project-thumb"
+                        class="hover-reveal"
                         data-full="{{ image.image.url }}?f_auto,q_auto,w_1600"
                         loading="lazy"
                         alt="{{ project.title }}"
@@ -29,10 +29,10 @@
         {% else %}
 
             <div class="hero-item">
-                <div class="hover-reveal">
+                <div class="project-thumb ">
                         <img 
                         src="{{ image.image.url }}?f_auto,q_auto,w_800"
-                        class="project-thumb"
+                        class="hover-reveal"
                         data-full="{{ image.image.url }}?f_auto,q_auto,w_1600"
                         loading="lazy"
                         alt="{{ project.title }}"
