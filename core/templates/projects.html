@@ -75,11 +75,19 @@
                             <a href="{% url 'projects_detail' project.id %}?page={{ page_obj.number }}"  class="project-link">
                                 <div class="project-item">
                                     <div class="project-box">
-                                        <img
-                                            src="{{ project.main_image.url }}?f_auto,q_auto,w_800"
-                                            alt="{{ project.title }}"
-                                            loading="lazy"
-                                        >
+                                        {% if project.main_image %}
+                                            <img
+                                                src="{{ project.main_image.url }}?f_auto,q_auto,w_800"
+                                                alt="{{ project.title }}"
+                                                loading="lazy"
+                                            >
+                                        {% else %}
+                                            <img
+                                                src="{% static 'core/images/default.jpg' %}"
+                                                alt="no image"
+                                                loading="lazy"
+                                            >
+                                        {% endif %}
                                     </div>
 
                                     <div class="project-detail mb-1 ">

@@ -150,9 +150,8 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 14px;
-    position: relative;
+    position: fixed;
     letter-spacing: 1px;
-    margin-top: 10px;
 }
 .modal-counter{
     font-size: 12px
@@ -169,6 +168,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    object-fit: contain;
 }
 
 .modal-img {
@@ -179,6 +179,7 @@ body {
     max-height: 85%;
     border-radius: 10px;
     cursor: zoom-in;
+    transition: transform 0.3s ease;
 }
 .image-modal:fullscreen {
     cursor: auto !important;
