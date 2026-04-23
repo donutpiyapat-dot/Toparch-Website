@@ -325,7 +325,7 @@ html, body.contact-page {
 
 .dec-bl-bracket {
     position: absolute;
-    bottom: 27px;
+    bottom: 25px;
     left: 25px;
     width: 303px;
     height: 400px;
@@ -335,7 +335,7 @@ html, body.contact-page {
 }
 .dec-bl-gray {
     position: absolute;
-    bottom: 27px;
+    bottom: 25px;
     left: 45px;
     width: 303px;
     height: 400px;
@@ -345,7 +345,7 @@ html, body.contact-page {
 }
 .dec-bl-T-gray {
     position: absolute;
-    bottom: 27px;
+    bottom: 25px;
     left: 45px;
     width: 100px;
     height: 400px;
