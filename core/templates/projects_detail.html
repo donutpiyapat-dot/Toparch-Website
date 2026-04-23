@@ -15,38 +15,39 @@
     <div class="row g-4">
         <div class="col-lg-4 sticky-col px-3">
 
-    <div class="back-nav-container">
-        <a href="{% url 'projects' %}{% if request.GET.page %}?page={{ request.GET.page }}{% endif %}"
-        onclick="sessionStorage.setItem('skipSplash','true');"
-        class="btn-back-projects">
-            <i class="fas fa-arrow-left me-2"></i> BACK TO PROJECTS
-        </a>
+        <div class="back-nav-container">
+            <a href="{% url 'projects' %}{% if request.GET.page %}?page={{ request.GET.page }}{% endif %}"
+            onclick="sessionStorage.setItem('skipSplash','true');"
+            class="btn-back-projects">
+                <i class="fas fa-arrow-left me-2"></i> BACK TO PROJECTS
+            </a>
+        </div>
+
+        <div class="sticky-info">
+
+            <h2 class="projects-title text-uppercase">
+                {{ project.title }}
+            </h2>
+
+            <p class="description">
+                {{ project.description|linebreaksbr }}
+            </p>
+
+            <p class="description-area">
+                {{ project.area }}
+            </p>
+
+        </div>
+
+        </div>
+
+        <div class="col-lg-8 px-3">
+            {% with template="layouts/"|add:project.layout_type|add:".html" %}
+                {% include template %}
+            {% endwith %}
+        </div>
     </div>
-
-    <div class="sticky-info">
-
-        <h2 class="projects-title text-uppercase">
-            {{ project.title }}
-        </h2>
-
-        <p class="description">
-            {{ project.description|linebreaksbr }}
-        </p>
-
-        <p class="description-area">
-            {{ project.area }}
-        </p>
-
-    </div>
-
 </div>
-
-<div class="col-lg-8 px-3">
-    {% with template="layouts/"|add:project.layout_type|add:".html" %}
-        {% include template %}
-    {% endwith %}
-</div>
-
 <div id="image-modal" class="image-modal">
     <div class="custom-modal-content">
         <button class="modal-tool" id="fullscreenBtn" title="Fullscreen">
@@ -61,8 +62,6 @@
             <div class="modal-nav next">&#10095;</div>
         </div>
     </div>
-</div>
-</div>
 </div>
 
 <div id="customCursor" class="custom-cursor"></div>
