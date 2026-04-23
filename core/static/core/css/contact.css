@@ -349,7 +349,7 @@ html, body.contact-page {
     bottom: 25px;
     left: 45px;
     width: 100px;
-    height: 400px;
+    height: 380px;
     border-top: 36px solid var(--div-dark-gray);
     z-index: 1;
 }
