@@ -148,7 +148,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 14px;
-    position: fixed;
+    position: relative;
     letter-spacing: 1px;
 }
 .modal-counter{
