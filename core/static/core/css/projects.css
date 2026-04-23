@@ -19,7 +19,19 @@
 }
 
 .splash-content {
-    padding-top: clamp(25%, 10vh, 35%);
+    padding-top: 30vh;
+}
+
+@media (max-width: 991px) {
+    .splash-content {
+        padding-top: 25vh;
+    }
+}
+
+@media (max-width: 576px) {
+    .splash-content {
+        padding-top: 30vh;
+    }
 }
 
 .container-fluid{
