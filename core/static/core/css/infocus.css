@@ -10,8 +10,17 @@
     background: linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8));
     background-size: cover;
     background-position: center;
-}
 
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 100vh;
+}
+@media (max-width: 576px) {
+    .splash-content {
+        padding-top: 40vh;
+    }
+}
 .infocus-page .nav-wrapper{
     background:#000;
 }
